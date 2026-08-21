@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    body { margin: 0; background: #FAFBFC; }
+    a { color: #C8102E; text-decoration: none; }
+    a:hover { color: #8f0c20; }
+    @keyframes scrollBounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+    @keyframes logoMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    @keyframes caretBlink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+    ::selection { background: #C8102E; color: #FAFBFC; }
+  </style>
+  <link rel="stylesheet" href="responsive.css" />
+  <script src="quote-cart.js"></script>
+</helmet>
+
+<div style="font-family:'Inter',sans-serif;color:#1C1C1A;background:#FAFBFC;overflow-x:hidden;">
+
+  <nav style="position:fixed;top:20px;left:24px;right:24px;height:72px;background:rgba(250,250,248,0.88);backdropFilter:blur(18px);WebkitBackdropFilter:blur(18px);border:1px solid rgba(255,255,255,0.5);box-shadow:0 10px 30px rgba(0,0,0,0.08);border-radius:999px;display:flex;align-items:center;justify-content:space-between;gap:32px;padding:0 28px;z-index:100;box-sizing:border-box;">
+    <a href="Top Vending.dc.html" style="display:flex;align-items:center;flex:0 1 auto;width:100%;max-width:190px;min-width:90px;height:52px;"><img src="assets/logo.png" alt="Top Vending" style="height:100%;width:100%;object-fit:contain;object-position:left center;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.18));" /></a>
+    <div style="display:flex;align-items:center;gap:40px;">
+      <div data-nav-links="1" style="display:flex;gap:32px;font-size:14px;">
+        <div style="position:relative;display:flex;align-items:center;" onMouseEnter="{{ openProductsMenu }}" onMouseLeave="{{ closeProductsMenu }}">
+          <a href="Products.dc.html" style="color:#1C1C1A;display:flex;align-items:center;gap:6px;white-space:nowrap;" style-hover="color:#C8102E;">Products
+            <span style="font-size:9px;line-height:1;opacity:0.6;">▼</span>
+          </a>
+          <div style="{{ productsMenuStyle }}">
+            <div style="background:#FFFFFF;border:1px solid #E1E4E8;border-radius:16px;padding:8px;box-shadow:0 18px 40px rgba(0,0,0,0.12);display:flex;flex-direction:column;gap:2px;">
+              <sc-for list="{{ categoryLinks }}" as="c" hint-placeholder-count="4">
+                <a href="{{ c.href }}" onClick="{{ c.onClick }}" style="display:block;padding:11px 18px;border-radius:10px;font-size:14px;color:#1C1C1A;white-space:nowrap;" style-hover="background:#EFF1F3;color:#C8102E;">{{ c.label }}</a>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+        <a href="Consumables.dc.html" style="color:#1C1C1A;white-space:nowrap;" style-hover="color:#C8102E;">Consumables</a>
+        <a href="Rentals.dc.html" style="color:#1C1C1A;white-space:nowrap;" style-hover="color:#C8102E;">Rentals</a>
+        <a href="About.dc.html" style="color:#1C1C1A;white-space:nowrap;" style-hover="color:#C8102E;">About</a>
+        <a href="Top Vending.dc.html#clients" style="color:#1C1C1A;white-space:nowrap;" style-hover="color:#C8102E;">Our Clients</a>
+        <a href="Blog.dc.html" style="color:#1C1C1A;white-space:nowrap;" style-hover="color:#C8102E;">Blog</a>
+        <div style="position:relative;display:flex;align-items:center;" onMouseEnter="{{ openContactMenu }}" onMouseLeave="{{ closeContactMenu }}">
+          <a href="Contact.dc.html" style="color:#1C1C1A;display:flex;align-items:center;gap:6px;white-space:nowrap;" style-hover="color:#C8102E;">Contact
+            <span style="font-size:9px;line-height:1;opacity:0.6;">▼</span>
+          </a>
+          <div style="{{ contactMenuStyle }}">
+            <div style="background:#FFFFFF;border:1px solid #E1E4E8;border-radius:16px;padding:8px;box-shadow:0 18px 40px rgba(0,0,0,0.12);display:flex;flex-direction:column;gap:2px;">
+              <a href="Contact.dc.html" style="display:block;padding:11px 18px;border-radius:10px;font-size:14px;color:#1C1C1A;white-space:nowrap;" style-hover="background:#EFF1F3;color:#C8102E;">General Enquiry</a>
+              <a href="Contact.dc.html#type=support" style="display:block;padding:11px 18px;border-radius:10px;font-size:14px;color:#1C1C1A;white-space:nowrap;" style-hover="background:#EFF1F3;color:#C8102E;">Technical Support</a>
+              <a href="Contact.dc.html#type=service" style="display:block;padding:11px 18px;border-radius:10px;font-size:14px;color:#1C1C1A;white-space:nowrap;" style-hover="background:#EFF1F3;color:#C8102E;">Log a Service Call</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="Contact.dc.html" style="background:#C8102E;color:#FAFBFC;padding:12px 26px;border-radius:999px;font-size:14px;font-weight:600;white-space:nowrap;flex-shrink:0;" style-hover="background:#8f0c20;color:#FAFBFC;">Get a Free Quote</a>
+      <button data-nav-toggle="1" aria-label="Menu" onClick="{{ toggleMobileMenu }}" style="{{ mobileToggleStyle }}">
+        <span style="display:block;width:18px;height:2px;background:#1C1C1A;position:relative;">
+          <span style="position:absolute;top:-6px;left:0;width:18px;height:2px;background:#1C1C1A;display:block;"></span>
+          <span style="position:absolute;top:6px;left:0;width:18px;height:2px;background:#1C1C1A;display:block;"></span>
+        </span>
+      </button>
+    </div>
+  </nav>
+
+  <div style="{{ mobileMenuStyle }}">
+    <sc-for list="{{ mobileNavLinks }}" as="m" hint-placeholder-count="7">
+      <a href="{{ m.href }}" onClick="{{ closeMobileMenu }}" style="display:block;padding:13px 16px;border-radius:12px;font-size:15px;font-weight:500;color:#1C1C1A;" style-hover="background:#EFF1F3;color:#C8102E;">{{ m.label }}</a>
+    </sc-for>
+    <a href="Contact.dc.html#quote" onClick="{{ closeMobileMenu }}" style="display:block;margin-top:8px;text-align:center;background:#C8102E;color:#FAFBFC;padding:14px 20px;border-radius:999px;font-size:14px;font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Get a Free Quote</a>
+  </div>
+
+  <section style="padding:170px 48px 60px;box-sizing:border-box;background:#EFF1F3;{{ catalogueStyle }}">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Payment Solutions</div>
+      <h1 style="font-family:'Inter',sans-serif;font-weight:700;font-size:52px;line-height:1.05;letter-spacing:-0.032em;margin:0 0 18px;max-width:760px;">Cashless, connected vending.</h1>
+      <p style="font-size:17px;line-height:1.7;color:#45443F;margin:0;max-width:560px;">Card readers, telemetry and mobile payment systems that keep machines trading and stock visible in real time.</p>
+    </div>
+  </section>
+
+  <section id="products" style="background:#FAFBFC;padding:60px 48px 130px;box-sizing:border-box;{{ catalogueStyle }}">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div style="display:grid;gap:24px;{{ gridColStyle }}">
+        <sc-for list="{{ products }}" as="p" hint-placeholder-count="6">
+          <div onClick="{{ p.onOpen }}" style="background:#FFFFFF;border:1px solid #E1E4E8;border-radius:20px;padding:16px 16px 24px;box-sizing:border-box;display:flex;flex-direction:column;cursor:pointer;transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;" style-hover="transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,0.08);border-color:#C8102E;">
+            <div style="height:260px;background:#FFFFFF;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:22px;padding:24px;box-sizing:border-box;">
+              <img ref="{{ p.imgRef }}" alt="{{ p.name }}" style="{{ p.imgStyle }}" />
+              <div style="{{ p.placeholderStyle }}">Photo to come</div>
+            </div>
+            <div style="padding:0 6px;">
+              <div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#6B6B68;margin-bottom:10px;">{{ p.category }}</div>
+              <div style="font-size:21px;font-weight:700;letter-spacing:-0.02em;margin-bottom:8px;">{{ p.name }}</div>
+              <p style="font-size:15px;line-height:1.65;color:#45443F;margin:0 0 22px;">{{ p.tagline }}</p>
+              <a href="Contact.dc.html#quote" data-quote-add="1" data-quote-name="{{ p.name }}" data-quote-cat="{{ p.category }}" style="display:inline-block;background:#C8102E;color:#FAFBFC;padding:12px 24px;border-radius:999px;font-size:13px;font-weight:600;white-space:nowrap;" style-hover="background:#8f0c20;">Add to Quote</a>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <sc-if value="{{ isEmpty }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:60px 0;text-align:center;font-size:16px;color:#6B6B68;">No machines in this category yet — talk to us about what you need.</div>
+      </sc-if>
+      <sc-if value="{{ hasMore }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;justify-content:center;margin-top:48px;">
+          <button onClick="{{ showMore }}" style="border:1.5px solid #1C1C1A;background:transparent;color:#1C1C1A;padding:15px 34px;border-radius:999px;font-size:15px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;" style-hover="background:#1C1C1A;color:#FAFBFC;">Show More</button>
+        </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <section style="background:#FAFBFC;padding:150px 48px 130px;box-sizing:border-box;{{ detailStyle }}">
+    <div style="max-width:1200px;margin:0 auto;">
+      <a href="#products" onClick="{{ closeDetail }}" style="display:inline-flex;align-items:center;gap:10px;font-size:14px;color:#6B6B68;margin-bottom:36px;" style-hover="color:#C8102E;">
+        <span>←</span>All machines
+      </a>
+      <div style="display:grid;grid-template-columns:1fr 1.05fr;gap:70px;align-items:start;">
+        <div style="background:#EFF1F3;display:flex;align-items:center;justify-content:center;padding:56px;box-sizing:border-box;aspect-ratio:1/1;">
+          <img ref="{{ selectedProduct.imgRef }}" alt="{{ selectedProduct.name }}" style="max-width:100%;max-height:100%;object-fit:contain;display:block;" />
+        </div>
+        <div>
+          <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:16px;">{{ selectedProduct.category }}</div>
+          <h1 style="font-weight:700;font-size:52px;line-height:1.05;letter-spacing:-0.032em;margin:0 0 14px;">{{ selectedProduct.name }}</h1>
+          <p style="font-size:19px;color:#6B6B68;margin:0 0 28px;">{{ selectedProduct.tagline }}</p>
+          <p style="font-size:16px;line-height:1.7;color:#45443F;margin:0 0 34px;max-width:520px;">{{ selectedProduct.description }}</p>
+          <div style="display:flex;gap:14px;margin-bottom:44px;">
+            <a href="Contact.dc.html#quote" data-quote-add="1" data-quote-name="{{ selectedProduct.name }}" data-quote-cat="{{ selectedProduct.category }}" style="background:#C8102E;color:#FAFBFC;padding:16px 34px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#8f0c20;">Add to Quote</a>
+            <a href="#products" onClick="{{ closeDetail }}" style="border:1.5px solid #1C1C1A;color:#1C1C1A;padding:15px 34px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#1C1C1A;color:#FAFBFC;">More machines</a>
+          </div>
+          <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#6B6B68;font-weight:700;margin-bottom:16px;">Key features</div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:44px;">
+            <sc-for list="{{ selectedProduct.tags }}" as="tag" hint-placeholder-count="3">
+              <div style="border:1px solid #D3D7DD;border-radius:999px;padding:10px 20px;font-size:14px;color:#1C1C1A;">{{ tag }}</div>
+            </sc-for>
+          </div>
+          <div style="display:flex;flex-direction:column;">
+            <sc-for list="{{ selectedProduct.specs }}" as="spec" hint-placeholder-count="3">
+              <div style="display:flex;justify-content:space-between;gap:24px;border-top:1px solid #E1E4E8;padding:18px 0;font-size:15px;">
+                <span style="color:#6B6B68;">{{ spec.label }}</span>
+                <span style="font-weight:600;text-align:right;">{{ spec.value }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:100px;max-width:900px;">
+        <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">FAQs</div>
+        <h2 style="font-weight:700;font-size:32px;line-height:1.15;letter-spacing:-0.03em;margin:0 0 34px;">About this machine.</h2>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <sc-for list="{{ productFaqs }}" as="f" hint-placeholder-count="4">
+            <div style="background:#FFFFFF;border-radius:16px;overflow:hidden;">
+              <button onClick="{{ f.onToggle }}" style="width:100%;background:transparent;border:none;text-align:left;padding:22px 26px;font-family:'Inter',sans-serif;font-size:16.5px;font-weight:700;color:#1C1C1A;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;box-sizing:border-box;">
+                <span>{{ f.q }}</span>
+                <span style="{{ f.iconStyle }}">+</span>
+              </button>
+              <div style="{{ f.answerStyle }}">
+                <p style="font-size:16px;line-height:1.7;color:#45443F;margin:0 26px 24px;">{{ f.a }}</p>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#EFF1F3;padding:120px 48px;box-sizing:border-box;{{ catalogueStyle }}">
+    <div style="max-width:900px;margin:0 auto;">
+      <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">FAQs</div>
+      <h2 style="font-weight:700;font-size:38px;line-height:1.12;letter-spacing:-0.03em;margin:0 0 40px;">Questions about this range.</h2>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <sc-for list="{{ categoryFaqs }}" as="f" hint-placeholder-count="4">
+          <div style="background:#FFFFFF;border-radius:16px;overflow:hidden;">
+            <button onClick="{{ f.onToggle }}" style="width:100%;background:transparent;border:none;text-align:left;padding:24px 28px;font-family:'Inter',sans-serif;font-size:17px;font-weight:700;color:#1C1C1A;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;box-sizing:border-box;">
+              <span>{{ f.q }}</span>
+              <span style="{{ f.iconStyle }}">+</span>
+            </button>
+            <div style="{{ f.answerStyle }}">
+              <p style="font-size:16px;line-height:1.7;color:#45443F;margin:0 28px 26px;">{{ f.a }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#1C1C1A;padding:130px 48px;box-sizing:border-box;text-align:center;position:relative;overflow:hidden;">
+    <img src="assets/rentals-bg.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;z-index:0;filter:saturate(0.7);" />
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 90% at 50% 50%, rgba(20,20,18,0.9) 0%, rgba(20,20,18,0.82) 55%, rgba(20,20,18,0.7) 100%);z-index:1;"></div>
+    <div style="position:relative;z-index:2;max-width:720px;margin:0 auto;">
+      <h2 style="font-weight:700;font-size:42px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 18px;color:#FAFBFC;">Not sure which machine fits?</h2>
+      <p style="font-size:17px;line-height:1.7;color:#A8A59C;margin:0 0 36px;">Tell us about your site and we will size the right solution.</p>
+      <a href="Contact.dc.html" style="display:inline-block;background:#C8102E;color:#FAFBFC;padding:17px 38px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#8f0c20;">Contact Us</a>
+    </div>
+  </section>
+
+  <footer id="contact" style="background:#FAFBFC;padding:80px 48px 32px;box-sizing:border-box;border-top:1px solid #E1E4E8;">
+    <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto;">
+      <div>
+        <div style="margin-bottom:16px;">
+          <a href="Top Vending.dc.html" style="display:inline-block;"><img src="assets/logo.png" alt="Top Vending" style="height:34px;object-fit:contain;" /></a>
+        </div>
+        <p style="font-size:14px;color:#6B6B68;line-height:1.6;margin:0 0 20px;max-width:280px;">Vending, coffee and water for South African workplaces. Since 1991.</p>
+        <div style="display:flex;">
+          <input type="email" placeholder="Your email" style="border:1px solid #E1E4E8;border-radius:999px 0 0 999px;padding:12px 18px;font-size:14px;font-family:'Inter',sans-serif;background:#FAFBFC;width:180px;outline:none;box-sizing:border-box;" />
+          <button style="background:#C8102E;color:#FAFBFC;border:none;border-radius:0 999px 999px 0;padding:12px 20px;font-size:14px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;" style-hover="background:#8f0c20;">Enquire</button>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#1C1C1A;font-weight:700;margin-bottom:18px;">Products</div>
+        <div style="display:flex;flex-direction:column;gap:12px;font-size:14px;color:#6B6B68;">
+          <a href="Top Vending.dc.html#ranges" style="color:#6B6B68;">Vending Machines</a>
+          <a href="Top Vending.dc.html#ranges" style="color:#6B6B68;">Hot Beverage Solutions</a>
+          <a href="Top Vending.dc.html#ranges" style="color:#6B6B68;">Water Coolers</a>
+          <a href="Top Vending.dc.html#ranges" style="color:#6B6B68;">Payment Solutions</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#1C1C1A;font-weight:700;margin-bottom:18px;">Company</div>
+        <div style="display:flex;flex-direction:column;gap:12px;font-size:14px;color:#6B6B68;">
+          <a href="About.dc.html" style="color:#6B6B68;">About</a>
+          <a href="Rentals.dc.html" style="color:#6B6B68;">Rentals</a>
+          <a href="Top Vending.dc.html#clients" style="color:#6B6B68;">Our Clients</a>
+          <a href="Contact.dc.html" style="color:#6B6B68;">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#1C1C1A;font-weight:700;margin-bottom:18px;">Support</div>
+        <div style="display:flex;flex-direction:column;gap:12px;font-size:14px;color:#6B6B68;">
+          <div style="color:#1C1C1A;font-weight:600;">0861 100 185</div>
+          <div>Johannesburg</div>
+          <div>Cape Town</div>
+          <div>Durban</div>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1200px;margin:48px auto 0;padding-top:32px;border-top:1px solid #E1E4E8;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#6B6B68;">
+      <div style="display:flex;gap:24px;flex:1;">
+        <a href="#" style="color:#6B6B68;">Privacy Policy</a>
+        <a href="#" style="color:#6B6B68;">Terms &amp; Conditions</a>
+      </div>
+      <div style="flex:1;text-align:center;">© 2026 Top Vending. All rights reserved.</div>
+      <div style="flex:1;text-align:right;">Proudly South African</div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;productGridColumns&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;2&quot;,&quot;options&quot;:[&quot;2&quot;,&quot;3&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Catalogue&quot;},&quot;filterBarSticky&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Catalogue&quot;}}">
+const PRODUCTS = [
+  { name: 'Palma Hz70', category: 'Vending Machines', variant: 'default', image: 'assets/hz70-cropped.png',
+    tagline: 'Standard Combo Vending Machine',
+    description: 'A dual-temperature combo vending machine with full payment support, refrigeration and MDB compatibility — carrying 60 drink items and 120 snack items, 180 items in total.',
+    tags: ['Dual Temperature Zones', 'Refrigerated', 'MDB Compatible'],
+    specs: [{ label: 'Capacity', value: '180 items total' }, { label: 'Payment', value: 'Full Payment Support' }, { label: 'Dimensions (WxDxH)', value: '723 x 840 x 1830mm' }] },
+  { name: 'Palma Hz87', category: 'Vending Machines', variant: 'accent', image: 'assets/hz87-cropped.png',
+    tagline: 'High Capacity Combo Vending Machine',
+    description: 'A higher-capacity combo vending machine with dual temperature zones, full payment support, refrigeration and MDB compatibility — 120 drink items and 160 snack items, 280 items in total.',
+    tags: ['Dual Temperature Zones', 'Refrigerated', 'MDB Compatible'],
+    specs: [{ label: 'Capacity', value: '280 items total' }, { label: 'Payment', value: 'Full Payment Support' }, { label: 'Dimensions (WxDxH)', value: '888 x 840 x 1830mm' }] },
+  { name: 'Palma Hz87 Premium', category: 'Vending Machines', variant: 'default',
+    tagline: 'Premium Combo Vending Machine',
+    description: 'Our premium combo vending machine adds a selective belt system for multi-purpose use, refrigeration and full payment support — 40 drink items, 160 snack items and 20 sandwiches/wraps, 220 items in total.',
+    tags: ['Selective Belt System', 'Multi-Purpose Use', 'Refrigerated'],
+    specs: [{ label: 'Capacity', value: '220 items total' }, { label: 'Payment', value: 'Full Payment Support' }, { label: 'Dimensions (WxDxH)', value: '888 x 840 x 1830mm' }] },
+  { name: 'CV1000', category: 'Vending Machines', variant: 'accent', image: 'assets/cv1000.jpg',
+    tagline: 'Combo Vending Machine',
+    description: 'A dual-temperature combo vending machine with full payment support, refrigeration and MDB compatibility — 144 drink items and 168 snack items, 312 items in total.',
+    tags: ['Dual Temperature Zones', 'Refrigerated', 'MDB Compatible'],
+    specs: [{ label: 'Capacity', value: '312 items total' }, { label: 'Payment', value: 'Full Payment Support' }, { label: 'Dimensions (WxDxH)', value: '925 x 820 x 1830mm' }] },
+  { name: 'CV4000 with Screen', category: 'Vending Machines', variant: 'default',
+    tagline: 'Combo Vending Machine with Cart Functionality',
+    description: 'Adds cart functionality and a full touchscreen to the combo range, with dual temperature zones, refrigeration and MDB compatibility — 144 drink items and 168 snack items, 312 items in total. Cashless only.',
+    tags: ['Cart Functionality', 'Dual Temperature Zones', 'Cashless Only'],
+    specs: [{ label: 'Capacity', value: '312 items total' }, { label: 'Payment', value: 'Cashless Only' }, { label: 'Dimensions (WxDxH)', value: '1120 x 820 x 1870mm' }] },
+  { name: 'Vision Esplus Bluetec', category: 'Vending Machines', variant: 'accent',
+    tagline: 'Multi-Product Dispensing Machine',
+    description: 'An elevator belt system for big-size multi-product dispensing, with full payment support, refrigeration, temperature control and expiry date tracking — channels can be blocked once expiry date is reached.',
+    tags: ['Elevator Belt System', 'Expiry Date Tracking', 'Refrigerated'],
+    specs: [{ label: 'Function', value: 'Multi-Product Dispensing' }, { label: 'Payment', value: 'Full Payment Support' }, { label: 'Dimensions (WxDxH)', value: '1120 x 820 x 1870mm' }] },
+  { name: 'Smart Fridge', category: 'Vending Machines', variant: 'default',
+    tagline: 'Smart Fresh Food Fridge',
+    description: 'A weight-sensing smart fridge for fresh products — open the door, make a selection, close the door and enjoy. Cashless only, MDB compatible.',
+    tags: ['Weight Sensing Plate', 'Cashless Only', 'Refrigerated'],
+    specs: [{ label: 'Function', value: 'Fresh Products' }, { label: 'Payment', value: 'Cashless Only' }, { label: 'Dimensions (WxDxH)', value: '670 x 550 x 1830mm' }] },
+  { name: 'Smart Freezer', category: 'Vending Machines', variant: 'accent',
+    tagline: 'Smart Frozen Food Freezer',
+    description: 'A weight-sensing smart freezer for frozen products — open the door, make a selection, close the door and enjoy. Cashless only, MDB compatible.',
+    tags: ['Weight Sensing Plate', 'Cashless Only', 'Refrigerated'],
+    specs: [{ label: 'Function', value: 'Frozen Products' }, { label: 'Payment', value: 'Cashless Only' }, { label: 'Dimensions (WxDxH)', value: '670 x 550 x 1830mm' }] },
+];
+
+const PRODUCTS_COFFEE = [
+  { name: 'Orion G23', category: 'Hot Beverage Solutions', variant: 'default',
+    tagline: 'Sleek Black Design with Blue LED Lighting',
+    description: 'A fresh bean brewer with a stylish, energy-efficient design, blue LED lighting and a customised setup to suit your requirements. Aluminium boiler.',
+    tags: ['Fresh Bean Brewer', 'Energy Efficient', 'Blue LED Lighting'],
+    specs: [{ label: 'Boiler', value: 'Aluminium Boiler' }, { label: 'Setup', value: 'Customised to Requirements' }, { label: 'Dimensions (WxDxH)', value: '417 x 463 x 767mm' }] },
+  { name: 'Jettino JL33', category: 'Hot Beverage Solutions', variant: 'accent',
+    tagline: 'Exceptional dual-grinding, unmatched flavour',
+    description: 'Dual grinders plus 2 instants, a 10.1" touchscreen and up to 15 beverages, with a fresh milk fridge and premium brewing system.',
+    tags: ['Dual Grinders', '10.1" Touchscreen', 'Up to 15 Beverages'],
+    specs: [{ label: 'Fridge', value: 'Fresh Milk Fridge' }, { label: 'Brewing', value: 'Premium Brewing System' }, { label: 'Dimensions (WxDxH)', value: '350 x 560 x 628mm' }] },
+  { name: 'Gaggia Milano', category: 'Hot Beverage Solutions', variant: 'default',
+    tagline: 'Brilliance in every cup',
+    description: 'Bean-to-cup plus 2 instants with a wide range of customisable drinks, fresh milk, a 7-inch touchscreen and Prime Milk automatic froth.',
+    tags: ['Bean-to-Cup + 2 Instants', '7" Touchscreen', 'Automatic Milk Froth'],
+    specs: [{ label: 'Grinder', value: 'One Grinder, One Per Hopper' }, { label: 'Milk', value: 'Prime Milk – Automatic Froth' }, { label: 'Dimensions (WxDxH)', value: '308 x 570 x 629mm' }] },
+  { name: 'Vitro X1', category: 'Hot Beverage Solutions', variant: 'accent',
+    tagline: 'Innovative design for quality coffee',
+    description: 'A fresh bean brewer with a fresh milk fridge, high capacity boilers, 12 selection touch panel, variable brewing unit and an illuminated dispensing area.',
+    tags: ['Fresh Bean Brewer', '12 Selection Touch Panel', 'High Capacity Boilers'],
+    specs: [{ label: 'Milk', value: 'Fresh Milk Fridge' }, { label: 'Access', value: 'Easy-Access Hoppers' }, { label: 'Dimensions (WxDxH)', value: '567 x 505 x 672mm (includes fridge)' }] },
+  { name: 'Saeco Magic', category: 'Hot Beverage Solutions', variant: 'default',
+    tagline: 'Revolutionary coffee machine',
+    description: 'A fresh bean brewer with a touchscreen display, fresh milk, one-touch high-speed milk, high capacity and a double boiler, double pump system.',
+    tags: ['Double Boiler, Double Pump', 'Touchscreen Display', 'High Capacity'],
+    specs: [{ label: 'Milk', value: 'One-Touch High-Speed Milk' }, { label: 'Lighting', value: 'LED Lighting' }, { label: 'Dimensions (WxDxH)', value: '280 x 481 x 470mm' }] },
+  { name: 'NEOQs', category: 'Hot Beverage Solutions', variant: 'accent',
+    tagline: 'Your all-in-one premium espresso and fresh leaf tea solution',
+    description: 'Cup recognition technology with energy-saving ECO mode, a 21.5" Full HD touchscreen, 7 hoppers (1 tea, 1 bean, 5 instant) and fully customisable beverages and volumes.',
+    tags: ['Cup Recognition Technology', '21.5" Full HD Touchscreen', '7 Hoppers'],
+    specs: [{ label: 'Mode', value: 'Energy-Saving ECO Mode' }, { label: 'Customisation', value: 'Custom Beverages & Volumes' }, { label: 'Dimensions (WxDxH)', value: '600 x 715 x 1830mm' }] },
+  { name: 'Novara DFB', category: 'Hot Beverage Solutions', variant: 'default',
+    tagline: 'The widest range of hot beverages',
+    description: 'Double fresh brew with high capacity, fully customisable drinks, a fully automatic auto cup dispenser, cup detector and a modern stainless steel, glass front with touch selection.',
+    tags: ['Double Fresh Brew', 'Fully Customisable Drinks', 'Auto Cup Dispenser'],
+    specs: [{ label: 'Detection', value: 'Cup Detector' }, { label: 'Finish', value: 'Stainless Steel, Glass Front' }, { label: 'Dimensions (WxDxH)', value: '600 x 650 x 1830mm' }] },
+  { name: 'ZEN Bean / ZEN DFB', category: 'Hot Beverage Solutions', variant: 'accent',
+    tagline: 'Fully automatic fresh bean OR fresh bean & tea leaf option',
+    description: 'ZEN Bean offers fresh bean options; ZEN DFB adds fresh tea leaf and bean options — both fully automatic with vending sugar in door, powder milk, an auto cup dispenser and an optional stand.',
+    tags: ['Fresh Bean & Tea Leaf Options', 'Fully Automatic', 'Vending Sugar in Door'],
+    specs: [{ label: 'Milk', value: 'Powder Milk' }, { label: 'Stand', value: 'Optional Stand' }, { label: 'Dimensions (WxDxH)', value: 'Machine: 480 x 590 x 842mm · Stand: 480 x 590 x 842mm' }] },
+  { name: 'Ascaso Barista T', category: 'Hot Beverage Solutions', variant: 'default',
+    tagline: 'Where coffee craft meets efficiency & sustainability',
+    description: 'A multi-group barista machine for commercial spaces, in stainless steel with thermoblocks, PID control, extraction plus digital control and a rotary pump.',
+    tags: ['Multi-Group Function', 'PID Control', 'Rotary Pump'],
+    specs: [{ label: 'Build', value: 'Stainless Steel' }, { label: 'Control', value: 'Extraction + Digital Control' }, { label: 'Dimensions (WxDxH)', value: '700 x 535 x 475mm' }] },
+  { name: 'Ascaso I-Bar F83E', category: 'Hot Beverage Solutions', variant: 'accent',
+    tagline: 'Built for durability, reliability and consistent performance',
+    description: 'A high-volume grinder with quiet operation, micrometric grinding adjustment for burrs that always work flat, and an aluminium body with a removable stainless steel drip tray.',
+    tags: ['High Volume Use', 'Micrometric Grinding Adjustment', 'Quiet Operation'],
+    specs: [{ label: 'Body', value: 'Aluminium Body' }, { label: 'Tray', value: 'Removable Stainless Steel Drip Tray' }, { label: 'Dimensions (WxDxH)', value: '230 x 270 x 670mm' }] },
+];
+PRODUCTS.push(...PRODUCTS_COFFEE);
+
+const PRODUCTS_WATER = [
+  { name: 'FW Bar Classe', category: 'Water Coolers', variant: 'default',
+    tagline: 'Premium solution',
+    description: 'Offers 2 water options — cold and sparkling — with portion control and Firewall UVC Purification, removing up to 99.999% of bacteria, viruses and cysts. Ice cold water via Ice Bath cooling, high performance filtration and BioCote protection. Plumbed in solution.',
+    tags: ['Cold & Sparkling', 'Firewall UVC Purification', 'Portion Control'],
+    specs: [{ label: 'Water Options', value: 'Cold & Sparkling' }, { label: 'Purification', value: 'Firewall UVC — 99.999% Bacteria/Virus Removal' }, { label: 'Installation', value: 'Plumbed In' }] },
+  { name: 'P1 Bar Series E', category: 'Water Coolers', variant: 'accent',
+    tagline: 'Stylish, Efficient & High Flow solution',
+    description: 'Offers 3 water options — cold, ambient and sparkling — with portion control, an adjustable drip tray height for different bottle sizes, and eco-sustainable R290 refrigeration. Plumbed in solution.',
+    tags: ['Cold, Ambient & Sparkling', 'Adjustable Drip Tray', 'R290 Eco Refrigeration'],
+    specs: [{ label: 'Water Options', value: 'Cold, Ambient & Sparkling' }, { label: 'Refrigeration', value: 'R290 Natural Gas' }, { label: 'Installation', value: 'Plumbed In' }] },
+  { name: 'P1 Bar Series B', category: 'Water Coolers', variant: 'default',
+    tagline: 'Stylish, Efficient & High Flow solution',
+    description: 'Offers 2 water options — cold and sparkling — with portion control, a back-lit front panel with premium aesthetics, and eco-sustainable R290 refrigeration. Plumbed in solution.',
+    tags: ['Cold & Sparkling', 'Back-Lit Front Panel', 'R290 Eco Refrigeration'],
+    specs: [{ label: 'Water Options', value: 'Cold & Sparkling' }, { label: 'Refrigeration', value: 'R290 Natural Gas' }, { label: 'Installation', value: 'Plumbed In' }] },
+  { name: 'Campione Tower', category: 'Water Coolers', variant: 'accent',
+    tagline: 'Where space is limited',
+    description: 'Offers 3 water options — cold, ambient and sparkling — with ice cold water produced using Ice Bath cooling technology and high performance filtration. Plumbed in with the Frizzante 60 under-counter solution.',
+    tags: ['Cold, Ambient & Sparkling', 'Ice Bath Cooling', 'Space-Saving Tower'],
+    specs: [{ label: 'Water Options', value: 'Cold, Ambient & Sparkling' }, { label: 'Cooling', value: 'Ice Bath Technology' }, { label: 'Installation', value: 'Plumbed With Frizzante 60' }] },
+  { name: 'Frizzante 60 Box', category: 'Water Coolers', variant: 'default',
+    tagline: 'Under the counter unit',
+    description: 'Offers 3 water options — cold, ambient and sparkling — with ice cold water produced using Ice Bath cooling technology and high performance filtration.',
+    tags: ['Cold, Ambient & Sparkling', 'Ice Bath Cooling', 'Under-Counter Unit'],
+    specs: [{ label: 'Water Options', value: 'Cold, Ambient & Sparkling' }, { label: 'Cooling', value: 'Ice Bath Technology' }, { label: 'Placement', value: 'Under-Counter' }] },
+];
+PRODUCTS.push(...PRODUCTS_WATER);
+
+const CATEGORY_IMAGES = {
+  'Vending Machines': 'assets/cat-vending.jpg',
+  'Hot Beverage Solutions': 'assets/cat-coffee.jpg',
+  'Water Coolers': 'assets/cat-water.jpg',
+  'Payment Solutions': 'assets/cat-payment.jpg',
+};
+
+const FILTER_LABELS = ['All', 'Vending Machines', 'Hot Beverage Solutions', 'Water Coolers', 'Payment Solutions'];
+
+class Component extends DCLogic {
+
+  componentDidMount() {
+    if (this.__anim) return;
+    this.__anim = true;
+
+    const typeHero = () => {
+      const hero = document.querySelector('h1[data-hero]');
+      if (!hero || hero.dataset.typed) return hero || null;
+      hero.dataset.typed = '1';
+      const items = [hero].concat(Array.from(hero.parentElement.children).filter(el => el !== hero));
+      items.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(16px)';
+        el.style.transition = 'opacity .7s ease, transform .7s ease';
+      });
+      items.forEach((el, k) => setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'none'; }, 120 + k * 140));
+      return hero;
+    };
+
+    const startReveals = (hero) => {
+      const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const targets = Array.from(document.querySelectorAll('section > div'))
+        .filter(el => !el.closest('nav') && !(hero && el.contains(hero)));
+      if (reduced || !targets.length) return;
+
+      const show = (el) => {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+        el.dataset.revealed = '1';
+      };
+      const limit = window.innerHeight * 0.85;
+      const hidden = [];
+      targets.forEach(el => {
+        el.style.transition = 'opacity .7s cubic-bezier(.22,.8,.3,1), transform .7s cubic-bezier(.22,.8,.3,1)';
+        if (el.getBoundingClientRect().top < limit) { show(el); return; }
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(26px)';
+        hidden.push(el);
+      });
+      if (!hidden.length) return;
+
+      const loop = () => {
+        for (let k = hidden.length - 1; k >= 0; k--) {
+          if (hidden[k].getBoundingClientRect().top < window.innerHeight * 0.88) {
+            show(hidden[k]);
+            hidden.splice(k, 1);
+          }
+        }
+        if (hidden.length) requestAnimationFrame(loop);
+      };
+      requestAnimationFrame(loop);
+    };
+
+    const boot = () => {
+      const hero = typeHero();
+      requestAnimationFrame(() => requestAnimationFrame(() => startReveals(hero)));
+    };
+
+    const ready = () => {
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => setTimeout(boot, 80));
+      else setTimeout(boot, 200);
+    };
+    if (document.readyState === 'complete') ready();
+    else window.addEventListener('load', ready);
+  }
+
+  state = { mobileMenu: false, openFaq: 0, activeFilter: 'Payment Solutions', selectedProduct: null, visibleCount: 9, productsMenu: false, contactMenu: false };
+
+
+  renderVals() {
+    const cols = this.props.productGridColumns === '3' ? 3 : 2;
+    const sticky = this.props.filterBarSticky
+      ? 'position:sticky;top:96px;background:#FAFBFC;z-index:5;padding:12px 0;'
+      : '';
+
+    const filters = FILTER_LABELS.map(label => {
+      const active = this.state.activeFilter === label;
+      return {
+        label,
+        onClick: () => this.setState({ activeFilter: label, visibleCount: 9 }),
+        style: `padding:10px 22px;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;border:1px solid ${active ? '#1C1C1A' : '#D3D7DD'};background:${active ? '#1C1C1A' : 'transparent'};color:${active ? '#FAFBFC' : '#1C1C1A'};font-family:'Inter',sans-serif;`,
+      };
+    });
+
+    const base = this.state.activeFilter === 'All'
+      ? PRODUCTS
+      : PRODUCTS.filter(p => p.category === this.state.activeFilter);
+    const hasMore = base.length > this.state.visibleCount;
+    const visible = base.slice(0, this.state.visibleCount);
+    const withImage = (p) => ({
+      ...p,
+      imgRef: (el) => { if (el) el.src = (p.image && p.image.endsWith('.png')) ? p.image : 'assets/hz87-cropped.png'; },
+      imgStyle: 'max-width:100%;max-height:100%;object-fit:contain;display:block;',
+      placeholderStyle: 'display:none;',
+    });
+    const products = visible.map(p => ({
+      ...withImage(p),
+      onOpen: () => { this.setState({ selectedProduct: p }); window.scrollTo(0, 0); },
+      stopPropagation: (e) => e.stopPropagation(),
+    }));
+
+    const open = this.state.productsMenu;
+    const categoryLinks = FILTER_LABELS.filter(l => l !== 'All').map(label => ({
+      label,
+      href: label + '.dc.html',
+      onClick: () => this.setState({ productsMenu: false }),
+    }));
+
+    const BLURBS = {
+      'Vending Machines': 'Snack, drink and combo machines with dual temperature zones, refrigeration and capacities from 180 to 312 items.',
+      'Hot Beverage Solutions': 'Bean-to-cup, fresh brew and instant machines with fresh milk, touchscreen selection and fully customisable drinks.',
+      'Water Coolers': 'Plumbed-in and under-counter coolers serving cold, ambient and sparkling water with UVC purification and filtration.',
+      'Payment Solutions': 'Cashless, card and mobile payment systems with real-time reporting that retrofit to your existing machines.',
+    };
+    const categoryCards = categoryLinks.map(c => ({
+      ...c,
+      blurb: BLURBS[c.label],
+      onClick: () => {
+        c.onClick();
+        window.location.hash = 'ranges';
+      },
+      imgRef: (el) => { if (el && CATEGORY_IMAGES[c.label]) el.src = CATEGORY_IMAGES[c.label]; },
+      imgStyle: CATEGORY_IMAGES[c.label]
+        ? 'width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.05) saturate(1.03) brightness(0.9);'
+        : 'display:none;',
+      placeholderStyle: CATEGORY_IMAGES[c.label]
+        ? 'display:none;'
+        : "font-size:12px;letter-spacing:2px;text-align:center;text-indent:2px;white-space:nowrap;text-transform:uppercase;color:rgba(250,250,248,0.4);font-weight:600;font-family:'Inter',sans-serif;",
+    }));
+
+    const FAQ_BY_CATEGORY = {
+      'Vending Machines': [
+        { q: 'How many products can it hold?', a: 'Capacity depends on the model and the planogram. Shelves and spirals are adjustable, so the mix of cans, confectionery and snacks is set up around what your site actually buys.' },
+        { q: 'Does it take card payments?', a: 'Yes. Card readers and mobile payment can be fitted to any machine in the range, alongside or instead of coin and note handling.' },
+        { q: 'Who refills it?', a: 'On serviced sites our teams restock during scheduled visits. On self-replenishment rentals you stock the machine and we supply the consumables.' },
+        { q: 'What power and space does it need?', a: 'A standard wall socket and a level floor against a wall. We survey the site before installation to confirm clearance and access.' },
+      ],
+      'Hot Beverage Solutions': [
+        { q: 'Instant or bean to cup?', a: 'Both are available. Bean to cup suits sites where coffee quality matters most; instant is simpler to run and cheaper per cup at high volumes.' },
+        { q: 'How many cups a day can it handle?', a: 'Table top units suit smaller offices, while free-standing models are built for continuous use. We size the machine to your headcount during the survey.' },
+        { q: 'Does it need a water connection?', a: 'Plumbed-in and manually filled options are available depending on the model and where the machine will stand.' },
+        { q: 'Do you supply the coffee?', a: 'Yes. Instant, filter and whole bean, plus tea, hot chocolate, milk and sundries, on a standing order or on demand.' },
+      ],
+      'Water Coolers': [
+        { q: 'Plumbed-in or bottled?', a: 'Both. Point-of-use units plumb into the mains and filter on site; bottled units are manually filled and need no plumbing.' },
+        { q: 'What water options are there?', a: 'Depending on the model: cold, ambient, sparkling, filtered and purified.' },
+        { q: 'How often are filters changed?', a: 'Filters are replaced on a service schedule based on throughput. Replacement filters and UVC parts are stocked.' },
+        { q: 'Can it be installed under a counter?', a: 'Yes, several models are built for under-counter installation with a tap at the counter surface.' },
+      ],
+      'Payment Solutions': [
+        { q: 'Which payment methods are supported?', a: 'Tap-to-pay cards, mobile wallets and prepaid staff cards, alongside cash where it is still needed.' },
+        { q: 'Does it work with our existing machines?', a: 'In most cases yes. Readers retrofit to standard vending and coffee machines; we confirm compatibility before quoting.' },
+        { q: 'What does telemetry report?', a: 'Sales by product, stock levels, cash position and machine faults, visible remotely so refills and repairs are scheduled before a machine stops trading.' },
+        { q: 'Is connectivity included?', a: 'Units run on a mobile data connection. Data is part of the monthly cost on rental agreements.' },
+      ],
+    };
+    const faqCat = this.state.selectedProduct ? this.state.selectedProduct.category : '';
+    const faqOpen = this.state.openFaq;
+    const productFaqs = (FAQ_BY_CATEGORY[faqCat] || []).map((q, i) => ({
+      ...q,
+      onToggle: () => this.setState({ openFaq: faqOpen === i ? -1 : i }),
+      iconStyle: `font-size:22px;font-weight:400;color:#C8102E;flex-shrink:0;transition:transform .25s ease;transform:rotate(${faqOpen === i ? 45 : 0}deg);`,
+      answerStyle: faqOpen === i ? 'display:block;' : 'display:none;',
+    }));
+
+    const mobileOpen = !!this.state.mobileMenu;
+    return {
+      toggleMobileMenu: () => this.setState({ mobileMenu: !mobileOpen }),
+      closeMobileMenu: () => this.setState({ mobileMenu: false }),
+      mobileToggleStyle: "display:none;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;border:1px solid #E1E4E8;background:#FFFFFF;cursor:pointer;flex-shrink:0;padding:0;",
+      mobileMenuStyle: mobileOpen
+        ? "position:fixed;top:88px;left:12px;right:12px;background:#FFFFFF;border:1px solid #E1E4E8;border-radius:20px;box-shadow:0 22px 50px rgba(0,0,0,0.18);padding:12px;z-index:120;display:flex;flex-direction:column;gap:2px;max-height:calc(100vh - 110px);overflow:auto;box-sizing:border-box;"
+        : "display:none;",
+      mobileNavLinks: [
+        { label: 'Vending Machines', href: 'Vending Machines.dc.html' },
+        { label: 'Hot Beverage Solutions', href: 'Hot Beverage Solutions.dc.html' },
+        { label: 'Water Coolers', href: 'Water Coolers.dc.html' },
+        { label: 'Payment Solutions', href: 'Payment Solutions.dc.html' },
+        { label: 'Consumables', href: 'Consumables.dc.html' },
+        { label: 'Rentals', href: 'Rentals.dc.html' },
+        { label: 'About', href: 'About.dc.html' },
+        { label: 'Blog', href: 'Blog.dc.html' },
+        { label: 'Contact', href: 'Contact.dc.html' },
+      ],
+      posts: [
+        { category: 'Coffee Vending', title: 'Arabica or robusta for commercial coffee machines', excerpt: 'If you\u2019re a coffee lover or a business owner looking to invest in commercial coffee...', image: 'assets/blog-coffee.jpg' },
+        { category: 'Vending Machines', title: 'Convenience at your fingertips with Top Vending', excerpt: 'Vending machines have been a popular fixture in public spaces for decades. From airports and...', image: 'assets/blog-payment.jpg' },
+        { category: 'Business', title: 'Renting vs. Buying', excerpt: 'In today\u2019s economic climate coupled with the negative impact that COVID and load shedding has...', image: 'assets/blog-rent.jpg', fit: 'contain' },
+      ].map(p => ({
+        ...p,
+        imgRef: (el) => { if (el) el.src = p.image; },
+        imgStyle: p.fit === 'contain'
+          ? 'width:100%;height:100%;object-fit:contain;display:block;background:#1C1C1A;'
+          : 'width:100%;height:100%;object-fit:cover;display:block;',
+      })),
+      categoryCards,
+      categoryLinks,
+      openContactMenu: () => this.setState({ contactMenu: true }),
+      closeContactMenu: () => this.setState({ contactMenu: false }),
+      contactMenuStyle: `position:absolute;top:100%;right:-14px;padding-top:26px;min-width:210px;opacity:${this.state.contactMenu ? 1 : 0};transform:translateY(${this.state.contactMenu ? '0' : '-6px'});pointer-events:${this.state.contactMenu ? 'auto' : 'none'};transition:opacity .18s ease, transform .18s ease;`,
+      openProductsMenu: () => this.setState({ productsMenu: true }),
+      closeProductsMenu: () => this.setState({ productsMenu: false }),
+      productsMenuStyle: `position:absolute;top:100%;left:-14px;padding-top:26px;min-width:220px;opacity:${open ? 1 : 0};transform:translateY(${open ? '0' : '-6px'});pointer-events:${open ? 'auto' : 'none'};transition:opacity .18s ease, transform .18s ease;`,
+      hasMore,
+      isEmpty: base.length === 0,
+      showMore: () => this.setState({ visibleCount: this.state.visibleCount + 9 }),
+      selectedProduct: this.state.selectedProduct ? withImage(this.state.selectedProduct) : { imgRef: () => {}, tags: [], specs: [], category: '', name: '', tagline: '', description: '' },
+      catalogueStyle: this.state.selectedProduct ? 'display:none;' : '',
+      detailStyle: this.state.selectedProduct ? '' : 'display:none;',
+      stopPropagation: (e) => e.stopPropagation(),
+      closeDetail: (e) => { if (e) e.preventDefault(); this.setState({ selectedProduct: null }); },
+      filters,
+      productFaqs,
+      categoryFaqs: (FAQ_BY_CATEGORY[this.state.activeFilter] || []).map((q, i) => ({
+        ...q,
+        onToggle: () => this.setState({ openFaq: faqOpen === i ? -1 : i }),
+        iconStyle: `font-size:22px;font-weight:400;color:#C8102E;flex-shrink:0;transition:transform .25s ease;transform:rotate(${faqOpen === i ? 45 : 0}deg);`,
+        answerStyle: faqOpen === i ? 'display:block;' : 'display:none;',
+      })),
+      products,
+      gridColStyle: `grid-template-columns:repeat(${cols},1fr);`,
+      filterBarStickyStyle: sticky,
+      stats: [
+        { value: '30+', label: 'Years in Business' },
+        { value: '3', label: 'National Hubs' },
+        { value: '100+', label: 'Active Clients' },
+        { value: '4', label: 'Exclusive Brands' },
+      ],
+      steps: [
+        { number: '01', title: 'Choose Your Machine' },
+        { number: '02', title: 'Rental or Purchase' },
+        { number: '03', title: 'Full Aftersales Support' },
+      ],
+      editorialIcons: [
+        { variant: 'default' }, { variant: 'accent' }, { variant: 'default' }, { variant: 'accent' },
+      ],
+      clients: [
+        { name: 'Evoca Group', logo: 'assets/clients/client1.png' },
+        { name: 'Vendon', logo: 'assets/clients/client2.png' },
+        { name: 'Ascaso', logo: 'assets/clients/client3.png' },
+        { name: 'Waterlogic', logo: 'assets/clients/client4.png' },
+        { name: 'Azkoyen Group', logo: 'assets/clients/client5.png' },
+        { name: 'Coges', logo: 'assets/clients/client6.png' },
+        { name: 'Jofemar', logo: 'assets/clients/client7.png' },
+        { name: 'Nayax', logo: 'assets/clients/client8.png' },
+      ].map(c => ({ ...c, imgRef: (el) => { if (el) el.src = c.logo; } })),
+      marqueeClients: [
+        { name: 'Evoca Group', logo: 'assets/clients/client1.png' },
+        { name: 'Vendon', logo: 'assets/clients/client2.png' },
+        { name: 'Ascaso', logo: 'assets/clients/client3.png' },
+        { name: 'Waterlogic', logo: 'assets/clients/client4.png' },
+        { name: 'Azkoyen Group', logo: 'assets/clients/client5.png' },
+        { name: 'Coges', logo: 'assets/clients/client6.png' },
+        { name: 'Jofemar', logo: 'assets/clients/client7.png' },
+        { name: 'Nayax', logo: 'assets/clients/client8.png' },
+        { name: 'Evoca Group', logo: 'assets/clients/client1.png' },
+        { name: 'Vendon', logo: 'assets/clients/client2.png' },
+        { name: 'Ascaso', logo: 'assets/clients/client3.png' },
+        { name: 'Waterlogic', logo: 'assets/clients/client4.png' },
+        { name: 'Azkoyen Group', logo: 'assets/clients/client5.png' },
+        { name: 'Coges', logo: 'assets/clients/client6.png' },
+        { name: 'Jofemar', logo: 'assets/clients/client7.png' },
+        { name: 'Nayax', logo: 'assets/clients/client8.png' },
+      ].map(c => ({ ...c, imgRef: (el) => { if (el) el.src = c.logo; } })),
+      rentalTags: [
+        'Maintenance Included',
+        'Consumables Available',
+        'Dedicated Aftersales Team',
+        'Flexible Agreements',
+        '3 Hubs · National Coverage',
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
