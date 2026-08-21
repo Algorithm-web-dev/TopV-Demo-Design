@@ -450,7 +450,7 @@ class Component extends DCLogic {
         el.style.transform = 'none';
         el.dataset.revealed = '1';
       };
-      const limit = window.innerHeight * 0.85;
+      const limit = window.innerHeight * 1.1;
       const hidden = [];
       targets.forEach(el => {
         el.style.transition = 'opacity .7s cubic-bezier(.22,.8,.3,1), transform .7s cubic-bezier(.22,.8,.3,1)';
