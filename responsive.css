@@ -85,7 +85,7 @@
     gap: 6px !important;
   }
   [data-price-head] { display: none !important; }
-  [data-price-row] > div:nth-child(4) { text-align: left !important; }
+  [data-price-row] [data-price-cell] { text-align: left !important; }
   [data-price-row] > div:last-child { justify-content: flex-start !important; }
 
   /* full-width buttons where they were inline pairs */
@@ -116,4 +116,28 @@
     right: 0 !important;
   }
   #tv-quote-cart > button { width: 100% !important; justify-content: center !important; }
+}
+
+/* Clients page grids keep multiple columns on tablet/preview widths */
+@media (max-width: 1024px) {
+  [data-logo-grid] { grid-template-columns: repeat(3, 1fr) !important; }
+  [data-stat-strip] { grid-template-columns: repeat(3, 1fr) !important; }
+}
+@media (max-width: 700px) {
+  [data-logo-grid] { grid-template-columns: repeat(2, 1fr) !important; }
+  [data-stat-strip] { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 1024px) {
+  [data-detail-image] {
+    aspect-ratio: 1 / 1 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: 460px !important;
+    padding: 32px !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  section[data-detail-section] { padding-top: 120px !important; }
 }
