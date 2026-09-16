@@ -12,6 +12,9 @@
  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
  <style>
   body { margin: 0; background: #FAFBFC; }
+  body, h1, h2, h3, h4, h5, h6, p, div, span, a, button, input, textarea, select, label, li, td, th {
+   font-family: Inter, system-ui, -apple-system, sans-serif;
+  }
   a { color: #C8102E; text-decoration: none; }
   a:hover { color: #8f0c20; }
   @keyframes scrollBounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
@@ -21,17 +24,18 @@
  </style>
  <link rel="stylesheet" href="responsive.css" />
  <script src="quote-cart.js"></script>
+ <script src="site-search.js"></script>
 </helmet>
 
 <div style="font-family:'Inter',sans-serif;color:#1C1C1A;background:#FAFBFC;overflow-x:hidden;">
 
  <nav style="position:fixed;top:20px;left:24px;right:24px;height:72px;background:rgba(250,250,248,0.88);backdropFilter:blur(18px);WebkitBackdropFilter:blur(18px);border:1px solid rgba(255,255,255,0.5);box-shadow:0 10px 30px rgba(0,0,0,0.08);border-radius:999px;display:flex;align-items:center;justify-content:space-between;gap:32px;padding:0 28px;z-index:100;box-sizing:border-box;">
-  <a href="index.html" style="display:flex;align-items:center;flex:0 1 auto;width:100%;max-width:190px;min-width:90px;height:52px;"><img src="assets/logo.png" alt="Top Vending" style="height:100%;width:100%;object-fit:contain;object-position:left center;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.18));" /></a>
+  <a href="Top Vending.dc.html" style="display:flex;align-items:center;flex:0 1 auto;width:100%;max-width:190px;min-width:90px;height:52px;"><img src="assets/logo.png" alt="Top Vending" style="height:100%;width:100%;object-fit:contain;object-position:left center;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.18));" /></a>
   <div style="display:flex;align-items:center;gap:40px;">
    <div data-nav-links="1" style="display:flex;gap:32px;font-size:14px;">
     <div style="position:relative;display:flex;align-items:center;" onMouseEnter="{{ openProductsMenu }}" onMouseLeave="{{ closeProductsMenu }}">
      <a href="Products.dc.html" style="color:#1C1C1A;display:flex;align-items:center;gap:6px;white-space:nowrap;" style-hover="color:#C8102E;">Products
-      <span style="font-size:9px;line-height:1;opacity:0.6;">▼</span>
+      <span style="font-family:'Inter',sans-serif;font-size:9px;line-height:1;opacity:0.6;">▼</span>
      </a>
      <div style="{{ productsMenuStyle }}">
       <div style="background:#FFFFFF;border:1px solid #E1E4E8;border-radius:16px;padding:8px;box-shadow:0 18px 40px rgba(0,0,0,0.12);display:flex;flex-direction:column;gap:2px;">
@@ -48,7 +52,7 @@
     <a href="Blog.dc.html" style="color:#1C1C1A;white-space:nowrap;" style-hover="color:#C8102E;">Blog</a>
     <div style="position:relative;display:flex;align-items:center;" onMouseEnter="{{ openContactMenu }}" onMouseLeave="{{ closeContactMenu }}">
      <a href="Contact.dc.html" style="color:#1C1C1A;display:flex;align-items:center;gap:6px;white-space:nowrap;" style-hover="color:#C8102E;">Contact
-      <span style="font-size:9px;line-height:1;opacity:0.6;">▼</span>
+      <span style="font-family:'Inter',sans-serif;font-size:9px;line-height:1;opacity:0.6;">▼</span>
      </a>
      <div style="{{ contactMenuStyle }}">
       <div style="background:#FFFFFF;border:1px solid #E1E4E8;border-radius:16px;padding:8px;box-shadow:0 18px 40px rgba(0,0,0,0.12);display:flex;flex-direction:column;gap:2px;">
@@ -59,11 +63,12 @@
      </div>
     </div>
    </div>
-   <a href="Contact.dc.html" style="background:#C8102E;color:#FAFBFC;padding:12px 26px;border-radius:999px;font-size:14px;font-weight:600;white-space:nowrap;flex-shrink:0;" style-hover="background:#8f0c20;color:#FAFBFC;">Get a Free Quote</a>
+   <button data-tv-search="1" aria-label="Search" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:1px solid #E1E4E8;background:#FFFFFF;cursor:pointer;flex-shrink:0;padding:0;color:#45443F;" style-hover="border-color:#C8102E;color:#C8102E;"><svg width="17" height="17" viewBox="0 0 17 17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="7.2" cy="7.2" r="5.1"></circle><line x1="11.2" y1="11.2" x2="15.4" y2="15.4"></line></svg></button>
+   <a data-nav-cta="1" href="Contact.dc.html" style="background:#C8102E;color:#FAFBFC;padding:12px 26px;border-radius:999px;font-size:14px;font-weight:600;white-space:nowrap;flex-shrink:0;" style-hover="background:#8f0c20;color:#FAFBFC;">Get a Free Quote</a>
    <button data-nav-toggle="1" aria-label="Menu" onClick="{{ toggleMobileMenu }}" style="{{ mobileToggleStyle }}">
-    <span style="display:block;width:18px;height:2px;background:#1C1C1A;position:relative;">
-     <span style="position:absolute;top:-6px;left:0;width:18px;height:2px;background:#1C1C1A;display:block;"></span>
-     <span style="position:absolute;top:6px;left:0;width:18px;height:2px;background:#1C1C1A;display:block;"></span>
+    <span style="font-family:'Inter',sans-serif;display:block;width:18px;height:2px;background:#1C1C1A;position:relative;">
+     <span style="font-family:'Inter',sans-serif;position:absolute;top:-6px;left:0;width:18px;height:2px;background:#1C1C1A;display:block;"></span>
+     <span style="font-family:'Inter',sans-serif;position:absolute;top:6px;left:0;width:18px;height:2px;background:#1C1C1A;display:block;"></span>
     </span>
    </button>
   </div>
@@ -73,14 +78,18 @@
   <sc-for list="{{ mobileNavLinks }}" as="m" hint-placeholder-count="7">
    <a href="{{ m.href }}" onClick="{{ closeMobileMenu }}" style="display:block;padding:13px 16px;border-radius:12px;font-size:15px;font-weight:500;color:#1C1C1A;" style-hover="background:#EFF1F3;color:#C8102E;">{{ m.label }}</a>
   </sc-for>
+   <button data-tv-search="1" onClick="{{ closeMobileMenu }}" style="display:block;width:100%;text-align:left;background:transparent;border:none;padding:13px 16px;border-radius:12px;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:#1C1C1A;cursor:pointer;">Search</button>
   <a href="Contact.dc.html#quote" onClick="{{ closeMobileMenu }}" style="display:block;margin-top:8px;text-align:center;background:#C8102E;color:#FAFBFC;padding:14px 20px;border-radius:999px;font-size:14px;font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Get a Free Quote</a>
  </div>
 
  <section style="padding:170px 48px 60px;box-sizing:border-box;background:#EFF1F3;{{ catalogueStyle }}">
   <div style="max-width:1200px;margin:0 auto;">
+   <a href="Top Vending.dc.html" style="display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:600;color:#6B6B68;margin-bottom:26px;" style-hover="color:#C8102E;">
+    <span style="font-family:Inter,sans-serif;font-size:15px;">←</span>Back to home
+   </a>
    <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Hot Beverage Solutions</div>
    <h1 style="font-family:'Inter',sans-serif;font-weight:700;font-size:52px;line-height:1.05;letter-spacing:-0.032em;margin:0 0 18px;max-width:760px;">Coffee that keeps a workplace going.</h1>
-   <p style="font-size:17px;line-height:1.7;color:#45443F;margin:0;max-width:560px;">Instant, bean-to-cup and freshly brewed machines in table top and free-standing options, sized for any staff complement.</p>
+   <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#45443F;margin:0;max-width:560px;">Instant, bean-to-cup and freshly brewed machines in table top and free-standing options, sized for any staff complement.</p>
   </div>
  </section>
 
@@ -88,7 +97,7 @@
   <div style="max-width:1200px;margin:0 auto;">
    <div style="display:grid;gap:24px;{{ gridColStyle }}">
     <sc-for list="{{ products }}" as="p" hint-placeholder-count="6">
-     <div onClick="{{ p.onOpen }}" style="background:#FFFFFF;border:1px solid #E1E4E8;border-radius:20px;padding:16px 16px 24px;box-sizing:border-box;display:flex;flex-direction:column;cursor:pointer;transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;" style-hover="transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,0.08);border-color:#C8102E;">
+     <div onClick="{{ p.onOpen }}" data-product-card="{{ p.name }}" style="background:#FFFFFF;border:1px solid #E1E4E8;border-radius:20px;padding:16px 16px 24px;box-sizing:border-box;display:flex;flex-direction:column;cursor:pointer;transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;" style-hover="transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,0.08);border-color:#C8102E;">
       <div style="height:260px;background:#FFFFFF;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:22px;padding:24px;box-sizing:border-box;">
        <img ref="{{ p.imgRef }}" alt="{{ p.name }}" style="{{ p.imgStyle }}" />
        <div style="{{ p.placeholderStyle }}">Photo to come</div>
@@ -96,7 +105,7 @@
       <div style="padding:0 6px;">
        <div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#6B6B68;margin-bottom:10px;">{{ p.category }}</div>
        <div style="font-size:21px;font-weight:700;letter-spacing:-0.02em;margin-bottom:8px;">{{ p.name }}</div>
-       <p style="font-size:15px;line-height:1.65;color:#45443F;margin:0 0 22px;">{{ p.tagline }}</p>
+       <p style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:#45443F;margin:0 0 22px;">{{ p.tagline }}</p>
        <a href="Contact.dc.html#quote" data-quote-add="1" data-quote-name="{{ p.name }}" data-quote-cat="{{ p.category }}" style="display:inline-block;background:#C8102E;color:#FAFBFC;padding:12px 24px;border-radius:999px;font-size:13px;font-weight:600;white-space:nowrap;" style-hover="background:#8f0c20;">Add to Quote</a>
       </div>
      </div>
@@ -119,17 +128,20 @@
     <span>←</span>All machines
    </a>
    <div style="display:grid;grid-template-columns:1fr 1.05fr;gap:70px;align-items:stretch;">
-    <div data-detail-image="1" style="background:#EFF1F3;display:flex;align-items:center;justify-content:center;padding:56px;box-sizing:border-box;height:100%;min-height:520px;max-height:640px;overflow:hidden;">
+    <div data-detail-image="1" style="background:#EFF1F3;display:flex;align-items:center;justify-content:center;padding:56px;box-sizing:border-box;height:100%;min-height:520px;overflow:hidden;">
      <img ref="{{ selectedProduct.imgRef }}" alt="{{ selectedProduct.name }}" style="max-width:100%;max-height:100%;object-fit:contain;display:block;" />
     </div>
     <div>
      <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:16px;">{{ selectedProduct.category }}</div>
-     <h1 style="font-weight:700;font-size:52px;line-height:1.05;letter-spacing:-0.032em;margin:0 0 14px;">{{ selectedProduct.name }}</h1>
-     <p style="font-size:19px;color:#6B6B68;margin:0 0 28px;">{{ selectedProduct.tagline }}</p>
-     <p style="font-size:16px;line-height:1.7;color:#45443F;margin:0 0 34px;max-width:520px;">{{ selectedProduct.description }}</p>
-     <div style="display:flex;gap:14px;margin-bottom:44px;">
-      <a href="Contact.dc.html#quote" data-quote-add="1" data-quote-name="{{ selectedProduct.name }}" data-quote-cat="{{ selectedProduct.category }}" style="background:#C8102E;color:#FAFBFC;padding:16px 34px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#8f0c20;">Add to Quote</a>
-      <a href="#products" onClick="{{ closeDetail }}" style="border:1.5px solid #1C1C1A;color:#1C1C1A;padding:15px 34px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#1C1C1A;color:#FAFBFC;">More machines</a>
+     <h1 style="font-family:'Inter',sans-serif;font-weight:700;font-size:52px;line-height:1.05;letter-spacing:-0.032em;margin:0 0 14px;">{{ selectedProduct.name }}</h1>
+     <p style="font-family:'Inter',sans-serif;font-size:19px;color:#6B6B68;margin:0 0 28px;">{{ selectedProduct.tagline }}</p>
+     <p style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:#45443F;margin:0 0 34px;max-width:520px;">{{ selectedProduct.description }}</p>
+     <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:44px;">
+      <a href="Contact.dc.html#quote" data-quote-add="1" data-quote-name="{{ selectedProduct.name }}" data-quote-cat="{{ selectedProduct.category }}" style="background:#C8102E;color:#FAFBFC;padding:15px 26px;border-radius:999px;font-size:14.5px;font-weight:600;white-space:nowrap;" style-hover="background:#8f0c20;">Add to Quote</a>
+      <a href="{{ selectedProduct.brochureHref }}" download style="{{ selectedProduct.brochureStyle }}" style-hover="background:#1C1C1A;color:#FAFBFC;">Download Brochure
+       <span style="font-family:'Inter',sans-serif;font-size:13px;">↓</span>
+      </a>
+      <a href="#products" onClick="{{ closeDetail }}" style="border:1.5px solid #1C1C1A;color:#1C1C1A;padding:14px 24px;border-radius:999px;font-size:14.5px;font-weight:600;white-space:nowrap;" style-hover="background:#1C1C1A;color:#FAFBFC;">More machines</a>
      </div>
      <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#6B6B68;font-weight:700;margin-bottom:16px;">Key features</div>
      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:44px;">
@@ -138,10 +150,10 @@
       </sc-for>
      </div>
      <div style="display:flex;flex-direction:column;">
-      <sc-for list="{{ selectedProduct.specs }}" as="spec" hint-placeholder-count="3">
+      <sc-for list="{{ selectedProduct.specsKey }}" as="spec" hint-placeholder-count="3">
        <div style="display:flex;justify-content:space-between;gap:24px;border-top:1px solid #E1E4E8;padding:18px 0;font-size:15px;">
-        <span style="color:#6B6B68;">{{ spec.label }}</span>
-        <span style="font-weight:600;text-align:right;">{{ spec.value }}</span>
+        <span style="font-family:'Inter',sans-serif;color:#6B6B68;">{{ spec.label }}</span>
+        <span style="font-family:'Inter',sans-serif;font-weight:600;text-align:right;">{{ spec.value }}</span>
        </div>
       </sc-for>
      </div>
@@ -149,10 +161,19 @@
    </div>
    <div style="margin-top:80px;padding-top:50px;border-top:1px solid #E1E4E8;">
     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Product detail</div>
-    <h2 style="font-weight:700;font-size:32px;line-height:1.15;letter-spacing:-0.03em;margin:0 0 26px;">More about this machine.</h2>
+    <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:32px;line-height:1.15;letter-spacing:-0.03em;margin:0 0 26px;">More about this machine.</h2>
     <div style="{{ overviewClampStyle }}">
      <sc-for list="{{ selectedProduct.overview }}" as="para" hint-placeholder-count="3">
-      <p style="font-size:16px;line-height:1.8;color:#45443F;margin:0 0 18px;">{{ para }}</p>
+      <p style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.8;color:#45443F;margin:0 0 18px;">{{ para }}</p>
+     </sc-for>
+    </div>
+    <div style="{{ moreSpecsStyle }}">
+     <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#6B6B68;font-weight:700;margin:38px 0 8px;">Full specification</div>
+     <sc-for list="{{ selectedProduct.specsRest }}" as="spec" hint-placeholder-count="4">
+      <div style="display:flex;justify-content:space-between;gap:24px;border-top:1px solid #E1E4E8;padding:16px 0;font-size:15px;">
+       <span style="font-family:'Inter',sans-serif;color:#6B6B68;">{{ spec.label }}</span>
+       <span style="font-family:'Inter',sans-serif;font-weight:600;text-align:right;">{{ spec.value }}</span>
+      </div>
      </sc-for>
     </div>
     <button onClick="{{ toggleOverview }}" style="margin-top:10px;background:transparent;border:none;padding:0;font-family:'Inter',sans-serif;font-size:15px;font-weight:700;color:#C8102E;cursor:pointer;">{{ overviewToggleLabel }}</button>
@@ -164,16 +185,16 @@
  <section style="background:#EFF1F3;padding:110px 48px;box-sizing:border-box;{{ detailStyle }}">
   <div style="max-width:1200px;margin:0 auto;">
     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">FAQs</div>
-    <h2 style="font-weight:700;font-size:32px;line-height:1.15;letter-spacing:-0.03em;margin:0 0 34px;">About this machine.</h2>
+    <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:32px;line-height:1.15;letter-spacing:-0.03em;margin:0 0 34px;">About this machine.</h2>
     <div style="display:flex;flex-direction:column;gap:12px;">
      <sc-for list="{{ productFaqs }}" as="f" hint-placeholder-count="4">
       <div style="background:#FFFFFF;border-radius:16px;overflow:hidden;">
        <button onClick="{{ f.onToggle }}" style="width:100%;background:transparent;border:none;text-align:left;padding:22px 26px;font-family:'Inter',sans-serif;font-size:16.5px;font-weight:700;color:#1C1C1A;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;box-sizing:border-box;">
         <span>{{ f.q }}</span>
-        <span style="{{ f.iconStyle }}">+</span>
+        <span style="font-family:'Inter',sans-serif;{{ f.iconStyle }}">+</span>
        </button>
        <div style="{{ f.answerStyle }}">
-        <p style="font-size:16px;line-height:1.7;color:#45443F;margin:0 26px 24px;">{{ f.a }}</p>
+        <p style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:#45443F;margin:0 26px 24px;">{{ f.a }}</p>
        </div>
       </div>
      </sc-for>
@@ -182,18 +203,18 @@
  </section>
 
  <section style="background:#EFF1F3;padding:120px 48px;box-sizing:border-box;{{ catalogueStyle }}">
-  <div style="max-width:900px;margin:0 auto;">
+  <div style="max-width:1200px;margin:0 auto;">
    <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">FAQs</div>
-   <h2 style="font-weight:700;font-size:38px;line-height:1.12;letter-spacing:-0.03em;margin:0 0 40px;">Questions about this range.</h2>
+   <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.12;letter-spacing:-0.03em;margin:0 0 40px;">Questions about this range.</h2>
    <div style="display:flex;flex-direction:column;gap:12px;">
     <sc-for list="{{ categoryFaqs }}" as="f" hint-placeholder-count="4">
      <div style="background:#FFFFFF;border-radius:16px;overflow:hidden;">
       <button onClick="{{ f.onToggle }}" style="width:100%;background:transparent;border:none;text-align:left;padding:24px 28px;font-family:'Inter',sans-serif;font-size:17px;font-weight:700;color:#1C1C1A;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;box-sizing:border-box;">
        <span>{{ f.q }}</span>
-       <span style="{{ f.iconStyle }}">+</span>
+       <span style="font-family:'Inter',sans-serif;{{ f.iconStyle }}">+</span>
       </button>
       <div style="{{ f.answerStyle }}">
-       <p style="font-size:16px;line-height:1.7;color:#45443F;margin:0 28px 26px;">{{ f.a }}</p>
+       <p style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:#45443F;margin:0 28px 26px;">{{ f.a }}</p>
       </div>
      </div>
     </sc-for>
@@ -205,8 +226,8 @@
   <img src="assets/rentals-bg.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;z-index:0;filter:saturate(0.7);" />
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 90% at 50% 50%, rgba(20,20,18,0.9) 0%, rgba(20,20,18,0.82) 55%, rgba(20,20,18,0.7) 100%);z-index:1;"></div>
   <div style="position:relative;z-index:2;max-width:720px;margin:0 auto;">
-   <h2 style="font-weight:700;font-size:42px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 18px;color:#FAFBFC;">Not sure which machine fits?</h2>
-   <p style="font-size:17px;line-height:1.7;color:#A8A59C;margin:0 0 36px;">Tell us about your site and we will size the right solution.</p>
+   <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:42px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 18px;color:#FAFBFC;">Not sure which machine fits?</h2>
+   <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#A8A59C;margin:0 0 36px;">Tell us about your site and we will size the right solution.</p>
    <a href="Contact.dc.html" style="display:inline-block;background:#C8102E;color:#FAFBFC;padding:17px 38px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#8f0c20;">Contact Us</a>
   </div>
  </section>
@@ -215,9 +236,9 @@
   <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto;">
    <div>
     <div style="margin-bottom:16px;">
-     <a href="index.html" style="display:inline-block;"><img src="assets/logo.png" alt="Top Vending" style="height:34px;object-fit:contain;" /></a>
+     <a href="Top Vending.dc.html" style="display:inline-block;"><img src="assets/logo.png" alt="Top Vending" style="height:34px;object-fit:contain;" /></a>
     </div>
-    <p style="font-size:14px;color:#6B6B68;line-height:1.6;margin:0 0 20px;max-width:280px;">Vending, coffee and water for South African workplaces. Since 1991.</p>
+    <p style="font-family:'Inter',sans-serif;font-size:14px;color:#6B6B68;line-height:1.6;margin:0 0 20px;max-width:280px;">Vending, coffee and water for South African workplaces. Since 1991.</p>
     <div style="display:flex;">
      <input type="email" placeholder="Your email" style="border:1px solid #E1E4E8;border-radius:999px 0 0 999px;padding:12px 18px;font-size:14px;font-family:'Inter',sans-serif;background:#FAFBFC;width:180px;outline:none;box-sizing:border-box;" />
      <button style="background:#C8102E;color:#FAFBFC;border:none;border-radius:0 999px 999px 0;padding:12px 20px;font-size:14px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;" style-hover="background:#8f0c20;">Enquire</button>
@@ -226,10 +247,10 @@
    <div>
     <div style="font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#1C1C1A;font-weight:700;margin-bottom:18px;">Products</div>
     <div style="display:flex;flex-direction:column;gap:12px;font-size:14px;color:#6B6B68;">
-     <a href="index.html#ranges" style="color:#6B6B68;">Vending Machines</a>
-     <a href="index.html#ranges" style="color:#6B6B68;">Hot Beverage Solutions</a>
-     <a href="index.html#ranges" style="color:#6B6B68;">Water Coolers</a>
-     <a href="index.html#ranges" style="color:#6B6B68;">Payment Solutions</a>
+     <a href="Top Vending.dc.html#ranges" style="color:#6B6B68;">Vending Machines</a>
+     <a href="Top Vending.dc.html#ranges" style="color:#6B6B68;">Hot Beverage Solutions</a>
+     <a href="Top Vending.dc.html#ranges" style="color:#6B6B68;">Water Solutions</a>
+     <a href="Top Vending.dc.html#ranges" style="color:#6B6B68;">Payment Solutions</a>
     </div>
    </div>
    <div>
@@ -270,12 +291,12 @@ const PRODUCTS = [
   description: 'A dual-temperature combo vending machine with full payment support, refrigeration and MDB compatibility, carrying 60 drink items and 120 snack items, 180 items in total.',
   tags: ['Dual Temperature Zones', 'Refrigerated', 'MDB Compatible'],
   specs: [{ label: 'Capacity', value: '180 items total' }, { label: 'Payment', value: 'Full Payment Support' }, { label: 'Dimensions (WxDxH)', value: '723 x 840 x 1830mm' }] },
- { name: 'Palma Hz87', category: 'Vending Machines', variant: 'accent', image: 'assets/hz87-cropped.png',
+ { name: 'Palma Hz87', category: 'Vending Machines', variant: 'accent', image: 'assets/hz87-new.png',
   tagline: 'High Capacity Combo Vending Machine',
   description: 'A higher-capacity combo vending machine with dual temperature zones, full payment support, refrigeration and MDB compatibility, 120 drink items and 160 snack items, 280 items in total.',
   tags: ['Dual Temperature Zones', 'Refrigerated', 'MDB Compatible'],
   specs: [{ label: 'Capacity', value: '280 items total' }, { label: 'Payment', value: 'Full Payment Support' }, { label: 'Dimensions (WxDxH)', value: '888 x 840 x 1830mm' }] },
- { name: 'Palma Hz87 Premium', category: 'Vending Machines', variant: 'default',
+ { name: 'Palma Hz87 Premium', image: 'assets/hz87-premium.png', category: 'Vending Machines', variant: 'default',
   tagline: 'Premium Combo Vending Machine',
   description: 'Our premium combo vending machine adds a selective belt system for multi-purpose use, refrigeration and full payment support, 40 drink items, 160 snack items and 20 sandwiches/wraps, 220 items in total.',
   tags: ['Selective Belt System', 'Multi-Purpose Use', 'Refrigerated'],
@@ -285,22 +306,22 @@ const PRODUCTS = [
   description: 'A dual-temperature combo vending machine with full payment support, refrigeration and MDB compatibility, 144 drink items and 168 snack items, 312 items in total.',
   tags: ['Dual Temperature Zones', 'Refrigerated', 'MDB Compatible'],
   specs: [{ label: 'Capacity', value: '312 items total' }, { label: 'Payment', value: 'Full Payment Support' }, { label: 'Dimensions (WxDxH)', value: '925 x 820 x 1830mm' }] },
- { name: 'CV4000 with Touchscreen', category: 'Vending Machines', variant: 'default',
+ { name: 'CV4000 with Touchscreen', image: 'assets/cv4000-touch.png', category: 'Vending Machines', variant: 'default',
   tagline: 'Combo Vending Machine with Cart Functionality',
   description: 'Adds cart functionality and a full touchscreen to the combo range, with dual temperature zones, refrigeration and MDB compatibility, 144 drink items and 168 snack items, 312 items in total. Cashless only.',
   tags: ['Cart Functionality', 'Dual Temperature Zones', 'Cashless Only'],
   specs: [{ label: 'Capacity', value: '312 items total' }, { label: 'Payment', value: 'Cashless Only' }, { label: 'Dimensions (WxDxH)', value: '1120 x 820 x 1870mm' }] },
- { name: 'Vision Esplus Bluetec', category: 'Vending Machines', variant: 'accent',
+ { name: 'Vision Esplus Bluetec', image: 'assets/vision-esplus.png', category: 'Vending Machines', variant: 'accent',
   tagline: 'Multi-Product Dispensing Machine',
   description: 'An elevator belt system for big-size multi-product dispensing, with full payment support, refrigeration, temperature control and expiry date tracking, channels can be blocked once expiry date is reached.',
   tags: ['Elevator Belt System', 'Expiry Date Tracking', 'Refrigerated'],
   specs: [{ label: 'Function', value: 'Multi-Product Dispensing' }, { label: 'Payment', value: 'Full Payment Support' }, { label: 'Dimensions (WxDxH)', value: '1120 x 820 x 1870mm' }] },
- { name: 'Smart Fridge', category: 'Vending Machines', variant: 'default',
+ { name: 'Smart Fridge', image: 'assets/smart-fridge.png', category: 'Vending Machines', variant: 'default',
   tagline: 'Smart Fresh Food Fridge',
   description: 'A weight-sensing smart fridge for fresh products, open the door, make a selection, close the door and enjoy. Cashless only, MDB compatible.',
   tags: ['Weight Sensing Plate', 'Cashless Only', 'Refrigerated'],
   specs: [{ label: 'Function', value: 'Fresh Products' }, { label: 'Payment', value: 'Cashless Only' }, { label: 'Dimensions (WxDxH)', value: '670 x 550 x 1830mm' }] },
- { name: 'Smart Freezer', category: 'Vending Machines', variant: 'accent',
+ { name: 'Smart Freezer', image: 'assets/smart-freezer.png', category: 'Vending Machines', variant: 'accent',
   tagline: 'Smart Frozen Food Freezer',
   description: 'A weight-sensing smart freezer for frozen products, open the door, make a selection, close the door and enjoy. Cashless only, MDB compatible.',
   tags: ['Weight Sensing Plate', 'Cashless Only', 'Refrigerated'],
@@ -308,92 +329,250 @@ const PRODUCTS = [
 ];
 
 const PRODUCTS_COFFEE = [
- { name: 'Orion G23', category: 'Hot Beverage Solutions', variant: 'default',
+ { name: 'Orion G23', image: 'assets/orion-g23.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Sleek Black Design with Blue LED Lighting',
   description: 'A fresh bean brewer with a stylish, energy-efficient design, blue LED lighting and a customised setup to suit your requirements. Aluminium boiler.',
   tags: ['Fresh Bean Brewer', 'Energy Efficient', 'Blue LED Lighting'],
-  specs: [{ label: 'Boiler', value: 'Aluminium Boiler' }, { label: 'Setup', value: 'Customised to Requirements' }, { label: 'Dimensions (WxDxH)', value: '417 x 463 x 767mm' }] },
- { name: 'Jettino JL33', category: 'Hot Beverage Solutions', variant: 'accent',
+  brochure: 'orion-g23.pdf',
+  specs: [{ label: 'Model', value: 'ORION G23' }, { label: 'Type', value: 'Fresh bean brewer' }, { label: 'Boiler', value: 'Aluminium boiler' }, { label: 'Dimensions (WxDxH)', value: '417 x 463 x 767mm' }, { label: 'Payment', value: 'Cashless/Nayax' }, { label: 'Telemetry', value: 'Yes' }, { label: 'Power Supply', value: '230V 50Hz' }, { label: 'Water', value: 'Monitored water distributor' }, { label: 'Distribution', value: 'Pressure valve in distribution unit' }],
+  details: [
+   'The Orion G23 is a fresh bean brewer in a compact table top cabinet, finished in black with blue LED lighting. It suits office kitchens and staff rooms where the machine is on show and floor space is limited.',
+   'A pressure valve in the distribution unit and a monitored water distributor keep extraction consistent cup to cup, and the boiler is aluminium. The setup is customised to your requirements, so drink selections, strengths and volumes are configured at installation.',
+   'Payment is cashless through Nayax and telemetry is supported for remote monitoring. Dimensions are 417 x 463 x 767mm on a 230V 50Hz supply.',
+  ] },
+ { name: 'Jettino JL33', image: 'assets/jettino-jl33.png', category: 'Hot Beverage Solutions', variant: 'accent',
   tagline: 'Exceptional dual-grinding, unmatched flavour',
   description: 'Dual grinders plus 2 instants, a 10.1" touchscreen and up to 15 beverages, with a fresh milk fridge and premium brewing system.',
   tags: ['Dual Grinders', '10.1" Touchscreen', 'Up to 15 Beverages'],
-  specs: [{ label: 'Fridge', value: 'Fresh Milk Fridge' }, { label: 'Brewing', value: 'Premium Brewing System' }, { label: 'Dimensions (WxDxH)', value: '350 x 560 x 628mm' }] },
- { name: 'Gaggia Milano La Brillante', category: 'Hot Beverage Solutions', variant: 'default',
+  brochure: 'jettino-jl33.pdf',
+  specs: [{ label: 'Model', value: 'Jetinno JL33' }, { label: 'Grinding', value: 'Dual PGH64 grinders' }, { label: 'Beverages', value: 'Over 15' }, { label: 'Dimensions (WxDxH)', value: '350 x 560 x 628mm' }, { label: 'Payment', value: 'Cashless/Nayax' }, { label: 'Telemetry', value: 'Yes' }, { label: 'Power Supply', value: '220-240V 50/60Hz' }, { label: 'Brewing', value: 'Pre-infusion and anti-gravity extraction' }, { label: 'Milk', value: 'Dual boilers and dual pumps, fresh milk foam' }, { label: 'Screen', value: '10.1" touchscreen' }],
+  details: [
+   'The Jettino JL33 runs a dual grinding system with two PGH64 grinders plus two instant hoppers, so it can hold two different beans at once and serve two cups from one click. Over 15 beverages are available from the 10.1 inch touchscreen.',
+   'The premium brewing system uses pre-infusion and anti-gravity extraction, and the fresh milk foam system runs dual boilers and dual pumps for fast milk based coffee. A fresh milk fridge is part of the unit.',
+   'Payment is cashless through Nayax with telemetry supported. Dimensions are 350 x 560 x 628mm on a 220V to 240V 50/60Hz supply.',
+  ] },
+ { name: 'Gaggia Milano La Brillante', image: 'assets/gaggia-la-brillante.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Brilliance in every cup',
   description: 'Bean-to-cup plus 2 instants with a wide range of customisable drinks, fresh milk, a 7-inch touchscreen and Prime Milk automatic froth.',
   tags: ['Bean-to-Cup + 2 Instants', '7" Touchscreen', 'Automatic Milk Froth'],
-  specs: [{ label: 'Grinder', value: 'One Grinder, One Per Hopper' }, { label: 'Milk', value: 'Prime Milk – Automatic Froth' }, { label: 'Dimensions (WxDxH)', value: '308 x 570 x 629mm' }] },
- { name: 'Azkoyen Vitro X1', category: 'Hot Beverage Solutions', variant: 'accent',
+  brochure: 'gaggia-milano-la-brillante.pdf',
+  specs: [{ label: 'Model', value: 'Gaggia Milano La Brillante' }, { label: 'Type', value: 'Bean to cup plus 2 instants' }, { label: 'Grinders', value: 'Dual grinders, one per hopper' }, { label: 'Milk', value: 'Prime Milk automatic froth' }, { label: 'Dimensions (WxDxH)', value: '308 x 570 x 629mm' }, { label: 'Payment', value: 'Cashless/Nayax' }, { label: 'Telemetry', value: 'Yes' }, { label: 'Power Supply', value: '230V 50Hz' }, { label: 'Screen', value: '7 inch touchscreen' }],
+  details: [
+   'La Brillante is a bean to cup machine with two additional instant hoppers, giving a wide range of customisable drinks from a narrow 308mm cabinet. Selections are made on a 7 inch touchscreen.',
+   'Prime Milk froths fresh milk automatically in one step, so milk based drinks need no manual work from the user. Dual grinders run one per hopper, allowing two beans to be held at the same time.',
+   'Energy efficient components and low water waste reduce running costs and carbon footprint. Payment is cashless through Nayax with telemetry supported, on a 230V 50Hz supply.',
+  ] },
+ { name: 'Azkoyen Vitro X1', image: 'assets/vitro-x1.png', category: 'Hot Beverage Solutions', variant: 'accent',
   tagline: 'Innovative design for quality coffee',
   description: 'A fresh bean brewer with a fresh milk fridge, high capacity boilers, 12 selection touch panel, variable brewing unit and an illuminated dispensing area.',
   tags: ['Fresh Bean Brewer', '12 Selection Touch Panel', 'High Capacity Boilers'],
-  specs: [{ label: 'Milk', value: 'Fresh Milk Fridge' }, { label: 'Access', value: 'Easy-Access Hoppers' }, { label: 'Dimensions (WxDxH)', value: '567 x 505 x 672mm (includes fridge)' }] },
- { name: 'Saeco Magic', category: 'Hot Beverage Solutions', variant: 'default',
+  brochure: 'azkoyen-vitro-x1.pdf',
+  specs: [{ label: 'Model', value: 'Vitro X1 MIA' }, { label: 'Type', value: 'Fresh bean brewer' }, { label: 'Selections', value: '12 selection touch panel' }, { label: 'Hoppers', value: '1kg bean hopper plus up to two soluble hoppers' }, { label: 'Dose', value: '7g and 14g of coffee' }, { label: 'Dimensions (WxDxH)', value: '567 x 505 x 672mm (includes fridge)' }, { label: 'Payment', value: 'Cashless/Nayax' }, { label: 'Telemetry', value: 'Yes' }, { label: 'Power Supply', value: '220-240V 50Hz' }, { label: 'Brewing', value: 'Variable brewing unit' }],
+  details: [
+   'The Vitro X1 is a fresh bean brewer with a fresh milk fridge and high capacity boilers, built around a 12 selection touch panel that keeps operation simple for staff.',
+   'The variable brewing unit adjusts the strength and size of espressos, dosing at 7g or 14g of coffee. Easy access hoppers hold 1kg of beans plus up to two hoppers for chocolate or other soluble ingredients, and the dispensing area is illuminated.',
+   'Payment is cashless through Nayax with telemetry supported. Dimensions are 567 x 505 x 672mm including the fridge, on a 220V to 240V 50Hz supply.',
+  ] },
+ { name: 'Azkoyen Vitro S5 MIA', image: 'assets/vitro-s5.png', category: 'Hot Beverage Solutions', variant: 'default',
+  tagline: 'Innovative design for large capacity quality coffee',
+  description: 'A high volume fresh bean brewer with up to 20 hot beverage options, a fresh milk fridge, a 2kg bean hopper and an independent water spout for tea and infusions.',
+  tags: ['Fresh Bean Brewer', 'Up to 20 Beverages', 'High Volume Capacity'],
+  brochure: 'azkoyen-vitro-s5-mia.pdf',
+  specs: [{ label: 'Model', value: 'Vitro S5 MIA' }, { label: 'Type', value: 'Fresh bean brewer' }, { label: 'Beverages', value: 'Up to 20 hot beverage options' }, { label: 'Selections', value: '12 or 20 selection touch panel' }, { label: 'Hoppers', value: '2kg bean hopper, 4 soluble hoppers, waste drawer' }, { label: 'Dimensions (WxDxH)', value: '710 x 590 x 775mm (includes fridge)' }, { label: 'Payment', value: 'Cashless/Nayax' }, { label: 'Telemetry', value: 'Yes' }, { label: 'Power Supply', value: '220-240V 50Hz' }, { label: 'Water', value: 'Independent water spout for tea and infusions' }],
+  details: [
+   'The Vitro S5 MIA is the high volume machine in the Vitro range, offering up to 20 hot beverage options from a 12 or 20 selection touch panel, with a fresh milk fridge included.',
+   'High autonomy comes from a 2kg bean hopper, four hoppers for chocolate and other soluble ingredients, and a waste drawer, so the machine runs longer between refills. An independent water spout handles tea and other infusions without carrying coffee flavour across.',
+   'The dispensing area is illuminated to present drinks clearly. Payment is cashless through Nayax with telemetry supported. Dimensions are 710 x 590 x 775mm including the fridge, on a 220V to 240V 50Hz supply.',
+  ] },
+ { name: 'Saeco Magic', image: 'assets/saeco-magic.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Revolutionary coffee machine',
   description: 'A fresh bean brewer with a touchscreen display, fresh milk, one-touch high-speed milk, high capacity and a double boiler, double pump system.',
   tags: ['Double Boiler, Double Pump', 'Touchscreen Display', 'High Capacity'],
-  specs: [{ label: 'Milk', value: 'One-Touch High-Speed Milk' }, { label: 'Lighting', value: 'LED Lighting' }, { label: 'Dimensions (WxDxH)', value: '280 x 481 x 470mm' }] },
- { name: 'NEOQs', category: 'Hot Beverage Solutions', variant: 'accent',
+  brochure: 'saeco-magic.pdf',
+  specs: [{ label: 'Model', value: 'SAECO MAGIC B2' }, { label: 'Type', value: 'Fresh bean brewer' }, { label: 'Milk', value: 'One touch, high speed milk' }, { label: 'System', value: 'Double boiler, double pump' }, { label: 'Blades', value: 'Steel conical blades' }, { label: 'Dimensions (WxDxH)', value: '280 x 481 x 470mm' }, { label: 'Payment', value: 'Cashless/Nayax' }, { label: 'Telemetry', value: 'Yes' }, { label: 'Power Supply', value: '230V 50Hz' }, { label: 'Lighting', value: 'LED lighting' }],
+  details: [
+   'The Saeco Magic is the most compact fresh bean machine in the range at 280mm wide, with a touchscreen display and fresh milk, suited to small offices and counter tops.',
+   'A double boiler and double pump system, plus one touch high speed milk, keep service fast despite the size, and steel conical blades grind consistently. Capacity is high for the footprint.',
+   'Payment is cashless through Nayax with telemetry supported. Dimensions are 280 x 481 x 470mm on a 230V 50Hz supply.',
+  ] },
+ { name: 'NEOQs', image: 'assets/neoqs.png', category: 'Hot Beverage Solutions', variant: 'accent',
   tagline: 'Your all-in-one premium espresso and fresh leaf tea solution',
   description: 'Cup recognition technology with energy-saving ECO mode, a 21.5" Full HD touchscreen, 7 hoppers (1 tea, 1 bean, 5 instant) and fully customisable beverages and volumes.',
   tags: ['Cup Recognition Technology', '21.5" Full HD Touchscreen', '7 Hoppers'],
-  specs: [{ label: 'Mode', value: 'Energy-Saving ECO Mode' }, { label: 'Customisation', value: 'Custom Beverages & Volumes' }, { label: 'Dimensions (WxDxH)', value: '600 x 715 x 1830mm' }] },
- { name: 'Novara DFB', category: 'Hot Beverage Solutions', variant: 'default',
+  brochure: 'neoqs.pdf',
+  specs: [{ label: 'Model', value: 'NEOQS' }, { label: 'Type', value: 'Espresso and fresh leaf tea' }, { label: 'Hoppers', value: '1 tea, 1 coffee plus 5 instant' }, { label: 'Screen', value: '21.5" Full HD touchscreen' }, { label: 'Sensor', value: 'I-Detect cup recognition' }, { label: 'Dimensions (WxDxH)', value: '600 x 715 x 1830mm' }, { label: 'Power Supply', value: '220-240V 50Hz' }, { label: 'Max. Power', value: '1700W' }, { label: 'Mode', value: 'Energy saving ECO mode' }],
+  details: [
+   'NEOQs is a free standing all in one machine covering premium espresso and fresh leaf tea from seven hoppers: one tea, one coffee and five instant. Selections are made on a 21.5 inch Full HD touchscreen.',
+   'The I-Detect sensor recognises a cup the user has brought with them, so the machine does not dispense a disposable cup unnecessarily. Brewing units allow beverages and volumes to be customised to your requirements, and an energy saving ECO mode reduces standby consumption.',
+   'The dispensing area is illuminated. Dimensions are 600 x 715 x 1830mm on a 220V to 240V 50Hz supply, drawing a maximum of 1700W.',
+  ] },
+ { name: 'Novara DFB', image: 'assets/novara-dfb.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'The widest range of hot beverages',
   description: 'Double fresh brew with high capacity, fully customisable drinks, a fully automatic auto cup dispenser, cup detector and a modern stainless steel, glass front with touch selection.',
   tags: ['Double Fresh Brew', 'Fully Customisable Drinks', 'Auto Cup Dispenser'],
-  specs: [{ label: 'Detection', value: 'Cup Detector' }, { label: 'Finish', value: 'Stainless Steel, Glass Front' }, { label: 'Dimensions (WxDxH)', value: '600 x 650 x 1830mm' }] },
- { name: 'ZEN Fresh Bean', category: 'Hot Beverage Solutions', variant: 'accent',
+  brochure: 'novara-dfb.pdf',
+  specs: [{ label: 'Model', value: 'NOVARA DFB' }, { label: 'Type', value: 'Double fresh brew' }, { label: 'Dispensing', value: 'Fully automatic auto cup dispenser' }, { label: 'Detection', value: 'Cup detector' }, { label: 'Front', value: 'Configurable stainless steel and glass, touch selection' }, { label: 'Dimensions (WxDxH)', value: '600 x 650 x 1830mm' }, { label: 'Payment', value: 'Cashless/Nayax' }, { label: 'Telemetry', value: 'Yes' }, { label: 'Power Supply', value: '220-240V 50Hz' }],
+  details: [
+   'The Novara DFB is a free standing double fresh brew machine offering the widest range of hot beverages in the range, with fully customisable drinks and high capacity for busy sites.',
+   'It is fully automatic with an auto cup dispenser and a cup detector, so it will not dispense into a missing or misplaced cup. The front is a modern stainless steel and glass panel with touch selection, and the layout is configurable.',
+   'Payment is cashless through Nayax with telemetry supported. Dimensions are 600 x 650 x 1830mm on a 220V to 240V 50Hz supply.',
+  ] },
+ { name: 'ZEN Fresh Bean', category: 'Hot Beverage Solutions', variant: 'accent', image: 'assets/zen.png',
   tagline: 'Fully automatic fresh bean machine',
   description: 'Beans, instant coffee, sugar, milk powder and hot chocolate in door-mounted hoppers, with powder milk, a touch selection panel and an auto cup dispenser. Compact, easy to clean and fill, with an optional stand.',
   tags: ['Fresh Bean', 'Fully Automatic', 'Vending Sugar in Door'],
-  specs: [{ label: 'Milk', value: 'Powder Milk' }, { label: 'Stand', value: 'Optional Stand' }, { label: 'Dimensions (WxDxH)', value: 'Machine: 480 x 590 x 842mm · Stand: 480 x 590 x 842mm' }] },
- { name: 'ZEN DFB', category: 'Hot Beverage Solutions', variant: 'default',
+  brochure: 'zen-fresh-bean.pdf',
+  specs: [{ label: 'Model', value: 'ZEN Fresh Bean' }, { label: 'Type', value: 'Fresh bean, fully automatic' }, { label: 'Milk', value: 'Powder milk' }, { label: 'Dispensing', value: 'Auto cup dispenser' }, { label: 'Sugar', value: 'Vending sugar in door' }, { label: 'Dimensions (machine)', value: '480 x 590 x 842mm' }, { label: 'Dimensions (stand)', value: '480 x 590 x 842mm' }, { label: 'Payment', value: 'Cashless/Nayax' }, { label: 'Telemetry', value: 'Yes' }, { label: 'Power Supply', value: '220-240V 50Hz' }],
+  details: [
+   'The ZEN Fresh Bean is a fully automatic fresh bean machine in a compact table top cabinet, with an optional stand of the same footprint if no counter is available.',
+   'Ingredients sit in door mounted hoppers, including vending sugar in the door, which keeps the cabinet compact and refilling quick. An auto cup dispenser is included and milk is powder.',
+   'It is built for easy cleaning and filling, with high reliability and straightforward maintenance. Payment is cashless through Nayax with telemetry supported, on a 220V to 240V 50Hz supply.',
+  ] },
+ { name: 'ZEN DFB', category: 'Hot Beverage Solutions', variant: 'default', image: 'assets/zen.png',
   tagline: 'Fully automatic fresh bean and tea leaf machine',
   description: 'Adds fresh tea leaf to the ZEN range, beans, tea leaf, coffee, milk powder and hot chocolate in door hoppers, powder milk, auto cup dispenser and an optional stand. Easy cleaning, filling and maintenance.',
   tags: ['Fresh Bean & Tea Leaf', 'Fully Automatic', 'Vending Sugar in Door'],
-  specs: [{ label: 'Milk', value: 'Powder Milk' }, { label: 'Stand', value: 'Optional Stand' }, { label: 'Dimensions (WxDxH)', value: 'Machine: 480 x 590 x 842mm · Stand: 480 x 590 x 842mm' }] },
+  brochure: 'zen-dfb.pdf',
+  specs: [{ label: 'Model', value: 'ZEN DFB' }, { label: 'Type', value: 'Fresh bean and fresh tea leaf, fully automatic' }, { label: 'Milk', value: 'Powder milk' }, { label: 'Dispensing', value: 'Auto cup dispenser' }, { label: 'Sugar', value: 'Vending sugar in door' }, { label: 'Dimensions (machine)', value: '480 x 590 x 842mm' }, { label: 'Dimensions (stand)', value: '480 x 590 x 842mm' }, { label: 'Payment', value: 'Cashless/Nayax' }, { label: 'Telemetry', value: 'Yes' }, { label: 'Power Supply', value: '220-240V 50Hz' }],
+  details: [
+   'The ZEN DFB adds fresh tea leaf to the ZEN platform, so the same compact cabinet serves both fresh bean coffee and freshly brewed leaf tea.',
+   'It is fully automatic with an auto cup dispenser, powder milk and vending sugar in the door, and an optional stand is available. The brochure notes it is productive for operators, with easy cleaning and filling.',
+   'Payment is cashless through Nayax with telemetry supported. Machine and stand are both 480 x 590 x 842mm, on a 220V to 240V 50Hz supply.',
+  ] },
  { name: 'Ascaso Barista T', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Where coffee craft meets efficiency & sustainability',
   description: 'A multi-group barista machine for commercial spaces, in stainless steel with thermoblocks, PID control, extraction plus digital control and a rotary pump.',
   tags: ['Multi-Group Function', 'PID Control', 'Rotary Pump'],
-  specs: [{ label: 'Build', value: 'Stainless Steel' }, { label: 'Control', value: 'Extraction + Digital Control' }, { label: 'Dimensions (WxDxH)', value: '700 x 535 x 475mm' }] },
+  brochure: 'ascaso-barista-t.pdf',
+  specs: [{ label: 'Model', value: 'Ascaso Barista T' }, { label: 'Type', value: 'Multi-group barista machine' }, { label: 'Thermal Stability', value: '±0.5°C' }, { label: 'Steam Boiler', value: 'Independent, 8.5L' }, { label: 'Thermoblocks', value: 'High performance and insulated' }, { label: 'PID Control', value: '0.5°C stability with dynamic pre-heating' }, { label: 'Extraction', value: 'Volumetric control, programmable pre-infusion' }, { label: 'Displays', value: 'Two digital multifunction displays per group' }, { label: 'Pump', value: 'Rotary, adjustable pressure' }, { label: 'Dimensions (WxDxH)', value: '700 x 535 x 475mm' }],
+  details: [
+   'The Ascaso Barista T is a multi-group barista machine for commercial spaces, built in stainless steel where a trained operator is pulling shots rather than a self service machine.',
+   'Insulated high performance thermoblocks and PID control hold temperature to within 0.5°C with dynamic pre-heating, and an independent 8.5L steam boiler handles continuous milk work. Extraction uses precise volumetric control with programmable pre-infusion.',
+   'Each coffee group has two digital multifunction displays, and the rotary pump has adjustable pressure. Dimensions are 700 x 535 x 475mm.',
+  ] },
  { name: 'Ascaso I-Bar F83E', category: 'Hot Beverage Solutions', variant: 'accent',
   tagline: 'Built for durability, reliability and consistent performance',
   description: 'A high-volume grinder with quiet operation, micrometric grinding adjustment for burrs that always work flat, and an aluminium body with a removable stainless steel drip tray.',
   tags: ['High Volume Use', 'Micrometric Grinding Adjustment', 'Quiet Operation'],
-  specs: [{ label: 'Body', value: 'Aluminium Body' }, { label: 'Tray', value: 'Removable Stainless Steel Drip Tray' }, { label: 'Dimensions (WxDxH)', value: '230 x 270 x 670mm' }] },
+  brochure: 'ascaso-i-bar-f83e.pdf',
+  specs: [{ label: 'Model', value: 'Ascaso I-Bar F64EVO' }, { label: 'Type', value: 'High volume grinder' }, { label: 'Burrs', value: 'Ø83mm, Planas type' }, { label: 'Hopper Capacity', value: '1.5kg' }, { label: 'Power', value: '350W' }, { label: 'R.p.m', value: '1350' }, { label: 'Adjustment', value: 'Micrometric grinding adjustment' }, { label: 'Body', value: 'Aluminium, removable stainless steel drip tray' }, { label: 'Included', value: 'Two tampers Ø57 and Ø53mm, aluminium fork' }, { label: 'Dimensions (WxDxH)', value: '230 x 270 x 670mm' }],
+  details: [
+   'The Ascaso I-Bar F83E is a high volume grinder to pair with a barista machine, running quietly with an elegant aluminium body and a removable stainless steel drip tray.',
+   'Micrometric grinding adjustment keeps the Ø83mm Planas burrs working flat, which holds the grind consistent over long shifts and extends burr life. A ring nut lock secures the 1.5kg coffee bean hopper.',
+   'Two tampers at Ø57 and Ø53mm and an aluminium fork for all filter holder types are included. The motor draws 350W at 1350 rpm. Dimensions are 230 x 270 x 670mm.',
+  ] },
 ];
 PRODUCTS.push(...PRODUCTS_COFFEE);
 
 const PRODUCTS_WATER = [
- { name: 'FW Bar Classe', category: 'Water Coolers', variant: 'default',
+ { name: 'FW Bar Classe', image: 'assets/bar-classe.png', category: 'Water Solutions', variant: 'default',
   tagline: 'Premium solution',
   description: 'Offers 2 water options, cold and sparkling, with portion control and Firewall UVC Purification, removing up to 99.999% of bacteria, viruses and cysts. Ice cold water via Ice Bath cooling, high performance filtration and BioCote protection. Plumbed in solution.',
   tags: ['Cold & Sparkling', 'Firewall UVC Purification', 'Portion Control'],
   specs: [{ label: 'Water Options', value: 'Cold & Sparkling' }, { label: 'Purification', value: 'Firewall UVC, 99.999% Bacteria/Virus Removal' }, { label: 'Installation', value: 'Plumbed In' }] },
- { name: 'P1 Bar Series E', category: 'Water Coolers', variant: 'accent',
+ { name: 'P1 Bar Series E', image: 'assets/p1-bar-e.png', category: 'Water Solutions', variant: 'accent',
   tagline: 'Stylish, Efficient & High Flow solution',
   description: 'Offers 3 water options: cold, ambient and sparkling, with portion control, an adjustable drip tray height for different bottle sizes, and eco-sustainable R290 refrigeration. Plumbed in solution.',
   tags: ['Cold, Ambient & Sparkling', 'Adjustable Drip Tray', 'R290 Eco Refrigeration'],
   specs: [{ label: 'Water Options', value: 'Cold, Ambient & Sparkling' }, { label: 'Refrigeration', value: 'R290 Natural Gas' }, { label: 'Installation', value: 'Plumbed In' }] },
- { name: 'P1 Bar Series B', category: 'Water Coolers', variant: 'default',
+ { name: 'P1 Bar Series B', image: 'assets/p1-bar-b.png', category: 'Water Solutions', variant: 'default',
   tagline: 'Stylish, Efficient & High Flow solution',
   description: 'Offers 2 water options, cold and sparkling, with portion control, a back-lit front panel with premium aesthetics, and eco-sustainable R290 refrigeration. Plumbed in solution.',
   tags: ['Cold & Sparkling', 'Back-Lit Front Panel', 'R290 Eco Refrigeration'],
   specs: [{ label: 'Water Options', value: 'Cold & Sparkling' }, { label: 'Refrigeration', value: 'R290 Natural Gas' }, { label: 'Installation', value: 'Plumbed In' }] },
- { name: 'Campione Tower', category: 'Water Coolers', variant: 'accent',
+ { name: 'Campione Tower', image: 'assets/campione-tower.png', category: 'Water Solutions', variant: 'accent',
   tagline: 'Where space is limited',
   description: 'Offers 3 water options: cold, ambient and sparkling, with ice cold water produced using Ice Bath cooling technology and high performance filtration. Plumbed in with the Frizzante 60 under-counter solution.',
   tags: ['Cold, Ambient & Sparkling', 'Ice Bath Cooling', 'Space-Saving Tower'],
   specs: [{ label: 'Water Options', value: 'Cold, Ambient & Sparkling' }, { label: 'Cooling', value: 'Ice Bath Technology' }, { label: 'Installation', value: 'Plumbed With Frizzante 60' }] },
- { name: 'Frizzante 80 Box', category: 'Water Coolers', variant: 'default',
+ { name: 'Frizzante 80 Box', image: 'assets/frizzante-80-box.png', category: 'Water Solutions', variant: 'default',
   tagline: 'Under the counter unit',
   description: 'Offers 3 water options: cold, ambient and sparkling, with ice cold water produced using Ice Bath cooling technology and high performance filtration.',
   tags: ['Cold, Ambient & Sparkling', 'Ice Bath Cooling', 'Under-Counter Unit'],
   specs: [{ label: 'Water Options', value: 'Cold, Ambient & Sparkling' }, { label: 'Cooling', value: 'Ice Bath Technology' }, { label: 'Placement', value: 'Under-Counter' }] },
 ];
 PRODUCTS.push(...PRODUCTS_WATER);
+
+const PRODUCTS_PAYMENT = [
+ { name: 'VPos Touch Bank Card Device', image: 'assets/payment/vpos-touch.png', category: 'Payment Solutions', variant: 'accent',
+  tagline: 'All-in-one cashless bank payments',
+  description: 'An all-in-one cashless payment card reader for unattended automatic machines, taking contactless tap-and-go bank payments alongside mag strip and chip.',
+  tags: ['Contactless Tap-and-Go', 'Real-Time Transactions', 'Vandal Resistant'],
+  brochure: 'vpos-touch.pdf',
+  specs: [{ label: 'Type', value: 'Bank card device' }, { label: 'Group', value: 'Cashless systems' }, { label: 'Payment', value: 'Contactless, mag strip and chip' }, { label: 'Certification', value: 'EMV level 1 + level 2 certified' }, { label: 'Contactless', value: 'Visa PayWave MSD + qVSDC, Mastercard and Visa' }, { label: 'Other Cards', value: 'NFC, MIFARE, ISO 14443 Type A,B, ISO 15693' }, { label: 'Magnetic Stripe', value: 'ISO7811 and JIS I Tracks 1,2,3 JIS I' }, { label: 'Management', value: 'Complete management suite' }, { label: 'Support', value: 'Local software support' }],
+  details: [
+   'This all-in-one solution was designed for cashless bank payments. This cashless payment card reader is suitable for multiple applications and markets. All sorts of businesses with unattended automatic machines can benefit from installing a VPos Touch.',
+   'General features include a complete management suite, contactless tap-and-go bank payments covering mag strip and chip, a durable and highly secured build to prevent vandalism, audio consumer interaction, local software support and real-time transactions.',
+   'Nayax Vend adds machine and transaction monitoring in real-time, customised alerts by email or SMS, personalised reports, a unique BI system and cash accountability, which is machine dependent.',
+  ] },
+ { name: 'Onyx Contactless Bank Card Device', image: 'assets/payment/onyx.png', category: 'Payment Solutions', variant: 'default',
+  tagline: 'Sleek tap-and-go contactless reader',
+  description: 'A sleek contactless card reader that fits on any vending machine, packed with contactless, NFC, marketing tools and remote machine management.',
+  tags: ['Contactless Tap-and-Go', 'NFC & Marketing Tools', 'Remote Management'],
+  brochure: 'onyx.pdf',
+  specs: [{ label: 'Type', value: 'Contactless bank card device' }, { label: 'Group', value: 'Cashless systems' }, { label: 'Payment', value: 'Contactless tap-and-go' }, { label: 'Certification', value: 'EMV level 1 certified' }, { label: 'Contactless', value: 'EMV level 2: Visa PayWave MSD + qVSDC, Mastercard and Visa' }, { label: 'Other Cards', value: 'NFC, MIFARE, ISO 14443 Type A,B' }, { label: 'Management', value: 'Complete management suite' }, { label: 'Support', value: 'Local software support' }],
+  details: [
+   'Onyx, the sleek, tap-and-go contactless card reader can fit on any vending machine and gives your consumer a convenient cashless payment experience. While consumers complete transactions quickly, operators access a world of operational benefits and insights.',
+   'The Onyx is more than a card reader: it is a device packed with powerful capabilities including contactless, NFC, marketing tools and remote machine management. General features include a complete management suite, a durable and highly secured build to prevent vandalism, audio consumer interaction, local software support and real-time data transactions.',
+   'Nayax Vend adds machine and transaction monitoring in real-time, customised alerts by email or SMS, personalised reports, a unique BI system and cash accountability.',
+  ] },
+ { name: 'Engine Electronic Cashless System', image: 'assets/payment/coges-engine.png', category: 'Payment Solutions', variant: 'accent',
+  tagline: 'The most complete electronic vending system',
+  description: 'A multi-standard cashless payment system integrating cash management and telemetry into one flexible system, supporting Executive, MDB, BDV and RS232.',
+  tags: ['Multi-Standard System', 'MiFARE & FOBS Compatible', 'Full Data Audit'],
+  brochure: 'coges-engine.pdf',
+  specs: [{ label: 'Type', value: 'Electronic cashless system' }, { label: 'Group', value: 'Cashless systems' }, { label: 'Protocols', value: 'Executive, MDB, BDV, RS232' }, { label: 'Compatibility', value: 'MiFARE, FOBS and similar' }, { label: 'Sales Control', value: 'Scheduled free or discounted sales' }, { label: 'Consumption', value: 'Monthly consumption control' }, { label: 'Categories', value: 'Bonus categories' }, { label: 'Audit', value: 'Complete data audit from the vending machine' }, { label: 'Telemetry', value: 'Optional extra' }, { label: 'Other', value: 'Calories control' }],
+  details: [
+   'The Engine Electronic Cashless System is the most complete and innovative electronic vending system. This provides the most advanced functions of the cashless payment system and integrates it with cash management and telemetry into one powerful, complete, and flexible system to adapt to any need.',
+   'This is a multi-standard system that can support Executive, MDB, BDV and RS232. Telemetry programming is an optional extra on this unit.',
+   'General features include scheduled free or discounted sales, monthly consumption control, bonus categories, a complete data audit from the vending machine, compatibility with MiFARE and FOBS, and calories control.',
+  ] },
+ { name: 'Jofemar JF8 Coin Changer', image: 'assets/payment/jofemar-jf8.png', category: 'Payment Solutions', variant: 'default',
+  tagline: 'The only 8-coin tube changer on the market',
+  description: 'The first and only coin changer to include 8 coin tubes, accepting all South African old and new coin sets with tubes configurable for more than R1000 capacity.',
+  tags: ['Eight Coin Tubes', 'MDB Protocol', 'Machine Audit Memory'],
+  brochure: 'jofemar-jf8.pdf',
+  specs: [{ label: 'Type', value: 'Coin changer' }, { label: 'Group', value: 'Cash systems' }, { label: 'Tubes', value: 'Eight self-charging return tubes, up to eight coin values' }, { label: 'Capacity', value: 'Configurable for more than R1000' }, { label: 'Change Giver', value: 'R0,50c to R5,00' }, { label: 'Coin Sets', value: 'All South African old and new coin sets' }, { label: 'Protocol', value: 'MDB protocol' }, { label: 'Float', value: 'Self-replenishing float' }, { label: 'Memory', value: 'Machine audit memory' }, { label: 'Security', value: 'Pin code access only' }, { label: 'Programming', value: 'Built-in system, graphic display, USB updates and log book' }],
+  details: [
+   'The coin changer JF8 by Jofemar is the first and only one in the market to include 8-coin tubes, with all features a vending operator may need to better manage the cash systems of their machines. This includes maximums and minimums programming, inhibition or enabling of coins, and every possibility to adapt the coins change capacity of any sales point.',
+   'It accepts all South African old and new coin sets, and the tubes can be configured accordingly for more than R1000 capacity. The change giver accepts anything from R0,50c to R5,00. The unit is secure and can only be accessed via a pin code.',
+   'The structure allows easy access and cleaning of the full coins passthrough path, an easily extractable tubes cassette that is free or under security code, and an internal LED light in the tubes cassette for fast review of its status even in the machine interior. Programming uses a built-in system with graphic display and arrows to select options and edit values, optional security codes per option, updates and data extraction by USB port, and a log book.',
+  ] },
+ { name: 'Creos Bill Validator', image: 'assets/payment/creos.png', category: 'Payment Solutions', variant: 'accent',
+  tagline: 'Efficient banknote recognition',
+  description: 'A bill validator using nine optical reading signals, with a polycarbonate bezel and optimised dragging system, programmable to support African currencies.',
+  tags: ['9 Optical Reading Signals', 'Anti-Fraud Prevention', 'USB Updateable'],
+  brochure: 'creos.pdf',
+  specs: [{ label: 'Type', value: 'Bill validator' }, { label: 'Group', value: 'Cash systems' }, { label: 'Recognition', value: 'Up to 48 banknote positions, 12 banknotes in four directions' }, { label: 'Optical Signals', value: '9 optical reading signals' }, { label: 'Alignment', value: 'Precise banknote alignment' }, { label: 'Currency', value: 'Customisable currency file database, supports African currencies' }, { label: 'Updates', value: 'USB pendrive updateable' }, { label: 'Security', value: 'Anti-fraud prevention' }],
+  details: [
+   'The Creos Bill Validator is efficient in banknote recognition thanks to nine optical reading signals. The polycarbonate bezel and the optimised dragging system offer a precise banknote alignment and quick and intuitive use for final users. This unit can be programmed to support African currencies.',
+   'It recognises up to 48 banknote positions, being 12 banknotes in their four directions, with precise banknote alignment and quick, intuitive use for final users.',
+   'The currency file database is customisable and the unit is USB pendrive updateable, with anti-fraud prevention built in.',
+  ] },
+ { name: 'Jofemar BT11 Bill Validator', image: 'assets/payment/jofemar-bt11.png', category: 'Payment Solutions', variant: 'default',
+  tagline: 'The most practical banknote reader available',
+  description: 'A banknote reader using optical and magnetic sensors that analyse the banknote throughout, with high visibility LCD lighting and lockable stackers.',
+  tags: ['Optical & Magnetic Sensors', 'Lockable Stackers', 'Tool-Free Access'],
+  brochure: 'jofemar-bt11.pdf',
+  specs: [{ label: 'Type', value: 'Bill validator' }, { label: 'Group', value: 'Cash systems' }, { label: 'Recognition', value: 'Up to 48 banknote positions, 12 banknotes in four directions' }, { label: 'Sensors', value: 'Optical and magnetic sensors' }, { label: 'Lighting', value: 'High visibility LCD lighting, eight on/off sequences' }, { label: 'Stackers', value: 'Lockable, all models feature their own lock' }, { label: 'Protocol', value: 'MDB protocol for vending machines' }, { label: 'Calibration', value: 'Easy on site calibration system' }, { label: 'Programming', value: 'Inhibition and enablement of banknotes through micro-switches' }],
+  details: [
+   'Introducing the most practical and functional banknote reader available, the BT11. Superior reliability in banknote recognition through optical and magnetic sensors that analyse the banknote throughout. Its length is combined with a mechanism designed for easy banknote insertion and quick, effortless cleaning.',
+   'General features include recognition of up to 48 banknote positions, being 12 banknotes in their four directions, high visibility LCD lighting in the banknote entrance with eight different on/off sequences, lockable stackers where all models feature their own lock, and MDB protocol for vending machines.',
+   'Programming covers an easy on site calibration system and inhibition and enablement of banknotes through micro-switches. The structure gives access to the banknote reading channel without tools, which makes cleaning and maintenance easier.',
+  ] },
+ { name: 'Engine Telemetry System', image: 'assets/payment/coges-engine-telemetry.png', category: 'Payment Solutions', variant: 'accent',
+  tagline: 'Real-time data at your fingertips',
+  description: 'A multi-standard telemetry system providing a real time remote connection to vending machines and operators, with audits, transactions and alarms.',
+  tags: ['Wireless GPRS', 'Real-Time Dashboard', 'Automated Alarms'],
+  brochure: 'coges-engine-telemetry.pdf',
+  specs: [{ label: 'Type', value: 'Telemetry system' }, { label: 'Group', value: 'Telemetry systems' }, { label: 'Protocols', value: 'Executive, MDB, BDV, RS232' }, { label: 'Connection', value: 'Real time remote connection' }, { label: 'Data Transmission', value: 'Wireless GPRS' }, { label: 'Accounting', value: 'Remote downloading of accounting data' }, { label: 'Dashboard', value: 'Displays all vending machine activity' }, { label: 'Alarms', value: 'Power cuts, out of order machines, low stock or lack of products' }],
+  details: [
+   'The Engine Telemetry System is the most complete and innovative electronic vending system; the most advanced functions of the cashless payment system are integrated with cash management and telemetry into one powerful, complete and flexible system to adapt to any need.',
+   'This is a multi-standard system able to support Executive, MDB, BDV and RS232. It provides real-time data at your fingertips and this includes audits, transactions and alarms.',
+   'Telemetry provides a real time remote connection to vending machines and operators, with data transmission via wireless GPRS, remote downloading of accounting data, a dashboard that displays all vending machine activity, and alarms for power cuts, out of order machines, low stock or lack of products.',
+  ] },
+];
+PRODUCTS.push(...PRODUCTS_PAYMENT);
 
 const PRODUCTS_RECYCLING = [
  { name: 'Tritech Shredder', category: 'Recycling', variant: 'default',
@@ -412,12 +591,12 @@ PRODUCTS.push(...PRODUCTS_RECYCLING);
 const CATEGORY_IMAGES = {
  'Vending Machines': 'assets/cat-vending.jpg',
  'Hot Beverage Solutions': 'assets/cat-coffee.jpg',
- 'Water Coolers': 'assets/cat-water.jpg',
+ 'Water Solutions': 'assets/cat-water.jpg',
  'Payment Solutions': 'assets/cat-payment.jpg',
  'Recycling': 'assets/recycling-symbol.png',
 };
 
-const FILTER_LABELS = ['All', 'Vending Machines', 'Hot Beverage Solutions', 'Water Coolers', 'Payment Solutions', 'Recycling'];
+const FILTER_LABELS = ['All Products', 'Vending Machines', 'Hot Beverage Solutions', 'Water Solutions', 'Payment Solutions', 'Recycling'];
 
 class Component extends DCLogic {
 
@@ -486,7 +665,7 @@ class Component extends DCLogic {
   else window.addEventListener('load', ready);
  }
 
- state = { mobileMenu: false, overviewOpen: false, openFaq: 0, activeFilter: 'Hot Beverage Solutions', selectedProduct: null, visibleCount: 9, productsMenu: false, contactMenu: false };
+ state = { mobileMenu: false, overviewOpen: false, openFaq: -1, activeFilter: 'Hot Beverage Solutions', selectedProduct: null, visibleCount: 9, productsMenu: false, contactMenu: false };
 
 
  renderVals() {
@@ -500,11 +679,11 @@ class Component extends DCLogic {
    return {
     label,
     onClick: () => this.setState({ activeFilter: label, visibleCount: 9 }),
-    style: `padding:10px 22px;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;border:1px solid ${active ? '#1C1C1A' : '#D3D7DD'};background:${active ? '#1C1C1A' : 'transparent'};color:${active ? '#FAFBFC' : '#1C1C1A'};font-family:'Inter',sans-serif;`,
+    style: `padding:10px 22px;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;border:1px solid ${active ? (label === 'All Products' ? '#C8102E' : '#1C1C1A') : '#D3D7DD'};background:${active ? (label === 'All Products' ? '#C8102E' : '#1C1C1A') : 'transparent'};color:${active ? '#FAFBFC' : '#1C1C1A'};font-family:'Inter',sans-serif;`,
    };
   });
 
-  const base = this.state.activeFilter === 'All'
+  const base = this.state.activeFilter === 'All Products'
    ? PRODUCTS
    : PRODUCTS.filter(p => p.category === this.state.activeFilter);
   const hasMore = base.length > this.state.visibleCount;
@@ -512,24 +691,36 @@ class Component extends DCLogic {
   const OVERVIEW_COPY = {
    'Vending Machines': 'Suited to offices, factory floors, campuses and any site where staff need refreshments outside canteen hours. We survey the space first, confirm power and floor requirements, and recommend a machine sized to your headcount and traffic.',
    'Hot Beverage Solutions': 'Suited to office kitchens, reception areas and staff rooms. We match the machine to the number of cups a day the site pours, and set the drink menu, strengths and cup sizes during installation.',
-   'Water Coolers': 'Suited to offices, waiting areas and industrial sites. Plumbed-in models are installed to your existing water supply, and filters are replaced on a scheduled service cycle.',
+   'Water Solutions': 'Suited to offices, waiting areas and industrial sites. Plumbed-in models are installed to your existing water supply, and filters are replaced on a scheduled service cycle.',
    'Payment Solutions': 'Retrofits to machines already on site. We handle the fitment, the merchant setup and the reporting login, so cashless sales come online without replacing equipment.',
    'Recycling': 'Suited to canteens, staff areas and any site working to cut waste volumes. We advise on placement, collection frequency and how the unit fits your existing waste process.',
   };
 
   const withOverview = (p) => ({
    ...p,
-   overview: [
+   overview: (p.details && p.details.length) ? p.details : [
     OVERVIEW_COPY[p.category] || 'We survey the site first and recommend the right configuration for your headcount, traffic and available space.',
     'Installation, servicing and repairs are carried out by our own teams, not subcontractors, from hubs in Johannesburg, Cape Town and Durban. Routine maintenance visits are scheduled and breakdown calls are logged through our support line.',
     'Available to buy or rent. Rental agreements include maintenance and aftersales support, and consumables supply can be added so the machine is stocked without a separate order each month.',
    ],
   });
+  const withSpecSplit = (p) => ({
+   ...p,
+   specsKey: (p.specs || []).slice(0, 4),
+   specsRest: (p.specs || []).slice(4),
+  });
+
+  const withBrochure = (p) => ({
+   ...p,
+   brochureHref: 'assets/brochures/' + (p.brochure || p.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') + '.pdf'),
+   brochureStyle: 'display:inline-flex;align-items:center;gap:8px;border:1.5px solid #1C1C1A;color:#1C1C1A;padding:14px 24px;border-radius:999px;font-size:14.5px;font-weight:600;white-space:nowrap;',
+  });
+
   const withImage = (p) => ({
    ...p,
-   imgRef: (el) => { if (el) el.src = (p.image && p.image.endsWith('.png')) ? p.image : 'assets/hz87-cropped.png'; },
-   imgStyle: 'max-width:100%;max-height:100%;object-fit:contain;display:block;',
-   placeholderStyle: 'display:none;',
+   imgRef: (el) => { if (el && p.image) el.src = p.image; },
+   imgStyle: p.image ? 'max-width:100%;max-height:100%;object-fit:contain;display:block;' : 'display:none;',
+   placeholderStyle: p.image ? 'display:none;' : 'font-size:12px;letter-spacing:2px;text-indent:2px;white-space:nowrap;text-transform:uppercase;color:#6B6B68;font-weight:600;',
   });
   const products = visible.map(p => ({
    ...withImage(p),
@@ -538,7 +729,7 @@ class Component extends DCLogic {
   }));
 
   const open = this.state.productsMenu;
-  const categoryLinks = FILTER_LABELS.filter(l => l !== 'All').map(label => ({
+  const categoryLinks = FILTER_LABELS.filter(l => l !== 'All Products').map(label => ({
    label,
    href: label + '.dc.html',
    onClick: () => this.setState({ productsMenu: false }),
@@ -547,7 +738,7 @@ class Component extends DCLogic {
   const BLURBS = {
    'Vending Machines': 'Snack, drink and combo machines with dual temperature zones, refrigeration and capacities from 180 to 312 items.',
    'Hot Beverage Solutions': 'Bean-to-cup, fresh brew and instant machines with fresh milk, touchscreen selection and fully customisable drinks.',
-   'Water Coolers': 'Plumbed-in and under-counter coolers serving cold, ambient and sparkling water with UVC purification and filtration.',
+   'Water Solutions': 'Plumbed-in and under-counter coolers serving cold, ambient and sparkling water with UVC purification and filtration.',
    'Payment Solutions': 'Cashless, card and mobile payment systems with real-time reporting that retrofit to your existing machines.',
    'Recycling': 'Automatic cup shredding and bottle compacting stations that cut waste volume by up to 7x, with an incentive reward system.',
   };
@@ -569,33 +760,48 @@ class Component extends DCLogic {
 
   const FAQ_BY_CATEGORY = {
    'Vending Machines': [
-    { q: 'How many products can it hold?', a: 'Capacity depends on the model and the planogram. Shelves and spirals are adjustable, so the mix of cans, confectionery and snacks is set up around what your site actually buys.' },
-    { q: 'Does it take card payments?', a: 'Yes. Card readers and mobile payment can be fitted to any machine in the range, alongside or instead of coin and note handling.' },
-    { q: 'Who refills it?', a: 'On serviced sites our teams restock during scheduled visits. On self-replenishment rentals you stock the machine and we supply the consumables.' },
-    { q: 'What power and space does it need?', a: 'A standard wall socket and a level floor against a wall. We survey the site before installation to confirm clearance and access.' },
+    { q: 'How many products can it hold?', a: 'It depends on the model. The Palma Hz70 carries 180 items (60 drinks, 120 snacks), the Hz87 carries 280 (120 drinks, 160 snacks), the Hz87 Premium carries 220 including 20 sandwiches or wraps, and the CV1000 and CV4000 both carry 312 (144 drinks, 168 snacks).' },
+    { q: 'Can one machine hold both cold drinks and snacks?', a: 'Yes. The combo range runs two independently controlled temperature zones: lower trays at 4°C to 10°C for chilled cans and bottles, upper trays at 14°C to 25°C for confectionery and snacks.' },
+    { q: 'Which payment methods are supported?', a: 'Most models take notes, coins and cashless payment through Nayax, and a debit, credit and virtual card facility can be added. The CV4000 with touchscreen and the Smart Fridge are cashless only.' },
+    { q: 'Can fresh food and sandwiches be vended?', a: 'Yes. The Hz87 Premium uses a selective belt system for sandwiches and wraps, the Vision Esplus Bluetec uses an elevator belt for multi-product dispensing, and the Smart Fridge and Smart Freezer use weight-sensing plates behind an opening door.' },
+    { q: 'What power and space does it need?', a: 'Most units run on a standard ~220V-240V 50Hz supply; the Smart Fridge and Smart Freezer run on ~110V-115V 60Hz. Widths range from 670mm on the smart cabinets to 1120mm on the CV4000 and Vision Esplus, all 1830mm to 1870mm tall.' },
+    { q: 'Can stock be monitored remotely?', a: 'Telemetry is supported across the range, so sales, stock levels and faults can be seen remotely. The Vision Esplus Bluetec also tracks expiry dates per channel and can block a channel automatically once the date is reached.' },
+    { q: 'How energy efficient are the machines?', a: 'Cabinets are fully foam insulated with double glazed viewing windows and LED internal lighting. Combo models use R-134a refrigerant, and the Smart Fridge and Smart Freezer use R600a.' },
    ],
    'Hot Beverage Solutions': [
-    { q: 'Instant or bean to cup?', a: 'Both are available. Bean to cup suits sites where coffee quality matters most; instant is simpler to run and cheaper per cup at high volumes.' },
-    { q: 'How many cups a day can it handle?', a: 'Table top units suit smaller offices, while free-standing models are built for continuous use. We size the machine to your headcount during the survey.' },
-    { q: 'Does it need a water connection?', a: 'Plumbed-in and manually filled options are available depending on the model and where the machine will stand.' },
+    { q: 'Instant, fresh bean or barista?', a: 'All three. Fresh bean brewers such as the Orion G23, Saeco Magic and Azkoyen Vitro range grind per cup, the Gaggia La Brillante and Jettino JL33 combine bean to cup with instant hoppers, and the Ascaso Barista T is a multi-group machine for a trained operator.' },
+    { q: 'Which machine suits a busy site?', a: 'The Azkoyen Vitro S5 MIA holds a 2kg bean hopper, four soluble hoppers and offers up to 20 beverages, while the free standing NEOQs and Novara DFB are built for continuous use. The Saeco Magic at 280mm wide suits small offices.' },
+    { q: 'Fresh milk or powder?', a: 'Fresh milk fridges are part of the Jettino JL33, Gaggia La Brillante and both Azkoyen Vitro models, and the Saeco Magic offers one touch high speed milk. The ZEN Fresh Bean and ZEN DFB use powder milk.' },
+    { q: 'Can we serve freshly brewed tea?', a: 'Yes. The ZEN DFB adds fresh tea leaf to the fresh bean platform, NEOQs runs a dedicated tea hopper alongside coffee and five instants, and the Vitro S5 MIA has an independent water spout for tea and infusions.' },
+    { q: 'How many drinks can staff choose from?', a: 'It depends on the model: over 15 beverages on the Jettino JL33, up to 20 on the Vitro S5 MIA, and a 12 selection touch panel on the Vitro X1. Drink menus, strengths and volumes are configured at installation.' },
+    { q: 'Which payment methods are supported?', a: 'Cashless payment through Nayax across the range, with telemetry supported so usage and faults can be monitored remotely.' },
+    { q: 'Do the machines waste disposable cups?', a: 'NEOQs uses I-Detect cup recognition, so it will not dispense a cup when the user brings their own. The Novara DFB has a cup detector, and the ZEN range includes an auto cup dispenser.' },
     { q: 'Do you supply the coffee?', a: 'Yes. Instant, filter and whole bean, plus tea, hot chocolate, milk and sundries, on a standing order or on demand.' },
    ],
-   'Water Coolers': [
-    { q: 'Plumbed-in or bottled?', a: 'Both. Point-of-use units plumb into the mains and filter on site; bottled units are manually filled and need no plumbing.' },
-    { q: 'What water options are there?', a: 'Depending on the model: cold, ambient, sparkling, filtered and purified.' },
-    { q: 'How often are filters changed?', a: 'Filters are replaced on a service schedule based on throughput. Replacement filters and UVC parts are stocked.' },
-    { q: 'Can it be installed under a counter?', a: 'Yes, several models are built for under-counter installation with a tap at the counter surface.' },
+   'Water Solutions': [
+    { q: 'Plumbed-in or bottled?', a: 'Both. Point-of-use units such as the Purezza Bar Classe, Waterlogic and Kastella ranges plumb into the mains and filter on site. The Legend Classic is manually refilled with an 18L filtering bottle and needs no plumbing.' },
+    { q: 'What water options are there?', a: 'It depends on the model. The Waterlogic 7 dispenses five types: ice-cold, ambient, sparkling, hot and extra-hot. The Bar Classe and Campione Tap serve cold, sparkling and ambient, the Waterlogic 2 and 100 serve cold and ambient, and The River is cold only.' },
+    { q: 'How much water can they deliver?', a: 'The Bar Classe dispenses 160L/hr, the Campione Tap 60L/hr, The River 20L/hr at 5°C to 12°C, and the Waterlogic 7 has a 17L/hr cooling capacity with 1.5L of hot water storage.' },
+    { q: 'How many people can one unit serve?', a: 'The Waterlogic 100 is rated for up to 20 users and the Waterlogic 2 for up to 30. For larger sites the high flow Purezza and Kastella units are sized on throughput rather than headcount.' },
+    { q: 'How is the water purified?', a: 'Firewall UVC purification on the Waterlogic and Purezza units purifies water up to 99.9999%, 100% of the time, reducing bacteria, viruses and cysts. Filtration is certified by IAPMO R&T and carries the Water Quality Platinum Seal, and BioCote antimicrobial protection uses a silver ion additive to reduce odours and cross contamination.' },
+    { q: 'Can it be installed under a counter?', a: 'Yes. The Bluglass Tower, BluTower and Campione Tap are counter-top taps fed by an under-counter unit, typically the Box Hot 60 Fizz at 318 x 335 x 467mm, and the Frizzante 80 Box is a dedicated under-counter model.' },
+    { q: 'How often are filters changed?', a: 'Filters are replaced on a service schedule based on throughput. Replacement carbon filters and UVC parts are stocked.' },
+    { q: 'What space does a unit need?', a: 'Counter taps start at 140mm square on the BluTower. Free standing units range from 310mm to 400mm wide, and the table top Waterlogic models stand around 450mm tall.' },
    ],
    'Payment Solutions': [
-    { q: 'Which payment methods are supported?', a: 'Tap-to-pay cards, mobile wallets and prepaid staff cards, alongside cash where it is still needed.' },
-    { q: 'Does it work with our existing machines?', a: 'In most cases yes. Readers retrofit to standard vending and coffee machines; we confirm compatibility before quoting.' },
-    { q: 'What does telemetry report?', a: 'Sales by product, stock levels, cash position and machine faults, visible remotely so refills and repairs are scheduled before a machine stops trading.' },
-    { q: 'Is connectivity included?', a: 'Units run on a mobile data connection. Data is part of the monthly cost on rental agreements.' },
+    { q: 'Do these replace our machines?', a: 'No. Card readers, coin changers, bill validators and telemetry units retrofit to machines already on site. We handle the fitment, the merchant setup and the reporting login.' },
+    { q: 'What is the difference between the VPos Touch and the Onyx?', a: 'Both are Nayax bank card devices. The VPos Touch is an all-in-one reader taking contactless, mag strip and chip, certified to EMV level 1 and level 2. The Onyx is a sleek tap-and-go contactless reader that fits on any vending machine, adding NFC, marketing tools and remote machine management.' },
+    { q: 'Which cards are supported?', a: 'Mastercard and Visa, with Visa PayWave MSD and qVSDC contactless. Other supported cards include NFC, MIFARE and ISO 14443 Type A,B, plus ISO 15693 on the VPos Touch, and magnetic stripe to ISO7811 and JIS I Tracks 1,2,3.' },
+    { q: 'Can we still take cash?', a: 'Yes. The Jofemar JF8 is the only coin changer on the market with eight coin tubes, accepting all South African old and new coin sets with tubes configurable past R1000 and change from R0,50c to R5,00. The Creos and Jofemar BT11 bill validators handle banknotes.' },
+    { q: 'How reliable is banknote recognition?', a: 'Both validators recognise up to 48 banknote positions, being 12 banknotes in four directions. The Creos uses nine optical reading signals with anti-fraud prevention, and the BT11 combines optical and magnetic sensors that analyse the banknote throughout.' },
+    { q: 'What reporting do we get?', a: 'Nayax Vend gives machine and transaction monitoring in real-time, customised alerts by email or SMS, personalised reports, a BI system and cash accountability. The Engine Telemetry System adds audits, transactions and alarms over wireless GPRS, with a dashboard covering all machine activity.' },
+    { q: 'Will it work with our existing machines?', a: 'The Engine systems are multi-standard, supporting Executive, MDB, BDV and RS232, and the JF8 and BT11 use MDB protocol. Most machines in our range are MDB compatible.' },
+    { q: 'Can we run staff accounts or subsidised vending?', a: 'Yes. The Engine Electronic Cashless System supports scheduled free or discounted sales, monthly consumption control, bonus categories and calories control, and is compatible with MiFARE cards and FOBS.' },
    ],
   };
   const faqCat = this.state.selectedProduct ? this.state.selectedProduct.category : '';
   const faqOpen = this.state.openFaq;
-  const productFaqs = (FAQ_BY_CATEGORY[faqCat] || []).map((q, i) => ({
+  const productFaqs = (FAQ_BY_CATEGORY[faqCat] || []).slice(0, 5).map((q, i) => ({
    ...q,
    onToggle: () => this.setState({ openFaq: faqOpen === i ? -1 : i }),
    iconStyle: `font-size:22px;font-weight:400;color:#C8102E;flex-shrink:0;transition:transform .25s ease;transform:rotate(${faqOpen === i ? 45 : 0}deg);`,
@@ -613,7 +819,7 @@ class Component extends DCLogic {
    mobileNavLinks: [
     { label: 'Vending Machines', href: 'Vending Machines.dc.html' },
     { label: 'Hot Beverage Solutions', href: 'Hot Beverage Solutions.dc.html' },
-    { label: 'Water Coolers', href: 'Water Coolers.dc.html' },
+    { label: 'Water Solutions', href: 'Water Solutions.dc.html' },
     { label: 'Payment Solutions', href: 'Payment Solutions.dc.html' },
     { label: 'Recycling Solutions', href: 'Recycling.dc.html' },
     { label: 'Consumables', href: 'Consumables.dc.html' },
@@ -648,14 +854,15 @@ class Component extends DCLogic {
    toggleOverview: () => this.setState({ overviewOpen: !this.state.overviewOpen }),
    overviewToggleLabel: this.state.overviewOpen ? 'Read less' : 'Read more',
    overviewClampStyle: this.state.overviewOpen ? '' : 'max-height:112px;overflow:hidden;',
-   selectedProduct: this.state.selectedProduct ? withOverview(withImage(this.state.selectedProduct)) : { imgRef: () => {}, tags: [], specs: [], overview: [], category: '', name: '', tagline: '', description: '' },
+   moreSpecsStyle: this.state.overviewOpen ? '' : 'display:none;',
+   selectedProduct: this.state.selectedProduct ? withSpecSplit(withBrochure(withOverview(withImage(this.state.selectedProduct)))) : { imgRef: () => {}, tags: [], specs: [], specsKey: [], specsRest: [], overview: [], category: '', name: '', tagline: '', description: '' },
    catalogueStyle: this.state.selectedProduct ? 'display:none;' : '',
    detailStyle: this.state.selectedProduct ? '' : 'display:none;',
    stopPropagation: (e) => e.stopPropagation(),
    closeDetail: (e) => { if (e) e.preventDefault(); this.setState({ selectedProduct: null }); },
    filters,
    productFaqs,
-   categoryFaqs: (FAQ_BY_CATEGORY[this.state.activeFilter] || []).map((q, i) => ({
+   categoryFaqs: (FAQ_BY_CATEGORY[this.state.activeFilter] || []).slice(0, 5).map((q, i) => ({
     ...q,
     onToggle: () => this.setState({ openFaq: faqOpen === i ? -1 : i }),
     iconStyle: `font-size:22px;font-weight:400;color:#C8102E;flex-shrink:0;transition:transform .25s ease;transform:rotate(${faqOpen === i ? 45 : 0}deg);`,

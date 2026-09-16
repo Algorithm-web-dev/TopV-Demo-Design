@@ -12,6 +12,9 @@
  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
  <style>
   body { margin: 0; background: #FAFBFC; }
+  body, h1, h2, h3, h4, h5, h6, p, div, span, a, button, input, textarea, select, label, li, td, th {
+   font-family: Inter, system-ui, -apple-system, sans-serif;
+  }
   a { color: #C8102E; text-decoration: none; }
   a:hover { color: #8f0c20; }
   @keyframes scrollBounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
@@ -21,17 +24,18 @@
  </style>
  <link rel="stylesheet" href="responsive.css" />
  <script src="quote-cart.js"></script>
+ <script src="site-search.js"></script>
 </helmet>
 
 <div style="font-family:'Inter',sans-serif;color:#1C1C1A;background:#FAFBFC;overflow-x:hidden;">
 
  <nav style="position:fixed;top:20px;left:24px;right:24px;height:72px;background:rgba(250,250,248,0.88);backdropFilter:blur(18px);WebkitBackdropFilter:blur(18px);border:1px solid rgba(255,255,255,0.5);box-shadow:0 10px 30px rgba(0,0,0,0.08);border-radius:999px;display:flex;align-items:center;justify-content:space-between;gap:32px;padding:0 28px;z-index:100;box-sizing:border-box;">
-  <a href="index.html" style="display:flex;align-items:center;flex:0 1 auto;width:100%;max-width:190px;min-width:90px;height:52px;"><img src="assets/logo.png" alt="Top Vending" style="height:100%;width:100%;object-fit:contain;object-position:left center;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.18));" /></a>
+  <a href="Top Vending.dc.html" style="display:flex;align-items:center;flex:0 1 auto;width:100%;max-width:190px;min-width:90px;height:52px;"><img src="assets/logo.png" alt="Top Vending" style="height:100%;width:100%;object-fit:contain;object-position:left center;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.18));" /></a>
   <div style="display:flex;align-items:center;gap:40px;">
    <div data-nav-links="1" style="display:flex;gap:32px;font-size:14px;">
     <div style="position:relative;display:flex;align-items:center;" onMouseEnter="{{ openProductsMenu }}" onMouseLeave="{{ closeProductsMenu }}">
      <a href="Products.dc.html" style="color:#1C1C1A;display:flex;align-items:center;gap:6px;white-space:nowrap;" style-hover="color:#C8102E;">Products
-      <span style="font-size:9px;line-height:1;opacity:0.6;">▼</span>
+      <span style="font-family:'Inter',sans-serif;font-size:9px;line-height:1;opacity:0.6;">▼</span>
      </a>
      <div style="{{ productsMenuStyle }}">
       <div style="background:#FFFFFF;border:1px solid #E1E4E8;border-radius:16px;padding:8px;box-shadow:0 18px 40px rgba(0,0,0,0.12);display:flex;flex-direction:column;gap:2px;">
@@ -48,7 +52,7 @@
     <a href="Blog.dc.html" style="color:#1C1C1A;white-space:nowrap;" style-hover="color:#C8102E;">Blog</a>
     <div style="position:relative;display:flex;align-items:center;" onMouseEnter="{{ openContactMenu }}" onMouseLeave="{{ closeContactMenu }}">
      <a href="Contact.dc.html" style="color:#1C1C1A;display:flex;align-items:center;gap:6px;white-space:nowrap;" style-hover="color:#C8102E;">Contact
-      <span style="font-size:9px;line-height:1;opacity:0.6;">▼</span>
+      <span style="font-family:'Inter',sans-serif;font-size:9px;line-height:1;opacity:0.6;">▼</span>
      </a>
      <div style="{{ contactMenuStyle }}">
       <div style="background:#FFFFFF;border:1px solid #E1E4E8;border-radius:16px;padding:8px;box-shadow:0 18px 40px rgba(0,0,0,0.12);display:flex;flex-direction:column;gap:2px;">
@@ -59,11 +63,12 @@
      </div>
     </div>
    </div>
-   <a href="Contact.dc.html" style="background:#C8102E;color:#FAFBFC;padding:12px 26px;border-radius:999px;font-size:14px;font-weight:600;white-space:nowrap;flex-shrink:0;" style-hover="background:#8f0c20;color:#FAFBFC;">Get a Free Quote</a>
+   <button data-tv-search="1" aria-label="Search" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:1px solid #E1E4E8;background:#FFFFFF;cursor:pointer;flex-shrink:0;padding:0;color:#45443F;" style-hover="border-color:#C8102E;color:#C8102E;"><svg width="17" height="17" viewBox="0 0 17 17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="7.2" cy="7.2" r="5.1"></circle><line x1="11.2" y1="11.2" x2="15.4" y2="15.4"></line></svg></button>
+   <a data-nav-cta="1" href="Contact.dc.html" style="background:#C8102E;color:#FAFBFC;padding:12px 26px;border-radius:999px;font-size:14px;font-weight:600;white-space:nowrap;flex-shrink:0;" style-hover="background:#8f0c20;color:#FAFBFC;">Get a Free Quote</a>
    <button data-nav-toggle="1" aria-label="Menu" onClick="{{ toggleMobileMenu }}" style="{{ mobileToggleStyle }}">
-    <span style="display:block;width:18px;height:2px;background:#1C1C1A;position:relative;">
-     <span style="position:absolute;top:-6px;left:0;width:18px;height:2px;background:#1C1C1A;display:block;"></span>
-     <span style="position:absolute;top:6px;left:0;width:18px;height:2px;background:#1C1C1A;display:block;"></span>
+    <span style="font-family:'Inter',sans-serif;display:block;width:18px;height:2px;background:#1C1C1A;position:relative;">
+     <span style="font-family:'Inter',sans-serif;position:absolute;top:-6px;left:0;width:18px;height:2px;background:#1C1C1A;display:block;"></span>
+     <span style="font-family:'Inter',sans-serif;position:absolute;top:6px;left:0;width:18px;height:2px;background:#1C1C1A;display:block;"></span>
     </span>
    </button>
   </div>
@@ -73,6 +78,7 @@
   <sc-for list="{{ mobileNavLinks }}" as="m" hint-placeholder-count="7">
    <a href="{{ m.href }}" onClick="{{ closeMobileMenu }}" style="display:block;padding:13px 16px;border-radius:12px;font-size:15px;font-weight:500;color:#1C1C1A;" style-hover="background:#EFF1F3;color:#C8102E;">{{ m.label }}</a>
   </sc-for>
+   <button data-tv-search="1" onClick="{{ closeMobileMenu }}" style="display:block;width:100%;text-align:left;background:transparent;border:none;padding:13px 16px;border-radius:12px;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:#1C1C1A;cursor:pointer;">Search</button>
   <a href="Contact.dc.html#quote" onClick="{{ closeMobileMenu }}" style="display:block;margin-top:8px;text-align:center;background:#C8102E;color:#FAFBFC;padding:14px 20px;border-radius:999px;font-size:14px;font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Get a Free Quote</a>
  </div>
 
@@ -82,7 +88,7 @@
   <div style="max-width:760px;padding:0 40px;position:relative;z-index:2;">
    <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#D9D9D5;font-weight:600;margin-bottom:20px;">South Africa's Largest Vending &amp; Water Cooler Supplier</div>
    <h1 data-hero="1" style="font-family:'Inter',system-ui,sans-serif;font-weight:700;font-size:clamp(2.25rem,4.6vw,3.75rem);line-height:1.05;letter-spacing:-0.032em;text-wrap:balance;margin:0 0 24px;color:#FAFBFC;">Vending, <em style="font-style:normal;color:#C8102E;">Reimagined</em> for the Modern Workplace</h1>
-   <p style="font-size:18px;line-height:1.6;color:#D9D9D5;max-width:480px;margin:0 auto 36px;">Premium hot beverage, snack, cold drink and water cooler machines, exclusively distributed and fully supported, nationwide.</p>
+   <p style="font-family:'Inter',sans-serif;font-size:18px;line-height:1.6;color:#D9D9D5;max-width:480px;margin:0 auto 36px;">Premium hot beverage, snack, cold drink and water cooler machines, exclusively distributed and fully supported, nationwide.</p>
    <div style="display:flex;gap:16px;justify-content:center;">
     <a href="Contact.dc.html" style="background:#C8102E;color:#FAFBFC;padding:16px 32px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#8f0c20;">Get a Free Quote</a>
     <a href="#ranges" style="border:1.5px solid #FAFBFC;color:#FAFBFC;padding:16px 32px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="border-color:#C8102E;color:#C8102E;">Browse Machines</a>
@@ -109,8 +115,8 @@
     <div>
      <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Who we are</div>
      <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:40px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 20px;">Supplying South African workplaces since 1991.</h2>
-     <p style="font-size:17px;line-height:1.7;color:#45443F;margin:0 0 20px;">Top Vending supplies, installs and services vending machines, hot beverage equipment, water coolers and recycling stations for offices, factories, mines and campuses across the country.</p>
-     <p style="font-size:17px;line-height:1.7;color:#45443F;margin:0 0 32px;">We partner with leading international manufacturers and back every machine with our own installation, service and consumables teams, working out of three national hubs.</p>
+     <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#45443F;margin:0 0 20px;">Top Vending supplies, installs and services vending machines, hot beverage equipment, water coolers and recycling stations for offices, factories, mines and campuses across the country.</p>
+     <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#45443F;margin:0 0 32px;">We partner with leading international manufacturers and back every machine with our own installation, service and consumables teams, working out of three national hubs.</p>
      <a href="About.dc.html" style="display:inline-block;border:1.5px solid #1C1C1A;color:#1C1C1A;padding:15px 32px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#1C1C1A;color:#FAFBFC;">More About Us</a>
     </div>
    </div>
@@ -118,9 +124,9 @@
    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
     <sc-for list="{{ whatWeDo }}" as="w" hint-placeholder-count="4">
      <a href="{{ w.href }}" style="display:block;border-top:2px solid #1C1C1A;padding:20px 0 0;color:#1C1C1A;" style-hover="color:#C8102E;">
-      <span style="display:block;font-size:13px;font-weight:700;color:#C8102E;margin-bottom:10px;">{{ w.number }}</span>
-      <span style="display:block;font-size:19px;font-weight:700;letter-spacing:-0.02em;margin-bottom:8px;">{{ w.title }}</span>
-      <span style="display:block;font-size:15px;line-height:1.65;color:#45443F;">{{ w.body }}</span>
+      <span style="font-family:'Inter',sans-serif;display:block;font-size:13px;font-weight:700;color:#C8102E;margin-bottom:10px;">{{ w.number }}</span>
+      <span style="font-family:'Inter',sans-serif;display:block;font-size:19px;font-weight:700;letter-spacing:-0.02em;margin-bottom:8px;">{{ w.title }}</span>
+      <span style="font-family:'Inter',sans-serif;display:block;font-size:15px;line-height:1.65;color:#45443F;">{{ w.body }}</span>
      </a>
     </sc-for>
    </div>
@@ -138,20 +144,20 @@
     <div>
      <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Vending machines</div>
      <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 20px;">Smart snack and combo units</h2>
-     <p style="font-size:17px;line-height:1.7;color:#45443F;margin:0 0 28px;max-width:460px;">Top Vending supplies modern machines in sizes to suit any location, from office lobbies to large facilities.</p>
+     <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#45443F;margin:0 0 28px;max-width:460px;">Top Vending supplies modern machines in sizes to suit any location, from office lobbies to large facilities.</p>
      <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:34px;">
       <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
-       <span style="width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Remote telemetry and stock monitoring
+       <span style="font-family:'Inter',sans-serif;width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Remote telemetry and stock monitoring
       </div>
       <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
-       <span style="width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Cashless and mobile payment ready
+       <span style="font-family:'Inter',sans-serif;width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Cashless and mobile payment ready
       </div>
       <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
-       <span style="width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>On-site servicing and maintenance
+       <span style="font-family:'Inter',sans-serif;width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>On-site servicing and maintenance
       </div>
      </div>
      <a href="Contact.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:#C8102E;color:#FAFBFC;padding:16px 32px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#8f0c20;">Get a Quote
-      <span style="font-size:13px;">→</span>
+      <span style="font-family:'Inter',sans-serif;font-size:13px;">→</span>
      </a>
     </div>
    </div>
@@ -163,55 +169,58 @@
   <div style="max-width:1200px;margin:0 auto;">
    <div style="display:grid;grid-template-columns:1fr 1.05fr;gap:70px;align-items:center;">
     <div>
-     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Water cooler solutions</div>
-     <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 20px;">Purified water on tap</h2>
-     <p style="font-size:17px;line-height:1.7;color:#45443F;margin:0 0 28px;max-width:460px;">Plumbed-in and bottled coolers deliver cold, ambient and sparkling water, with filtration and purification built in.</p>
+     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Hot beverage solutions</div>
+     <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 20px;">Barista quality, self serve</h2>
+     <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#45443F;margin:0 0 28px;max-width:460px;">Bean to cup, fresh brew and instant machines in table top and free standing options, sized to the number of cups your site pours a day.</p>
      <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:34px;">
       <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
-       <span style="width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Cold, ambient and sparkling options
+       <span style="font-family:'Inter',sans-serif;width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Bean to cup, fresh brew and instant
       </div>
       <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
-       <span style="width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Filtered UVC purification and filtration
+       <span style="font-family:'Inter',sans-serif;width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Fresh milk and touchscreen selection
       </div>
       <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
-       <span style="width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Plumbed-in or under-counter installation
+       <span style="font-family:'Inter',sans-serif;width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Fully customisable drink menus
       </div>
      </div>
-     <a href="Contact.dc.html" style="display:inline-block;border:1.5px solid #1C1C1A;color:#1C1C1A;padding:15px 32px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#1C1C1A;color:#FAFBFC;">Learn More</a>
+     <a href="Hot Beverage Solutions.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:#C8102E;color:#FAFBFC;padding:16px 32px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#8f0c20;">View Machines
+      <span style="font-family:'Inter',sans-serif;font-size:13px;">→</span>
+     </a>
     </div>
     <div style="height:430px;overflow:hidden;background:#1C1C1A;box-shadow:0 24px 60px rgba(28,28,26,0.18);position:relative;">
-     <img src="assets/water-cooler.jpg" alt="Water cooler solutions" style="width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;filter:contrast(1.06) saturate(1.05) brightness(0.88);" />
+     <img src="assets/cat-coffee.jpg" alt="Hot beverage solutions" style="width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.06) saturate(1.05) brightness(0.88);" />
      <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(20,20,18,0.18) 0%, rgba(20,20,18,0.06) 45%, rgba(20,20,18,0.28) 100%);"></div>
     </div>
    </div>
-
   </div>
  </section>
 
  <section style="background:#EFF1F3;padding:130px 48px;box-sizing:border-box;">
   <div style="max-width:1200px;margin:0 auto;">
    <div style="display:grid;grid-template-columns:1.05fr 1fr;gap:70px;align-items:center;">
-    <div style="height:430px;overflow:hidden;background:#FFFFFF;box-shadow:0 24px 60px rgba(28,28,26,0.10);display:flex;align-items:center;justify-content:center;padding:56px;box-sizing:border-box;">
-     <img src="assets/recycling-symbol.png" alt="Recycling solutions" style="max-width:100%;max-height:100%;object-fit:contain;display:block;" />
+    <div style="height:430px;overflow:hidden;background:#1C1C1A;box-shadow:0 24px 60px rgba(28,28,26,0.18);position:relative;">
+     <img src="assets/water-cooler.jpg" alt="Water cooler solutions" style="width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;filter:contrast(1.06) saturate(1.05) brightness(0.88);" />
+     <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(20,20,18,0.18) 0%, rgba(20,20,18,0.06) 45%, rgba(20,20,18,0.28) 100%);"></div>
     </div>
     <div>
-     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Recycling solutions</div>
-     <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 20px;">Close the loop on site waste</h2>
-     <p style="font-size:17px;line-height:1.7;color:#45443F;margin:0 0 28px;max-width:460px;">Automatic shredding and compacting stations cut cup, bottle and can waste by up to 7x, right where it is generated.</p>
+     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Water cooler solutions</div>
+     <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 20px;">Purified water on tap</h2>
+     <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#45443F;margin:0 0 28px;max-width:460px;">Plumbed-in and bottled coolers deliver cold, ambient and sparkling water, with filtration and purification built in.</p>
      <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:34px;">
       <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
-       <span style="width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Up to 7x volume reduction
+       <span style="font-family:'Inter',sans-serif;width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Cold, ambient and sparkling options
       </div>
       <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
-       <span style="width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Integrated sanitising and telemetry
+       <span style="font-family:'Inter',sans-serif;width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Filtered UVC purification and filtration
       </div>
       <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
-       <span style="width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Incentive reward system built in
+       <span style="font-family:'Inter',sans-serif;width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Plumbed-in or under-counter installation
       </div>
      </div>
-     <a href="Recycling.dc.html" style="display:inline-block;border:1.5px solid #1C1C1A;color:#1C1C1A;padding:15px 32px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#1C1C1A;color:#FAFBFC;">Learn More</a>
+     <a href="Contact.dc.html" style="display:inline-block;border:1.5px solid #1C1C1A;color:#1C1C1A;padding:15px 32px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#1C1C1A;color:#FAFBFC;">Learn More</a>
     </div>
    </div>
+
   </div>
  </section>
 
@@ -219,27 +228,54 @@
   <div style="max-width:1200px;margin:0 auto;">
    <div style="display:grid;grid-template-columns:1fr 1.05fr;gap:70px;align-items:center;">
     <div>
-     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Consumables</div>
-     <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 20px;">Everything the machines run on</h2>
-     <p style="font-size:17px;line-height:1.7;color:#45443F;margin:0 0 28px;max-width:460px;">Coffee, tea, sugar, milk, cups and cleaning products delivered to site, ordered on their own or supplied as part of a rental agreement.</p>
+     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Recycling solutions</div>
+     <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 20px;">Close the loop on site waste</h2>
+     <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#45443F;margin:0 0 28px;max-width:460px;">Automatic shredding and compacting stations cut cup, bottle and can waste by up to 7x, right where it is generated.</p>
      <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:34px;">
       <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
-       <span style="width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Instant and bean coffee, tea and hot chocolate
+       <span style="font-family:'Inter',sans-serif;width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Up to 7x volume reduction
       </div>
       <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
-       <span style="width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Cups, lids, stirrers and sugar
+       <span style="font-family:'Inter',sans-serif;width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Integrated sanitising and telemetry
       </div>
       <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
-       <span style="width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Descalers and milk system cleaners
+       <span style="font-family:'Inter',sans-serif;width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Incentive reward system built in
       </div>
      </div>
-     <a href="Consumables.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:#C8102E;color:#FAFBFC;padding:16px 32px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#8f0c20;">Get a Quote
-      <span style="font-size:13px;">→</span>
-     </a>
+     <a href="Recycling.dc.html" style="display:inline-block;border:1.5px solid #1C1C1A;color:#1C1C1A;padding:15px 32px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#1C1C1A;color:#FAFBFC;">Learn More</a>
     </div>
+    <div style="height:430px;overflow:hidden;background:#FFFFFF;box-shadow:0 24px 60px rgba(28,28,26,0.10);display:flex;align-items:center;justify-content:center;padding:56px;box-sizing:border-box;">
+     <img src="assets/recycling-symbol.png" alt="Recycling solutions" style="max-width:100%;max-height:100%;object-fit:contain;display:block;" />
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section style="background:#EFF1F3;padding:130px 48px;box-sizing:border-box;">
+  <div style="max-width:1200px;margin:0 auto;">
+   <div style="display:grid;grid-template-columns:1.05fr 1fr;gap:70px;align-items:center;">
     <div style="height:430px;overflow:hidden;background:#1C1C1A;box-shadow:0 24px 60px rgba(28,28,26,0.18);position:relative;">
      <img src="assets/blog-coffee.jpg" alt="Consumables" style="width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.06) saturate(1.05) brightness(0.88);" />
      <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(20,20,18,0.18) 0%, rgba(20,20,18,0.06) 45%, rgba(20,20,18,0.28) 100%);"></div>
+    </div>
+    <div>
+     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Consumables</div>
+     <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 20px;">Everything the machines run on</h2>
+     <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#45443F;margin:0 0 28px;max-width:460px;">Coffee, tea, sugar, milk, cups and cleaning products delivered to site, ordered on their own or supplied as part of a rental agreement.</p>
+     <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:34px;">
+      <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
+       <span style="font-family:'Inter',sans-serif;width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Instant and bean coffee, tea and hot chocolate
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
+       <span style="font-family:'Inter',sans-serif;width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Cups, lids, stirrers and sugar
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
+       <span style="font-family:'Inter',sans-serif;width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Descalers and milk system cleaners
+      </div>
+     </div>
+     <a href="Consumables.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:#C8102E;color:#FAFBFC;padding:16px 32px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#8f0c20;">Get a Quote
+      <span style="font-family:'Inter',sans-serif;font-size:13px;">→</span>
+     </a>
     </div>
    </div>
   </div>
@@ -252,7 +288,7 @@
    <div>
     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Rental Programme</div>
     <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:40px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 24px;">Rent the machine, keep the service.</h2>
-    <p style="font-size:17px;line-height:1.7;color:#A8A59C;margin:0 0 32px;max-width:480px;">Every rental includes maintenance, consumables and a dedicated aftersales team, backed by three national hubs. No capital outlay. No downtime.</p>
+    <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#A8A59C;margin:0 0 32px;max-width:480px;">Every rental includes maintenance, consumables and a dedicated aftersales team, backed by three national hubs. No capital outlay. No downtime.</p>
     <a href="Contact.dc.html" style="display:inline-block;background:#C8102E;color:#FAFBFC;padding:16px 32px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#8f0c20;">Enquire About Rentals</a>
    </div>
    <div style="display:flex;flex-wrap:wrap;gap:12px;">
@@ -286,7 +322,7 @@
    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
     <sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="3">
      <div style="background:#FFFFFF;border-radius:20px;padding:36px;box-sizing:border-box;display:flex;flex-direction:column;">
-      <p style="font-size:17px;line-height:1.65;color:#1C1C1A;margin:0 0 28px;">{{ t.quote }}</p>
+      <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.65;color:#1C1C1A;margin:0 0 28px;">{{ t.quote }}</p>
       <div style="margin-top:auto;">
        <div style="font-size:15px;font-weight:700;margin-bottom:4px;">{{ t.name }}</div>
        <div style="font-size:14px;color:#6B6B68;">{{ t.role }}</div>
@@ -303,7 +339,7 @@
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 90% at 50% 50%, rgba(20,20,18,0.9) 0%, rgba(20,20,18,0.82) 55%, rgba(20,20,18,0.7) 100%);z-index:1;"></div>
   <div style="position:relative;z-index:2;max-width:720px;margin:0 auto;">
    <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:42px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 18px;color:#FAFBFC;">Ready to upgrade your vending?</h2>
-   <p style="font-size:17px;line-height:1.7;color:#A8A59C;margin:0 0 36px;">We handle sales, rentals and full-service maintenance.</p>
+   <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#A8A59C;margin:0 0 36px;">We handle sales, rentals and full-service maintenance.</p>
    <a href="Contact.dc.html" style="display:inline-block;background:#C8102E;color:#FAFBFC;padding:17px 38px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#8f0c20;">Contact Us</a>
   </div>
  </section>
@@ -312,9 +348,9 @@
   <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto;">
    <div>
     <div style="margin-bottom:16px;">
-     <a href="index.html" style="display:inline-block;"><img src="assets/logo.png" alt="Top Vending" style="height:34px;object-fit:contain;" /></a>
+     <a href="Top Vending.dc.html" style="display:inline-block;"><img src="assets/logo.png" alt="Top Vending" style="height:34px;object-fit:contain;" /></a>
     </div>
-    <p style="font-size:14px;color:#6B6B68;line-height:1.6;margin:0 0 20px;max-width:280px;">Vending, coffee and water for South African workplaces. Since 1991.</p>
+    <p style="font-family:'Inter',sans-serif;font-size:14px;color:#6B6B68;line-height:1.6;margin:0 0 20px;max-width:280px;">Vending, coffee and water for South African workplaces. Since 1991.</p>
     <div style="display:flex;">
      <input type="email" placeholder="Your email" style="border:1px solid #E1E4E8;border-radius:999px 0 0 999px;padding:12px 18px;font-size:14px;font-family:'Inter',sans-serif;background:#FAFBFC;width:180px;outline:none;box-sizing:border-box;" />
      <button style="background:#C8102E;color:#FAFBFC;border:none;border-radius:0 999px 999px 0;padding:12px 20px;font-size:14px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;" style-hover="background:#8f0c20;">Enquire</button>
@@ -325,7 +361,7 @@
     <div style="display:flex;flex-direction:column;gap:12px;font-size:14px;color:#6B6B68;">
      <a href="Vending Machines.dc.html" style="color:#6B6B68;">Vending Machines</a>
      <a href="Hot Beverage Solutions.dc.html" style="color:#6B6B68;">Hot Beverage Solutions</a>
-     <a href="Water Coolers.dc.html" style="color:#6B6B68;">Water Coolers</a>
+     <a href="Water Solutions.dc.html" style="color:#6B6B68;">Water Solutions</a>
      <a href="Payment Solutions.dc.html" style="color:#6B6B68;">Payment Solutions</a>
     </div>
    </div>
@@ -464,27 +500,27 @@ const PRODUCTS_COFFEE = [
 PRODUCTS.push(...PRODUCTS_COFFEE);
 
 const PRODUCTS_WATER = [
- { name: 'FW Bar Classe', category: 'Water Coolers', variant: 'default',
+ { name: 'FW Bar Classe', category: 'Water Solutions', variant: 'default',
   tagline: 'Premium solution',
   description: 'Offers 2 water options, cold and sparkling, with portion control and Firewall UVC Purification, removing up to 99.999% of bacteria, viruses and cysts. Ice cold water via Ice Bath cooling, high performance filtration and BioCote protection. Plumbed in solution.',
   tags: ['Cold & Sparkling', 'Firewall UVC Purification', 'Portion Control'],
   specs: [{ label: 'Water Options', value: 'Cold & Sparkling' }, { label: 'Purification', value: 'Firewall UVC, 99.999% Bacteria/Virus Removal' }, { label: 'Installation', value: 'Plumbed In' }] },
- { name: 'P1 Bar Series E', category: 'Water Coolers', variant: 'accent',
+ { name: 'P1 Bar Series E', category: 'Water Solutions', variant: 'accent',
   tagline: 'Stylish, Efficient & High Flow solution',
   description: 'Offers 3 water options: cold, ambient and sparkling, with portion control, an adjustable drip tray height for different bottle sizes, and eco-sustainable R290 refrigeration. Plumbed in solution.',
   tags: ['Cold, Ambient & Sparkling', 'Adjustable Drip Tray', 'R290 Eco Refrigeration'],
   specs: [{ label: 'Water Options', value: 'Cold, Ambient & Sparkling' }, { label: 'Refrigeration', value: 'R290 Natural Gas' }, { label: 'Installation', value: 'Plumbed In' }] },
- { name: 'P1 Bar Series B', category: 'Water Coolers', variant: 'default',
+ { name: 'P1 Bar Series B', category: 'Water Solutions', variant: 'default',
   tagline: 'Stylish, Efficient & High Flow solution',
   description: 'Offers 2 water options, cold and sparkling, with portion control, a back-lit front panel with premium aesthetics, and eco-sustainable R290 refrigeration. Plumbed in solution.',
   tags: ['Cold & Sparkling', 'Back-Lit Front Panel', 'R290 Eco Refrigeration'],
   specs: [{ label: 'Water Options', value: 'Cold & Sparkling' }, { label: 'Refrigeration', value: 'R290 Natural Gas' }, { label: 'Installation', value: 'Plumbed In' }] },
- { name: 'Campione Tower', category: 'Water Coolers', variant: 'accent',
+ { name: 'Campione Tower', category: 'Water Solutions', variant: 'accent',
   tagline: 'Where space is limited',
   description: 'Offers 3 water options: cold, ambient and sparkling, with ice cold water produced using Ice Bath cooling technology and high performance filtration. Plumbed in with the Frizzante 60 under-counter solution.',
   tags: ['Cold, Ambient & Sparkling', 'Ice Bath Cooling', 'Space-Saving Tower'],
   specs: [{ label: 'Water Options', value: 'Cold, Ambient & Sparkling' }, { label: 'Cooling', value: 'Ice Bath Technology' }, { label: 'Installation', value: 'Plumbed With Frizzante 60' }] },
- { name: 'Frizzante 80 Box', category: 'Water Coolers', variant: 'default',
+ { name: 'Frizzante 80 Box', category: 'Water Solutions', variant: 'default',
   tagline: 'Under the counter unit',
   description: 'Offers 3 water options: cold, ambient and sparkling, with ice cold water produced using Ice Bath cooling technology and high performance filtration.',
   tags: ['Cold, Ambient & Sparkling', 'Ice Bath Cooling', 'Under-Counter Unit'],
@@ -509,12 +545,12 @@ PRODUCTS.push(...PRODUCTS_RECYCLING);
 const CATEGORY_IMAGES = {
  'Vending Machines': 'assets/cat-vending.jpg',
  'Hot Beverage Solutions': 'assets/cat-coffee.jpg',
- 'Water Coolers': 'assets/cat-water.jpg',
+ 'Water Solutions': 'assets/cat-water.jpg',
  'Payment Solutions': 'assets/cat-payment.jpg',
  'Recycling': 'assets/recycling-symbol.png',
 };
 
-const FILTER_LABELS = ['All', 'Vending Machines', 'Hot Beverage Solutions', 'Water Coolers', 'Payment Solutions', 'Recycling'];
+const FILTER_LABELS = ['All', 'Vending Machines', 'Hot Beverage Solutions', 'Water Solutions', 'Payment Solutions', 'Recycling'];
 
 class Component extends DCLogic {
 
@@ -612,7 +648,7 @@ class Component extends DCLogic {
   const BLURBS = {
    'Vending Machines': 'Snack, drink and combo machines with dual-temperature zones, refrigeration and capacities from 160 to 312 items.',
    'Hot Beverage Solutions': 'Bean-to-cup, fresh brew and instant machines with fresh milk, touchscreen selection and fully customisable drinks.',
-   'Water Coolers': 'Plumbed-in and under-counter coolers serving cold, ambient and sparkling water with UVC purification and filtration.',
+   'Water Solutions': 'Plumbed-in and under-counter coolers serving cold, ambient and sparkling water with UVC purification and filtration.',
    'Payment Solutions': 'Cashless, card and mobile payment systems with real-time reporting that retrofit to your existing machines.',
    'Recycling': 'Automatic cup shredding and bottle compacting stations that cut waste volume by up to 7x, with an incentive reward system.',
   };
@@ -671,7 +707,7 @@ class Component extends DCLogic {
    mobileNavLinks: [
     { label: 'Vending Machines', href: 'Vending Machines.dc.html' },
     { label: 'Hot Beverage Solutions', href: 'Hot Beverage Solutions.dc.html' },
-    { label: 'Water Coolers', href: 'Water Coolers.dc.html' },
+    { label: 'Water Solutions', href: 'Water Solutions.dc.html' },
     { label: 'Payment Solutions', href: 'Payment Solutions.dc.html' },
     { label: 'Recycling Solutions', href: 'Recycling.dc.html' },
     { label: 'Consumables', href: 'Consumables.dc.html' },
