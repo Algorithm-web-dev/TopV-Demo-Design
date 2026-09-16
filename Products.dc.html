@@ -103,7 +103,7 @@
    <div style="display:grid;gap:24px;{{ gridColStyle }}">
     <sc-for list="{{ products }}" as="p" hint-placeholder-count="6">
      <div onClick="{{ p.onOpen }}" data-product-card="{{ p.name }}" style="background:#FFFFFF;border:1px solid #E1E4E8;border-radius:20px;padding:16px 16px 24px;box-sizing:border-box;display:flex;flex-direction:column;cursor:pointer;transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;" style-hover="transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,0.08);border-color:#C8102E;">
-      <div style="height:260px;background:#FFFFFF;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:22px;padding:24px;box-sizing:border-box;">
+      <div style="height:300px;background:#FFFFFF;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:22px;padding:14px;box-sizing:border-box;">
        <img ref="{{ p.imgRef }}" alt="{{ p.name }}" style="{{ p.imgStyle }}" />
        <div style="{{ p.placeholderStyle }}">Photo to come</div>
       </div>
@@ -698,12 +698,12 @@ const PRODUCTS_PAYMENT = [
 PRODUCTS.push(...PRODUCTS_PAYMENT);
 
 const PRODUCTS_RECYCLING = [
- { name: 'Tritech Shredder', category: 'Recycling', variant: 'default',
+ { name: 'Tritech Shredder', category: 'Recycling', variant: 'default', image: 'assets/tritech-compactor.png',
   tagline: 'Automatic shredding machine for disposable plastic and paper cups',
   description: 'Shreds disposable plastic and paper cups automatically on deposit, reducing waste volume by up to 7x. Waste is collected in the container below, with an integrated sanitising system, an incentive reward system and a tablet touchscreen.',
   tags: ['Up to 7x Volume Reduction', 'Automated Operation', 'Incentive Reward System'],
   specs: [{ label: 'Waste Type', value: 'Disposable Plastic & Paper Cups' }, { label: 'Telemetry', value: 'Included' }, { label: 'Interface', value: 'Tablet Touchscreen' }] },
- { name: 'Tritech Compactor', category: 'Recycling', variant: 'accent',
+ { name: 'Tritech Compactor', category: 'Recycling', variant: 'accent', image: 'assets/tritech-compactor.png',
   tagline: 'Automatic compacting machine for PET plastic bottles and cans',
   description: 'Compacts PET bottles and cans automatically on deposit, reducing waste volume by up to 7x. Pair it with the Tritech Shredder for a complete cup, bottle and can recycling station.',
   tags: ['Up to 7x Volume Reduction', 'PET Bottles & Cans', 'Incentive Reward System'],
@@ -845,7 +845,7 @@ componentDidMount() {
   const withImage = (p) => ({
    ...p,
    imgRef: (el) => { if (el && p.image) el.src = p.image; },
-   imgStyle: p.image ? 'max-width:100%;max-height:100%;object-fit:contain;display:block;' : 'display:none;',
+   imgStyle: p.image ? 'width:100%;height:100%;object-fit:contain;display:block;' : 'display:none;',
    placeholderStyle: p.image ? 'display:none;' : 'font-size:12px;letter-spacing:2px;text-indent:2px;white-space:nowrap;text-transform:uppercase;color:#6B6B68;font-weight:600;',
   });
   const products = visible.map(p => ({
