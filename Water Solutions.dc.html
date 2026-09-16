@@ -87,16 +87,24 @@
    <a href="Top Vending.dc.html" style="display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:600;color:#6B6B68;margin-bottom:26px;" style-hover="color:#C8102E;">
     <span style="font-family:Inter,sans-serif;font-size:15px;">←</span>Back to home
    </a>
-   <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Recycling Solutions</div>
-   <h1 style="font-family:'Inter',sans-serif;font-weight:700;font-size:52px;line-height:1.05;letter-spacing:-0.032em;margin:0 0 18px;max-width:760px;">Close the loop on site waste.</h1>
-   <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#45443F;margin:0;max-width:560px;">Automatic shredding and compacting stations that reduce cup, bottle and can waste by up to 7x, with telemetry, sanitising and an incentive reward system built in.</p>
+   <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Water Solutions</div>
+   <h1 style="font-family:'Inter',sans-serif;font-weight:700;font-size:52px;line-height:1.05;letter-spacing:-0.032em;margin:0 0 18px;max-width:760px;">Purified water on tap.</h1>
+   <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#45443F;margin:0;max-width:560px;">Plumbed-in and bottled coolers delivering cold, ambient and sparkling water, with filtration and purification built in.</p>
   </div>
  </section>
 
  <section id="products" style="background:#FAFBFC;padding:60px 48px 130px;box-sizing:border-box;{{ catalogueStyle }}">
   <div style="max-width:1200px;margin:0 auto;">
-   <div style="display:grid;gap:24px;{{ gridColStyle }}">
-    <sc-for list="{{ products }}" as="p" hint-placeholder-count="6">
+   <div style="display:flex;flex-direction:column;gap:80px;">
+    <sc-for list="{{ rangeGroups }}" as="g" hint-placeholder-count="2">
+     <div>
+      <div style="{{ g.headerStyle }}">
+       <div style="{{ g.eyebrowStyle }}">{{ g.eyebrow }}</div>
+       <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:32px;letter-spacing:-0.03em;margin:0 0 12px;">{{ g.title }}</h2>
+       <p style="font-family:'Inter',sans-serif;font-size:16.5px;line-height:1.75;color:#45443F;margin:0;">{{ g.blurb }}</p>
+      </div>
+      <div style="display:grid;gap:24px;{{ gridColStyle }}">
+       <sc-for list="{{ g.items }}" as="p" hint-placeholder-count="3">
      <div onClick="{{ p.onOpen }}" data-product-card="{{ p.name }}" style="background:#FFFFFF;border:1px solid #E1E4E8;border-radius:20px;padding:16px 16px 24px;box-sizing:border-box;display:flex;flex-direction:column;cursor:pointer;transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;" style-hover="transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,0.08);border-color:#C8102E;">
       <div style="height:260px;background:#FFFFFF;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:22px;padding:24px;box-sizing:border-box;">
        <img ref="{{ p.imgRef }}" alt="{{ p.name }}" style="{{ p.imgStyle }}" />
@@ -109,15 +117,14 @@
        <a href="Contact.dc.html#quote" data-quote-add="1" data-quote-name="{{ p.name }}" data-quote-cat="{{ p.category }}" style="display:inline-block;background:#C8102E;color:#FAFBFC;padding:12px 24px;border-radius:999px;font-size:13px;font-weight:600;white-space:nowrap;" style-hover="background:#8f0c20;">Add to Quote</a>
       </div>
      </div>
+       </sc-for>
+      </div>
+     </div>
     </sc-for>
+   </div>
    </div>
    <sc-if value="{{ isEmpty }}" hint-placeholder-val="{{ false }}">
     <div style="padding:60px 0;text-align:center;font-size:16px;color:#6B6B68;">No machines in this category yet, talk to us about what you need.</div>
-   </sc-if>
-   <sc-if value="{{ hasMore }}" hint-placeholder-val="{{ false }}">
-    <div style="display:flex;justify-content:center;margin-top:48px;">
-     <button onClick="{{ showMore }}" style="border:1.5px solid #1C1C1A;background:transparent;color:#1C1C1A;padding:15px 34px;border-radius:999px;font-size:15px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;" style-hover="background:#1C1C1A;color:#FAFBFC;">Show More</button>
-    </div>
    </sc-if>
   </div>
  </section>
@@ -392,7 +399,13 @@ const PRODUCTS_WATER = [
   tagline: 'Premium solution',
   description: 'Offers 2 water options, cold and sparkling, with portion control and Firewall UVC Purification, removing up to 99.999% of bacteria, viruses and cysts. Ice cold water via Ice Bath cooling, high performance filtration and BioCote protection. Plumbed in solution.',
   tags: ['Cold & Sparkling', 'Firewall UVC Purification', 'Portion Control'],
-  specs: [{ label: 'Water Options', value: 'Cold & Sparkling' }, { label: 'Purification', value: 'Firewall UVC, 99.999% Bacteria/Virus Removal' }, { label: 'Installation', value: 'Plumbed In' }] },
+  brochure: 'kastella-bar-classe.pdf',
+  specs: [{ label: 'Model', value: 'Bar Classe' }, { label: 'Water Options', value: 'Sparkling, cold and ambient' }, { label: 'Dispensing', value: '160L/hr' }, { label: 'Filtration', value: 'Carbon filter and UVC' }, { label: 'Purification', value: 'Firewall' }, { label: 'Dimensions (WxDxH)', value: '401 x 607 x 590mm' }, { label: 'Dispense Area Height', value: '220 to 314mm' }, { label: 'Power Supply', value: '230V 50Hz' }],
+  details: [
+   'The Purezza Bar Classe delivers sparkling, cold and ambient water at the press of a button, built in high quality stainless steel for front of house and staff areas where the unit is on view.',
+   'Output is 160L/hr, the highest in the range, so it holds up at peak times without the water warming. Filtration is carbon filter with UVC, and Firewall purification protects the supply.',
+   'Dimensions are 401 x 607 x 590mm with a dispense area height adjustable between 220mm and 314mm for different bottle and glass sizes, on a 230V 50Hz supply.',
+  ] },
  { name: 'P1 Bar Series E', image: 'assets/p1-bar-e.png', category: 'Water Solutions', variant: 'accent',
   tagline: 'Stylish, Efficient & High Flow solution',
   description: 'Offers 3 water options: cold, ambient and sparkling, with portion control, an adjustable drip tray height for different bottle sizes, and eco-sustainable R290 refrigeration. Plumbed in solution.',
@@ -407,12 +420,95 @@ const PRODUCTS_WATER = [
   tagline: 'Where space is limited',
   description: 'Offers 3 water options: cold, ambient and sparkling, with ice cold water produced using Ice Bath cooling technology and high performance filtration. Plumbed in with the Frizzante 60 under-counter solution.',
   tags: ['Cold, Ambient & Sparkling', 'Ice Bath Cooling', 'Space-Saving Tower'],
-  specs: [{ label: 'Water Options', value: 'Cold, Ambient & Sparkling' }, { label: 'Cooling', value: 'Ice Bath Technology' }, { label: 'Installation', value: 'Plumbed With Frizzante 60' }] },
+  brochure: 'kastella-tap.pdf',
+  specs: [{ label: 'Model', value: 'Campione' }, { label: 'Water Options', value: 'Cold, sparkling and ambient' }, { label: 'Dispensing', value: '60L/hr' }, { label: 'Cooling', value: 'Ice bank technology' }, { label: 'Filtration', value: 'Carbon filter and UVC' }, { label: 'Dimensions (WxDxH)', value: '144 x 85 x 475mm' }, { label: 'Dispense Area Height', value: '313mm' }, { label: 'Power Supply', value: '220-240V 50Hz' }],
+  details: [
+   'The Purezza Campione Tap is a stylish, efficient dispenser for venues where space is limited, measuring just 144mm wide and 85mm deep at the counter.',
+   'The Ice Bath water cooling system delivers high volumes of ice cold water, at 60L/hr, for environments where that matters. An integrated in-line UV LED system provides UV protection for the water supply.',
+   'High performance filtration is certified to stringent standards by IAPMO R&T and carries the Water Quality Platinum Seal. Dispense area height is 313mm, on a 220V to 240V 50Hz supply.',
+  ] },
  { name: 'Frizzante 80 Box', image: 'assets/frizzante-80-box.png', category: 'Water Solutions', variant: 'default',
   tagline: 'Under the counter unit',
   description: 'Offers 3 water options: cold, ambient and sparkling, with ice cold water produced using Ice Bath cooling technology and high performance filtration.',
   tags: ['Cold, Ambient & Sparkling', 'Ice Bath Cooling', 'Under-Counter Unit'],
   specs: [{ label: 'Water Options', value: 'Cold, Ambient & Sparkling' }, { label: 'Cooling', value: 'Ice Bath Technology' }, { label: 'Placement', value: 'Under-Counter' }] },
+ { name: 'Waterlogic 7', category: 'Water Solutions', variant: 'accent', image: 'assets/wl7.png',
+  tagline: 'Up to 5 types of water from one unit',
+  description: 'Dispenses ice-cold, ambient, sparkling, hot and extra-hot water, with Firewall UVC purification, high performance filtration and a 5 inch LED full colour display.',
+  tags: ['Up to 5 Water Options', 'Firewall UVC Purification', '5" LED Display'],
+  brochure: 'wl7.pdf',
+  specs: [{ label: 'Model', value: 'WL7 Firewall' }, { label: 'Water Options', value: 'Ice-cold, ambient, sparkling, hot, extra-hot' }, { label: 'Cooling Capacity', value: '17L/hr' }, { label: 'Ice Bath Capacity', value: 'Cold only 4.5L, cold and sparkling 3.8L' }, { label: 'Hot Water Storage', value: '1.5L' }, { label: 'Filtration', value: 'Carbon filter and UVC' }, { label: 'Dimensions (free standing)', value: '400 x 520 x 1270mm' }, { label: 'Dimensions (table top)', value: '381 x 520 x 432mm' }, { label: 'Dispense Area Height', value: '265mm' }, { label: 'Power Supply', value: '220-240V 50Hz' }, { label: 'Refrigerant', value: 'R600A' }, { label: 'Features', value: 'Sleep mode, leak prevention, bottle saver counter' }],
+  details: [
+   'The Waterlogic 7 is the most complete unit in the range, dispensing up to five types of water from one tap: ice-cold, ambient, sparkling, hot and extra-hot. Selections are made on a 5 inch LED full colour display.',
+   'Patented Firewall UV technology purifies the water up to 99.9999%, 100% of the time, reducing the risk of bacteria, viruses and cysts. High performance filtration is certified by IAPMO R&T and carries the Water Quality Platinum Seal, and a silver ion additive reduces odours and the potential for cross contamination.',
+   'Cooling capacity is 17L/hr with 1.5L of hot water storage. Sleep mode and a leak prevention system are included, along with a bottle saver counter. Available free standing at 400 x 520 x 1270mm or table top at 381 x 520 x 432mm, on a 220V to 240V 50Hz supply.',
+  ] },
+ { name: 'Waterlogic 2', category: 'Water Solutions', variant: 'default', image: 'assets/wl2.png',
+  tagline: 'Cold and ambient water on tap',
+  description: 'Firewall UVC purification with high performance filtration and BioCote antimicrobial protection, serving up to 30 users from a free standing or table top cabinet.',
+  tags: ['Firewall UVC Purification', 'BioCote Protection', 'Up to 30 Users'],
+  brochure: 'wl2.pdf',
+  specs: [{ label: 'Model', value: 'WL2 Firewall' }, { label: 'Water Options', value: 'Cold and ambient' }, { label: 'Cold Tank', value: '4L free standing, 2L table top' }, { label: 'Hot Tank', value: '1.5L' }, { label: 'Cold Temperature', value: '3°C' }, { label: 'Number of Users', value: 'Up to 30' }, { label: 'Filtration', value: 'Dependent on SKU' }, { label: 'Dimensions (free standing)', value: '349 x 363 x 1024mm' }, { label: 'Dimensions (table top)', value: '349 x 363 x 453mm' }, { label: 'Dispense Area Height', value: '230mm' }, { label: 'Power Supply', value: '220-240V 50Hz' }, { label: 'Refrigerant', value: 'R600A' }],
+  details: [
+   'The Waterlogic 2 serves cold and ambient water on tap for up to 30 users, available as a free standing or table top unit depending on the space.',
+   'Patented Firewall UV technology purifies the water up to 99.9999%, 100% of the time, reducing the risk of bacteria, viruses and cysts. High performance filtration is certified to stringent standards by IAPMO R&T and carries the Water Quality Platinum Seal.',
+   'BioCote antimicrobial protection adds a silver ion additive that reduces unpleasant odours, surface degradation and the potential for cross contamination. The cold tank holds 4L free standing or 2L table top, with a 1.5L hot tank, at 3°C cold, on a 220V to 240V 50Hz supply.',
+  ] },
+ { name: 'Waterlogic 100', image: 'assets/wl100.png', category: 'Water Solutions', variant: 'accent',
+  tagline: 'Economical cold and ambient solution',
+  description: 'An economical cold and ambient dispenser with high performance carbon block filtration and BioCote antimicrobial protection, serving up to 20 users.',
+  tags: ['Economical Solution', 'BioCote Protection', 'Up to 20 Users'],
+  brochure: 'wl100.pdf',
+  specs: [{ label: 'Model', value: 'WL100' }, { label: 'Water Options', value: 'Cold and ambient' }, { label: 'Cold Tank', value: '2 litres' }, { label: 'Cold Temperature', value: '3°C to 12°C' }, { label: 'Number of Users', value: 'Up to 20' }, { label: 'Filtration', value: 'Carbon block' }, { label: 'Dimensions (free standing)', value: '345 x 367 x 1030mm' }, { label: 'Dimensions (table top)', value: '345 x 367 x 457mm' }, { label: 'Dispense Area Height', value: '215mm' }, { label: 'Power Supply', value: '220-240V 50Hz' }, { label: 'Refrigerant', value: 'R600A' }],
+  details: [
+   'The Waterlogic 100 is the economical option in the range, serving cold and ambient water on tap for up to 20 users, suited to smaller offices and satellite sites.',
+   'High performance carbon block filtration handles the water treatment, and BioCote antimicrobial protection is built into the cabinet surfaces.',
+   'The 2 litre cold tank runs between 3°C and 12°C. Available free standing at 345 x 367 x 1030mm or table top at 345 x 367 x 457mm, with a 215mm dispensing area, on a 220V to 240V 50Hz supply.',
+  ] },
+ { name: 'The River', image: 'assets/river.png', category: 'Water Solutions', variant: 'default',
+  tagline: 'Cold water on tap in stainless steel',
+  description: 'A stainless steel cold water dispenser with heavy duty faucets, carbon filtration, an ice bank and compact Blupura direct chill technology, dispensing 20L/hr.',
+  tags: ['Stainless Steel', 'Heavy Duty Faucets', 'Direct Chill Technology'],
+  brochure: 'river.pdf',
+  specs: [{ label: 'Model', value: 'RIVER' }, { label: 'Water Options', value: 'Cold' }, { label: 'Dispensing Capacity', value: '20L/hr at 5 to 12°C' }, { label: 'Cooling', value: 'Ice bank, compact Blupura direct chill' }, { label: 'Thermostat', value: 'Adjustable' }, { label: 'Filtration', value: 'Carbon filter' }, { label: 'Dimensions (WxDxH)', value: '310 x 310 x 1270mm' }, { label: 'Power Supply', value: '220-240V 50Hz' }, { label: 'Refrigerant', value: 'R290' }],
+  details: [
+   'The River is a free standing stainless steel cold water dispenser with heavy duty stainless steel faucets, built for high traffic areas where a plastic cabinet would not last.',
+   'An ice bank with compact Blupura direct chill technology delivers 20L/hr at 5°C to 12°C, and the thermostat is adjustable to suit the site.',
+   'Filtration is by carbon filter. Dimensions are 310 x 310 x 1270mm on a 220V to 240V 50Hz supply, using R290 refrigerant.',
+  ] },
+ { name: 'Legend Classic', image: 'assets/legend-classic.png', category: 'Water Solutions', variant: 'accent',
+  tagline: 'Cold, ambient and hot water on tap',
+  description: 'A compressor driven, manually refilled dispenser serving cold, ambient and hot water, with a carbon filter, an 18L filtering bottle and a removable silver drip tray.',
+  tags: ['Manual Water Refill', 'Cold, Ambient & Hot', 'Includes Filter Bottle'],
+  brochure: 'classic-legend.pdf',
+  specs: [{ label: 'Model', value: 'LEGEND CLASSIC' }, { label: 'Water Options', value: 'Cold, ambient and hot' }, { label: 'Cold Tank', value: '4L' }, { label: 'Hot Tank', value: '1.2L' }, { label: 'Filtering Bottle', value: '18L' }, { label: 'Refill', value: 'Manual' }, { label: 'Filtration', value: 'Carbon filter' }, { label: 'Dimensions (WxDxH)', value: '325 x 305 x 1040mm' }, { label: 'Power Supply', value: '220-240V 50Hz' }, { label: 'Refrigerant', value: 'R134A' }],
+  details: [
+   'The Legend Classic Black is a manually refilled dispenser, so it needs no plumbing and can be placed anywhere there is a power point. It serves cold, ambient and hot water on tap.',
+   'The unit is compressor driven with a 4L cold water tank and a 1.2L hot tank, and includes an 18L filtering bottle with a carbon filter. The silver drip tray is removable for cleaning.',
+   'Dimensions are 325 x 305 x 1040mm on a 220V to 240V 50Hz supply, using R134A refrigerant.',
+  ] },
+ { name: 'Kastella Bluglass Tower', image: 'assets/bluglass-tower.png', category: 'Water Solutions', variant: 'default',
+  tagline: 'Unbeatable performance in the smallest possible space',
+  description: 'A tempered glass and stainless steel tower serving cold and sparkling water on tap, touch free with portion control and high performance filtration.',
+  tags: ['Tempered Glass', 'Touch Free', 'Cold & Sparkling'],
+  brochure: 'bluglass-tower.pdf',
+  specs: [{ label: 'Model', value: 'Bluglass Tower' }, { label: 'Water Options', value: 'Cold and sparkling' }, { label: 'Operation', value: 'Touch free, portion control' }, { label: 'Materials', value: 'Tempered glass and stainless steel' }, { label: 'Filtration', value: 'Carbon filter and UVC' }, { label: 'Dimensions (WxDxH)', value: '227 x 209 x 514mm' }, { label: 'Alternative Size', value: '142 x 209 x 455mm' }, { label: 'Dispense Area Height', value: '319mm' }, { label: 'Under-Counter Unit', value: 'Box Hot 60 Fizz, 318 x 335 x 467mm' }, { label: 'Power Supply', value: '230V 50Hz' }],
+  details: [
+   'The Kastella Bluglass Tower puts cold and sparkling water on the counter in the smallest possible footprint, finished in tempered glass and high quality stainless steel.',
+   'Operation is touch free with portion control, so a measured volume is dispensed without contact, and the design is energy saving. An Inox touch finish is also available.',
+   'Filtration is carbon filter with UVC. The tower is 227 x 209 x 514mm with a 319mm dispensing height, paired with a Box Hot 60 Fizz under-counter unit at 318 x 335 x 467mm, on a 230V 50Hz supply.',
+  ] },
+ { name: 'Kastella BluTower', image: 'assets/blutower.png', category: 'Water Solutions', variant: 'accent',
+  tagline: 'The perfect combination of style and performance',
+  description: 'A slim stainless steel tower with volumetric portioning and high performance filtration, measuring just 140mm square at the counter.',
+  tags: ['Stainless Steel', 'Volumetric Portioning', 'Slim Footprint'],
+  brochure: 'blutower.pdf',
+  specs: [{ label: 'Model', value: 'BluTower' }, { label: 'Operation', value: 'Volumetric portioning, portion control' }, { label: 'Materials', value: 'High quality stainless steel, Inox touch' }, { label: 'Filtration', value: 'Carbon filter and UVC' }, { label: 'Dimensions (WxDxH)', value: '140 x 140 x 574mm' }, { label: 'Dispense Area Height', value: '322mm' }, { label: 'Under-Counter Unit', value: 'Box Hot 60 Fizz, 318 x 335 x 467mm' }, { label: 'Power Supply', value: '230V 50Hz' }],
+  details: [
+   'The Kastella BluTower is the slimmest tap in the range at 140mm square, finished in high quality stainless steel with an Inox touch surface.',
+   'Volumetric portioning dispenses a measured volume each time, which keeps waste down in busy service areas.',
+   'Filtration is carbon filter with UVC, fed from a Box Hot 60 Fizz under-counter unit at 318 x 335 x 467mm. The tower stands 574mm tall with a 322mm dispensing height, on a 230V 50Hz supply.',
+  ] },
 ];
 PRODUCTS.push(...PRODUCTS_WATER);
 
@@ -588,7 +684,7 @@ class Component extends DCLogic {
   else window.addEventListener('load', ready);
  }
 
- state = { mobileMenu: false, overviewOpen: false, openFaq: -1, activeFilter: 'Recycling', selectedProduct: null, visibleCount: 9, productsMenu: false, contactMenu: false };
+ state = { mobileMenu: false, overviewOpen: false, openFaq: -1, activeFilter: 'Water Solutions', selectedProduct: null, visibleCount: 9, productsMenu: false, contactMenu: false };
 
 
  renderVals() {
@@ -609,8 +705,8 @@ class Component extends DCLogic {
   const base = this.state.activeFilter === 'All Products'
    ? PRODUCTS
    : PRODUCTS.filter(p => p.category === this.state.activeFilter);
-  const hasMore = base.length > this.state.visibleCount;
-  const visible = base.slice(0, this.state.visibleCount);
+  const hasMore = false;
+  const visible = base;
   const OVERVIEW_COPY = {
    'Vending Machines': 'Suited to offices, factory floors, campuses and any site where staff need refreshments outside canteen hours. We survey the space first, confirm power and floor requirements, and recommend a machine sized to your headcount and traffic.',
    'Hot Beverage Solutions': 'Suited to office kitchens, reception areas and staff rooms. We match the machine to the number of cups a day the site pours, and set the drink menu, strengths and cup sizes during installation.',
@@ -792,6 +888,23 @@ class Component extends DCLogic {
     answerStyle: faqOpen === i ? 'display:block;' : 'display:none;',
    })),
    products,
+   rangeGroups: [
+    { eyebrow: 'Featured range', title: 'Purezza', highlight: true,
+      blurb: 'Premium plumbed-in taps and counter units serving cold, ambient and sparkling water, with carbon filtration and UVC purification built in. Built in stainless steel and tempered glass for front of house and staff areas where the unit is on view.',
+      names: ['FW Bar Classe', 'P1 Bar Series E', 'P1 Bar Series B', 'Campione Tower', 'Frizzante 80 Box', 'Kastella Bluglass Tower', 'Kastella BluTower'] },
+    { eyebrow: 'Also available', title: 'Top Coolers range', highlight: false,
+      blurb: 'Free standing and table top dispensers for offices, industrial sites and educational spaces, from economical plumbed-in units to manually refilled models that need no water point.',
+      names: ['Waterlogic 7', 'Waterlogic 2', 'Waterlogic 100', 'Legend Classic', 'The River'] },
+   ].map(g => ({
+    eyebrow: g.eyebrow,
+    title: g.title,
+    blurb: g.blurb,
+    eyebrowStyle: `font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:16px;color:${g.highlight ? '#C8102E' : '#6B6B68'};`,
+    headerStyle: g.highlight
+     ? 'background:#FFFFFF;border:1px solid #E1E4E8;border-left:4px solid #C8102E;border-radius:20px;padding:36px 40px;box-sizing:border-box;margin-bottom:34px;'
+     : 'border-bottom:1px solid #D9DCE0;padding-bottom:24px;margin-bottom:34px;',
+    items: g.names.map(n => products.find(p => p.name === n)).filter(Boolean),
+   })).filter(g => g.items.length),
    gridColStyle: `grid-template-columns:repeat(${cols},1fr);`,
    filterBarStickyStyle: sticky,
    stats: [
