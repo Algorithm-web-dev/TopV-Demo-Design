@@ -106,10 +106,19 @@
     return false;
   }
 
+  // The header, its dropdowns and the mobile menu are all fixed-position; leave
+  // them clickable so reviewers can still move between pages.
+  function inSiteChrome(el) {
+    for (var cur = el; cur && cur !== document.body; cur = cur.parentElement) {
+      if (cur.tagName === 'NAV' || getComputedStyle(cur).position === 'fixed') return true;
+    }
+    return false;
+  }
+
   // Find the block of copy under the pointer: the nearest element with its own
   // text, widened past inline wrappers (e.g. an <em> inside a heading).
   function copyTarget(el) {
-    if (!el || el.nodeType !== 1 || isOurs(el)) return null;
+    if (!el || el.nodeType !== 1 || isOurs(el) || inSiteChrome(el)) return null;
     var tag = el.tagName;
     if (tag === 'HTML' || tag === 'BODY' || tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return null;
     var cur = el;
