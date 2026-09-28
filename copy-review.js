@@ -260,7 +260,9 @@
     for (var i = 0; i < stack.length; i++) {
       var el = stack[i];
       if (el === document.body || el === document.documentElement) break;
-      if (isOurs(el) || inSiteChrome(el)) continue;
+      if (isOurs(el)) continue;
+      // Anything under the header or its menus stays clickable as navigation.
+      if (inSiteChrome(el)) return null;
       if (el.tagName === 'IMG' && srcOf(el)) return { el: el, kind: isBackgroundImg(el) ? 'background' : 'image' };
       if (bgUrl(el)) return { el: el, kind: 'background' };
     }
@@ -269,6 +271,7 @@
 
   // Text wins where the pointer is over copy; otherwise the image beneath it.
   function pickTarget(e) {
+    if (e.target && e.target.nodeType === 1 && inSiteChrome(e.target)) return null;
     var el = copyTarget(e.target);
     if (el) return { el: el, kind: 'text' };
     return imageAt(e.clientX, e.clientY);
