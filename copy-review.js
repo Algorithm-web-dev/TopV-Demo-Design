@@ -6,9 +6,10 @@
  * ?review=0 or the "Exit" button to switch it off.
  *
  * In review mode, clicking any piece of copy opens a note showing the current
- * text with a box for the suggested wording. Suggestions are pinned to the
- * copy like Figma comments and listed in a side panel that can be exported.
- * The page itself is never modified.
+ * text with a box for the suggested wording. Clicking an image or background
+ * image opens a comment with an optional replacement image upload.
+ * Suggestions are pinned to the page like Figma comments and listed in a side
+ * panel that can be exported. The page itself is never modified.
  *
  * Suggestions are saved to /api/review when the Vercel storage is connected,
  * and to this browser's localStorage otherwise.
@@ -227,15 +228,75 @@
     return null;
   }
 
+  // ---------- images ----------
+
+  function pathOf(url) {
+    try { return decodeURI(new URL(url, location.href).pathname); } catch (e) { return ''; }
+  }
+
+  function bgUrl(el) {
+    var m = /url\(["']?([^"')]+)["']?\)/.exec(getComputedStyle(el).backgroundImage || '');
+    return m ? m[1] : '';
+  }
+
+  // Identifies an image by the file it shows, so it can be found again after
+  // the page re-renders.
+  function srcOf(el) {
+    if (el.tagName === 'IMG') return pathOf(el.currentSrc || el.src || el.getAttribute('src') || '');
+    var u = bgUrl(el);
+    return u ? pathOf(u) : '';
+  }
+
+  // An <img> absolutely positioned to fill its section is used as a background.
+  function isBackgroundImg(img) {
+    if (getComputedStyle(img).position !== 'absolute' || !img.parentElement) return false;
+    var r = img.getBoundingClientRect(), p = img.parentElement.getBoundingClientRect();
+    return r.width >= p.width * 0.9 && r.height >= p.height * 0.9;
+  }
+
+  // The image under the pointer, looking through overlays stacked on top of it.
+  function imageAt(x, y) {
+    var stack = document.elementsFromPoint(x, y);
+    for (var i = 0; i < stack.length; i++) {
+      var el = stack[i];
+      if (el === document.body || el === document.documentElement) break;
+      if (isOurs(el) || inSiteChrome(el)) continue;
+      if (el.tagName === 'IMG' && srcOf(el)) return { el: el, kind: isBackgroundImg(el) ? 'background' : 'image' };
+      if (bgUrl(el)) return { el: el, kind: 'background' };
+    }
+    return null;
+  }
+
+  // Text wins where the pointer is over copy; otherwise the image beneath it.
+  function pickTarget(e) {
+    var el = copyTarget(e.target);
+    if (el) return { el: el, kind: 'text' };
+    return imageAt(e.clientX, e.clientY);
+  }
+
+  function kindOf(item) { return item.kind || 'text'; }
+  function sigOf(el, kind) { return kind === 'text' ? textOf(el) : srcOf(el); }
+
+  function findBySrc(src) {
+    var all = document.body.querySelectorAll('img, [style*="url("]');
+    for (var i = 0; i < all.length; i++) {
+      if (!isOurs(all[i]) && srcOf(all[i]) === src) return all[i];
+    }
+    return null;
+  }
+
   var resolved = new Map();
   var misses = new Map();
   function locate(item) {
+    var kind = kindOf(item);
     var el = resolved.get(item.id);
-    if (el && el.isConnected && textOf(el) === item.original) return el;
+    if (el && el.isConnected && sigOf(el, kind) === item.original) return el;
     if (misses.get(item.id) === domVersion) return null;
     el = null;
     try { el = document.querySelector(item.selector); } catch (e) {}
-    if (!el || textOf(el) !== item.original) el = findByText(item.original);
+    if (!el || sigOf(el, kind) !== item.original) {
+      el = kind === 'text' ? findByText(item.original) : findBySrc(item.original);
+    }
     if (el) { resolved.set(item.id, el); misses.delete(item.id); }
     else { resolved.delete(item.id); misses.set(item.id, domVersion); }
     return el;
@@ -254,7 +315,7 @@
 
   // ---------- UI ----------
 
-  var host, root, hoverBox, pinLayer, toolbar, panel, pop, statusEl, countEl, selectBtn, saveEl;
+  var host, root, hoverBox, hoverLbl, pinLayer, toolbar, panel, pop, statusEl, countEl, selectBtn, saveEl;
   var selecting = true;
   var panelOpen = false;
   var editing = null; // { item, el }
@@ -308,6 +369,21 @@
     '.card .note{margin-top:6px;color:#45443F;font-style:italic;line-height:1.45}',
     '.card .foot{display:flex;align-items:center;gap:10px;margin-top:8px;font-size:11px;color:#6B6B68}',
     '.card .foot label{display:flex;align-items:center;gap:4px;cursor:pointer}',
+    '.hover .lbl{position:absolute;top:-2px;left:-2px;transform:translateY(-100%);background:' + RED + ';color:#fff;font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px 6px 6px 0;white-space:nowrap;display:none}',
+    '.hover.img .lbl{display:block}',
+    '.pin.img{border-radius:6px}',
+    '.pop .thumb{display:block;width:100%;max-height:150px;object-fit:contain;background:#F4F5F7;border-radius:8px;margin-bottom:12px}',
+    '.drop{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:96px;border:2px dashed #D5D9DE;border-radius:10px;padding:12px;margin-bottom:12px;color:#6B6B68;text-align:center;cursor:pointer;line-height:1.4}',
+    '.drop:hover,.drop.over{border-color:' + RED + ';color:' + RED + ';background:rgba(200,16,46,.04)}',
+    '.drop strong{color:#1C1C1A}',
+    '.drop img{max-width:100%;max-height:140px;border-radius:6px;object-fit:contain}',
+    '.drop .fname{font-size:12px;word-break:break-all}',
+    '.pop .err{color:' + RED + ';font-size:12px;margin:-4px 0 10px;display:none}',
+    '.card .kind{display:inline-block;margin-left:6px;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#6B6B68;background:#EFF1F3;border-radius:4px;padding:2px 6px}',
+    '.card .imgs{display:flex;align-items:center;gap:8px;margin-top:8px}',
+    '.card .imgs img{width:110px;height:74px;object-fit:cover;border-radius:6px;background:#F4F5F7;border:1px solid #E1E4E8}',
+    '.card .imgs .arrow{color:#6B6B68;font-weight:700}',
+    '.card a.dl{color:' + RED + ';font-weight:600;font-size:12px;text-decoration:none}',
     '.empty{color:#6B6B68;line-height:1.6;padding:20px 0}',
     '.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:#1C1C1A;color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;z-index:2147483004;opacity:0;transition:opacity .2s;pointer-events:none}',
     '.toast.show{opacity:1}',
@@ -335,13 +411,15 @@
     root.appendChild(style);
 
     hoverBox = h('div', 'hover');
+    hoverLbl = h('span', 'lbl');
+    hoverBox.appendChild(hoverLbl);
     pinLayer = h('div', 'pins');
     root.appendChild(hoverBox);
     root.appendChild(pinLayer);
 
     toolbar = h('div', 'bar');
     toolbar.appendChild(h('span', 'tag', 'Copy review'));
-    selectBtn = h('button', 'on', 'Click text to edit');
+    selectBtn = h('button', 'on', 'Click to comment');
     selectBtn.title = 'Turn off to use links and menus normally';
     selectBtn.addEventListener('click', function () { setSelecting(!selecting); });
     var listBtn = h('button', '', 'Suggestions');
@@ -394,7 +472,7 @@
   function setSelecting(on) {
     selecting = on;
     selectBtn.classList.toggle('on', on);
-    selectBtn.textContent = on ? 'Click text to edit' : 'Browsing (links work)';
+    selectBtn.textContent = on ? 'Click to comment' : 'Browsing (links work)';
     if (!on) hoverBox.style.display = 'none';
   }
 
@@ -406,14 +484,22 @@
     box.style.height = (r.height + 8) + 'px';
   }
 
+  var KIND_LABEL = { text: 'Copy', image: 'Image', background: 'Background image' };
+
+  function showHover(t) {
+    placeBox(hoverBox, t.el);
+    hoverBox.classList.toggle('img', t.kind !== 'text');
+    hoverLbl.textContent = t.kind === 'text' ? '' : KIND_LABEL[t.kind] + ', click to comment';
+    hoverBox.style.display = 'block';
+  }
+
   function onMove(e) {
     if (!selecting || editing) return;
     var path = e.composedPath ? e.composedPath() : [];
     if (path.indexOf(host) !== -1) { hoverBox.style.display = 'none'; return; }
-    var el = copyTarget(e.target);
-    if (!el) { hoverBox.style.display = 'none'; return; }
-    placeBox(hoverBox, el);
-    hoverBox.style.display = 'block';
+    var t = pickTarget(e);
+    if (!t) { hoverBox.style.display = 'none'; return; }
+    showHover(t);
   }
 
   function onClick(e) {
@@ -426,24 +512,32 @@
       return;
     }
     if (!selecting) return;
-    var el = copyTarget(e.target);
-    if (!el) return;
+    var t = pickTarget(e);
+    if (!t) return;
     e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation();
-    var original = textOf(el);
+    var el = t.el;
+    var original = sigOf(el, t.kind);
     var existing = items.filter(function (i) {
-      return i.page === pageKey() && i.original === original && locate(i) === el;
+      return i.page === pageKey() && kindOf(i) === t.kind && i.original === original && locate(i) === el;
     })[0];
     openPop(existing || {
-      id: uid(), page: pageKey(), selector: cssPath(el), original: original,
-      suggested: original, note: '', status: 'open',
-    }, el, !existing);
+      id: uid(), page: pageKey(), kind: t.kind, selector: cssPath(el), original: original,
+      suggested: t.kind === 'text' ? original : '', note: '', status: 'open',
+    }, el, !existing, { x: e.clientX, y: e.clientY });
   }
 
-  function openPop(item, el, isNew) {
-    editing = { item: item, el: el };
+  function beginEdit(item, el, point) {
+    editing = { item: item, el: el, point: point };
     hoverBox.classList.add('editing');
+    hoverBox.classList.toggle('img', kindOf(item) !== 'text');
+    hoverLbl.textContent = KIND_LABEL[kindOf(item)];
     hoverBox.style.display = 'block';
     placeBox(hoverBox, el);
+  }
+
+  function openPop(item, el, isNew, point) {
+    if (kindOf(item) !== 'text') { openImagePop(item, el, isNew, point); return; }
+    beginEdit(item, el, point);
 
     var name = item.author || lsGet(NAME) || '';
     pop.innerHTML =
@@ -506,6 +600,9 @@
     var r = el.getBoundingClientRect();
     var pw = pop.offsetWidth, ph = pop.offsetHeight;
     var vw = window.innerWidth, vh = window.innerHeight;
+    // For large areas like a hero background, open the note where they clicked.
+    var p = editing && editing.point;
+    if (p && (r.height > vh * 0.5 || r.width > vw * 0.6)) r = { left: p.x, top: p.y, bottom: p.y };
     var top = r.bottom + 12;
     if (top + ph > vh - 12) top = r.top - ph - 12;
     if (top < 12) top = Math.max(12, vh - ph - 12);
@@ -520,6 +617,200 @@
     pop.style.display = 'none';
     hoverBox.classList.remove('editing');
     hoverBox.style.display = 'none';
+  }
+
+  // ---------- image comments ----------
+
+  var UPLOAD_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+  var UPLOAD_MAX = 3 * 1024 * 1024; // keeps the request under Vercel's 4.5MB body limit
+
+  function imageUrl(id) { return API + '?image=' + encodeURIComponent(id); }
+
+  function readBase64(blob) {
+    return new Promise(function (resolve, reject) {
+      var r = new FileReader();
+      r.onload = function () { resolve(String(r.result).split(',')[1]); };
+      r.onerror = reject;
+      r.readAsDataURL(blob);
+    });
+  }
+
+  // Sends the file as-is when it fits; larger photos are scaled down to a
+  // high-quality JPEG that does.
+  function prepareImage(file) {
+    if (UPLOAD_TYPES.indexOf(file.type) === -1) {
+      return Promise.reject(new Error('Please choose a JPG, PNG, WebP or GIF image.'));
+    }
+    if (file.size <= UPLOAD_MAX) {
+      return readBase64(file).then(function (data) { return { type: file.type, name: file.name, data: data }; });
+    }
+    if (file.type === 'image/gif') return Promise.reject(new Error('That GIF is over 3MB, please choose a smaller one.'));
+    return new Promise(function (resolve, reject) {
+      var img = new Image();
+      var url = URL.createObjectURL(file);
+      img.onload = function () {
+        URL.revokeObjectURL(url);
+        var scale = Math.min(1, 2560 / Math.max(img.naturalWidth, img.naturalHeight));
+        (function attempt(s, q) {
+          var c = document.createElement('canvas');
+          c.width = Math.round(img.naturalWidth * s);
+          c.height = Math.round(img.naturalHeight * s);
+          var ctx = c.getContext('2d');
+          ctx.fillStyle = '#fff';
+          ctx.fillRect(0, 0, c.width, c.height);
+          ctx.drawImage(img, 0, 0, c.width, c.height);
+          c.toBlob(function (blob) {
+            if (!blob) { reject(new Error('Could not read that image.')); return; }
+            if (blob.size > UPLOAD_MAX && s > 0.2) { attempt(s * 0.8, Math.max(0.75, q - 0.05)); return; }
+            readBase64(blob).then(function (data) {
+              resolve({ type: 'image/jpeg', name: file.name.replace(/\.\w+$/, '') + '.jpg', data: data });
+            }, reject);
+          }, 'image/jpeg', q);
+        })(scale, 0.9);
+      };
+      img.onerror = function () { URL.revokeObjectURL(url); reject(new Error('Could not read that image.')); };
+      img.src = url;
+    });
+  }
+
+  function uploadImage(prepared) {
+    return fetch(API + '?upload=1', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(prepared),
+    }).then(function (r) {
+      if (r.status === 501) throw new Error('Image uploads need the shared review list connected.');
+      if (r.status === 413) throw new Error('That image is too large, please choose a smaller one.');
+      if (!r.ok) throw new Error('Upload failed, please try again.');
+      return r.json();
+    }).then(function (res) { return res.id; });
+  }
+
+  function openImagePop(item, el, isNew, point) {
+    beginEdit(item, el, point);
+    var kind = kindOf(item);
+    var name = item.author || lsGet(NAME) || '';
+    var chosen = null; // File picked in this popover, not yet uploaded
+    var removed = false;
+
+    pop.innerHTML =
+      '<label>Current ' + (kind === 'background' ? 'background image' : 'image') + '</label><img class="thumb" alt="" />' +
+      '<label>Replacement image (optional)</label>' +
+      '<div class="drop" tabindex="0"></div><input class="file" type="file" accept="image/jpeg,image/png,image/webp,image/gif" hidden />' +
+      '<div class="err"></div>' +
+      '<label>Comment</label><textarea class="note" rows="3" placeholder="e.g. use a brighter photo, show the machine in an office"></textarea>' +
+      '<label>Your name</label><input class="who" type="text" placeholder="So we know who suggested it" />' +
+      (isNew ? '' : '<div class="meta"></div>') +
+      '<div class="row">' +
+      (isNew ? '' : '<button class="btn danger del">Delete</button>') +
+      '<span class="spacer"></span>' +
+      '<button class="btn ghost cancel">Cancel</button>' +
+      '<button class="btn primary save">' + (isNew ? 'Save comment' : 'Update') + '</button></div>';
+
+    pop.querySelector('.thumb').src = item.original;
+    var drop = pop.querySelector('.drop');
+    var input = pop.querySelector('.file');
+    var err = pop.querySelector('.err');
+    var note = pop.querySelector('.note');
+    var who = pop.querySelector('.who');
+    var saveBtn = pop.querySelector('.save');
+    note.value = item.note || '';
+    who.value = name;
+
+    function showErr(msg) { err.textContent = msg || ''; err.style.display = msg ? 'block' : 'none'; }
+
+    function renderDrop() {
+      drop.innerHTML = '';
+      var src = chosen ? URL.createObjectURL(chosen) : (item.imageId && !removed ? imageUrl(item.imageId) : '');
+      if (src) {
+        var im = h('img');
+        im.src = src;
+        drop.appendChild(im);
+        drop.appendChild(h('span', 'fname', esc(chosen ? chosen.name : (item.imageName || 'Uploaded image'))));
+        var clear = h('button', 'btn danger', 'Remove image');
+        clear.type = 'button';
+        clear.addEventListener('click', function (e) {
+          e.stopPropagation();
+          chosen = null; removed = true; input.value = '';
+          renderDrop();
+        });
+        drop.appendChild(clear);
+      } else {
+        drop.innerHTML = '<strong>Upload a replacement</strong><span>Click to choose, or drag an image here</span><span class="fname">JPG, PNG, WebP or GIF</span>';
+      }
+      positionPop(el);
+    }
+
+    function pick(file) {
+      showErr('');
+      if (!file) return;
+      if (UPLOAD_TYPES.indexOf(file.type) === -1) { showErr('Please choose a JPG, PNG, WebP or GIF image.'); return; }
+      chosen = file;
+      renderDrop();
+    }
+
+    drop.addEventListener('click', function () { input.click(); });
+    drop.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); input.click(); } });
+    input.addEventListener('change', function () { pick(input.files[0]); });
+    drop.addEventListener('dragover', function (e) { e.preventDefault(); drop.classList.add('over'); });
+    drop.addEventListener('dragleave', function () { drop.classList.remove('over'); });
+    drop.addEventListener('drop', function (e) {
+      e.preventDefault();
+      drop.classList.remove('over');
+      pick(e.dataTransfer.files && e.dataTransfer.files[0]);
+    });
+
+    if (!isNew) {
+      pop.querySelector('.meta').textContent =
+        (item.author ? item.author + ' · ' : '') + fmtDate(item.updatedAt) + (item.status === 'resolved' ? ' · Resolved' : '');
+      pop.querySelector('.del').addEventListener('click', function () {
+        if (!confirm('Delete this comment?')) return;
+        closePop();
+        remove(item.id).then(function (ok) { toast(ok ? 'Comment deleted' : 'Deleted here, will sync when the connection is back'); });
+      });
+    }
+    pop.querySelector('.cancel').addEventListener('click', closePop);
+
+    saveBtn.addEventListener('click', function () {
+      var n = note.value.trim();
+      var keepsImage = item.imageId && !removed;
+      if (!n && !chosen && !keepsImage) { showErr('Upload an image or add a comment first.'); return; }
+      var author = who.value.trim();
+      if (author) lsSet(NAME, author);
+      showErr('');
+
+      // The upload must succeed before the comment is saved, so a comment never
+      // points at an image we don't have. On failure the popover stays open.
+      var upload = chosen
+        ? (saveBtn.disabled = true, saveBtn.textContent = 'Uploading…',
+          prepareImage(chosen).then(uploadImage).then(function (id) {
+            return { imageId: id, imageName: chosen.name };
+          }))
+        : Promise.resolve(keepsImage ? { imageId: item.imageId, imageName: item.imageName } : { imageId: '', imageName: '' });
+
+      upload.then(function (img) {
+        var now = Date.now();
+        closePop();
+        toast('Saving…');
+        return upsert(Object.assign({}, item, img, {
+          suggested: '', note: n, author: author,
+          createdAt: item.createdAt || now, updatedAt: now,
+        })).then(function (ok) {
+          if (ok) toast(isNew ? 'Comment saved ✓' : 'Comment updated ✓');
+          else if (mode === 'local') toast('Saved on this device only, the shared list is not connected');
+          else toast('Not sent yet, it is kept here and will retry automatically');
+        });
+      }).catch(function (e) {
+        saveBtn.disabled = false;
+        saveBtn.textContent = isNew ? 'Save comment' : 'Update';
+        showErr(e && e.message ? e.message : 'Upload failed, please try again.');
+      });
+    });
+
+    renderDrop();
+    pop.style.display = 'block';
+    positionPop(el);
+    note.focus();
   }
 
   // ---------- pins ----------
@@ -553,8 +844,9 @@
       }
       pin.dataset.id = item.id;
       pin.textContent = String(idx + 1);
-      pin.title = item.suggested;
+      pin.title = kindOf(item) === 'text' ? item.suggested : KIND_LABEL[kindOf(item)] + (item.note ? ': ' + item.note : '');
       pin.classList.toggle('done', item.status === 'resolved');
+      pin.classList.toggle('img', kindOf(item) !== 'text');
       var el = locate(item);
       var r = el && el.getBoundingClientRect();
       if (!r || (!r.width && !r.height)) { pin.style.display = 'none'; return; }
@@ -593,7 +885,7 @@
     });
     var open = items.filter(function (i) { return i.status !== 'resolved'; }).length;
     panel.innerHTML =
-      '<header><div class="row" style="display:flex;align-items:center"><h2>Copy suggestions</h2><span class="spacer" style="flex:1"></span>' +
+      '<header><div class="row" style="display:flex;align-items:center"><h2>Suggestions</h2><span class="spacer" style="flex:1"></span>' +
       '<button class="btn ghost close">Close</button></div>' +
       '<div class="status"></div>' +
       '<div class="tools"><button class="btn ghost csv">Export CSV</button><button class="btn ghost copy">Copy as text</button></div></header>' +
@@ -606,18 +898,28 @@
 
     var list = panel.querySelector('.list');
     if (!items.length) {
-      list.innerHTML = '<div class="empty">No suggestions yet. Click any heading, paragraph or button text on the page to suggest new wording.</div>';
+      list.innerHTML = '<div class="empty">No suggestions yet. Click any text on the page to suggest new wording, or any image or background to comment on it or upload a replacement.</div>';
       return;
     }
     pages.forEach(function (p) {
       list.appendChild(h('h3', '', esc(pageLabel(p)) + (p === pageKey() ? ' (this page)' : '')));
       groups[p].forEach(function (item, idx) {
         var card = h('div', 'card' + (item.status === 'resolved' ? ' done' : ''));
-        card.innerHTML =
-          '<div><span class="n">' + (idx + 1) + '</span><strong>' + esc(item.author || 'Reviewer') + '</strong></div>' +
-          (item.suggested !== item.original
+        var kind = kindOf(item);
+        var body;
+        if (kind === 'text') {
+          body = item.suggested !== item.original
             ? '<div class="was">' + esc(item.original) + '</div><div class="now">' + esc(item.suggested) + '</div>'
-            : '<div class="now" style="margin-top:8px">' + esc(item.original) + '</div>') +
+            : '<div class="now" style="margin-top:8px">' + esc(item.original) + '</div>';
+        } else {
+          body = '<div class="imgs"><img src="' + esc(item.original) + '" alt="Current" />' +
+            (item.imageId ? '<span class="arrow">→</span><img src="' + esc(imageUrl(item.imageId)) + '" alt="Replacement" />' : '') + '</div>' +
+            (item.imageId ? '<div style="margin-top:6px"><a class="dl" href="' + esc(imageUrl(item.imageId)) + '" target="_blank" rel="noopener">Open replacement image ↗</a></div>' : '');
+        }
+        card.innerHTML =
+          '<div><span class="n">' + (idx + 1) + '</span><strong>' + esc(item.author || 'Reviewer') + '</strong>' +
+          (kind === 'text' ? '' : '<span class="kind">' + KIND_LABEL[kind] + '</span>') + '</div>' +
+          body +
           (item.note ? '<div class="note">' + esc(item.note) + '</div>' : '') +
           '<div class="foot"><span>' + esc(fmtDate(item.updatedAt)) + '</span><span class="spacer"></span>' +
           '<label><input type="checkbox" class="res"' + (item.status === 'resolved' ? ' checked' : '') + ' /> Resolved</label></div>';
@@ -625,6 +927,8 @@
         card.querySelector('.res').addEventListener('change', function (e) {
           upsert(Object.assign({}, item, { status: e.target.checked ? 'resolved' : 'open' }));
         });
+        var dl = card.querySelector('.dl');
+        if (dl) dl.addEventListener('click', function (e) { e.stopPropagation(); });
         card.addEventListener('click', function () { goTo(item); });
         list.appendChild(card);
       });
@@ -637,7 +941,7 @@
       return;
     }
     var el = locate(item);
-    if (!el) { toast('That copy is not on the page right now'); return; }
+    if (!el) { toast('That item is not on the page right now'); return; }
     if (window.innerWidth <= 640) togglePanel(false);
     el.scrollIntoView({ behavior: 'smooth', block: 'center' });
     setTimeout(function () { openPop(item, el, false); }, 450);
@@ -667,12 +971,22 @@
     return out;
   }
 
+  function absUrl(u) {
+    try { return new URL(u, location.origin).href; } catch (e) { return u; }
+  }
+
   function exportCsv() {
     var cell = function (v) { return '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"'; };
-    var lines = [['Page', '#', 'Current copy', 'Suggested copy', 'Note', 'Suggested by', 'Status', 'Updated'].map(cell).join(',')];
+    var lines = [['Page', '#', 'Type', 'Current copy / image', 'Suggested copy', 'Replacement image', 'Note', 'Suggested by', 'Status', 'Updated'].map(cell).join(',')];
     rows().forEach(function (r) {
-      var i = r.item;
-      lines.push([r.page, r.n, i.original, i.suggested, i.note, i.author, i.status, new Date(i.updatedAt || 0).toISOString()].map(cell).join(','));
+      var i = r.item, kind = kindOf(i);
+      lines.push([
+        r.page, r.n, KIND_LABEL[kind],
+        kind === 'text' ? i.original : absUrl(i.original),
+        kind === 'text' ? i.suggested : '',
+        i.imageId ? absUrl(imageUrl(i.imageId)) : '',
+        i.note, i.author, i.status, new Date(i.updatedAt || 0).toISOString(),
+      ].map(cell).join(','));
     });
     var blob = new Blob(['﻿' + lines.join('\r\n')], { type: 'text/csv;charset=utf-8' });
     var a = document.createElement('a');
@@ -688,9 +1002,16 @@
     rows().forEach(function (r) {
       var i = r.item;
       if (r.page !== last) { out.push((last ? '\n' : '') + '== ' + r.page + ' =='); last = r.page; }
-      out.push(r.n + '. ' + (i.status === 'resolved' ? '[resolved] ' : '') + (i.author ? '(' + i.author + ')' : ''));
-      out.push('   Current:   ' + i.original);
-      if (i.suggested !== i.original) out.push('   Suggested: ' + i.suggested);
+      var kind = kindOf(i);
+      out.push(r.n + '. ' + (kind === 'text' ? '' : '[' + KIND_LABEL[kind] + '] ') +
+        (i.status === 'resolved' ? '[resolved] ' : '') + (i.author ? '(' + i.author + ')' : ''));
+      if (kind === 'text') {
+        out.push('   Current:   ' + i.original);
+        if (i.suggested !== i.original) out.push('   Suggested: ' + i.suggested);
+      } else {
+        out.push('   Current:     ' + absUrl(i.original));
+        if (i.imageId) out.push('   Replacement: ' + absUrl(imageUrl(i.imageId)));
+      }
       if (i.note) out.push('   Note:      ' + i.note);
     });
     var text = out.join('\n');
