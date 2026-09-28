@@ -33,13 +33,26 @@
 
   // ---------- data ----------
 
+  var PENDING = 'tv_copy_review_pending';
   var items = [];
-  var cloud = false;
+  // 'checking' until the first server response, then 'cloud' (shared store
+  // reachable), 'offline' (server unreachable, retrying) or 'local' (storage
+  // not connected on this deployment).
+  var mode = 'checking';
 
   function loadLocal() {
     try { return JSON.parse(lsGet(STORE) || '[]'); } catch (e) { return []; }
   }
   function saveLocal() { lsSet(STORE, JSON.stringify(items)); }
+
+  // Changes not yet confirmed by the server, keyed by id: 'upsert' or 'delete'.
+  // Kept in localStorage so nothing is lost if the tab closes before a retry.
+  function loadPending() {
+    try { return JSON.parse(lsGet(PENDING) || '{}'); } catch (e) { return {}; }
+  }
+  var pending = loadPending();
+  function savePending() { lsSet(PENDING, JSON.stringify(pending)); }
+  function pendingCount() { return Object.keys(pending).length; }
 
   function api(method, body) {
     return fetch(API, {
@@ -48,42 +61,88 @@
       body: body ? JSON.stringify(body) : undefined,
       cache: 'no-store',
     }).then(function (r) {
+      if (r.status === 501) { var e = new Error('not connected'); e.notConnected = true; throw e; }
       if (!r.ok) throw new Error('HTTP ' + r.status);
       return r.json();
     });
   }
 
+  function failed(err) {
+    mode = err && err.notConnected ? 'local' : 'offline';
+  }
+
+  // Send every queued change; each is cleared only once the server confirms it.
+  var flushing = null;
+  function flush() {
+    if (flushing) return flushing;
+    var ids = Object.keys(pending);
+    if (!ids.length || mode === 'local') { refresh(); return Promise.resolve(); }
+    flushing = Promise.all(ids.map(function (id) {
+      var op = pending[id];
+      var item = items.filter(function (i) { return i.id === id; })[0];
+      var req = op === 'delete' ? api('DELETE', { id: id })
+        : item ? api('POST', item) : Promise.resolve();
+      return req.then(function () {
+        if (pending[id] === op) delete pending[id];
+        mode = 'cloud';
+      }).catch(failed);
+    })).then(function () {
+      savePending();
+      flushing = null;
+      refresh();
+    });
+    return flushing;
+  }
+
   function sync() {
     return api('GET').then(function (res) {
-      cloud = true;
-      var remote = res.items || [];
-      var ids = {};
-      remote.forEach(function (i) { ids[i.id] = true; });
-      // Push anything saved while offline / before storage was connected.
-      var pending = loadLocal().filter(function (i) { return !ids[i.id]; });
-      pending.forEach(function (i) { api('POST', i).catch(function () {}); });
-      items = remote.concat(pending);
+      mode = 'cloud';
+      var local = {};
+      loadLocal().forEach(function (i) { local[i.id] = i; });
+      // Server is the source of truth, except for this browser's unsent changes.
+      items = (res.items || []).filter(function (i) { return pending[i.id] !== 'delete'; });
+      Object.keys(pending).forEach(function (id) {
+        if (pending[id] !== 'upsert' || !local[id]) return;
+        items = items.filter(function (i) { return i.id !== id; }).concat(local[id]);
+      });
       saveLocal();
-    }).catch(function () {
-      cloud = false;
+      return flush();
+    }).catch(function (err) {
+      failed(err);
       items = loadLocal();
     }).then(refresh);
+  }
+
+  function queue(id, op) {
+    pending[id] = op;
+    savePending();
+    saveLocal();
+    refresh();
+    return flush().then(function () { return !pending[id]; });
   }
 
   function upsert(item) {
     var idx = items.findIndex(function (i) { return i.id === item.id; });
     if (idx === -1) items.push(item); else items[idx] = item;
-    saveLocal();
-    refresh();
-    if (cloud) api('POST', item).catch(function () { setStatus('Could not reach the server, saved on this device'); });
+    return queue(item.id, 'upsert');
   }
 
   function remove(id) {
     items = items.filter(function (i) { return i.id !== id; });
-    saveLocal();
-    refresh();
-    if (cloud) api('DELETE', { id: id }).catch(function () {});
+    return queue(id, 'delete');
   }
+
+  // Keep retrying anything unsent, and pick up other reviewers' suggestions.
+  setInterval(function () {
+    if (pendingCount()) { if (mode === 'local') sync(); else flush(); }
+  }, 10000);
+  setInterval(function () { if (!pendingCount() && !editing) sync(); }, 60000);
+  window.addEventListener('online', function () { flush(); });
+  window.addEventListener('beforeunload', function (e) {
+    if (!pendingCount() || mode !== 'offline') return;
+    e.preventDefault();
+    e.returnValue = '';
+  });
 
   // ---------- page + element helpers ----------
 
@@ -195,7 +254,7 @@
 
   // ---------- UI ----------
 
-  var host, root, hoverBox, pinLayer, toolbar, panel, pop, statusEl, countEl, selectBtn;
+  var host, root, hoverBox, pinLayer, toolbar, panel, pop, statusEl, countEl, selectBtn, saveEl;
   var selecting = true;
   var panelOpen = false;
   var editing = null; // { item, el }
@@ -213,6 +272,12 @@
     '.bar button{border:none;background:transparent;color:#FAFBFC;font-size:13px;font-weight:600;padding:9px 14px;border-radius:999px;cursor:pointer;white-space:nowrap}',
     '.bar button:hover{background:rgba(255,255,255,.1)}',
     '.bar button.on{background:' + RED + '}',
+    '.save-state{display:inline-flex;align-items:center;gap:7px;padding:0 10px;font-size:12px;font-weight:600;white-space:nowrap;color:#D9D9D5}',
+    '.save-state::before{content:"";width:8px;height:8px;border-radius:50%;background:#A8A59C}',
+    '.save-state.ok::before{background:#3DBE6E}',
+    '.save-state.wait::before{background:#F2B01E}',
+    '.save-state.bad{color:#fff;background:' + RED + ';border-radius:999px;padding:6px 12px}',
+    '.save-state.bad::before{background:#fff}',
     '.bar .count{display:inline-block;min-width:20px;padding:1px 6px;margin-left:6px;border-radius:999px;background:#FAFBFC;color:#1C1C1A;font-size:11px;text-align:center}',
     '.pop{position:fixed;z-index:2147483003;width:360px;max-width:calc(100vw - 32px);background:#fff;color:#1C1C1A;border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.28);border:1px solid #E1E4E8;padding:16px;display:none;font-size:13px}',
     '.pop label{display:block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#6B6B68;margin:0 0 6px}',
@@ -291,6 +356,8 @@
       u.searchParams.delete('review');
       location.href = u.toString();
     });
+    saveEl = h('span', 'save-state');
+    toolbar.appendChild(saveEl);
     toolbar.appendChild(selectBtn);
     toolbar.appendChild(listBtn);
     toolbar.appendChild(exitBtn);
@@ -401,7 +468,9 @@
       pop.querySelector('.meta').textContent =
         (item.author ? item.author + ' · ' : '') + fmtDate(item.updatedAt) + (item.status === 'resolved' ? ' · Resolved' : '');
       pop.querySelector('.del').addEventListener('click', function () {
-        if (confirm('Delete this suggestion?')) { remove(item.id); closePop(); toast('Suggestion deleted'); }
+        if (!confirm('Delete this suggestion?')) return;
+        closePop();
+        remove(item.id).then(function (ok) { toast(ok ? 'Suggestion deleted' : 'Deleted here, will sync when the connection is back'); });
       });
     }
     pop.querySelector('.cancel').addEventListener('click', closePop);
@@ -412,12 +481,16 @@
       var author = who.value.trim();
       if (author) lsSet(NAME, author);
       var now = Date.now();
+      closePop();
+      toast('Saving…');
       upsert(Object.assign({}, item, {
         suggested: s, note: n, author: author,
         createdAt: item.createdAt || now, updatedAt: now,
-      }));
-      closePop();
-      toast(isNew ? 'Suggestion saved' : 'Suggestion updated');
+      })).then(function (ok) {
+        if (ok) toast(isNew ? 'Suggestion saved ✓' : 'Suggestion updated ✓');
+        else if (mode === 'local') toast('Saved on this device only, the shared list is not connected');
+        else toast('Not sent yet, it is kept here and will retry automatically');
+      });
     });
     sug.addEventListener('keydown', function (e) {
       if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) pop.querySelector('.save').click();
@@ -526,8 +599,7 @@
       '<div class="tools"><button class="btn ghost csv">Export CSV</button><button class="btn ghost copy">Copy as text</button></div></header>' +
       '<div class="list"></div>';
     statusEl = panel.querySelector('.status');
-    setStatus(items.length + ' suggestion' + (items.length === 1 ? '' : 's') + ', ' + open + ' open · ' +
-      (cloud ? 'Saved to the shared review list' : 'Saved on this device only, use Export to send them'));
+    setStatus(items.length + ' suggestion' + (items.length === 1 ? '' : 's') + ', ' + open + ' open · ' + saveState().long);
     panel.querySelector('.close').addEventListener('click', function () { togglePanel(false); });
     panel.querySelector('.csv').addEventListener('click', exportCsv);
     panel.querySelector('.copy').addEventListener('click', copyText);
@@ -629,8 +701,21 @@
 
   // ---------- boot ----------
 
+  function saveState() {
+    var n = pendingCount();
+    if (mode === 'local') return { cls: 'bad', short: 'Not connected', long: 'Shared list not connected, suggestions are only on this device. Use Export CSV to send them.' };
+    if (mode === 'checking') return { cls: 'wait', short: 'Connecting…', long: 'Connecting to the shared review list…' };
+    if (n && mode === 'offline') return { cls: 'bad', short: n + ' not sent', long: n + ' change' + (n === 1 ? '' : 's') + ' not sent yet, kept on this device and retrying every 10 seconds. Keep this tab open until it clears.' };
+    if (n) return { cls: 'wait', short: 'Saving…', long: 'Saving to the shared review list…' };
+    return { cls: 'ok', short: 'All saved', long: 'Everything is saved to the shared review list.' };
+  }
+
   function refresh() {
     if (!countEl) return;
+    var st = saveState();
+    saveEl.className = 'save-state ' + st.cls;
+    saveEl.textContent = st.short;
+    saveEl.title = st.long;
     countEl.textContent = String(items.filter(function (i) { return i.status !== 'resolved'; }).length);
     if (panelOpen) renderPanel();
     schedule();
