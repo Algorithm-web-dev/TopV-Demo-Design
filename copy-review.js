@@ -272,6 +272,9 @@
   // Text wins where the pointer is over copy; otherwise the image beneath it.
   function pickTarget(e) {
     if (e.target && e.target.nodeType === 1 && inSiteChrome(e.target)) return null;
+    // Buttons do things on the page (Load More, Add to Quote, filters, tabs),
+    // so leave them working rather than opening a note.
+    if (e.target && e.target.closest && e.target.closest('button, [role="button"]')) return null;
     var el = copyTarget(e.target);
     if (el) return { el: el, kind: 'text' };
     return imageAt(e.clientX, e.clientY);
