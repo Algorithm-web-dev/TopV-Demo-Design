@@ -509,6 +509,10 @@
   }
 
   function onClick(e) {
+    // Only real clicks: the export download link (and any page script) fires
+    // synthetic clicks at 0,0, which used to land on the hero background and
+    // get swallowed, blocking the download.
+    if (!e.isTrusted || (e.target && e.target.closest && e.target.closest('[data-tv-review]'))) return;
     var path = e.composedPath ? e.composedPath() : [];
     if (path.indexOf(host) !== -1) return;
     if (editing) {
@@ -894,12 +898,13 @@
       '<header><div class="row" style="display:flex;align-items:center"><h2>Suggestions</h2><span class="spacer" style="flex:1"></span>' +
       '<button class="btn ghost close">Close</button></div>' +
       '<div class="status"></div>' +
-      '<div class="tools"><button class="btn ghost csv">Export CSV</button><button class="btn ghost copy">Copy as text</button></div></header>' +
+      '<div class="tools"><button class="btn primary zip">Download all (ZIP)</button><button class="btn ghost csv">Export CSV</button><button class="btn ghost copy">Copy as text</button></div></header>' +
       '<div class="list"></div>';
     statusEl = panel.querySelector('.status');
     setStatus(items.length + ' suggestion' + (items.length === 1 ? '' : 's') + ', ' + open + ' open · ' + saveState().long);
     panel.querySelector('.close').addEventListener('click', function () { togglePanel(false); });
     panel.querySelector('.csv').addEventListener('click', exportCsv);
+    panel.querySelector('.zip').addEventListener('click', exportZip);
     panel.querySelector('.copy').addEventListener('click', copyText);
 
     var list = panel.querySelector('.list');
@@ -981,26 +986,125 @@
     try { return new URL(u, location.origin).href; } catch (e) { return u; }
   }
 
-  function exportCsv() {
+  // Name of each uploaded image inside the ZIP export, keyed by item id.
+  function zipImageName(r) {
+    var ext = (/\.(jpe?g|png|webp|gif)$/i.exec(r.item.imageName || '') || [, 'jpg'])[1].toLowerCase();
+    return 'images/' + r.page.replace(/[^\w-]+/g, '-') + '-' + r.n + '.' + ext;
+  }
+
+  function csvText(withFiles) {
     var cell = function (v) { return '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"'; };
-    var lines = [['Page', '#', 'Type', 'Current copy / image', 'Suggested copy', 'Replacement image', 'Note', 'Suggested by', 'Status', 'Updated'].map(cell).join(',')];
+    var head = ['Page', 'Page file', '#', 'Type', 'Current copy / image', 'Suggested copy', 'Replacement image', 'Note', 'Suggested by', 'Status', 'Updated', 'ID'];
+    if (withFiles) head.splice(7, 0, 'Image file in ZIP');
+    var lines = [head.map(cell).join(',')];
     rows().forEach(function (r) {
       var i = r.item, kind = kindOf(i);
-      lines.push([
-        r.page, r.n, KIND_LABEL[kind],
+      var row = [
+        r.page, i.page, r.n, KIND_LABEL[kind],
         kind === 'text' ? i.original : absUrl(i.original),
         kind === 'text' ? i.suggested : '',
         i.imageId ? absUrl(imageUrl(i.imageId)) : '',
-        i.note, i.author, i.status, new Date(i.updatedAt || 0).toISOString(),
-      ].map(cell).join(','));
+        i.note, i.author, i.status, new Date(i.updatedAt || 0).toISOString(), i.id,
+      ];
+      if (withFiles) row.splice(7, 0, i.imageId ? zipImageName(r) : '');
+      lines.push(row.map(cell).join(','));
     });
-    var blob = new Blob(['﻿' + lines.join('\r\n')], { type: 'text/csv;charset=utf-8' });
+    return '﻿' + lines.join('\r\n');
+  }
+
+  function download(blob, name) {
     var a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = 'copy-suggestions-' + new Date().toISOString().slice(0, 10) + '.csv';
+    a.download = name;
+    a.setAttribute('data-tv-review', '1');
     document.body.appendChild(a);
     a.click();
-    setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+    setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 4000);
+  }
+
+  function stamp() { return new Date().toISOString().slice(0, 10); }
+
+  function exportCsv() {
+    download(new Blob([csvText(false)], { type: 'text/csv;charset=utf-8' }), 'copy-suggestions-' + stamp() + '.csv');
+  }
+
+  // ---------- ZIP export (CSV + every uploaded image in one file) ----------
+
+  var CRC_TABLE = (function () {
+    var t = [];
+    for (var n = 0; n < 256; n++) {
+      var c = n;
+      for (var k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1;
+      t[n] = c >>> 0;
+    }
+    return t;
+  })();
+  function crc32(bytes) {
+    var c = 0xFFFFFFFF;
+    for (var i = 0; i < bytes.length; i++) c = CRC_TABLE[(c ^ bytes[i]) & 0xFF] ^ (c >>> 8);
+    return (c ^ 0xFFFFFFFF) >>> 0;
+  }
+
+  // Minimal uncompressed ("stored") ZIP writer; images are already compressed.
+  function buildZip(files) {
+    var enc = new TextEncoder();
+    var parts = [], central = [], offset = 0;
+    var d = new Date();
+    var time = (d.getHours() << 11) | (d.getMinutes() << 5) | (d.getSeconds() >> 1);
+    var date = ((d.getFullYear() - 1980) << 9) | ((d.getMonth() + 1) << 5) | d.getDate();
+    files.forEach(function (f) {
+      var name = enc.encode(f.name), data = f.data, crc = crc32(data);
+      var lh = new DataView(new ArrayBuffer(30));
+      lh.setUint32(0, 0x04034b50, true); lh.setUint16(4, 20, true); lh.setUint16(6, 0x0800, true);
+      lh.setUint16(8, 0, true); lh.setUint16(10, time, true); lh.setUint16(12, date, true);
+      lh.setUint32(14, crc, true); lh.setUint32(18, data.length, true); lh.setUint32(22, data.length, true);
+      lh.setUint16(26, name.length, true); lh.setUint16(28, 0, true);
+      parts.push(lh, name, data);
+      var ch = new DataView(new ArrayBuffer(46));
+      ch.setUint32(0, 0x02014b50, true); ch.setUint16(4, 20, true); ch.setUint16(6, 20, true);
+      ch.setUint16(8, 0x0800, true); ch.setUint16(10, 0, true); ch.setUint16(12, time, true);
+      ch.setUint16(14, date, true); ch.setUint32(16, crc, true); ch.setUint32(20, data.length, true);
+      ch.setUint32(24, data.length, true); ch.setUint16(28, name.length, true);
+      ch.setUint32(42, offset, true);
+      central.push(ch, name);
+      offset += 30 + name.length + data.length;
+    });
+    var cdSize = central.reduce(function (s, p) { return s + p.byteLength; }, 0);
+    var end = new DataView(new ArrayBuffer(22));
+    end.setUint32(0, 0x06054b50, true); end.setUint16(8, files.length, true); end.setUint16(10, files.length, true);
+    end.setUint32(12, cdSize, true); end.setUint32(16, offset, true);
+    return new Blob(parts.concat(central, [end]), { type: 'application/zip' });
+  }
+
+  var zipping = false;
+  function exportZip() {
+    if (zipping) return;
+    zipping = true;
+    var enc = new TextEncoder();
+    var withImages = rows().filter(function (r) { return r.item.imageId; });
+    var files = [{ name: 'suggestions.csv', data: enc.encode(csvText(true)) }];
+    var failed = [];
+    var i = 0;
+    function next() {
+      if (i >= withImages.length) return Promise.resolve();
+      var r = withImages[i++];
+      toast('Downloading images ' + i + ' of ' + withImages.length + '…');
+      return fetch(imageUrl(r.item.imageId)).then(function (res) {
+        if (!res.ok) throw new Error();
+        return res.arrayBuffer();
+      }).then(function (buf) {
+        files.push({ name: zipImageName(r), data: new Uint8Array(buf) });
+      }).catch(function () {
+        failed.push(r.page + ' #' + r.n);
+      }).then(next);
+    }
+    next().then(function () {
+      if (failed.length) {
+        files.push({ name: 'MISSING-IMAGES.txt', data: enc.encode('These images could not be downloaded:\r\n' + failed.join('\r\n')) });
+      }
+      download(buildZip(files), 'site-review-' + stamp() + '.zip');
+      toast(failed.length ? 'ZIP ready, ' + failed.length + ' image(s) could not be downloaded' : 'ZIP ready ✓');
+    }).then(function () { zipping = false; }, function () { zipping = false; toast('Export failed, please try again'); });
   }
 
   function copyText() {
