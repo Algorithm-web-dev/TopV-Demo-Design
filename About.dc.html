@@ -89,22 +89,22 @@
     <span style="font-family:Inter,sans-serif;font-size:15px;">←</span>Back to home
    </a>
    <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">About Us</div>
-   <h1 style="font-family:'Inter',sans-serif;font-weight:700;font-size:52px;line-height:1.05;letter-spacing:-0.032em;margin:0 0 18px;">Keeping South African workplaces supplied since 1991.</h1>
-   <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#45443F;margin:0;max-width:640px;">Top Vending supplies, installs and services vending machines, hot beverage equipment and water coolers for offices, factories, mines and campuses across the country.</p>
+   <h1 style="font-family:'Inter',sans-serif;font-weight:700;font-size:52px;line-height:1.05;letter-spacing:-0.032em;margin:0 0 18px;">Keeping South African workplaces supplied since 1994.</h1>
+   <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#45443F;margin:0;max-width:640px;">Smart refreshment solutions, backed by service you can rely on. Top Vending supplies, installs and services vending machines, hot beverage equipment and water coolers for offices, factories and educational campuses across the country. We combine quality equipment with dependable ongoing support to create convenient refreshment solutions that work for your people and your business.</p>
   </div>
  </section>
 
  <section id="story" style="background:#FAFBFC;padding:130px 48px;box-sizing:border-box;">
   <div style="max-width:1200px;margin:0 auto;">
    <div style="display:grid;grid-template-columns:1.05fr 1fr;gap:70px;align-items:center;">
-    <div style="height:430px;overflow:hidden;background:#1C1C1A;box-shadow:0 24px 60px rgba(28,28,26,0.18);position:relative;">
-     <img src="assets/products-2026/about-first-machine.jpg" alt="Top Vending team" style="width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;filter:contrast(1.04) brightness(0.95);" />
-     <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(20,20,18,0.18) 0%, rgba(20,20,18,0.06) 45%, rgba(20,20,18,0.28) 100%);"></div>
+    <div style="height:520px;overflow:hidden;background:#EFF1F3;box-shadow:0 24px 60px rgba(28,28,26,0.12);position:relative;">
+     <img src="assets/products-2026/about-first-machine.jpg" alt="The first Top Vending machine, now in our showroom" style="width:100%;height:100%;object-fit:contain;display:block;" />
     </div>
     <div>
      <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Our story</div>
-     <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.12;letter-spacing:-0.03em;margin:0 0 18px;">Three decades in the vending industry.</h2>
-     <p style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:#45443F;margin:0 0 18px;max-width:500px;">What started as a small vending operation has grown into a national supplier with hubs in Johannesburg, Cape Town and Durban, serving clients from single-site offices to large industrial operations.</p>
+     <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.12;letter-spacing:-0.03em;margin:0 0 18px;">It started with one machine.</h2>
+     <p style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:#45443F;margin:0 0 18px;max-width:500px;">In 1990, two 25-year-olds, Stewart Brown and Kenneth Tucker, took out a loan to buy their first vending machine for R14,000 and placed it at the Keg &amp; Hound in Hilder Street, Pretoria.</p>
+     <p style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:#45443F;margin:0 0 18px;max-width:500px;">That same machine now stands in our showroom. Around it is a national business with hubs in Johannesburg, Cape Town and Durban, supplying offices, factories and campuses across South Africa.</p>
      <p style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:#45443F;margin:0;max-width:500px;">We partner with leading international manufacturers and back every machine with our own installation, service and consumables teams.</p>
     </div>
    </div>
@@ -131,7 +131,7 @@
    <div style="display:grid;grid-template-columns:1fr 1.05fr;gap:70px;align-items:center;">
     <div>
      <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">How we work</div>
-     <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.12;letter-spacing:-0.03em;margin:0 0 18px;">Own teams, not subcontractors.</h2>
+     <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.12;letter-spacing:-0.03em;margin:0 0 18px;">All handled by our own teams - no third parties involved</h2>
      <p style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:#45443F;margin:0 0 30px;max-width:500px;">From the site survey to the service call, the people who look after your equipment work for us. That keeps response times short and accountability clear.</p>
      <div style="display:flex;flex-direction:column;gap:14px;">
       <sc-for list="{{ aboutValues }}" as="v" hint-placeholder-count="4">
@@ -161,7 +161,8 @@
     <sc-for list="{{ aboutHubs }}" as="hub" hint-placeholder-count="3">
      <div style="background:#FFFFFF;border-radius:20px;padding:34px;box-sizing:border-box;">
       <div style="font-size:22px;font-weight:700;letter-spacing:-0.02em;margin-bottom:10px;">{{ hub.city }}</div>
-      <div style="font-size:15px;line-height:1.65;color:#45443F;">{{ hub.detail }}</div>
+      <a href="{{ hub.mapHref }}" target="_blank" rel="noopener" style="display:block;font-size:15px;line-height:1.65;color:#45443F;margin-bottom:14px;" style-hover="color:#C8102E;">{{ hub.address }}</a>
+      <div style="font-size:15px;line-height:1.65;color:#45443F;">Call Us Today: <a href="{{ hub.telHref }}" style="color:#1C1C1A;font-weight:600;" style-hover="color:#C8102E;">{{ hub.phone }}</a></div>
      </div>
     </sc-for>
    </div>
@@ -524,16 +525,20 @@ class Component extends DCLogic {
     { value: 'National', label: 'Installation and service coverage' },
    ],
    aboutValues: [
-    { title: 'In-house installation', body: 'Site survey, delivery and setup handled by our own teams.' },
-    { title: 'Dedicated aftersales', body: 'A service desk and technicians assigned to your account.' },
-    { title: 'Consumables supply', body: 'Coffee, snacks and filters delivered on a schedule that suits you.' },
-    { title: 'Buy or rent', body: 'Purchase outright or rent with maintenance included.' },
+    { title: 'In-house Installation', body: 'Site survey, delivery, setup and staff training are all handled by our own teams.' },
+    { title: 'Dedicated Aftersales', body: 'A service desk and technicians assigned to your account.' },
+    { title: 'Consumables Supply', body: 'Coffee, snacks and filters delivered on a schedule that suits you.' },
+    { title: 'Buy or Rent', body: 'Purchase outright or rent with maintenance included.' },
    ],
    aboutHubs: [
-    { city: 'Johannesburg', detail: 'Head office and national distribution centre. Sales, installation and service for Gauteng and inland provinces.' },
-    { city: 'Cape Town', detail: 'Western Cape sales, installation and service, supported by local stock holding.' },
-    { city: 'Durban', detail: 'KwaZulu-Natal sales, installation and service for coastal clients.' },
-   ],
+    { city: 'Johannesburg (HQ)', address: '2 Lyn Road, Ferndale, Randburg, 2169', phone: '086 110 0185' },
+    { city: 'Cape Town', address: 'Unit B28/29 Pinelands Business Park, New Mill Street, Pinelands, 7405', phone: '021 532 0456' },
+    { city: 'Durban', address: '28 Springfield Industrial Park, 9 Mahoganyfield Way, Springfield, 4051', phone: '031 579 2907' },
+   ].map(h => ({
+    ...h,
+    mapHref: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(h.address),
+    telHref: 'tel:' + h.phone.replace(/\s+/g, ''),
+   })),
    posts: [
     { category: 'Coffee Vending', title: 'Arabica or robusta for commercial coffee machines', excerpt: 'If you\u2019re a coffee lover or a business owner looking to invest in commercial coffee...', image: 'assets/blog-coffee.jpg' },
     { category: 'Vending Machines', title: 'Convenience at your fingertips with Top Vending', excerpt: 'Vending machines have been a popular fixture in public spaces for decades. From airports and...', image: 'assets/blog-payment.jpg' },
