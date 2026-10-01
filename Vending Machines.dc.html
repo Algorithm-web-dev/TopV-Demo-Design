@@ -34,6 +34,7 @@
   <a href="index.html" style="display:flex;align-items:center;flex:0 1 auto;width:100%;max-width:190px;min-width:90px;height:52px;"><img src="assets/logo.png" alt="Top Vending" style="height:100%;width:100%;object-fit:contain;object-position:left center;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.18));" /></a>
   <div style="display:flex;align-items:center;gap:40px;">
    <div data-nav-links="1" style="display:flex;gap:32px;font-size:14px;">
+    <a href="About.dc.html" style="color:#1C1C1A;white-space:nowrap;" style-hover="color:#C8102E;">About</a>
     <div style="position:relative;display:flex;align-items:center;" onMouseEnter="{{ openProductsMenu }}" onMouseLeave="{{ closeProductsMenu }}">
      <a href="Products.dc.html" style="color:#1C1C1A;display:flex;align-items:center;gap:6px;white-space:nowrap;" style-hover="color:#C8102E;">Products
       <span style="font-family:'Inter',sans-serif;font-size:9px;line-height:1;opacity:0.6;">▼</span>
@@ -46,9 +47,8 @@
       </div>
      </div>
     </div>
-    <a href="Consumables.dc.html" style="color:#1C1C1A;white-space:nowrap;" style-hover="color:#C8102E;">Consumables</a>
     <a href="Rentals.dc.html" style="color:#1C1C1A;white-space:nowrap;" style-hover="color:#C8102E;">Rentals</a>
-    <a href="About.dc.html" style="color:#1C1C1A;white-space:nowrap;" style-hover="color:#C8102E;">About</a>
+    <a href="Consumables.dc.html" style="color:#1C1C1A;white-space:nowrap;" style-hover="color:#C8102E;">Consumables</a>
     <a href="Clients.dc.html" style="color:#1C1C1A;white-space:nowrap;" style-hover="color:#C8102E;">Our Clients</a>
     <a href="Blog.dc.html" style="color:#1C1C1A;white-space:nowrap;" style-hover="color:#C8102E;">Blog</a>
     <div style="position:relative;display:flex;align-items:center;" onMouseEnter="{{ openContactMenu }}" onMouseLeave="{{ closeContactMenu }}">
@@ -789,14 +789,14 @@ class Component extends DCLogic {
     ? "position:fixed;top:88px;left:12px;right:12px;background:#FFFFFF;border:1px solid #E1E4E8;border-radius:20px;box-shadow:0 22px 50px rgba(0,0,0,0.18);padding:12px;z-index:120;display:flex;flex-direction:column;gap:2px;max-height:calc(100vh - 110px);overflow:auto;box-sizing:border-box;"
     : "display:none;",
    mobileNavLinks: [
+    { label: 'About', href: 'About.dc.html' },
     { label: 'Vending Machines', href: 'Vending Machines.dc.html' },
     { label: 'Hot Beverage Solutions', href: 'Hot Beverage Solutions.dc.html' },
     { label: 'Water Solutions', href: 'Water Solutions.dc.html' },
     { label: 'Payment Solutions', href: 'Payment Solutions.dc.html' },
     { label: 'Recycling Solutions', href: 'Recycling.dc.html' },
-    { label: 'Consumables', href: 'Consumables.dc.html' },
     { label: 'Rentals', href: 'Rentals.dc.html' },
-    { label: 'About', href: 'About.dc.html' },
+    { label: 'Consumables', href: 'Consumables.dc.html' },
     { label: 'Clients', href: 'Clients.dc.html' },
     { label: 'Blog', href: 'Blog.dc.html' },
     { label: 'Contact', href: 'Contact.dc.html' },
