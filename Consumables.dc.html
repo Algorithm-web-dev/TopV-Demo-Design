@@ -88,7 +88,7 @@
    <a href="index.html" style="display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:600;color:#6B6B68;margin-bottom:26px;" style-hover="color:#C8102E;">
     <span style="font-family:Inter,sans-serif;font-size:15px;">←</span>Back to home
    </a>
-   <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Consumables</div>
+   <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Ingredients &amp; Consumables</div>
    <h1 style="font-family:'Inter',sans-serif;font-weight:700;font-size:52px;line-height:1.05;letter-spacing:-0.032em;margin:0 0 18px;max-width:760px;">Everything your machines need to keep trading.</h1>
    <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#45443F;margin:0;max-width:560px;">Coffee, snacks, cold drinks, cups and filters delivered on a schedule that suits your site, as a standing order or on demand.</p>
   </div>
@@ -102,7 +102,7 @@
      <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(20,20,18,0.18) 0%, rgba(20,20,18,0.06) 45%, rgba(20,20,18,0.28) 100%);"></div>
     </div>
     <div>
-     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Consumables</div>
+     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Ingredients &amp; Consumables</div>
      <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 20px;">Everything the machines run on</h2>
      <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#45443F;margin:0 0 28px;max-width:460px;">Coffee, tea, sugar, milk, cups and cleaning products delivered to site, ordered on their own or supplied as part of a rental agreement.</p>
      <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:34px;">
@@ -126,8 +126,8 @@
 
  <section style="background:#FAFBFC;padding:70px 48px 130px;box-sizing:border-box;">
   <div style="max-width:1200px;margin:0 auto;">
-   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
-    <sc-for list="{{ consumables }}" as="c" hint-placeholder-count="6">
+   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
+    <sc-for list="{{ consumables }}" as="c" hint-placeholder-count="4">
      <div style="background:#FFFFFF;border:1px solid #E1E4E8;border-radius:20px;padding:16px 16px 26px;box-sizing:border-box;display:flex;flex-direction:column;">
       <div style="height:200px;overflow:hidden;background:#1C1C1A;margin-bottom:24px;">
        <img ref="{{ c.imgRef }}" alt="{{ c.title }}" style="width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.04) saturate(1.03) brightness(0.9);" />
@@ -541,8 +541,6 @@ class Component extends DCLogic {
   const CONSUMABLES = [
    { title: 'Coffee', body: 'Instant, filter and whole bean in blends matched to your machine and drink mix.', image: 'assets/cat-coffee.jpg' },
    { title: 'Hot beverage sundries', body: 'Tea, hot chocolate, sugar sticks, stirrers and non-dairy creamers.', image: 'assets/blog-coffee.jpg' },
-   { title: 'Snacks', body: 'Confectionery, salty snacks and biscuits, planogrammed to what your site actually buys.', image: 'assets/cat-vending.jpg' },
-   { title: 'Cold drinks', body: 'Carbonated soft drinks, juices and bottled water in can and PET formats.', image: 'assets/hero-bg-2.png' },
    { title: 'Cups and lids', body: 'Paper and plastic cups, lids and carriers sized for your machine.', image: 'assets/products-2026/consumables-cups.jpg' },
    { title: 'Water filters', body: 'Replacement filters and UVC parts for plumbed-in and bottled coolers.', image: 'assets/cat-water.jpg' },
   ];
@@ -553,7 +551,7 @@ class Component extends DCLogic {
      "Ricoffy": "ricoffy.png",
      "HOC Ciro Café Oro Espresso": "ciro-cafe-oro.png",
      "Nescafe Espresso Bean": "nescafe-espresso-bean.png",
-     "Jacobs Kronung Bean": "jacobs-jar.png",
+     "Supremo Espresso Bean": "supremo-espresso-bean.png",
      "Nestle Hot Chocolate": "nestle-hot-chocolate.png",
      "Ciro Hot Chocolate": "ciro-hot-chocolate.png",
      "Cremora": "cremora.png",
@@ -565,13 +563,13 @@ class Component extends DCLogic {
      "Fresh Milk": "milk.png",
      "Freshpak Rooibos (2.5g)": "freshpak-rooibos.png",
      "Rooibos Leaf TV Vending": "rooibos-leaf.png",
-     "Five Roses (2.5g)": "five-roses-bags.png",
-     "Five Roses Vending Tea": "five-roses-box.png",
+     "Five Roses Tea Bags (2.5g)": "five-roses-bags.png",
+     "Five Roses - Vending Tea": "five-roses-vending-tea.png",
      "Five Roses Tea Bags": "five-roses-bags.png",
      "5 Roses Packet": "five-roses-packet.png",
      "Freshpak Rooibos": "freshpak-rooibos.png",
      "Ciro Vending Rooibos": "ciro-vending-rooibos.png",
-     "Nestle Nestea Instant Tea": "nestea.png",
+     "Nestle Nestea Instant Tea Black": "nestea.png",
      "Vending Sugar": "vending-sugar.png",
      "Sugar": "vending-sugar.png",
      "Brown sugar sachets": "sugar-sachets.png",
@@ -580,21 +578,20 @@ class Component extends DCLogic {
      "Canderel": "canderel.png",
      "Cup Lids": "coffee-lid.png",
      "Coffee Cups 250ml": "coffee-cup.png",
-     "Ripple Cups Black with Lids 250ml": "ripple-cup.png",
-     "Ripple Cups Black 250ml": "ripple-cup.png",
+     "Ripple Cups Black - Lids": "coffee-lid.png",
+     "Ripple Cups Black": "ripple-cup.png",
      "Plain White Cooler Cup 175ml": "cooler-cup.png",
      "Cooler Cup": "cooler-cup.png",
      "Plain White Cover Cup 170ml": "cooler-cup.png",
-     "Wooden Stirrers (160mm)": "wooden-stirrers.png",
+     "Wooden Stirrers (new 180mm)": "wooden-stirrers.png",
      "Plastic Stick Stirrers": "plastic-stirrers.png",
      "Plastic Teaspoons": "plastic-teaspoons.png",
      "Liquid Descaler": "liquid-descaler.png",
-     "Acidic Milk Cleaner": "acidic-milk-cleaner.png",
-     "Milk System Cleaner": "milk-system-cleaner.png",
+     "Acidic Milk Cleaner (Red)": "acidic-milk-cleaner.png",
+     "Milk System Cleaner (Blue)": "milk-system-cleaner.png",
      "Dish Cloth": "dish-cloth.png",
      "Bleach": "bleach.png",
-     "Dishwash Gel": "dishwash-gel.png",
-     "OCS": "ocs.png"
+     "Dishwash (Green)": "dishwash-gel.png"
   };
 
   const PRICE_GROUPS = [
@@ -606,62 +603,57 @@ class Component extends DCLogic {
    { title: 'Coffee beans', items: [
     { code: '4501201', name: 'HOC Ciro Café Oro Espresso', unit: '1 x 1kg', price: 'R425.00' },
     { code: '12570371', name: 'Nescafe Espresso Bean', unit: '1 x 1kg', price: 'R350.00' },
-    { code: '4055443', name: 'Jacobs Kronung Bean', unit: '1 x 1kg', price: 'R350.00' },
+    { code: '4055443', name: 'Supremo Espresso Bean', unit: '1 x 1kg', price: 'R350.00' },
+    { code: 'SUP004', name: 'Supremo Espresso Bean (House Blend)', unit: '1 x 1kg', price: 'On request' },
    ]},
    { title: 'Hot chocolate', items: [
-    { code: '8303793', name: 'Nestle Hot Chocolate', unit: '1 x 1kg', price: 'R199.00' },
+    { code: '12598339', name: 'Nestle Hot Chocolate', unit: '1 x 1kg', price: 'R199.00' },
     { code: '3070218', name: 'Ciro Hot Chocolate', unit: '1 x 500g', price: 'R85.00' },
    ]},
    { title: 'Milk / creamer products', items: [
     { code: '12341782', name: 'Cremora', unit: '1 x 750g (2 x 375g)', price: 'R79.00' },
+    { code: '8309905', name: 'Cremora Bulk', unit: '6 x 25kg', price: 'On request' },
+    { code: '8309905', name: 'Nestle Creamer', unit: '6 x 500g', price: 'On request' },
     { code: 'MILKFCPL', name: 'Full Cream Milk (pack of 6)', unit: '6 x 1 Litre', price: 'R169.00' },
     { code: 'MILK2PL', name: 'Low fat milk (pack of 6)', unit: '6 x 1 Litre', price: 'R169.00' },
-    { code: 'ML6CPL', name: 'Cremora Bulk', unit: '6 x 1.5L', price: 'On request' },
-    { code: 'ML6CPL', name: 'Nestle Creamer', unit: '6 x 1.5L', price: 'On request' },
-    { code: 'ML6CPL', name: 'Nestle Skimmed Milk Powder', unit: '6 x 1.5L', price: 'On request' },
-    { code: 'MILK', name: 'Fresh Milk', unit: 'As required', price: 'R335.00' },
+    { code: 'ML6CPL', name: 'Nestle Skimmed Milk Powder', unit: '6 x 500g', price: 'On request' },
    ]},
    { title: 'Tea', items: [
     { code: '3001238', name: 'Freshpak Rooibos (2.5g)', unit: '1 x 80', price: 'R79.00' },
     { code: '3001983', name: 'Rooibos Leaf TV Vending', unit: '6 x 500g', price: 'R729.00' },
-    { code: 'TEA002', name: 'Five Roses (2.5g)', unit: '1 x 100', price: 'R95.00' },
-    { code: '300866', name: 'Five Roses Vending Tea', unit: '6 x 500g', price: 'R779.00' },
-    { code: 'GS0128', name: 'Five Roses Tea Bags', unit: '1 x 500g', price: 'On request' },
-    { code: 'GS0128', name: '5 Roses Packet', unit: '6 x 500g', price: 'On request' },
-    { code: 'TA6030', name: 'Freshpak Rooibos', unit: '1 x 500g', price: 'On request' },
-    { code: 'TA6030', name: 'Ciro Vending Rooibos', unit: '1 x 500g', price: 'On request' },
-    { code: 'NS0001', name: 'Nestle Nestea Instant Tea', unit: '1 x 1kg', price: 'On request' },
+    { code: 'TEA002', name: 'Five Roses Tea Bags (2.5g)', unit: '1 x 100', price: 'R95.00' },
+    { code: '300866', name: 'Five Roses - Vending Tea', unit: '6 x 500g', price: 'R779.00' },
+    { code: '13488791', name: 'Nestle Nestea Instant Tea Black', unit: '1 x 10 x 100g', price: 'On request' },
    ]},
    { title: 'Sugar', items: [
     { code: '60066', name: 'Vending Sugar', unit: '1 x 1kg', price: 'R59.00' },
     { code: '5836', name: 'Sugar', unit: '1 x 2.5kg', price: 'R95.00' },
     { code: 'SUG001', name: 'Brown sugar sachets', unit: '1 x 2000', price: 'R465.00' },
     { code: 'SUG002', name: 'White sugar sachets', unit: '1 x 2000', price: 'R465.00' },
-    { code: 'SU6S02Y', name: 'Canderel Yellow Sticks', unit: '1 x 500', price: 'R325.00' },
-    { code: 'SU6S02', name: 'Canderel', unit: '1 x 1000', price: 'On request' },
+    { code: 'HSW002', name: 'Canderel Yellow Sticks', unit: '1 x 1000', price: 'R325.00' },
    ]},
    { title: 'Cups', items: [
     { code: 'D5347', name: 'Cup Lids', unit: '1 x 1000', price: 'R725.00' },
-    { code: 'TVCFED002', name: 'Coffee Cups 250ml', unit: '1 x 1000', price: 'R885.00' },
-    { code: 'MCRBL250', name: 'Ripple Cups Black with Lids 250ml', unit: '1 x 10000', price: 'R950.00' },
-    { code: 'MCRB250', name: 'Ripple Cups Black 250ml', unit: '1 x 10000', price: 'R2100.00' },
+    { code: 'TVCFED', name: 'Coffee Cups 250ml', unit: '1 x 1000', price: 'R885.00' },
+    { code: 'MCRBL250', name: 'Ripple Cups Black - Lids', unit: '1 x 1000', price: 'R950.00' },
+    { code: 'MCRB250', name: 'Ripple Cups Black', unit: '1 x 1000', price: 'R2100.00' },
     { code: '263', name: 'Plain White Cooler Cup 175ml', unit: '1 x 3000', price: 'R1850.00' },
-    { code: 'COOL', name: 'Cooler Cup', unit: '1 x 1000', price: 'On request' },
-    { code: 'WC170', name: 'Plain White Cover Cup 170ml', unit: '1 x 500', price: 'On request' },
    ]},
    { title: 'Tea spoons / stirrers', items: [
-    { code: 'SG0S00', name: 'Wooden Stirrers (160mm)', unit: '1 x 1000', price: 'R145.00' },
+    { code: '8305868', name: 'Wooden Stirrers (new 180mm)', unit: '1 x 1000', price: 'R145.00' },
     { code: 'PSS', name: 'Plastic Stick Stirrers', unit: '1 x 1000', price: 'R95.00' },
     { code: 'PT', name: 'Plastic Teaspoons', unit: '1 x 500', price: 'R65.00' },
    ]},
    { title: 'Cleaning & maintenance', items: [
-    { code: 'LD', name: 'Liquid Descaler', unit: 'As required', price: 'On request' },
-    { code: 'AMC', name: 'Acidic Milk Cleaner', unit: 'As required', price: 'On request' },
-    { code: 'MSC', name: 'Milk System Cleaner', unit: 'As required', price: 'On request' },
-    { code: 'DC', name: 'Dish Cloth', unit: 'As required', price: 'On request' },
-    { code: 'BL', name: 'Bleach', unit: 'As required', price: 'On request' },
-    { code: 'DG', name: 'Dishwash Gel', unit: 'As required', price: 'On request' },
-    { code: 'OCS', name: 'OCS', unit: 'As required', price: 'On request' },
+    { code: 'C001', name: 'Dishwash (Green)', unit: '1 x 5L', price: 'On request' },
+    { code: 'C002', name: 'Bleach', unit: '1 x 5L', price: 'On request' },
+    { code: 'C008', name: 'Dish Cloth', unit: 'EACH', price: 'On request' },
+    { code: 'C039', name: 'Sponge Scourer - (Yellow)', unit: '1 x Pack of 3', price: 'On request' },
+    { code: 'CFLDUN100 - 01', name: 'Liquid Descaler', unit: 'As required', price: 'On request' },
+    { code: 'CFMSAC100-01', name: 'Acidic Milk Cleaner (Red)', unit: 'As required', price: 'On request' },
+    { code: 'CFMSAK100 - 01', name: 'Milk System Cleaner (Blue)', unit: 'As required', price: 'On request' },
+    { code: 'C059', name: 'Handy Andy - Ammoniated cleaner', unit: '1 x 750ml', price: 'On request' },
+    { code: 'C0062', name: 'Mr Muscle', unit: '1 x 750ml', price: 'On request' },
    ]},
   ];
 
