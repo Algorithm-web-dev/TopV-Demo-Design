@@ -94,6 +94,36 @@
   </div>
  </section>
 
+ <section style="background:#FAFBFC;padding:110px 48px 40px;box-sizing:border-box;">
+  <div style="max-width:1200px;margin:0 auto;">
+   <div style="display:grid;grid-template-columns:1.05fr 1fr;gap:70px;align-items:center;">
+    <div style="height:430px;overflow:hidden;background:#1C1C1A;box-shadow:0 24px 60px rgba(28,28,26,0.18);position:relative;">
+     <img src="assets/blog-coffee.jpg" alt="Consumables" style="width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.06) saturate(1.05) brightness(0.88);" />
+     <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(20,20,18,0.18) 0%, rgba(20,20,18,0.06) 45%, rgba(20,20,18,0.28) 100%);"></div>
+    </div>
+    <div>
+     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Consumables</div>
+     <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 20px;">Everything the machines run on</h2>
+     <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#45443F;margin:0 0 28px;max-width:460px;">Coffee, tea, sugar, milk, cups and cleaning products delivered to site, ordered on their own or supplied as part of a rental agreement.</p>
+     <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:34px;">
+      <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
+       <span style="font-family:'Inter',sans-serif;width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Instant and bean coffee, tea and hot chocolate
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
+       <span style="font-family:'Inter',sans-serif;width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Cups, lids, stirrers and sugar
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
+       <span style="font-family:'Inter',sans-serif;width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Descalers and milk system cleaners
+      </div>
+     </div>
+     <a href="Contact.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:#C8102E;color:#FAFBFC;padding:16px 32px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#8f0c20;">Get a Quote
+      <span style="font-family:'Inter',sans-serif;font-size:13px;">→</span>
+     </a>
+    </div>
+   </div>
+  </div>
+ </section>
+
  <section style="background:#FAFBFC;padding:70px 48px 130px;box-sizing:border-box;">
   <div style="max-width:1200px;margin:0 auto;">
    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
@@ -244,7 +274,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;productGridColumns&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;2&quot;,&quot;options&quot;:[&quot;2&quot;,&quot;3&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Catalogue&quot;},&quot;filterBarSticky&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Catalogue&quot;}}">
 const PRODUCTS = [
- { name: 'Palma Hz70', category: 'Vending Machines', variant: 'default', image: 'assets/hz70-cropped.png',
+ { name: 'Palma Hz70', category: 'Vending Machines', variant: 'default', image: 'assets/products-2026/hz70.jpg',
   tagline: 'Standard Combo Vending Machine',
   description: 'A dual-temperature combo vending machine with full payment support, refrigeration and MDB compatibility, carrying 60 drink items and 120 snack items, 180 items in total.',
   tags: ['Dual Temperature Zones', 'Refrigerated', 'MDB Compatible'],
@@ -274,16 +304,6 @@ const PRODUCTS = [
   description: 'An elevator belt system for big-size multi-product dispensing, with full payment support, refrigeration, temperature control and expiry date tracking, channels can be blocked once expiry date is reached.',
   tags: ['Elevator Belt System', 'Expiry Date Tracking', 'Refrigerated'],
   specs: [{ label: 'Function', value: 'Multi-Product Dispensing' }, { label: 'Payment', value: 'Full Payment Support' }, { label: 'Dimensions (WxDxH)', value: '1120 x 820 x 1870mm' }] },
- { name: 'Smart Fridge', category: 'Vending Machines', variant: 'default',
-  tagline: 'Smart Fresh Food Fridge',
-  description: 'A weight-sensing smart fridge for fresh products, open the door, make a selection, close the door and enjoy. Cashless only, MDB compatible.',
-  tags: ['Weight Sensing Plate', 'Cashless Only', 'Refrigerated'],
-  specs: [{ label: 'Function', value: 'Fresh Products' }, { label: 'Payment', value: 'Cashless Only' }, { label: 'Dimensions (WxDxH)', value: '670 x 550 x 1830mm' }] },
- { name: 'Smart Freezer', category: 'Vending Machines', variant: 'accent',
-  tagline: 'Smart Frozen Food Freezer',
-  description: 'A weight-sensing smart freezer for frozen products, open the door, make a selection, close the door and enjoy. Cashless only, MDB compatible.',
-  tags: ['Weight Sensing Plate', 'Cashless Only', 'Refrigerated'],
-  specs: [{ label: 'Function', value: 'Frozen Products' }, { label: 'Payment', value: 'Cashless Only' }, { label: 'Dimensions (WxDxH)', value: '670 x 550 x 1830mm' }] },
 ];
 
 const PRODUCTS_COFFEE = [
@@ -361,7 +381,7 @@ const PRODUCTS_WATER = [
   description: 'Offers 2 water options, cold and sparkling, with portion control, a back-lit front panel with premium aesthetics, and eco-sustainable R290 refrigeration. Plumbed in solution.',
   tags: ['Cold & Sparkling', 'Back-Lit Front Panel', 'R290 Eco Refrigeration'],
   specs: [{ label: 'Water Options', value: 'Cold & Sparkling' }, { label: 'Refrigeration', value: 'R290 Natural Gas' }, { label: 'Installation', value: 'Plumbed In' }] },
- { name: 'Campione Tower', category: 'Water Solutions', variant: 'accent',
+ { name: 'Campione Tower - 2 or 3 Way Tap', category: 'Water Solutions', variant: 'accent',
   tagline: 'Where space is limited',
   description: 'Offers 3 water options: cold, ambient and sparkling, with ice cold water produced using Ice Bath cooling technology and high performance filtration. Plumbed in with the Frizzante 60 under-counter solution.',
   tags: ['Cold, Ambient & Sparkling', 'Ice Bath Cooling', 'Space-Saving Tower'],
@@ -528,7 +548,7 @@ class Component extends DCLogic {
    { title: 'Hot beverage sundries', body: 'Tea, hot chocolate, sugar sticks, stirrers and non-dairy creamers.', image: 'assets/blog-coffee.jpg' },
    { title: 'Snacks', body: 'Confectionery, salty snacks and biscuits, planogrammed to what your site actually buys.', image: 'assets/cat-vending.jpg' },
    { title: 'Cold drinks', body: 'Carbonated soft drinks, juices and bottled water in can and PET formats.', image: 'assets/hero-bg-2.png' },
-   { title: 'Cups and lids', body: 'Paper and plastic cups, lids and carriers sized for your machine.', image: 'assets/blog-payment.jpg' },
+   { title: 'Cups and lids', body: 'Paper and plastic cups, lids and carriers sized for your machine.', image: 'assets/products-2026/consumables-cups.jpg' },
    { title: 'Water filters', body: 'Replacement filters and UVC parts for plumbed-in and bottled coolers.', image: 'assets/cat-water.jpg' },
   ];
 

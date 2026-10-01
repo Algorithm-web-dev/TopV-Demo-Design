@@ -94,6 +94,38 @@
   </div>
  </section>
 
+ <section style="background:#FAFBFC;padding:110px 48px 40px;box-sizing:border-box;{{ catalogueStyle }}">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;">
+
+   <div style="display:grid;grid-template-columns:1.05fr 1fr;gap:70px;align-items:center;">
+    <div style="height:430px;overflow:hidden;background:#1C1C1A;box-shadow:0 24px 60px rgba(28,28,26,0.18);position:relative;">
+     <img src="assets/vending-section.jpg" alt="Vending machines" style="width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.06) saturate(1.05) brightness(0.88);" />
+     <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(20,20,18,0.18) 0%, rgba(20,20,18,0.06) 45%, rgba(20,20,18,0.28) 100%);"></div>
+    </div>
+    <div>
+     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Vending machines</div>
+     <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 20px;">Smart snack and combo units</h2>
+     <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#45443F;margin:0 0 28px;max-width:460px;">Top Vending supplies modern machines in sizes to suit any location, from offices to large facilities.</p>
+     <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:34px;">
+      <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
+       <span style="font-family:'Inter',sans-serif;width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Remote telemetry and stock monitoring
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
+       <span style="font-family:'Inter',sans-serif;width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Cashless and mobile payment ready
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
+       <span style="font-family:'Inter',sans-serif;width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>On-site servicing and maintenance
+      </div>
+     </div>
+     <a href="Contact.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:#C8102E;color:#FAFBFC;padding:16px 32px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#8f0c20;">Get a Quote
+      <span style="font-family:'Inter',sans-serif;font-size:13px;">→</span>
+     </a>
+    </div>
+   </div>
+
+  </div>
+ </section>
+
  <section id="products" style="background:#FAFBFC;padding:60px 48px 130px;box-sizing:border-box;{{ catalogueStyle }}">
   <div style="max-width:1200px;margin:0 auto;">
    <div style="display:grid;gap:24px;{{ gridColStyle }}">
@@ -107,7 +139,10 @@
        <div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#6B6B68;margin-bottom:10px;">{{ p.category }}</div>
        <div style="font-size:21px;font-weight:700;letter-spacing:-0.02em;margin-bottom:8px;">{{ p.name }}</div>
        <p style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:#45443F;margin:0 0 22px;">{{ p.tagline }}</p>
-       <a href="Contact.dc.html#quote" data-quote-add="1" data-quote-name="{{ p.name }}" data-quote-cat="{{ p.category }}" style="display:inline-block;background:#C8102E;color:#FAFBFC;padding:12px 24px;border-radius:999px;font-size:13px;font-weight:600;white-space:nowrap;" style-hover="background:#8f0c20;">Add to Quote</a>
+       <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;">
+        <a href="Contact.dc.html#quote" data-quote-add="1" data-quote-name="{{ p.name }}" data-quote-cat="{{ p.category }}" style="display:inline-block;background:#C8102E;color:#FAFBFC;padding:12px 24px;border-radius:999px;font-size:13px;font-weight:600;white-space:nowrap;" style-hover="background:#8f0c20;">Add to Quote</a>
+        <button type="button" data-full-specs="1" style="display:inline-block;background:transparent;border:1.5px solid #1C1C1A;color:#1C1C1A;padding:10.5px 22px;border-radius:999px;font-size:13px;font-weight:600;font-family:'Inter',sans-serif;white-space:nowrap;cursor:pointer;" style-hover="background:#1C1C1A;color:#FAFBFC;">Full Specifications</button>
+       </div>
       </div>
      </div>
     </sc-for>
@@ -287,7 +322,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;productGridColumns&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;2&quot;,&quot;options&quot;:[&quot;2&quot;,&quot;3&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Catalogue&quot;},&quot;filterBarSticky&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Catalogue&quot;}}">
 const PRODUCTS = [
- { name: 'Palma Hz70', category: 'Vending Machines', variant: 'default', image: 'assets/hz70-cropped.png',
+ { name: 'Palma Hz70', category: 'Vending Machines', variant: 'default', image: 'assets/products-2026/hz70.jpg',
   tagline: 'Standard Combo Vending Machine',
   description: 'A dual-temperature combo vending machine with full payment support, refrigeration and MDB compatibility, carrying 60 drink items and 120 snack items, 180 items in total.',
   tags: ['Dual Temperature Zones', 'Refrigerated', 'MDB Compatible'],
@@ -298,7 +333,7 @@ const PRODUCTS = [
    'The cabinet is fully foam insulated with a double glazed viewing window and LED internal lighting, which keeps running costs down while products stay clearly visible. Shelves are set at 25° so loading is quick and the product faces stay presented to the customer.',
    'Payment covers notes, coins and cashless through Nayax, and telemetry is supported so stock and sales can be monitored remotely. A debit, credit and virtual card facility can be added as an option. Dimensions are 723 x 840 x 1830mm on a standard 220V to 240V 50Hz supply, using R-134a refrigerant.',
   ] },
- { name: 'Palma Hz87', category: 'Vending Machines', variant: 'accent', image: 'assets/hz87-new.png',
+ { name: 'Palma Hz87', category: 'Vending Machines', variant: 'accent', image: 'assets/products-2026/hz87.jpg',
   tagline: 'High Capacity Combo Vending Machine',
   description: 'A higher-capacity combo vending machine with dual temperature zones, full payment support, refrigeration and MDB compatibility, 120 drink items and 160 snack items, 280 items in total.',
   tags: ['Dual Temperature Zones', 'Refrigerated', 'MDB Compatible'],
@@ -320,7 +355,7 @@ const PRODUCTS = [
    'The belt handles products that cannot be dropped, so the machine can serve a light lunch offering as well as confectionery. Dual temperature control runs the lower trays at 4°C to 10°C and the upper trays at 14°C to 25°C, with a fully foam insulated cabinet, double glazed window and LED internal lighting.',
    'Payment covers notes, coins and cashless through Nayax, with telemetry supported and a debit, credit and virtual card facility available as an option. Dimensions are 888 x 840 x 1830mm, 220V to 240V 50Hz, R-134a refrigerant.',
   ] },
- { name: 'CV1000', category: 'Vending Machines', variant: 'accent', image: 'assets/cv1000.jpg',
+ { name: 'CV1000', category: 'Vending Machines', variant: 'accent', image: 'assets/products-2026/cv1000.jpg',
   tagline: 'Combo Vending Machine',
   description: 'A dual-temperature combo vending machine with full payment support, refrigeration and MDB compatibility, 144 drink items and 168 snack items, 312 items in total.',
   tags: ['Dual Temperature Zones', 'Refrigerated', 'MDB Compatible'],
@@ -331,7 +366,7 @@ const PRODUCTS = [
    'Two temperature zones run the lower trays at 4°C to 10°C and the upper trays at 14°C to 25°C. The cabinet is fully foam insulated with a double glazed viewing window and LED internal lighting, and 25° shelving keeps products visible and loading quick.',
    'Notes, coins and cashless payment through Nayax are supported, telemetry is available for remote monitoring, and a debit, credit and virtual card facility can be added. Dimensions are 925 x 820 x 1830mm, 220V to 240V 50Hz, R-134a refrigerant.',
   ] },
- { name: 'CV4000 with Touchscreen', image: 'assets/cv4000-touch.png', category: 'Vending Machines', variant: 'default',
+ { name: 'CV4000 with Touchscreen', image: 'assets/products-2026/cv4000.jpg', category: 'Vending Machines', variant: 'default',
   tagline: 'Combo Vending Machine with Cart Functionality',
   description: 'Adds cart functionality and a full touchscreen to the combo range, with dual temperature zones, refrigeration and MDB compatibility, 144 drink items and 168 snack items, 312 items in total. Cashless only.',
   tags: ['Cart Functionality', 'Dual Temperature Zones', 'Cashless Only'],
@@ -342,7 +377,7 @@ const PRODUCTS = [
    'Capacity matches the CV1000 at 312 items, 144 drinks and 168 snacks, across two temperature zones running 4°C to 10°C on the lower trays and 14°C to 25°C on the upper trays. The cabinet is fully foam insulated with a double glazed window, LED internal lighting and 25° shelving.',
    'This model is cashless only, with debit, credit and virtual card payment, and telemetry is supported. It is the widest unit in the range at 1120 x 820 x 1870mm, 220V to 240V 50Hz, R-134a refrigerant.',
   ] },
- { name: 'Vision Esplus Bluetec', image: 'assets/vision-esplus.png', category: 'Vending Machines', variant: 'accent',
+ { name: 'Vision Esplus Bluetec', image: 'assets/products-2026/vision-esplus.jpg', category: 'Vending Machines', variant: 'accent',
   tagline: 'Multi-Product Dispensing Machine',
   description: 'An elevator belt system for big-size multi-product dispensing, with full payment support, refrigeration, temperature control and expiry date tracking, channels can be blocked once expiry date is reached.',
   tags: ['Elevator Belt System', 'Expiry Date Tracking', 'Refrigerated'],
@@ -353,52 +388,30 @@ const PRODUCTS = [
    'Each channel has its own temperature control and individual expiry date tracking. Channels can be blocked automatically once the expiry date is reached, which keeps out of date stock from being sold and supports food safety requirements on site.',
    'Dual temperature control covers 4°C to 10°C on the lower trays and 14°C to 25°C on the upper trays, in a fully foam insulated cabinet with a double glazed window and LED internal lighting. Payment covers notes, coins and cashless through Nayax, with a card facility available. Dimensions are 1120 x 820 x 1870mm, 220V to 240V 50Hz, R-134a refrigerant.',
   ] },
- { name: 'Smart Fridge', image: 'assets/smart-fridge.png', category: 'Vending Machines', variant: 'default',
-  tagline: 'Smart Fresh Food Fridge',
-  description: 'A weight-sensing smart fridge for fresh products, open the door, make a selection, close the door and enjoy. Cashless only, MDB compatible.',
-  tags: ['Weight Sensing Plate', 'Cashless Only', 'Refrigerated'],
-  brochure: 'smart-fridge.pdf',
-  specs: [{ label: 'Model', value: 'ZV-235W' }, { label: 'Function', value: 'Fresh products' }, { label: 'Shelving', value: '5 shelves' }, { label: 'Temperature', value: 'Trays 4°C to 10°C' }, { label: 'Payment', value: 'Cashless payment' }, { label: 'Refrigerant', value: 'R600a' }, { label: 'Power Supply', value: '~110-115V 60Hz' }, { label: 'Telemetry', value: 'Supported' }, { label: 'Dimensions (WxDxH)', value: '670 x 550 x 1830mm' }],
-  details: [
-   'The Smart Fridge uses weight sensing plates rather than a vending mechanism. The customer presents a cashless payment to unlock the door, takes what they want, and closes the door. The machine works out what was removed and charges accordingly.',
-   'That open door format suits fresh products, packaged meals, salads and drinks that do not vend well through a spiral. Five shelves are held at 4°C to 10°C in a fully foam insulated cabinet with a double glazed window and LED internal lighting.',
-   'Payment is cashless only and telemetry is supported for remote stock monitoring. The cabinet is narrow at 670 x 550 x 1830mm, runs on a 110V to 115V 60Hz supply and uses R600a refrigerant.',
-  ] },
- { name: 'Smart Freezer', image: 'assets/smart-freezer.png', category: 'Vending Machines', variant: 'accent',
-  tagline: 'Smart Frozen Food Freezer',
-  description: 'A weight-sensing smart freezer for frozen products, open the door, make a selection, close the door and enjoy. Notes, coins and cashless payment, MDB compatible.',
-  tags: ['Weight Sensing Plate', 'Full Payment Support', 'Frozen'],
-  brochure: 'smart-freezer.pdf',
-  specs: [{ label: 'Model', value: 'ZV-235W' }, { label: 'Function', value: 'Frozen products' }, { label: 'Shelving', value: '5 shelves' }, { label: 'Payment', value: 'Notes, coins, cashless' }, { label: 'Refrigerant', value: 'R600a' }, { label: 'Power Supply', value: '~110-115V 60Hz' }, { label: 'Telemetry', value: 'Supported' }, { label: 'Dimensions (WxDxH)', value: '670 x 550 x 1830mm' }],
-  details: [
-   'The Smart Freezer applies the same weight sensing, open door format to frozen products. The customer presents payment, opens the door, makes a selection and closes it, and the machine charges for what was taken.',
-   'It suits ice cream, frozen meals and any line that needs to be held below ambient in a self service setting. Five shelves sit in a fully foam insulated cabinet with a double glazed viewing window and LED internal lighting.',
-   'Payment covers notes, coins and cashless, with telemetry supported for remote monitoring. Dimensions are 670 x 550 x 1830mm on a 110V to 115V 60Hz supply, using R600a refrigerant.',
-  ] },
 ];
 
 const PRODUCTS_COFFEE = [
- { name: 'Orion G23', image: 'assets/orion-g23.png', category: 'Hot Beverage Solutions', variant: 'default',
+ { name: 'Orion G23', image: 'assets/products-2026/orion-g23.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Sleek Black Design with Blue LED Lighting',
   description: 'A fresh bean brewer with a stylish, energy-efficient design, blue LED lighting and a customised setup to suit your requirements. Aluminium boiler.',
   tags: ['Fresh Bean Brewer', 'Energy Efficient', 'Blue LED Lighting'],
   specs: [{ label: 'Boiler', value: 'Aluminium Boiler' }, { label: 'Setup', value: 'Customised to Requirements' }, { label: 'Dimensions (WxDxH)', value: '417 x 463 x 767mm' }] },
- { name: 'Jettino JL33', image: 'assets/jettino-jl33.png', category: 'Hot Beverage Solutions', variant: 'accent',
+ { name: 'Jettino JL33', image: 'assets/products-2026/jettino-jl33.png', category: 'Hot Beverage Solutions', variant: 'accent',
   tagline: 'Exceptional dual-grinding, unmatched flavour',
   description: 'Dual grinders plus 2 instants, a 10.1" touchscreen and up to 15 beverages, with a fresh milk fridge and premium brewing system.',
   tags: ['Dual Grinders', '10.1" Touchscreen', 'Up to 15 Beverages'],
   specs: [{ label: 'Fridge', value: 'Fresh Milk Fridge' }, { label: 'Brewing', value: 'Premium Brewing System' }, { label: 'Dimensions (WxDxH)', value: '350 x 560 x 628mm' }] },
- { name: 'Gaggia Milano La Brillante', image: 'assets/gaggia-la-brillante.png', category: 'Hot Beverage Solutions', variant: 'default',
+ { name: 'Gaggia Milano La Brillante', image: 'assets/products-2026/gaggia-la-brillante.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Brilliance in every cup',
   description: 'Bean-to-cup plus 2 instants with a wide range of customisable drinks, fresh milk, a 7-inch touchscreen and Prime Milk automatic froth.',
   tags: ['Bean-to-Cup + 2 Instants', '7" Touchscreen', 'Automatic Milk Froth'],
   specs: [{ label: 'Grinder', value: 'One Grinder, One Per Hopper' }, { label: 'Milk', value: 'Prime Milk – Automatic Froth' }, { label: 'Dimensions (WxDxH)', value: '308 x 570 x 629mm' }] },
- { name: 'Azkoyen Vitro X1', image: 'assets/vitro-x1.png', category: 'Hot Beverage Solutions', variant: 'accent',
+ { name: 'Azkoyen Vitro X1', image: 'assets/products-2026/vitro-x1.png', category: 'Hot Beverage Solutions', variant: 'accent',
   tagline: 'Innovative design for quality coffee',
   description: 'A fresh bean brewer with a fresh milk fridge, high capacity boilers, 12 selection touch panel, variable brewing unit and an illuminated dispensing area.',
   tags: ['Fresh Bean Brewer', '12 Selection Touch Panel', 'High Capacity Boilers'],
   specs: [{ label: 'Milk', value: 'Fresh Milk Fridge' }, { label: 'Access', value: 'Easy-Access Hoppers' }, { label: 'Dimensions (WxDxH)', value: '567 x 505 x 672mm (includes fridge)' }] },
- { name: 'Saeco Magic', image: 'assets/saeco-magic.png', category: 'Hot Beverage Solutions', variant: 'default',
+ { name: 'Saeco Magic', image: 'assets/products-2026/saeco-magic.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Revolutionary coffee machine',
   description: 'A fresh bean brewer with a touchscreen display, fresh milk, one-touch high-speed milk, high capacity and a double boiler, double pump system.',
   tags: ['Double Boiler, Double Pump', 'Touchscreen Display', 'High Capacity'],
@@ -408,17 +421,17 @@ const PRODUCTS_COFFEE = [
   description: 'Cup recognition technology with energy-saving ECO mode, a 21.5" Full HD touchscreen, 7 hoppers (1 tea, 1 bean, 5 instant) and fully customisable beverages and volumes.',
   tags: ['Cup Recognition Technology', '21.5" Full HD Touchscreen', '7 Hoppers'],
   specs: [{ label: 'Mode', value: 'Energy-Saving ECO Mode' }, { label: 'Customisation', value: 'Custom Beverages & Volumes' }, { label: 'Dimensions (WxDxH)', value: '600 x 715 x 1830mm' }] },
- { name: 'Novara DFB', image: 'assets/novara-dfb.png', category: 'Hot Beverage Solutions', variant: 'default',
+ { name: 'Novara DFB', image: 'assets/products-2026/novara-dfb.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'The widest range of hot beverages',
   description: 'Double fresh brew with high capacity, fully customisable drinks, a fully automatic auto cup dispenser, cup detector and a modern stainless steel, glass front with touch selection.',
   tags: ['Double Fresh Brew', 'Fully Customisable Drinks', 'Auto Cup Dispenser'],
   specs: [{ label: 'Detection', value: 'Cup Detector' }, { label: 'Finish', value: 'Stainless Steel, Glass Front' }, { label: 'Dimensions (WxDxH)', value: '600 x 650 x 1830mm' }] },
- { name: 'ZEN Fresh Bean', category: 'Hot Beverage Solutions', variant: 'accent', image: 'assets/zen.png',
+ { name: 'ZEN Fresh Bean', category: 'Hot Beverage Solutions', variant: 'accent', image: 'assets/products-2026/zen.png',
   tagline: 'Fully automatic fresh bean machine',
   description: 'Beans, instant coffee, sugar, milk powder and hot chocolate in door-mounted hoppers, with powder milk, a touch selection panel and an auto cup dispenser. Compact, easy to clean and fill, with an optional stand.',
   tags: ['Fresh Bean', 'Fully Automatic', 'Vending Sugar in Door'],
   specs: [{ label: 'Milk', value: 'Powder Milk' }, { label: 'Stand', value: 'Optional Stand' }, { label: 'Dimensions (WxDxH)', value: 'Machine: 480 x 590 x 842mm · Stand: 480 x 590 x 842mm' }] },
- { name: 'ZEN DFB', category: 'Hot Beverage Solutions', variant: 'default', image: 'assets/zen.png',
+ { name: 'ZEN DFB', category: 'Hot Beverage Solutions', variant: 'default', image: 'assets/products-2026/zen.png',
   tagline: 'Fully automatic fresh bean and tea leaf machine',
   description: 'Adds fresh tea leaf to the ZEN range, beans, tea leaf, coffee, milk powder and hot chocolate in door hoppers, powder milk, auto cup dispenser and an optional stand. Easy cleaning, filling and maintenance.',
   tags: ['Fresh Bean & Tea Leaf', 'Fully Automatic', 'Vending Sugar in Door'],
@@ -437,27 +450,27 @@ const PRODUCTS_COFFEE = [
 PRODUCTS.push(...PRODUCTS_COFFEE);
 
 const PRODUCTS_WATER = [
- { name: 'FW Bar Classe', image: 'assets/bar-classe.png', category: 'Water Solutions', variant: 'default',
+ { name: 'FW Bar Classe', image: 'assets/products-2026/bar-classe.jpg', category: 'Water Solutions', variant: 'default',
   tagline: 'Premium solution',
   description: 'Offers 2 water options, cold and sparkling, with portion control and Firewall UVC Purification, removing up to 99.999% of bacteria, viruses and cysts. Ice cold water via Ice Bath cooling, high performance filtration and BioCote protection. Plumbed in solution.',
   tags: ['Cold & Sparkling', 'Firewall UVC Purification', 'Portion Control'],
   specs: [{ label: 'Water Options', value: 'Cold & Sparkling' }, { label: 'Purification', value: 'Firewall UVC, 99.999% Bacteria/Virus Removal' }, { label: 'Installation', value: 'Plumbed In' }] },
- { name: 'P1 Bar Series E', image: 'assets/p1-bar-e.png', category: 'Water Solutions', variant: 'accent',
+ { name: 'P1 Bar Series E', image: 'assets/products-2026/p1-bar-e.jpg', category: 'Water Solutions', variant: 'accent',
   tagline: 'Stylish, Efficient & High Flow solution',
   description: 'Offers 3 water options: cold, ambient and sparkling, with portion control, an adjustable drip tray height for different bottle sizes, and eco-sustainable R290 refrigeration. Plumbed in solution.',
   tags: ['Cold, Ambient & Sparkling', 'Adjustable Drip Tray', 'R290 Eco Refrigeration'],
   specs: [{ label: 'Water Options', value: 'Cold, Ambient & Sparkling' }, { label: 'Refrigeration', value: 'R290 Natural Gas' }, { label: 'Installation', value: 'Plumbed In' }] },
- { name: 'P1 Bar Series B', image: 'assets/p1-bar-b.png', category: 'Water Solutions', variant: 'default',
+ { name: 'P1 Bar Series B', image: 'assets/products-2026/p1-bar-b.jpg', category: 'Water Solutions', variant: 'default',
   tagline: 'Stylish, Efficient & High Flow solution',
   description: 'Offers 2 water options, cold and sparkling, with portion control, a back-lit front panel with premium aesthetics, and eco-sustainable R290 refrigeration. Plumbed in solution.',
   tags: ['Cold & Sparkling', 'Back-Lit Front Panel', 'R290 Eco Refrigeration'],
   specs: [{ label: 'Water Options', value: 'Cold & Sparkling' }, { label: 'Refrigeration', value: 'R290 Natural Gas' }, { label: 'Installation', value: 'Plumbed In' }] },
- { name: 'Campione Tower', image: 'assets/campione-tower.png', category: 'Water Solutions', variant: 'accent',
+ { name: 'Campione Tower - 2 or 3 Way Tap', image: 'assets/campione-tower.png', category: 'Water Solutions', variant: 'accent',
   tagline: 'Where space is limited',
   description: 'Offers 3 water options: cold, ambient and sparkling, with ice cold water produced using Ice Bath cooling technology and high performance filtration. Plumbed in with the Frizzante 60 under-counter solution.',
   tags: ['Cold, Ambient & Sparkling', 'Ice Bath Cooling', 'Space-Saving Tower'],
   specs: [{ label: 'Water Options', value: 'Cold, Ambient & Sparkling' }, { label: 'Cooling', value: 'Ice Bath Technology' }, { label: 'Installation', value: 'Plumbed With Frizzante 60' }] },
- { name: 'Frizzante 80 Box', image: 'assets/frizzante-80-box.png', category: 'Water Solutions', variant: 'default',
+ { name: 'Frizzante 80 Box', image: 'assets/products-2026/frizzante-80-box.jpg', category: 'Water Solutions', variant: 'default',
   tagline: 'Under the counter unit',
   description: 'Offers 3 water options: cold, ambient and sparkling, with ice cold water produced using Ice Bath cooling technology and high performance filtration.',
   tags: ['Cold, Ambient & Sparkling', 'Ice Bath Cooling', 'Under-Counter Unit'],
@@ -734,11 +747,11 @@ class Component extends DCLogic {
    'Vending Machines': [
     { q: 'How many products can it hold?', a: 'It depends on the model. The Palma Hz70 carries 180 items (60 drinks, 120 snacks), the Hz87 carries 280 (120 drinks, 160 snacks), the Hz87 Premium carries 220 including 20 sandwiches or wraps, and the CV1000 and CV4000 both carry 312 (144 drinks, 168 snacks).' },
     { q: 'Can one machine hold both cold drinks and snacks?', a: 'Yes. The combo range runs two independently controlled temperature zones: lower trays at 4°C to 10°C for chilled cans and bottles, upper trays at 14°C to 25°C for confectionery and snacks.' },
-    { q: 'Which payment methods are supported?', a: 'Most models take notes, coins and cashless payment through Nayax, and a debit, credit and virtual card facility can be added. The CV4000 with touchscreen and the Smart Fridge are cashless only.' },
-    { q: 'Can fresh food and sandwiches be vended?', a: 'Yes. The Hz87 Premium uses a selective belt system for sandwiches and wraps, the Vision Esplus Bluetec uses an elevator belt for multi-product dispensing, and the Smart Fridge and Smart Freezer use weight-sensing plates behind an opening door.' },
-    { q: 'What power and space does it need?', a: 'Most units run on a standard ~220V-240V 50Hz supply; the Smart Fridge and Smart Freezer run on ~110V-115V 60Hz. Widths range from 670mm on the smart cabinets to 1120mm on the CV4000 and Vision Esplus, all 1830mm to 1870mm tall.' },
+    { q: 'Which payment methods are supported?', a: 'Most models take notes, coins and cashless payment through Nayax, and a debit, credit and virtual card facility can be added. The CV4000 and Vision EsPlus BlueTec are cashless only.' },
+    { q: 'Can fresh food and sandwiches be vended?', a: 'Yes. The Hz87 Premium uses a selective belt system for sandwiches and wraps, the Vision Esplus Bluetec uses an elevator belt for multi-product dispensing.' },
+    { q: 'What power and space does it need?', a: 'Most units run on a standard ~220V-240V 50Hz supply. Widths range from 723mm on the Palma Hz70 to 1120mm on the CV4000 and Vision Esplus, all 1830mm to 1870mm tall.' },
     { q: 'Can stock be monitored remotely?', a: 'Telemetry is supported across the range, so sales, stock levels and faults can be seen remotely. The Vision Esplus Bluetec also tracks expiry dates per channel and can block a channel automatically once the date is reached.' },
-    { q: 'How energy efficient are the machines?', a: 'Cabinets are fully foam insulated with double glazed viewing windows and LED internal lighting. Combo models use R-134a refrigerant, and the Smart Fridge and Smart Freezer use R600a.' },
+    { q: 'How energy efficient are the machines?', a: 'Cabinets are fully foam insulated with double glazed viewing windows and LED internal lighting. Combo models use R-134a refrigerant.' },
    ],
    'Hot Beverage Solutions': [
     { q: 'Instant, fresh bean or barista?', a: 'All three. Fresh bean brewers such as the Orion G23, Saeco Magic and Azkoyen Vitro range grind per cup, the Gaggia La Brillante and Jettino JL33 combine bean to cup with instant hoppers, and the Ascaso Barista T is a multi-group machine for a trained operator.' },
@@ -751,10 +764,10 @@ class Component extends DCLogic {
     { q: 'Do you supply the coffee?', a: 'Yes. Instant, filter and whole bean, plus tea, hot chocolate, milk and sundries, on a standing order or on demand.' },
    ],
    'Water Solutions': [
-    { q: 'Plumbed-in or bottled?', a: 'Both. Point-of-use units such as the Purezza Bar Classe, Waterlogic and Kastella ranges plumb into the mains and filter on site. The Legend Classic is manually refilled with an 18L filtering bottle and needs no plumbing.' },
-    { q: 'What water options are there?', a: 'It depends on the model. The Waterlogic 7 dispenses five types: ice-cold, ambient, sparkling, hot and extra-hot. The Bar Classe and Campione Tap serve cold, sparkling and ambient, the Waterlogic 2 and 100 serve cold and ambient, and The River is cold only.' },
+    { q: 'Plumbed-in or bottled?', a: 'Both. Waterlogic & Purezza ranges plumb into the mains and filter on site. The Legend Classic is manually refilled with an 18L filtering bottle and needs no plumbing.' },
+    { q: 'What water options are there?', a: 'It depends on the model. The Waterlogic 7 dispenses five types: ice-cold, ambient, sparkling, hot and extra-hot. The Purezza range predominantly serve cold and sparkling. The Waterlogic 2 and 100 serve cold and ambient. The River is cold only.' },
     { q: 'How much water can they deliver?', a: 'The Bar Classe dispenses 160L/hr, the Campione Tap 60L/hr, The River 20L/hr at 5°C to 12°C, and the Waterlogic 7 has a 17L/hr cooling capacity with 1.5L of hot water storage.' },
-    { q: 'How many people can one unit serve?', a: 'The Waterlogic 100 is rated for up to 20 users and the Waterlogic 2 for up to 30. For larger sites the high flow Purezza and Kastella units are sized on throughput rather than headcount.' },
+    { q: 'How many people can one unit serve?', a: 'The Waterlogic 100 is rated for up to 20 users and the Waterlogic 2 for up to 30. The Waterlogic 7 is up to 50. For larger sites the high flow Purezza units are sized on throughput rather than headcount.' },
     { q: 'How is the water purified?', a: 'Firewall UVC purification on the Waterlogic and Purezza units purifies water up to 99.9999%, 100% of the time, reducing bacteria, viruses and cysts. Filtration is certified by IAPMO R&T and carries the Water Quality Platinum Seal, and BioCote antimicrobial protection uses a silver ion additive to reduce odours and cross contamination.' },
     { q: 'Can it be installed under a counter?', a: 'Yes. The Bluglass Tower, BluTower and Campione Tap are counter-top taps fed by an under-counter unit, typically the Box Hot 60 Fizz at 318 x 335 x 467mm, and the Frizzante 80 Box is a dedicated under-counter model.' },
     { q: 'How often are filters changed?', a: 'Filters are replaced on a service schedule based on throughput. Replacement carbon filters and UVC parts are stocked.' },
