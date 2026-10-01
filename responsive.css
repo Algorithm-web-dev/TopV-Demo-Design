@@ -29,7 +29,8 @@
     gap: 12px !important;
     height: 62px !important;
   }
-  nav a[href="Top Vending.dc.html"]:first-of-type {
+  nav a[href="Top Vending.dc.html"]:first-of-type,
+  nav a[href="index.html"]:first-of-type {
     max-width: 140px !important;
     height: 40px !important;
   }
@@ -106,6 +107,9 @@
 }
 
 @media (max-width: 560px) {
+  /* The mobile menu has its own "Get a Free Quote" button; hiding this one
+     keeps the menu toggle on screen. */
+  nav [data-nav-cta] { display: none !important; }
   h1 { font-size: 29px !important; }
   h2 { font-size: 24px !important; }
   section { padding-left: 16px !important; padding-right: 16px !important; }
