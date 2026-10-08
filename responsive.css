@@ -150,3 +150,6 @@
   [data-testimonial-card] { padding: 28px 24px 36px !important; border-radius: 20px !important; }
   [data-testimonial-card] p { font-size: 17px !important; }
 }
+@media (max-width: 700px) {
+  [data-testimonial-quote] { -webkit-line-clamp: 6 !important; }
+}
