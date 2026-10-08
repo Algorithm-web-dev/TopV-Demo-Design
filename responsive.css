@@ -229,3 +229,8 @@
     margin-left: 0 !important; margin-right: 0 !important;
   }
 }
+@media (min-width: 701px) and (max-width: 1024px) {
+  /* tablet footer: brand block on top, three link columns underneath */
+  footer > div:first-child { grid-template-columns: repeat(3, 1fr) !important; gap: 36px 24px !important; }
+  footer > div:first-child > div:first-child { grid-column: 1 / -1; }
+}
