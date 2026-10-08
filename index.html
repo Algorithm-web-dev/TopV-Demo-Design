@@ -171,19 +171,35 @@
   </div>
  </section>
 
- <section style="background:#EFF1F3;padding:120px 48px 70px;box-sizing:border-box;">
+ <section style="background:#FAFBFC;padding:120px 48px 90px;box-sizing:border-box;">
   <div style="max-width:1200px;margin:0 auto;">
-   <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Testimonials</div>
-   <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 52px;max-width:560px;">What our clients say about us.</h2>
-   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
-    <sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="3">
-     <div style="background:#FFFFFF;border-radius:20px;padding:36px;box-sizing:border-box;display:flex;flex-direction:column;">
-      <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.65;color:#1C1C1A;margin:0 0 28px;">{{ t.quote }}</p>
-      <div style="margin-top:auto;">
-       <div style="font-size:15px;font-weight:700;margin-bottom:4px;">{{ t.name }}</div>
-       <div style="font-size:14px;color:#6B6B68;">{{ t.role }}</div>
+   <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:24px;margin:0 0 44px;">
+    <div>
+     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Testimonials</div>
+     <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.1;letter-spacing:-0.03em;margin:0;max-width:560px;">What our clients say about us.</h2>
+    </div>
+    <div style="display:flex;gap:14px;flex-shrink:0;">
+     <button type="button" aria-label="Previous testimonial" onClick="{{ testimonialPrev }}" style="width:64px;height:64px;border-radius:50%;border:1px solid #D9DCE0;background:#FFFFFF;color:#1C1C1A;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;" style-hover="border-color:#1C1C1A;"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="12.5,4 6.5,10 12.5,16"></polyline></svg></button>
+     <button type="button" aria-label="Next testimonial" onClick="{{ testimonialNext }}" style="width:64px;height:64px;border-radius:50%;border:1px solid #1C1C1A;background:#1C1C1A;color:#FFFFFF;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;" style-hover="background:#C8102E;border-color:#C8102E;"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="7.5,4 13.5,10 7.5,16"></polyline></svg></button>
+    </div>
+   </div>
+   <div data-testimonial-card="1" style="background:#FFFFFF;border:1px solid #E1E4E8;border-radius:28px;padding:44px 96px 56px;box-sizing:border-box;">
+    <div aria-hidden="true" style="font-family:Georgia,'Times New Roman',serif;font-size:110px;line-height:1;height:60px;color:#C8102E;opacity:0.12;margin-left:-26px;">&#8220;</div>
+    <div style="display:grid;">
+     <sc-for list="{{ testimonialSlides }}" as="t" hint-placeholder-count="3">
+      <div aria-hidden="{{ t.hidden }}" style="{{ t.style }}">
+       <p style="font-family:'Inter',sans-serif;font-style:italic;font-size:22px;line-height:1.7;color:#1C1C1A;margin:0 0 40px;">{{ t.quote }}</p>
+       <div style="margin-top:auto;border-left:4px solid #C8102E;padding-left:22px;">
+        <div style="{{ t.nameStyle }}">{{ t.name }}</div>
+        <div style="font-size:16px;color:#6B6B68;">{{ t.role }}</div>
+       </div>
       </div>
-     </div>
+     </sc-for>
+    </div>
+   </div>
+   <div style="display:flex;justify-content:center;align-items:center;gap:10px;margin-top:36px;">
+    <sc-for list="{{ testimonialDots }}" as="d" hint-placeholder-count="3">
+     <button type="button" aria-label="{{ d.label }}" onClick="{{ d.onClick }}" style="{{ d.style }}"></button>
     </sc-for>
    </div>
   </div>
@@ -534,11 +550,34 @@ class Component extends DCLogic {
    rangesRail: (el) => { this.__rangesRail = el; },
    rangesPrev: () => { if (this.__rangesRail) this.__rangesRail.scrollBy({ left: -320, behavior: 'smooth' }); },
    rangesNext: () => { if (this.__rangesRail) this.__rangesRail.scrollBy({ left: 320, behavior: 'smooth' }); },
-   testimonials: [
+   ...(() => {
+    const TESTIMONIALS = [
     { quote: '“We are proud to partner with Top Vending. Their exceptional service has consistently exceeded our expectations, making them an integral part of our operations. Our relationship with Top Vending is more than just a client-supplier arrangement; it’s a true partnership built on trust, mutual respect, and a shared vision for the future of Coffee Vending and service excellence. Their ability to seamlessly mobilize a large national contract went above and beyond our expectations, showcasing their professionalism and unmatched expertise. Top Vending’s commitment to innovation, and customer-centric solutions sets them apart, and their alignment with our goals ensures we remain ahead of industry trends, delivering value to our customers every step of the way. We highly recommend Top Vending to anyone looking for a partner who truly understands their business needs and delivers with excellence.”', name: '', role: 'MD, Tsebo Beverage' },
     { quote: '“I have dealt with Shane and his Team from Top Vending for many years and can honestly say that their products and customer service is always outstanding and has never diminished over the many years that we have dealt with them. I have always felt that we as a company are important to them by the way that they look after us. Nothing is too much trouble when we request their help and they are professional at every level from the first enquiry through to the delivery of our machines to their after sales service.”', name: 'Trish Steenfeldt-Kristensen', role: 'rewardsco' },
     { quote: '“Top Coolers has been responsible for supplying and maintaining water coolers across our campus. We have found their service to be professional, reliable and consistently of a high standard. Their team has demonstrated excellent communication, responsiveness and a commitment to meeting agreed timelines and expectations. Some of the key strengths we have observed include; professional and courteous service, High-quality service delivery and maintenance, Reliability and responsiveness, Efficient turnaround times and support. Based on our experience, we would confidently recommend Top Coolers to any organisation seeking a dependable water cooler supplier and service provider.”', name: 'Karabo Tlokotsi', role: 'Redhill School' },
-   ],
+    ];
+    const n = TESTIMONIALS.length;
+    const active = ((this.state.testimonialIndex || 0) % n + n) % n;
+    const go = (k) => this.setState({ testimonialIndex: (k + n) % n });
+    return {
+     testimonialSlides: TESTIMONIALS.map((t, k) => ({
+      quote: t.quote.replace(/^[\u201C"]+|[\u201D"]+$/g, ''),
+      name: t.name,
+      role: t.role,
+      hidden: k === active ? 'false' : 'true',
+      nameStyle: t.name ? 'font-size:18px;font-weight:700;margin-bottom:6px;color:#1C1C1A;' : 'display:none;',
+      // every slide shares one grid cell, so the card keeps the height of the longest quote
+      style: `grid-area:1 / 1;display:flex;flex-direction:column;transition:opacity .35s ease;opacity:${k === active ? 1 : 0};visibility:${k === active ? 'visible' : 'hidden'};`,
+     })),
+     testimonialPrev: () => go(active - 1),
+     testimonialNext: () => go(active + 1),
+     testimonialDots: TESTIMONIALS.map((t, k) => ({
+      label: 'Show testimonial ' + (k + 1),
+      onClick: () => go(k),
+      style: `height:10px;border-radius:999px;border:none;padding:0;cursor:pointer;transition:width .25s ease, background .25s ease;width:${k === active ? 42 : 10}px;background:${k === active ? '#C8102E' : '#D3D7DD'};`,
+     })),
+    };
+   })(),
    toggleMobileMenu: () => this.setState({ mobileMenu: !mobileOpen }),
    closeMobileMenu: () => this.setState({ mobileMenu: false }),
    mobileToggleStyle: "display:none;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;border:1px solid #E1E4E8;background:#FFFFFF;cursor:pointer;flex-shrink:0;padding:0;",
