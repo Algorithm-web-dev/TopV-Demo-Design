@@ -153,3 +153,7 @@
 @media (max-width: 700px) {
   [data-testimonial-quote] { -webkit-line-clamp: 6 !important; }
 }
+/* About: images that match their copy height stack above the copy with a fixed height on small screens */
+@media (max-width: 1024px) {
+  [data-match-copy] { height: 360px !important; }
+}
