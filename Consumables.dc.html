@@ -98,7 +98,7 @@
   <div style="max-width:1200px;margin:0 auto;">
    <div style="display:grid;grid-template-columns:1.05fr 1fr;gap:70px;align-items:stretch;">
     <div data-match-copy="1" style="overflow:hidden;background:#1C1C1A;box-shadow:0 24px 60px rgba(28,28,26,0.18);position:relative;">
-     <img src="assets/blog-coffee.jpg" alt="Consumables" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.06) saturate(1.05) brightness(0.88);" />
+     <img loading="lazy" decoding="async" src="assets/blog-coffee.jpg" alt="Consumables" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.06) saturate(1.05) brightness(0.88);" />
      <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(20,20,18,0.18) 0%, rgba(20,20,18,0.06) 45%, rgba(20,20,18,0.28) 100%);"></div>
     </div>
     <div>
@@ -130,7 +130,7 @@
     <sc-for list="{{ consumables }}" as="c" hint-placeholder-count="4">
      <div style="background:#FFFFFF;border:1px solid #E1E4E8;border-radius:20px;padding:16px 16px 26px;box-sizing:border-box;display:flex;flex-direction:column;">
       <div style="height:200px;overflow:hidden;background:#1C1C1A;margin-bottom:24px;">
-       <img ref="{{ c.imgRef }}" alt="{{ c.title }}" style="width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.04) saturate(1.03) brightness(0.9);" />
+       <img loading="lazy" decoding="async" ref="{{ c.imgRef }}" alt="{{ c.title }}" style="width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.04) saturate(1.03) brightness(0.9);" />
       </div>
       <div style="padding:0 8px;">
        <div style="font-size:20px;font-weight:700;letter-spacing:-0.02em;margin-bottom:10px;">{{ c.title }}</div>
@@ -168,7 +168,7 @@
         <div style="font-weight:600;">{{ item.name }}</div>
         <div style="color:#45443F;">{{ item.unit }}</div>
         <div data-thumb="1" style="width:104px;height:104px;background:#FFFFFF;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:8px;box-sizing:border-box;position:relative;z-index:1;transition:transform .22s ease, box-shadow .22s ease;" style-hover="transform:scale(2.1);box-shadow:0 22px 50px rgba(28,28,26,0.22);z-index:5;">
-         <img ref="{{ item.imgRef }}" alt="{{ item.name }}" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;" />
+         <img loading="lazy" decoding="async" ref="{{ item.imgRef }}" alt="{{ item.name }}" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;" />
         </div>
         <div style="display:flex;justify-content:flex-end;">
          <a href="Contact.dc.html#quote" data-quote-add="1" data-quote-name="{{ item.name }}" data-quote-cat="Consumables" data-quote-unit="{{ item.unit }}" style="border:1.5px solid #1C1C1A;color:#1C1C1A;padding:8px 18px;border-radius:999px;font-size:13px;font-weight:600;white-space:nowrap;" style-hover="background:#1C1C1A;color:#FAFBFC;">Add to Quote</a>
@@ -211,7 +211,7 @@
  </section>
 
  <section style="background:#1C1C1A;padding:130px 48px;box-sizing:border-box;text-align:center;position:relative;overflow:hidden;">
-  <img src="assets/rentals-bg.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;z-index:0;filter:saturate(0.7);" />
+  <img loading="lazy" decoding="async" src="assets/rentals-bg.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;z-index:0;filter:saturate(0.7);" />
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 90% at 50% 50%, rgba(20,20,18,0.9) 0%, rgba(20,20,18,0.82) 55%, rgba(20,20,18,0.7) 100%);z-index:1;"></div>
   <div style="position:relative;z-index:2;max-width:720px;margin:0 auto;">
    <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:42px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 18px;color:#FAFBFC;">Set up a standing order.</h2>
@@ -224,7 +224,7 @@
   <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto;">
    <div>
     <div style="margin-bottom:16px;">
-     <a href="index.html" style="display:inline-block;"><img src="assets/logo.png" alt="Top Vending" style="height:34px;object-fit:contain;" /></a>
+     <a href="index.html" style="display:inline-block;"><img loading="lazy" decoding="async" src="assets/logo.png" alt="Top Vending" style="height:34px;object-fit:contain;" /></a>
     </div>
     <p style="font-family:'Inter',sans-serif;font-size:14px;color:#6B6B68;line-height:1.6;margin:0 0 20px;max-width:280px;">Vending, coffee and water for South African workplaces. Since 1991.</p>
     <div style="display:flex;">

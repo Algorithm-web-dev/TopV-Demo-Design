@@ -101,7 +101,7 @@
   <div style="display:flex;width:max-content;animation:logoMarquee 28s linear infinite;">
    <sc-for list="{{ marqueeClients }}" as="c" hint-placeholder-count="16">
     <div style="width:190px;height:56px;flex-shrink:0;margin-right:32px;display:flex;align-items:center;justify-content:center;">
-     <img ref="{{ c.imgRef }}" alt="{{ c.name }}" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;" />
+     <img loading="lazy" decoding="async" ref="{{ c.imgRef }}" alt="{{ c.name }}" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;" />
     </div>
    </sc-for>
   </div>
@@ -112,7 +112,7 @@
    <div style="display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:stretch;margin-bottom:80px;">
     <div style="display:flex;flex-direction:column;">
      <div data-match-copy="1" style="flex:1;overflow:hidden;background:#F1F3F5;position:relative;">
-      <img src="assets/about-story.png" alt="Top Vending team" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;display:block;filter:brightness(1.12) contrast(1.02);" />
+      <img loading="lazy" decoding="async" src="assets/about-story.png" alt="Top Vending team" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;display:block;filter:brightness(1.12) contrast(1.02);" />
      </div>
      <div style="font-family:'Inter',sans-serif;font-size:13px;color:#6B6B68;margin-top:12px;">The Top Vending Team, 1992</div>
     </div>
@@ -138,7 +138,7 @@
  </section>
 
  <section id="rentals" style="background:#1C1C1A;color:#FAFBFC;padding:140px 48px;box-sizing:border-box;position:relative;overflow:hidden;">
-  <img src="assets/rentals-bg-2.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;z-index:0;filter:saturate(0.75);" />
+  <img loading="lazy" decoding="async" src="assets/rentals-bg-2.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;z-index:0;filter:saturate(0.75);" />
   <div style="position:absolute;inset:0;background:linear-gradient(100deg, rgba(20,20,18,0.95) 0%, rgba(20,20,18,0.88) 45%, rgba(20,20,18,0.66) 100%);z-index:1;"></div>
   <div style="position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1200px;margin:0 auto;">
    <div>
@@ -163,7 +163,7 @@
     <div style="display:flex;gap:40px;width:max-content;animation:logoMarquee 40s linear infinite;">
      <sc-for list="{{ marqueeCustomers }}" as="c" hint-placeholder-count="24">
       <div style="width:210px;height:120px;flex-shrink:0;display:flex;align-items:center;justify-content:center;box-sizing:border-box;">
-       <img ref="{{ c.imgRef }}" alt="{{ c.name }}" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;" />
+       <img loading="lazy" decoding="async" ref="{{ c.imgRef }}" alt="{{ c.name }}" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;" />
       </div>
      </sc-for>
     </div>
@@ -210,7 +210,7 @@
 
 
  <section style="background:#1C1C1A;padding:130px 48px;box-sizing:border-box;text-align:center;position:relative;overflow:hidden;">
-  <img src="assets/rentals-bg.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;z-index:0;filter:saturate(0.7);" />
+  <img loading="lazy" decoding="async" src="assets/rentals-bg.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;z-index:0;filter:saturate(0.7);" />
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 90% at 50% 50%, rgba(20,20,18,0.9) 0%, rgba(20,20,18,0.82) 55%, rgba(20,20,18,0.7) 100%);z-index:1;"></div>
   <div style="position:relative;z-index:2;max-width:720px;margin:0 auto;">
    <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:42px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 18px;color:#FAFBFC;">Ready to upgrade your workspace?</h2>
@@ -223,7 +223,7 @@
   <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto;">
    <div>
     <div style="margin-bottom:16px;">
-     <a href="index.html" style="display:inline-block;"><img src="assets/logo.png" alt="Top Vending" style="height:34px;object-fit:contain;" /></a>
+     <a href="index.html" style="display:inline-block;"><img loading="lazy" decoding="async" src="assets/logo.png" alt="Top Vending" style="height:34px;object-fit:contain;" /></a>
     </div>
     <p style="font-family:'Inter',sans-serif;font-size:14px;color:#6B6B68;line-height:1.6;margin:0 0 20px;max-width:280px;">Vending, coffee and water for South African workplaces. Since 1991.</p>
     <div style="display:flex;">
