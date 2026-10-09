@@ -898,7 +898,8 @@
       '<header><div class="row" style="display:flex;align-items:center"><h2>Suggestions</h2><span class="spacer" style="flex:1"></span>' +
       '<button class="btn ghost close">Close</button></div>' +
       '<div class="status"></div>' +
-      '<div class="tools"><button class="btn primary zip">Download all (ZIP)</button><button class="btn ghost csv">Export CSV</button><button class="btn ghost copy">Copy as text</button></div></header>' +
+      '<div class="tools"><button class="btn primary zip">Download all (ZIP)</button><button class="btn ghost csv">Export CSV</button><button class="btn ghost copy">Copy as text</button>' +
+      (open ? '<button class="btn ghost resolve-all">Resolve all (' + open + ')</button>' : '') + '</div></header>' +
       '<div class="list"></div>';
     statusEl = panel.querySelector('.status');
     setStatus(items.length + ' suggestion' + (items.length === 1 ? '' : 's') + ', ' + open + ' open · ' + saveState().long);
@@ -906,6 +907,8 @@
     panel.querySelector('.csv').addEventListener('click', exportCsv);
     panel.querySelector('.zip').addEventListener('click', exportZip);
     panel.querySelector('.copy').addEventListener('click', copyText);
+    var ra = panel.querySelector('.resolve-all');
+    if (ra) ra.addEventListener('click', resolveAll);
 
     var list = panel.querySelector('.list');
     if (!items.length) {
@@ -1105,6 +1108,27 @@
       download(buildZip(files), 'site-review-' + stamp() + '.zip');
       toast(failed.length ? 'ZIP ready, ' + failed.length + ' image(s) could not be downloaded' : 'ZIP ready ✓');
     }).then(function () { zipping = false; }, function () { zipping = false; toast('Export failed, please try again'); });
+  }
+
+  // Mark every open suggestion resolved in one go; each change goes through
+  // the same save queue as a single tick, so nothing is lost if a send fails.
+  function resolveAll() {
+    var open = items.filter(function (i) { return i.status !== 'resolved'; });
+    if (!open.length) return;
+    if (!confirm('Mark all ' + open.length + ' open suggestions as resolved?')) return;
+    var now = Date.now();
+    items = items.map(function (i) {
+      return i.status === 'resolved' ? i : Object.assign({}, i, { status: 'resolved', updatedAt: now });
+    });
+    open.forEach(function (i) { pending[i.id] = 'upsert'; });
+    savePending();
+    saveLocal();
+    refresh();
+    toast('Resolving ' + open.length + '…');
+    flush().then(function () {
+      var left = open.filter(function (i) { return pending[i.id]; }).length;
+      toast(left ? left + ' not sent yet, retrying automatically' : 'All ' + open.length + ' resolved ✓');
+    });
   }
 
   function copyText() {
