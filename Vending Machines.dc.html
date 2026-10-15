@@ -25,13 +25,30 @@
  <link rel="stylesheet" href="responsive.css" />
  <script src="quote-cart.js"></script>
  <script src="site-search.js"></script>
- <script src="copy-review.js"></script>
+ <style>
+  @media (max-width: 1100px) { [data-panel-grid] { grid-template-columns: repeat(4, minmax(0,1fr)) !important; } }
+  @media (max-width: 900px) { [data-panel-grid] { grid-template-columns: repeat(3, minmax(0,1fr)) !important; } }
+  @media (max-width: 640px) { [data-panel-grid] { grid-template-columns: repeat(2, minmax(0,1fr)) !important; gap: 10px !important; } }
+  @media (max-width: 420px) { [data-panel-grid] { grid-template-columns: 1fr !important; } }
+ </style>
+ <style>
+  [data-pc] { transition: transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s ease, border-color .3s ease; }
+  [data-pc]:hover { transform: translateY(-4px); box-shadow: 0 22px 44px rgba(28,28,26,0.10); border-color: #D3D7DD; }
+  [data-pc-img] { object-position: center bottom !important; mix-blend-mode: multiply; transition: transform .45s cubic-bezier(.2,.7,.2,1); transform-origin: center bottom; }
+  [data-pc]:hover [data-pc-img] { transform: scale(1.05); }
+  [data-pc-name] { transition: color .25s ease; }
+  [data-pc]:hover [data-pc-name], [data-pc]:hover [data-pc-link] { color: #C8102E !important; }
+  [data-pc-arrow] { transition: background .25s ease, border-color .25s ease, color .25s ease, transform .25s ease; }
+  [data-pc]:hover [data-pc-arrow] { background: #C8102E; border-color: #C8102E; color: #FAFBFC; transform: translateX(3px); }
+  @media (prefers-reduced-motion: reduce) { [data-pc], [data-pc-img], [data-pc-arrow] { transition: none !important; } }
+ </style>
+ <script src="site-motion.js"></script>
 </helmet>
 
 <div style="font-family:'Inter',sans-serif;color:#1C1C1A;background:#FAFBFC;overflow-x:hidden;">
 
  <nav style="position:fixed;top:20px;left:24px;right:24px;height:72px;background:rgba(250,250,248,0.88);backdropFilter:blur(18px);WebkitBackdropFilter:blur(18px);border:1px solid rgba(255,255,255,0.5);box-shadow:0 10px 30px rgba(0,0,0,0.08);border-radius:999px;display:flex;align-items:center;justify-content:space-between;gap:32px;padding:0 28px;z-index:100;box-sizing:border-box;">
-  <a href="index.html" style="display:flex;align-items:center;flex:0 1 auto;width:100%;max-width:190px;min-width:90px;height:52px;"><img src="assets/logo.png" alt="Top Vending" style="height:100%;width:100%;object-fit:contain;object-position:left center;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.18));" /></a>
+  <a href="index.html" style="display:flex;align-items:center;flex:0 1 auto;width:100%;max-width:190px;min-width:90px;height:52px;"><img src="assets/logo-30.png" alt="Top Vending" style="height:100%;width:100%;object-fit:contain;object-position:left center;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.18));" /></a>
   <div style="display:flex;align-items:center;gap:40px;">
    <div data-nav-links="1" style="display:flex;gap:32px;font-size:14px;">
     <a href="About.dc.html" style="color:#1C1C1A;white-space:nowrap;" style-hover="color:#C8102E;">About</a>
@@ -83,77 +100,48 @@
   <a href="Contact.dc.html#quote" onClick="{{ closeMobileMenu }}" style="display:block;margin-top:8px;text-align:center;background:#C8102E;color:#FAFBFC;padding:14px 20px;border-radius:999px;font-size:14px;font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Get a Free Quote</a>
  </div>
 
- <section style="padding:170px 48px 60px;box-sizing:border-box;background:#EFF1F3;{{ catalogueStyle }}">
-  <div style="max-width:1200px;margin:0 auto;">
-   <a href="index.html" style="display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:600;color:#6B6B68;margin-bottom:26px;" style-hover="color:#C8102E;">
+ <section data-screen-label="Vending hero" style="padding:190px 48px 110px;box-sizing:border-box;background:#0B1426;position:relative;overflow:hidden;{{ catalogueStyle }}">
+  <img src="assets/hero-vending-v2.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;z-index:0;"></img>
+  <div style="position:absolute;inset:0;z-index:1;background:linear-gradient(90deg, rgba(11,20,38,0.92) 0%, rgba(11,20,38,0.78) 38%, rgba(11,20,38,0.25) 72%, rgba(11,20,38,0.1) 100%);"></div>
+  <div style="max-width:1200px;margin:0 auto;position:relative;z-index:2;">
+   <a href="index.html" style="display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:600;color:#D9D9D5;margin-bottom:26px;" style-hover="color:#FAFBFC;">
     <span style="font-family:Inter,sans-serif;font-size:15px;">←</span>Back to home
    </a>
-   <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Vending Machines</div>
-   <h1 style="font-family:'Inter',sans-serif;font-weight:700;font-size:52px;line-height:1.05;letter-spacing:-0.032em;margin:0 0 18px;">Snack, can and combination vending.</h1>
-   <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#45443F;margin:0;">Free-standing and combination machines for offices, factories and public sites, available to buy or rent, installed and serviced by our own teams.</p>
-  </div>
- </section>
-
- <section style="background:#FAFBFC;padding:110px 48px 40px;box-sizing:border-box;{{ catalogueStyle }}">
-  <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;">
-
-   <div style="display:grid;grid-template-columns:1.05fr 1fr;gap:70px;align-items:stretch;">
-    <div data-match-copy="1" style="overflow:hidden;background:#1C1C1A;box-shadow:0 24px 60px rgba(28,28,26,0.18);position:relative;">
-     <img loading="lazy" decoding="async" src="assets/vending-section.jpg" alt="Vending machines" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.06) saturate(1.05) brightness(0.88);" />
-     <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(20,20,18,0.18) 0%, rgba(20,20,18,0.06) 45%, rgba(20,20,18,0.28) 100%);"></div>
-    </div>
-    <div>
-     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Vending machines</div>
-     <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 20px;">Smart snack and combo units</h2>
-     <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#45443F;margin:0 0 28px;max-width:460px;">Top Vending supplies modern machines in sizes to suit any location, from offices to large facilities.</p>
-     <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:34px;">
-      <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
-       <span style="font-family:'Inter',sans-serif;width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Remote telemetry and stock monitoring
-      </div>
-      <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
-       <span style="font-family:'Inter',sans-serif;width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Cashless and mobile payment ready
-      </div>
-      <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
-       <span style="font-family:'Inter',sans-serif;width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>On-site servicing and maintenance
-      </div>
-     </div>
-     <a href="Contact.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:#C8102E;color:#FAFBFC;padding:16px 32px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#8f0c20;">Get a Quote
-      <span style="font-family:'Inter',sans-serif;font-size:13px;">→</span>
-     </a>
-    </div>
-   </div>
-
+   <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#D9D9D5;font-weight:600;margin-bottom:18px;">Vending Machines</div>
+   <h1 style="font-family:'Inter',sans-serif;font-weight:700;font-size:52px;line-height:1.05;letter-spacing:-0.032em;margin:0 0 18px;max-width:620px;color:#FAFBFC;">Snack, can and combination vending.</h1>
+   <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#D9D9D5;margin:0;max-width:560px;">Free-standing and combination machines for offices, factories and public sites, available to buy or rent, installed and serviced by our own teams.</p>
   </div>
  </section>
 
  <section id="products" style="background:#FAFBFC;padding:60px 48px 130px;box-sizing:border-box;{{ catalogueStyle }}">
   <div style="max-width:1200px;margin:0 auto;">
-   <div style="display:grid;gap:24px;{{ gridColStyle }}">
-    <sc-for list="{{ products }}" as="p" hint-placeholder-count="6">
-     <div onClick="{{ p.onOpen }}" data-product-card="{{ p.name }}" style="background:#FFFFFF;border:1px solid #E1E4E8;border-radius:20px;padding:16px 16px 24px;box-sizing:border-box;display:flex;flex-direction:column;cursor:pointer;transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;" style-hover="transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,0.08);border-color:#C8102E;">
-      <div style="height:300px;background:#FFFFFF;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:22px;padding:14px;box-sizing:border-box;">
-       <img loading="lazy" decoding="async" ref="{{ p.imgRef }}" alt="{{ p.name }}" style="{{ p.imgStyle }}" />
-       <div style="{{ p.placeholderStyle }}">Photo to come</div>
-      </div>
-      <div style="padding:0 6px;">
-       <div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#6B6B68;margin-bottom:10px;">{{ p.category }}</div>
-       <div style="font-size:21px;font-weight:700;letter-spacing:-0.02em;margin-bottom:8px;">{{ p.name }}</div>
-       <p style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:#45443F;margin:0 0 22px;">{{ p.tagline }}</p>
-       <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;">
-        <a href="Contact.dc.html#quote" data-quote-add="1" data-quote-name="{{ p.name }}" data-quote-cat="{{ p.category }}" style="display:inline-block;background:#C8102E;color:#FAFBFC;padding:12px 24px;border-radius:999px;font-size:13px;font-weight:600;white-space:nowrap;" style-hover="background:#8f0c20;">Add to Quote</a>
-        <button type="button" data-full-specs="1" style="display:inline-block;background:transparent;border:1.5px solid #1C1C1A;color:#1C1C1A;padding:10.5px 22px;border-radius:999px;font-size:13px;font-weight:600;font-family:'Inter',sans-serif;white-space:nowrap;cursor:pointer;" style-hover="background:#1C1C1A;color:#FAFBFC;">Full Specifications</button>
-       </div>
-      </div>
+   <div style="background:#EFF1F3;border-radius:24px;padding:24px 22px 22px;box-sizing:border-box;">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:20px;padding:0 4px;">
+     <div style="display:flex;flex-direction:column;gap:6px;">
+      <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;"><span style="font-size:22px;font-weight:700;letter-spacing:-0.02em;color:#1C1C1A;">Vending Machines</span><span style="font-size:14px;color:#6B6B68;">{{ panelCount }}</span></div>
      </div>
-    </sc-for>
+     <sc-if value="{{ panelShowToggle }}" hint-placeholder-val="{{ true }}"><button onClick="{{ panelToggle }}" style="background:#1C1C1A;color:#FAFBFC;border:none;padding:12px 24px;border-radius:999px;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;cursor:pointer;flex-shrink:0;" style-hover="background:#C8102E;">{{ panelToggleLabel }}</button></sc-if>
+    </div>
+    <div data-panel-grid="1" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;">
+     <sc-for list="{{ panelItems }}" as="p" hint-placeholder-count="4">
+       <div data-product-card="{{ p.name }}" data-pc="1" onClick="{{ p.onOpen }}" style="cursor:pointer;position:relative;display:flex;flex-direction:column;background:#FFFFFF;border:1px solid #E1E4E8;border-radius:16px;overflow:hidden;box-sizing:border-box;">
+        <div style="position:relative;height:250px;display:flex;align-items:flex-end;justify-content:center;background:linear-gradient(180deg,#FFFFFF 0%,#F4F5F7 100%);padding:22px 22px 0;box-sizing:border-box;overflow:hidden;">
+         <img data-pc-img="1" ref="{{ p.imgRef }}" alt="{{ p.name }}" loading="lazy" style="{{ p.imgStyle }}" />
+         <div style="{{ p.placeholderStyle }}">Photo to come</div>
+         <div aria-hidden="true" style="position:absolute;left:18%;right:18%;bottom:0;height:10px;border-radius:50%;background:radial-gradient(ellipse at center, rgba(28,28,26,0.18) 0%, rgba(28,28,26,0) 70%);"></div>
+        </div>
+        <div style="display:flex;flex-direction:column;padding:18px 20px 18px;flex:1;border-top:1px solid #EEF0F2;">
+         <div style="font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;color:#8A8984;margin-bottom:6px;">{{ p.category }}</div>
+         <div data-pc-name="1" style="font-size:17px;font-weight:700;letter-spacing:-0.01em;line-height:1.3;color:#1C1C1A;margin-bottom:6px;">{{ p.name }}</div>
+         <div style="font-size:14px;line-height:1.5;color:#5C5B56;margin-bottom:16px;text-wrap:pretty;">{{ p.tagline }}</div>
+         <div data-pc-link="1" style="margin-top:auto;display:flex;align-items:center;justify-content:space-between;font-size:13.5px;font-weight:600;color:#1C1C1A;"><span>View details</span><span data-pc-arrow="1" style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;border:1px solid #D3D7DD;box-sizing:border-box;line-height:0;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:block;"><line x1="2.5" y1="7" x2="11.5" y2="7"></line><polyline points="7.5,3 11.5,7 7.5,11"></polyline></svg></span></div>
+        </div>
+       </div>
+     </sc-for>
+    </div>
    </div>
    <sc-if value="{{ isEmpty }}" hint-placeholder-val="{{ false }}">
     <div style="padding:60px 0;text-align:center;font-size:16px;color:#6B6B68;">No machines in this category yet, talk to us about what you need.</div>
-   </sc-if>
-   <sc-if value="{{ hasMore }}" hint-placeholder-val="{{ false }}">
-    <div style="display:flex;justify-content:center;margin-top:48px;">
-     <button onClick="{{ showMore }}" style="border:1.5px solid #1C1C1A;background:transparent;color:#1C1C1A;padding:15px 34px;border-radius:999px;font-size:15px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;" style-hover="background:#1C1C1A;color:#FAFBFC;">Show More</button>
-    </div>
    </sc-if>
   </div>
  </section>
@@ -164,8 +152,8 @@
     <span>←</span>All machines
    </a>
    <div style="display:grid;grid-template-columns:1fr 1.05fr;gap:70px;align-items:stretch;">
-    <div data-detail-image="1" style="background:#EFF1F3;display:flex;align-items:center;justify-content:center;padding:56px;box-sizing:border-box;height:100%;min-height:520px;overflow:hidden;">
-     <img loading="lazy" decoding="async" ref="{{ selectedProduct.imgRef }}" alt="{{ selectedProduct.name }}" style="max-width:100%;max-height:100%;object-fit:contain;display:block;" />
+    <div data-detail-image="1" style="position:relative;background:#EFF1F3;box-sizing:border-box;min-height:480px;overflow:hidden;">
+     <img ref="{{ selectedProduct.imgRef }}" alt="{{ selectedProduct.name }}" style="position:absolute;top:40px;left:40px;width:calc(100% - 80px);height:calc(100% - 80px);object-fit:contain;display:block;" />
     </div>
     <div>
      <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:16px;">{{ selectedProduct.category }}</div>
@@ -259,7 +247,7 @@
  </section>
 
  <section style="background:#1C1C1A;padding:130px 48px;box-sizing:border-box;text-align:center;position:relative;overflow:hidden;">
-  <img loading="lazy" decoding="async" src="assets/rentals-bg.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;z-index:0;filter:saturate(0.7);" />
+  <img src="assets/rentals-bg.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;z-index:0;filter:saturate(0.7);" />
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 90% at 50% 50%, rgba(20,20,18,0.9) 0%, rgba(20,20,18,0.82) 55%, rgba(20,20,18,0.7) 100%);z-index:1;"></div>
   <div style="position:relative;z-index:2;max-width:720px;margin:0 auto;">
    <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:42px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 18px;color:#FAFBFC;">Not sure which machine fits?</h2>
@@ -272,7 +260,7 @@
   <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto;">
    <div>
     <div style="margin-bottom:16px;">
-     <a href="index.html" style="display:inline-block;"><img loading="lazy" decoding="async" src="assets/logo.png" alt="Top Vending" style="height:34px;object-fit:contain;" /></a>
+     <a href="index.html" style="display:inline-block;"><img src="assets/logo-30.png" alt="Top Vending" style="height:34px;object-fit:contain;" /></a>
     </div>
     <p style="font-family:'Inter',sans-serif;font-size:14px;color:#6B6B68;line-height:1.6;margin:0 0 20px;max-width:280px;">Vending, coffee and water for South African workplaces. Since 1991.</p>
     <div style="display:flex;">
@@ -322,7 +310,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;productGridColumns&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;2&quot;,&quot;options&quot;:[&quot;2&quot;,&quot;3&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Catalogue&quot;},&quot;filterBarSticky&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Catalogue&quot;}}">
 const PRODUCTS = [
- { name: 'Palma Hz70', category: 'Vending Machines', variant: 'default', image: 'assets/products-2026/hz70.jpg',
+ { name: 'Palma Hz70', category: 'Vending Machines', variant: 'default', image: 'assets/hz70-v4.png',
   tagline: 'Standard Combo Vending Machine',
   description: 'A dual-temperature combo vending machine with full payment support, refrigeration and MDB compatibility, carrying 60 drink items and 120 snack items, 180 items in total.',
   tags: ['Dual Temperature Zones', 'Refrigerated', 'MDB Compatible'],
@@ -333,7 +321,7 @@ const PRODUCTS = [
    'The cabinet is fully foam insulated with a double glazed viewing window and LED internal lighting, which keeps running costs down while products stay clearly visible. Shelves are set at 25° so loading is quick and the product faces stay presented to the customer.',
    'Payment covers notes, coins and cashless through Nayax, and telemetry is supported so stock and sales can be monitored remotely. A debit, credit and virtual card facility can be added as an option. Dimensions are 723 x 840 x 1830mm on a standard 220V to 240V 50Hz supply, using R-134a refrigerant.',
   ] },
- { name: 'Palma Hz87', category: 'Vending Machines', variant: 'accent', image: 'assets/products-2026/hz87.jpg',
+ { name: 'Palma Hz87', category: 'Vending Machines', variant: 'accent', image: 'assets/hz87-v2.png',
   tagline: 'High Capacity Combo Vending Machine',
   description: 'A higher-capacity combo vending machine with dual temperature zones, full payment support, refrigeration and MDB compatibility, 120 drink items and 160 snack items, 280 items in total.',
   tags: ['Dual Temperature Zones', 'Refrigerated', 'MDB Compatible'],
@@ -344,7 +332,7 @@ const PRODUCTS = [
    'Dual temperature control runs the lower trays at 4°C to 10°C and the upper trays at 14°C to 25°C, so chilled drinks and ambient snacks are vended from one cabinet. The unit is fully foam insulated with a double glazed window and LED internal lighting, and 25° shelving keeps loading straightforward.',
    'Notes, coins and cashless payment through Nayax are supported as standard, with telemetry for remote stock monitoring. Options include a debit, credit and virtual card facility, and a belt tray that extends the range to sandwiches and wraps. Dimensions are 888 x 840 x 1830mm, 220V to 240V 50Hz, R-134a refrigerant.',
   ] },
- { name: 'Palma Hz87 Premium', image: 'assets/products-2026/hz87-premium.jpg', category: 'Vending Machines', variant: 'default',
+ { name: 'Palma Hz87 Premium', image: 'assets/hz87-premium-v2.png', category: 'Vending Machines', variant: 'default',
   tagline: 'Premium Combo Vending Machine',
   description: 'Our premium combo vending machine adds a selective belt system for multi-purpose use, refrigeration and full payment support, 40 drink items, 160 snack items and 20 sandwiches/wraps, 220 items in total.',
   tags: ['Selective Belt System', 'Multi-Purpose Use', 'Refrigerated'],
@@ -355,7 +343,7 @@ const PRODUCTS = [
    'The belt handles products that cannot be dropped, so the machine can serve a light lunch offering as well as confectionery. Dual temperature control runs the lower trays at 4°C to 10°C and the upper trays at 14°C to 25°C, with a fully foam insulated cabinet, double glazed window and LED internal lighting.',
    'Payment covers notes, coins and cashless through Nayax, with telemetry supported and a debit, credit and virtual card facility available as an option. Dimensions are 888 x 840 x 1830mm, 220V to 240V 50Hz, R-134a refrigerant.',
   ] },
- { name: 'CV1000', category: 'Vending Machines', variant: 'accent', image: 'assets/products-2026/cv1000.jpg',
+ { name: 'CV1000', category: 'Vending Machines', variant: 'accent', image: 'assets/cv1000-v2.png',
   tagline: 'Combo Vending Machine',
   description: 'A dual-temperature combo vending machine with full payment support, refrigeration and MDB compatibility, 144 drink items and 168 snack items, 312 items in total.',
   tags: ['Dual Temperature Zones', 'Refrigerated', 'MDB Compatible'],
@@ -366,7 +354,7 @@ const PRODUCTS = [
    'Two temperature zones run the lower trays at 4°C to 10°C and the upper trays at 14°C to 25°C. The cabinet is fully foam insulated with a double glazed viewing window and LED internal lighting, and 25° shelving keeps products visible and loading quick.',
    'Notes, coins and cashless payment through Nayax are supported, telemetry is available for remote monitoring, and a debit, credit and virtual card facility can be added. Dimensions are 925 x 820 x 1830mm, 220V to 240V 50Hz, R-134a refrigerant.',
   ] },
- { name: 'CV4000 with Touchscreen', image: 'assets/products-2026/cv4000.jpg', category: 'Vending Machines', variant: 'default',
+ { name: 'CV4000 with Touchscreen', image: 'assets/cv4000-v2.png', category: 'Vending Machines', variant: 'default',
   tagline: 'Combo Vending Machine with Cart Functionality',
   description: 'Adds cart functionality and a full touchscreen to the combo range, with dual temperature zones, refrigeration and MDB compatibility, 144 drink items and 168 snack items, 312 items in total. Cashless only.',
   tags: ['Cart Functionality', 'Dual Temperature Zones', 'Cashless Only'],
@@ -377,7 +365,7 @@ const PRODUCTS = [
    'Capacity matches the CV1000 at 312 items, 144 drinks and 168 snacks, across two temperature zones running 4°C to 10°C on the lower trays and 14°C to 25°C on the upper trays. The cabinet is fully foam insulated with a double glazed window, LED internal lighting and 25° shelving.',
    'This model is cashless only, with debit, credit and virtual card payment, and telemetry is supported. It is the widest unit in the range at 1120 x 820 x 1870mm, 220V to 240V 50Hz, R-134a refrigerant.',
   ] },
- { name: 'Vision Esplus Bluetec', image: 'assets/products-2026/vision-esplus.jpg', category: 'Vending Machines', variant: 'accent',
+ { name: 'Vision Esplus Bluetec', image: 'assets/vision-esplus.png', category: 'Vending Machines', variant: 'accent',
   tagline: 'Multi-Product Dispensing Machine',
   description: 'An elevator belt system for big-size multi-product dispensing, with full payment support, refrigeration, temperature control and expiry date tracking, channels can be blocked once expiry date is reached.',
   tags: ['Elevator Belt System', 'Expiry Date Tracking', 'Refrigerated'],
@@ -388,30 +376,52 @@ const PRODUCTS = [
    'Each channel has its own temperature control and individual expiry date tracking. Channels can be blocked automatically once the expiry date is reached, which keeps out of date stock from being sold and supports food safety requirements on site.',
    'Dual temperature control covers 4°C to 10°C on the lower trays and 14°C to 25°C on the upper trays, in a fully foam insulated cabinet with a double glazed window and LED internal lighting. Payment covers notes, coins and cashless through Nayax, with a card facility available. Dimensions are 1120 x 820 x 1870mm, 220V to 240V 50Hz, R-134a refrigerant.',
   ] },
+ { name: 'Smart Fridge', image: 'assets/smart-fridge.png', category: 'Vending Machines', variant: 'default',
+  tagline: 'Smart Fresh Food Fridge',
+  description: 'A weight-sensing smart fridge for fresh products, open the door, make a selection, close the door and enjoy. Cashless only, MDB compatible.',
+  tags: ['Weight Sensing Plate', 'Cashless Only', 'Refrigerated'],
+  brochure: 'smart-fridge.pdf',
+  specs: [{ label: 'Model', value: 'ZV-235W' }, { label: 'Function', value: 'Fresh products' }, { label: 'Shelving', value: '5 shelves' }, { label: 'Temperature', value: 'Trays 4°C to 10°C' }, { label: 'Payment', value: 'Cashless payment' }, { label: 'Refrigerant', value: 'R600a' }, { label: 'Power Supply', value: '~110-115V 60Hz' }, { label: 'Telemetry', value: 'Supported' }, { label: 'Dimensions (WxDxH)', value: '670 x 550 x 1830mm' }],
+  details: [
+   'The Smart Fridge uses weight sensing plates rather than a vending mechanism. The customer presents a cashless payment to unlock the door, takes what they want, and closes the door. The machine works out what was removed and charges accordingly.',
+   'That open door format suits fresh products, packaged meals, salads and drinks that do not vend well through a spiral. Five shelves are held at 4°C to 10°C in a fully foam insulated cabinet with a double glazed window and LED internal lighting.',
+   'Payment is cashless only and telemetry is supported for remote stock monitoring. The cabinet is narrow at 670 x 550 x 1830mm, runs on a 110V to 115V 60Hz supply and uses R600a refrigerant.',
+  ] },
+ { name: 'Smart Freezer', image: 'assets/smart-freezer.png', category: 'Vending Machines', variant: 'accent',
+  tagline: 'Smart Frozen Food Freezer',
+  description: 'A weight-sensing smart freezer for frozen products, open the door, make a selection, close the door and enjoy. Notes, coins and cashless payment, MDB compatible.',
+  tags: ['Weight Sensing Plate', 'Full Payment Support', 'Frozen'],
+  brochure: 'smart-freezer.pdf',
+  specs: [{ label: 'Model', value: 'ZV-235W' }, { label: 'Function', value: 'Frozen products' }, { label: 'Shelving', value: '5 shelves' }, { label: 'Payment', value: 'Notes, coins, cashless' }, { label: 'Refrigerant', value: 'R600a' }, { label: 'Power Supply', value: '~110-115V 60Hz' }, { label: 'Telemetry', value: 'Supported' }, { label: 'Dimensions (WxDxH)', value: '670 x 550 x 1830mm' }],
+  details: [
+   'The Smart Freezer applies the same weight sensing, open door format to frozen products. The customer presents payment, opens the door, makes a selection and closes it, and the machine charges for what was taken.',
+   'It suits ice cream, frozen meals and any line that needs to be held below ambient in a self service setting. Five shelves sit in a fully foam insulated cabinet with a double glazed viewing window and LED internal lighting.',
+   'Payment covers notes, coins and cashless, with telemetry supported for remote monitoring. Dimensions are 670 x 550 x 1830mm on a 110V to 115V 60Hz supply, using R600a refrigerant.',
+  ] },
 ];
 
 const PRODUCTS_COFFEE = [
- { name: 'Orion G23', image: 'assets/products-2026/orion-g23.png', category: 'Hot Beverage Solutions', variant: 'default',
+ { name: 'Orion G23', image: 'assets/orion-g23.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Sleek Black Design with Blue LED Lighting',
   description: 'A fresh bean brewer with a stylish, energy-efficient design, blue LED lighting and a customised setup to suit your requirements. Aluminium boiler.',
   tags: ['Fresh Bean Brewer', 'Energy Efficient', 'Blue LED Lighting'],
   specs: [{ label: 'Boiler', value: 'Aluminium Boiler' }, { label: 'Setup', value: 'Customised to Requirements' }, { label: 'Dimensions (WxDxH)', value: '417 x 463 x 767mm' }] },
- { name: 'Jettino JL33', image: 'assets/products-2026/jettino-jl33.png', category: 'Hot Beverage Solutions', variant: 'accent',
+ { name: 'Jettino JL33', image: 'assets/jettino-jl33.png', category: 'Hot Beverage Solutions', variant: 'accent',
   tagline: 'Exceptional dual-grinding, unmatched flavour',
   description: 'Dual grinders plus 2 instants, a 10.1" touchscreen and up to 15 beverages, with a fresh milk fridge and premium brewing system.',
   tags: ['Dual Grinders', '10.1" Touchscreen', 'Up to 15 Beverages'],
   specs: [{ label: 'Fridge', value: 'Fresh Milk Fridge' }, { label: 'Brewing', value: 'Premium Brewing System' }, { label: 'Dimensions (WxDxH)', value: '350 x 560 x 628mm' }] },
- { name: 'Gaggia Milano La Brillante', image: 'assets/products-2026/gaggia-la-brillante.png', category: 'Hot Beverage Solutions', variant: 'default',
+ { name: 'Gaggia Milano La Brillante', image: 'assets/gaggia-la-brillante.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Brilliance in every cup',
   description: 'Bean-to-cup plus 2 instants with a wide range of customisable drinks, fresh milk, a 7-inch touchscreen and Prime Milk automatic froth.',
   tags: ['Bean-to-Cup + 2 Instants', '7" Touchscreen', 'Automatic Milk Froth'],
   specs: [{ label: 'Grinder', value: 'One Grinder, One Per Hopper' }, { label: 'Milk', value: 'Prime Milk – Automatic Froth' }, { label: 'Dimensions (WxDxH)', value: '308 x 570 x 629mm' }] },
- { name: 'Azkoyen Vitro X1', image: 'assets/products-2026/vitro-x1.png', category: 'Hot Beverage Solutions', variant: 'accent',
+ { name: 'Azkoyen Vitro X1', image: 'assets/vitro-x1.png', category: 'Hot Beverage Solutions', variant: 'accent',
   tagline: 'Innovative design for quality coffee',
   description: 'A fresh bean brewer with a fresh milk fridge, high capacity boilers, 12 selection touch panel, variable brewing unit and an illuminated dispensing area.',
   tags: ['Fresh Bean Brewer', '12 Selection Touch Panel', 'High Capacity Boilers'],
   specs: [{ label: 'Milk', value: 'Fresh Milk Fridge' }, { label: 'Access', value: 'Easy-Access Hoppers' }, { label: 'Dimensions (WxDxH)', value: '567 x 505 x 672mm (includes fridge)' }] },
- { name: 'Saeco Magic', image: 'assets/products-2026/saeco-magic.png', category: 'Hot Beverage Solutions', variant: 'default',
+ { name: 'Saeco Magic', image: 'assets/saeco-magic.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Revolutionary coffee machine',
   description: 'A fresh bean brewer with a touchscreen display, fresh milk, one-touch high-speed milk, high capacity and a double boiler, double pump system.',
   tags: ['Double Boiler, Double Pump', 'Touchscreen Display', 'High Capacity'],
@@ -421,17 +431,17 @@ const PRODUCTS_COFFEE = [
   description: 'Cup recognition technology with energy-saving ECO mode, a 21.5" Full HD touchscreen, 7 hoppers (1 tea, 1 bean, 5 instant) and fully customisable beverages and volumes.',
   tags: ['Cup Recognition Technology', '21.5" Full HD Touchscreen', '7 Hoppers'],
   specs: [{ label: 'Mode', value: 'Energy-Saving ECO Mode' }, { label: 'Customisation', value: 'Custom Beverages & Volumes' }, { label: 'Dimensions (WxDxH)', value: '600 x 715 x 1830mm' }] },
- { name: 'Novara DFB', image: 'assets/products-2026/novara-dfb.png', category: 'Hot Beverage Solutions', variant: 'default',
+ { name: 'Novara DFB', image: 'assets/novara-dfb.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'The widest range of hot beverages',
   description: 'Double fresh brew with high capacity, fully customisable drinks, a fully automatic auto cup dispenser, cup detector and a modern stainless steel, glass front with touch selection.',
   tags: ['Double Fresh Brew', 'Fully Customisable Drinks', 'Auto Cup Dispenser'],
   specs: [{ label: 'Detection', value: 'Cup Detector' }, { label: 'Finish', value: 'Stainless Steel, Glass Front' }, { label: 'Dimensions (WxDxH)', value: '600 x 650 x 1830mm' }] },
- { name: 'ZEN Fresh Bean', category: 'Hot Beverage Solutions', variant: 'accent', image: 'assets/products-2026/zen.png',
+ { name: 'ZEN Fresh Bean', category: 'Hot Beverage Solutions', variant: 'accent', image: 'assets/zen.png',
   tagline: 'Fully automatic fresh bean machine',
   description: 'Beans, instant coffee, sugar, milk powder and hot chocolate in door-mounted hoppers, with powder milk, a touch selection panel and an auto cup dispenser. Compact, easy to clean and fill, with an optional stand.',
   tags: ['Fresh Bean', 'Fully Automatic', 'Vending Sugar in Door'],
   specs: [{ label: 'Milk', value: 'Powder Milk' }, { label: 'Stand', value: 'Optional Stand' }, { label: 'Dimensions (WxDxH)', value: 'Machine: 480 x 590 x 842mm · Stand: 480 x 590 x 842mm' }] },
- { name: 'ZEN DFB', category: 'Hot Beverage Solutions', variant: 'default', image: 'assets/products-2026/zen.png',
+ { name: 'ZEN DFB', category: 'Hot Beverage Solutions', variant: 'default', image: 'assets/zen.png',
   tagline: 'Fully automatic fresh bean and tea leaf machine',
   description: 'Adds fresh tea leaf to the ZEN range, beans, tea leaf, coffee, milk powder and hot chocolate in door hoppers, powder milk, auto cup dispenser and an optional stand. Easy cleaning, filling and maintenance.',
   tags: ['Fresh Bean & Tea Leaf', 'Fully Automatic', 'Vending Sugar in Door'],
@@ -450,27 +460,27 @@ const PRODUCTS_COFFEE = [
 PRODUCTS.push(...PRODUCTS_COFFEE);
 
 const PRODUCTS_WATER = [
- { name: 'FW Bar Classe', image: 'assets/products-2026/bar-classe.jpg', category: 'Water Solutions', variant: 'default',
+ { name: 'FW Bar Classe', image: 'assets/bar-classe.png', category: 'Water Solutions', variant: 'default',
   tagline: 'Premium solution',
   description: 'Offers 2 water options, cold and sparkling, with portion control and Firewall UVC Purification, removing up to 99.999% of bacteria, viruses and cysts. Ice cold water via Ice Bath cooling, high performance filtration and BioCote protection. Plumbed in solution.',
   tags: ['Cold & Sparkling', 'Firewall UVC Purification', 'Portion Control'],
   specs: [{ label: 'Water Options', value: 'Cold & Sparkling' }, { label: 'Purification', value: 'Firewall UVC, 99.999% Bacteria/Virus Removal' }, { label: 'Installation', value: 'Plumbed In' }] },
- { name: 'P1 Bar Series E', image: 'assets/products-2026/p1-bar-e.jpg', category: 'Water Solutions', variant: 'accent',
+ { name: 'P1 Bar Series E', image: 'assets/p1-bar-e.png', category: 'Water Solutions', variant: 'accent',
   tagline: 'Stylish, Efficient & High Flow solution',
   description: 'Offers 3 water options: cold, ambient and sparkling, with portion control, an adjustable drip tray height for different bottle sizes, and eco-sustainable R290 refrigeration. Plumbed in solution.',
   tags: ['Cold, Ambient & Sparkling', 'Adjustable Drip Tray', 'R290 Eco Refrigeration'],
   specs: [{ label: 'Water Options', value: 'Cold, Ambient & Sparkling' }, { label: 'Refrigeration', value: 'R290 Natural Gas' }, { label: 'Installation', value: 'Plumbed In' }] },
- { name: 'P1 Bar Series B', image: 'assets/products-2026/p1-bar-b.jpg', category: 'Water Solutions', variant: 'default',
+ { name: 'P1 Bar Series B', image: 'assets/p1-bar-b.png', category: 'Water Solutions', variant: 'default',
   tagline: 'Stylish, Efficient & High Flow solution',
   description: 'Offers 2 water options, cold and sparkling, with portion control, a back-lit front panel with premium aesthetics, and eco-sustainable R290 refrigeration. Plumbed in solution.',
   tags: ['Cold & Sparkling', 'Back-Lit Front Panel', 'R290 Eco Refrigeration'],
   specs: [{ label: 'Water Options', value: 'Cold & Sparkling' }, { label: 'Refrigeration', value: 'R290 Natural Gas' }, { label: 'Installation', value: 'Plumbed In' }] },
- { name: 'Campione Tower - 2 or 3 Way Tap', image: 'assets/campione-tower.png', category: 'Water Solutions', variant: 'accent',
+ { name: 'Campione Tower', image: 'assets/campione-tower.png', category: 'Water Solutions', variant: 'accent',
   tagline: 'Where space is limited',
   description: 'Offers 3 water options: cold, ambient and sparkling, with ice cold water produced using Ice Bath cooling technology and high performance filtration. Plumbed in with the Frizzante 60 under-counter solution.',
   tags: ['Cold, Ambient & Sparkling', 'Ice Bath Cooling', 'Space-Saving Tower'],
   specs: [{ label: 'Water Options', value: 'Cold, Ambient & Sparkling' }, { label: 'Cooling', value: 'Ice Bath Technology' }, { label: 'Installation', value: 'Plumbed With Frizzante 60' }] },
- { name: 'Frizzante 80 Box', image: 'assets/products-2026/frizzante-80-box.jpg', category: 'Water Solutions', variant: 'default',
+ { name: 'Frizzante 80 Box', image: 'assets/frizzante-80-box.png', category: 'Water Solutions', variant: 'default',
   tagline: 'Under the counter unit',
   description: 'Offers 3 water options: cold, ambient and sparkling, with ice cold water produced using Ice Bath cooling technology and high performance filtration.',
   tags: ['Cold, Ambient & Sparkling', 'Ice Bath Cooling', 'Under-Counter Unit'],
@@ -479,24 +489,6 @@ const PRODUCTS_WATER = [
 PRODUCTS.push(...PRODUCTS_WATER);
 
 const PRODUCTS_PAYMENT = [
- { name: 'Frizzante 80 Manual', image: 'assets/products-2026/frizzante-80-manual.jpg', category: 'Water Solutions', variant: 'accent',
-  tagline: 'The intuitive hospitality solution with mechanical tap dispensing',
-  description: 'A robust and reliable dispenser providing chilled, ambient and sparkling water at up to 80 litres per hour. Practical mechanical taps make it ideal for self-service environments, and the adjustable drip tray fills bottles of up to 280mm.',
-  tags: ['Chilled, Ambient & Sparkling', 'Mechanical Taps', 'Up to 80L/h'],
-  specs: [{ label: 'Water Options', value: 'Chilled, Ambient & Sparkling' }, { label: 'Dispensing Capacity', value: 'Up to 80L/h' }, { label: 'Dimensions (WxHxD)', value: '345 x 578.7 x 618.3mm (countertop)' }, { label: 'Dispense Height', value: '200 - 280mm (adjustable)' }, { label: 'Types Available', value: 'Countertop or freestanding (optional base cabinet)' }, { label: 'Refrigerant', value: 'R290' }],
-  brochure: 'purezza-frizzante-80-manual.pdf' },
- { name: 'Frizzante Mini', image: 'assets/products-2026/frizzante-mini.jpg', category: 'Water Solutions', variant: 'default',
-  tagline: 'The compact solution for modern hospitality environments',
-  description: 'Designed for spaces where every centimetre counts, the Frizzante Mini dispenses chilled, ambient and sparkling water, with a version that adds hot water. Ice Bath cooling delivers up to 30 litres per hour, in a countertop or freestanding format.',
-  tags: ['Chilled, Ambient, Sparkling & Hot', 'Up to 30L/h', 'Compact Footprint'],
-  specs: [{ label: 'Water Options', value: 'Chilled, Ambient & Sparkling (hot optional)' }, { label: 'Dispensing Capacity', value: 'Up to 30L/h' }, { label: 'Dimensions (WxHxD)', value: '264 x 430.5 x 576mm (countertop)' }, { label: 'Dispense Height', value: '305mm' }, { label: 'Types Available', value: 'Countertop or freestanding (optional base cabinet)' }, { label: 'Refrigerant', value: 'R290' }],
-  brochure: 'purezza-frizzante-mini.pdf' },
- { name: 'Murano Tower', image: 'assets/products-2026/murano-tower.jpg', category: 'Water Solutions', variant: 'accent',
-  tagline: 'A statement of style with a small footprint',
-  description: 'When combined with the Frizzante Box, the Murano Tower provides chilled, ambient and sparkling water with portion control. An elegant tempered glass surface, hygienic stainless steel protected nozzles and a dispensing area for bottles of up to 319mm.',
-  tags: ['Chilled, Ambient & Sparkling', 'Portion Control', 'Small Footprint'],
-  specs: [{ label: 'Water Options', value: 'Chilled, Ambient & Sparkling' }, { label: 'Dimensions (WxHxD)', value: '227 x 512.5 x 208.8mm (inc. tap)' }, { label: 'Dispense Height', value: '319mm' }, { label: 'Installation', value: 'With Frizzante Box' }, { label: 'Weight', value: '8kg' }, { label: 'Power Supply', value: '230V - 50Hz' }],
-  brochure: 'purezza-murano-tower.pdf' },
  { name: 'VPos Touch Bank Card Device', image: 'assets/payment/vpos-touch.png', category: 'Payment Solutions', variant: 'accent',
   tagline: 'All-in-one cashless bank payments',
   description: 'An all-in-one cashless payment card reader for unattended automatic machines, taking contactless tap-and-go bank payments alongside mag strip and chip.',
@@ -530,6 +522,28 @@ const PRODUCTS_PAYMENT = [
    'This is a multi-standard system that can support Executive, MDB, BDV and RS232. Telemetry programming is an optional extra on this unit.',
    'General features include scheduled free or discounted sales, monthly consumption control, bonus categories, a complete data audit from the vending machine, compatibility with MiFARE and FOBS, and calories control.',
   ] },
+ { name: 'Jofemar JF8 Coin Changer', image: 'assets/payment/jofemar-jf8.png', category: 'Payment Solutions', variant: 'default',
+  tagline: 'The only 8-coin tube changer on the market',
+  description: 'The first and only coin changer to include 8 coin tubes, accepting all South African old and new coin sets with tubes configurable for more than R1000 capacity.',
+  tags: ['Eight Coin Tubes', 'MDB Protocol', 'Machine Audit Memory'],
+  brochure: 'jofemar-jf8.pdf',
+  specs: [{ label: 'Type', value: 'Coin changer' }, { label: 'Group', value: 'Cash systems' }, { label: 'Tubes', value: 'Eight self-charging return tubes, up to eight coin values' }, { label: 'Capacity', value: 'Configurable for more than R1000' }, { label: 'Change Giver', value: 'R0,50c to R5,00' }, { label: 'Coin Sets', value: 'All South African old and new coin sets' }, { label: 'Protocol', value: 'MDB protocol' }, { label: 'Float', value: 'Self-replenishing float' }, { label: 'Memory', value: 'Machine audit memory' }, { label: 'Security', value: 'Pin code access only' }, { label: 'Programming', value: 'Built-in system, graphic display, USB updates and log book' }],
+  details: [
+   'The coin changer JF8 by Jofemar is the first and only one in the market to include 8-coin tubes, with all features a vending operator may need to better manage the cash systems of their machines. This includes maximums and minimums programming, inhibition or enabling of coins, and every possibility to adapt the coins change capacity of any sales point.',
+   'It accepts all South African old and new coin sets, and the tubes can be configured accordingly for more than R1000 capacity. The change giver accepts anything from R0,50c to R5,00. The unit is secure and can only be accessed via a pin code.',
+   'The structure allows easy access and cleaning of the full coins passthrough path, an easily extractable tubes cassette that is free or under security code, and an internal LED light in the tubes cassette for fast review of its status even in the machine interior. Programming uses a built-in system with graphic display and arrows to select options and edit values, optional security codes per option, updates and data extraction by USB port, and a log book.',
+  ] },
+ { name: 'Creos Bill Validator', image: 'assets/payment/creos.png', category: 'Payment Solutions', variant: 'accent',
+  tagline: 'Efficient banknote recognition',
+  description: 'A bill validator using nine optical reading signals, with a polycarbonate bezel and optimised dragging system, programmable to support African currencies.',
+  tags: ['9 Optical Reading Signals', 'Anti-Fraud Prevention', 'USB Updateable'],
+  brochure: 'creos.pdf',
+  specs: [{ label: 'Type', value: 'Bill validator' }, { label: 'Group', value: 'Cash systems' }, { label: 'Recognition', value: 'Up to 48 banknote positions, 12 banknotes in four directions' }, { label: 'Optical Signals', value: '9 optical reading signals' }, { label: 'Alignment', value: 'Precise banknote alignment' }, { label: 'Currency', value: 'Customisable currency file database, supports African currencies' }, { label: 'Updates', value: 'USB pendrive updateable' }, { label: 'Security', value: 'Anti-fraud prevention' }],
+  details: [
+   'The Creos Bill Validator is efficient in banknote recognition thanks to nine optical reading signals. The polycarbonate bezel and the optimised dragging system offer a precise banknote alignment and quick and intuitive use for final users. This unit can be programmed to support African currencies.',
+   'It recognises up to 48 banknote positions, being 12 banknotes in their four directions, with precise banknote alignment and quick, intuitive use for final users.',
+   'The currency file database is customisable and the unit is USB pendrive updateable, with anti-fraud prevention built in.',
+  ] },
  { name: 'Jofemar BT11 Bill Validator', image: 'assets/payment/jofemar-bt11.png', category: 'Payment Solutions', variant: 'default',
   tagline: 'The most practical banknote reader available',
   description: 'A banknote reader using optical and magnetic sensors that analyse the banknote throughout, with high visibility LCD lighting and lockable stackers.',
@@ -556,11 +570,16 @@ const PRODUCTS_PAYMENT = [
 PRODUCTS.push(...PRODUCTS_PAYMENT);
 
 const PRODUCTS_RECYCLING = [
- { name: 'Tritech Compactor or Shredder', category: 'Recycling', variant: 'default',
-  tagline: 'Automatic shredding and compacting machine for cups, PET bottles and cans',
+ { name: 'Tritech Shredder', category: 'Recycling', variant: 'default',
+  tagline: 'Automatic shredding machine for disposable plastic and paper cups',
   description: 'Shreds disposable plastic and paper cups automatically on deposit, reducing waste volume by up to 7x. Waste is collected in the container below, with an integrated sanitising system, an incentive reward system and a tablet touchscreen.',
   tags: ['Up to 7x Volume Reduction', 'Automated Operation', 'Incentive Reward System'],
-  specs: [{ label: 'Waste Type', value: 'Paper Cups, PET Bottles & Cans' }, { label: 'Telemetry', value: 'Included' }, { label: 'Interface', value: 'Tablet Touchscreen' }] },
+  specs: [{ label: 'Waste Type', value: 'Disposable Plastic & Paper Cups' }, { label: 'Telemetry', value: 'Included' }, { label: 'Interface', value: 'Tablet Touchscreen' }] },
+ { name: 'Tritech Compactor', category: 'Recycling', variant: 'accent',
+  tagline: 'Automatic compacting machine for PET plastic bottles and cans',
+  description: 'Compacts PET bottles and cans automatically on deposit, reducing waste volume by up to 7x. Pair it with the Tritech Shredder for a complete cup, bottle and can recycling station.',
+  tags: ['Up to 7x Volume Reduction', 'PET Bottles & Cans', 'Incentive Reward System'],
+  specs: [{ label: 'Waste Type', value: 'PET Plastic Bottles & Cans' }, { label: 'Telemetry', value: 'Included' }, { label: 'Interface', value: 'Tablet Touchscreen' }] },
 ];
 PRODUCTS.push(...PRODUCTS_RECYCLING);
 
@@ -605,7 +624,7 @@ class Component extends DCLogic {
     el.style.transform = 'none';
     el.dataset.revealed = '1';
    };
-   const limit = window.innerHeight * 1.1;
+   const limit = window.innerHeight * 0.85;
    const hidden = [];
    targets.forEach(el => {
     el.style.transition = 'opacity .7s cubic-bezier(.22,.8,.3,1), transform .7s cubic-bezier(.22,.8,.3,1)';
@@ -704,6 +723,15 @@ class Component extends DCLogic {
    stopPropagation: (e) => e.stopPropagation(),
   }));
 
+  const panelAll = !!this.state.panelAll;
+  const panelSrc = base;
+  const panelVals = {
+   panelItems: panelSrc.map(p => p.onOpen ? p : ({ ...withImage(p), onOpen: () => { this.setState({ selectedProduct: p }); window.scrollTo(0, 0); } })),
+   panelCount: panelSrc.length + (panelSrc.length === 1 ? ' product' : ' products'),
+   panelShowToggle: false,
+   panelToggleLabel: panelAll ? 'Show less' : 'View all',
+   panelToggle: () => this.setState({ panelAll: !panelAll }),
+  };
   const open = this.state.productsMenu;
   const categoryLinks = FILTER_LABELS.filter(l => l !== 'All Products').map(label => ({
    label,
@@ -738,11 +766,11 @@ class Component extends DCLogic {
    'Vending Machines': [
     { q: 'How many products can it hold?', a: 'It depends on the model. The Palma Hz70 carries 180 items (60 drinks, 120 snacks), the Hz87 carries 280 (120 drinks, 160 snacks), the Hz87 Premium carries 220 including 20 sandwiches or wraps, and the CV1000 and CV4000 both carry 312 (144 drinks, 168 snacks).' },
     { q: 'Can one machine hold both cold drinks and snacks?', a: 'Yes. The combo range runs two independently controlled temperature zones: lower trays at 4°C to 10°C for chilled cans and bottles, upper trays at 14°C to 25°C for confectionery and snacks.' },
-    { q: 'Which payment methods are supported?', a: 'Most models take notes, coins and cashless payment through Nayax, and a debit, credit and virtual card facility can be added. The CV4000 and Vision EsPlus BlueTec are cashless only.' },
-    { q: 'Can fresh food and sandwiches be vended?', a: 'Yes. The Hz87 Premium uses a selective belt system for sandwiches and wraps, the Vision Esplus Bluetec uses an elevator belt for multi-product dispensing.' },
-    { q: 'What power and space does it need?', a: 'Most units run on a standard ~220V-240V 50Hz supply. Widths range from 723mm on the Palma Hz70 to 1120mm on the CV4000 and Vision Esplus, all 1830mm to 1870mm tall.' },
+    { q: 'Which payment methods are supported?', a: 'Most models take notes, coins and cashless payment through Nayax, and a debit, credit and virtual card facility can be added. The CV4000 with touchscreen and the Smart Fridge are cashless only.' },
+    { q: 'Can fresh food and sandwiches be vended?', a: 'Yes. The Hz87 Premium uses a selective belt system for sandwiches and wraps, the Vision Esplus Bluetec uses an elevator belt for multi-product dispensing, and the Smart Fridge and Smart Freezer use weight-sensing plates behind an opening door.' },
+    { q: 'What power and space does it need?', a: 'Most units run on a standard ~220V-240V 50Hz supply; the Smart Fridge and Smart Freezer run on ~110V-115V 60Hz. Widths range from 670mm on the smart cabinets to 1120mm on the CV4000 and Vision Esplus, all 1830mm to 1870mm tall.' },
     { q: 'Can stock be monitored remotely?', a: 'Telemetry is supported across the range, so sales, stock levels and faults can be seen remotely. The Vision Esplus Bluetec also tracks expiry dates per channel and can block a channel automatically once the date is reached.' },
-    { q: 'How energy efficient are the machines?', a: 'Cabinets are fully foam insulated with double glazed viewing windows and LED internal lighting. Combo models use R-134a refrigerant.' },
+    { q: 'How energy efficient are the machines?', a: 'Cabinets are fully foam insulated with double glazed viewing windows and LED internal lighting. Combo models use R-134a refrigerant, and the Smart Fridge and Smart Freezer use R600a.' },
    ],
    'Hot Beverage Solutions': [
     { q: 'Instant, fresh bean or barista?', a: 'All three. Fresh bean brewers such as the Orion G23, Saeco Magic and Azkoyen Vitro range grind per cup, the Gaggia La Brillante and Jettino JL33 combine bean to cup with instant hoppers, and the Ascaso Barista T is a multi-group machine for a trained operator.' },
@@ -755,34 +783,51 @@ class Component extends DCLogic {
     { q: 'Do you supply the coffee?', a: 'Yes. Instant, filter and whole bean, plus tea, hot chocolate, milk and sundries, on a standing order or on demand.' },
    ],
    'Water Solutions': [
-    { q: 'Plumbed-in or bottled?', a: 'Both. Waterlogic & Purezza ranges plumb into the mains and filter on site. The Legend Classic is manually refilled with an 18L filtering bottle and needs no plumbing.' },
-    { q: 'What water options are there?', a: 'It depends on the model. The Waterlogic 7 dispenses five types: ice-cold, ambient, sparkling, hot and extra-hot. The Purezza range predominantly serve cold and sparkling. The Waterlogic 2 and 100 serve cold and ambient. The River is cold only.' },
+    { q: 'Plumbed-in or bottled?', a: 'Both. Point-of-use units such as the Purezza Bar Classe, Waterlogic and Kastella ranges plumb into the mains and filter on site. The Legend Classic is manually refilled with an 18L filtering bottle and needs no plumbing.' },
+    { q: 'What water options are there?', a: 'It depends on the model. The Waterlogic 7 dispenses five types: ice-cold, ambient, sparkling, hot and extra-hot. The Bar Classe and Campione Tap serve cold, sparkling and ambient, the Waterlogic 2 and 100 serve cold and ambient, and The River is cold only.' },
     { q: 'How much water can they deliver?', a: 'The Bar Classe dispenses 160L/hr, the Campione Tap 60L/hr, The River 20L/hr at 5°C to 12°C, and the Waterlogic 7 has a 17L/hr cooling capacity with 1.5L of hot water storage.' },
-    { q: 'How many people can one unit serve?', a: 'The Waterlogic 100 is rated for up to 20 users and the Waterlogic 2 for up to 30. The Waterlogic 7 is up to 50. For larger sites the high flow Purezza units are sized on throughput rather than headcount.' },
+    { q: 'How many people can one unit serve?', a: 'The Waterlogic 100 is rated for up to 20 users and the Waterlogic 2 for up to 30. For larger sites the high flow Purezza and Kastella units are sized on throughput rather than headcount.' },
     { q: 'How is the water purified?', a: 'Firewall UVC purification on the Waterlogic and Purezza units purifies water up to 99.9999%, 100% of the time, reducing bacteria, viruses and cysts. Filtration is certified by IAPMO R&T and carries the Water Quality Platinum Seal, and BioCote antimicrobial protection uses a silver ion additive to reduce odours and cross contamination.' },
-    { q: 'Can it be installed under a counter?', a: 'Yes. The Campione Tap is a counter-top tap fed by an under-counter unit, typically the Box Hot 60 Fizz at 318 x 335 x 467mm, and the Frizzante 80 Box is a dedicated under-counter model.' },
+    { q: 'Can it be installed under a counter?', a: 'Yes. The Bluglass Tower, BluTower and Campione Tap are counter-top taps fed by an under-counter unit, typically the Box Hot 60 Fizz at 318 x 335 x 467mm, and the Frizzante 80 Box is a dedicated under-counter model.' },
     { q: 'How often are filters changed?', a: 'Filters are replaced on a service schedule based on throughput. Replacement carbon filters and UVC parts are stocked.' },
-    { q: 'What space does a unit need?', a: 'Free standing units range from 310mm to 400mm wide, and the table top Waterlogic models stand around 450mm tall.' },
+    { q: 'What space does a unit need?', a: 'Counter taps start at 140mm square on the BluTower. Free standing units range from 310mm to 400mm wide, and the table top Waterlogic models stand around 450mm tall.' },
    ],
    'Payment Solutions': [
-    { q: 'Do these replace our machines?', a: 'No. Card readers, bill validators and telemetry units retrofit to machines already on site. We handle the fitment, the merchant setup and the reporting login.' },
+    { q: 'Do these replace our machines?', a: 'No. Card readers, coin changers, bill validators and telemetry units retrofit to machines already on site. We handle the fitment, the merchant setup and the reporting login.' },
     { q: 'What is the difference between the VPos Touch and the Onyx?', a: 'Both are Nayax bank card devices. The VPos Touch is an all-in-one reader taking contactless, mag strip and chip, certified to EMV level 1 and level 2. The Onyx is a sleek tap-and-go contactless reader that fits on any vending machine, adding NFC, marketing tools and remote machine management.' },
     { q: 'Which cards are supported?', a: 'Mastercard and Visa, with Visa PayWave MSD and qVSDC contactless. Other supported cards include NFC, MIFARE and ISO 14443 Type A,B, plus ISO 15693 on the VPos Touch, and magnetic stripe to ISO7811 and JIS I Tracks 1,2,3.' },
-    { q: 'Can we still take cash?', a: 'Yes. The Jofemar BT11 bill validator handles banknotes.' },
-    { q: 'How reliable is banknote recognition?', a: 'The Jofemar BT11 recognises up to 48 banknote positions, being 12 banknotes in four directions, and combines optical and magnetic sensors that analyse the banknote throughout.' },
+    { q: 'Can we still take cash?', a: 'Yes. The Jofemar JF8 is the only coin changer on the market with eight coin tubes, accepting all South African old and new coin sets with tubes configurable past R1000 and change from R0,50c to R5,00. The Creos and Jofemar BT11 bill validators handle banknotes.' },
+    { q: 'How reliable is banknote recognition?', a: 'Both validators recognise up to 48 banknote positions, being 12 banknotes in four directions. The Creos uses nine optical reading signals with anti-fraud prevention, and the BT11 combines optical and magnetic sensors that analyse the banknote throughout.' },
     { q: 'What reporting do we get?', a: 'Nayax Vend gives machine and transaction monitoring in real-time, customised alerts by email or SMS, personalised reports, a BI system and cash accountability. The Engine Telemetry System adds audits, transactions and alarms over wireless GPRS, with a dashboard covering all machine activity.' },
-    { q: 'Will it work with our existing machines?', a: 'The Engine systems are multi-standard, supporting Executive, MDB, BDV and RS232, and the BT11 uses MDB protocol. Most machines in our range are MDB compatible.' },
+    { q: 'Will it work with our existing machines?', a: 'The Engine systems are multi-standard, supporting Executive, MDB, BDV and RS232, and the JF8 and BT11 use MDB protocol. Most machines in our range are MDB compatible.' },
     { q: 'Can we run staff accounts or subsidised vending?', a: 'Yes. The Engine Electronic Cashless System supports scheduled free or discounted sales, monthly consumption control, bonus categories and calories control, and is compatible with MiFARE cards and FOBS.' },
-   ],
-   'Recycling': [
-    { q: 'How much smaller are cans and cups after being processed by the TriTech Shredder?', a: 'Depending on the material, items can be reduced to between 4 and 10 times their original size, significantly decreasing waste volume.' },
-    { q: 'How much material can the TriTech Shredder hold?', a: 'The collection bin can hold up to 1,700 shredded paper cups or approximately 350 shredded PET bottles, reducing the frequency of emptying.' },
-    { q: 'What happens if someone places their hand inside the shredder opening?', a: 'Safety is built into the design. The shredding process will not start while the safety flap is open. In addition, the shredding blades are positioned beyond the reach of an operator\u2019s arm, providing an added layer of protection.' },
    ],
   };
   const faqCat = this.state.selectedProduct ? this.state.selectedProduct.category : '';
   const faqOpen = this.state.openFaq;
-  const productFaqs = (FAQ_BY_CATEGORY[faqCat] || []).slice(0, 5).map((q, i) => ({
+  const sp = this.state.selectedProduct;
+  const buildFaqs = (p) => {
+   if (!p) return [];
+   const S = (re) => (p.specs || []).find(s => re.test(s.label));
+   const end = (v) => /[.!?]$/.test(v) ? v : v + '.';
+   const out = [];
+   const cap = S(/capacity/i), dr = S(/drink/i), sn = S(/snack/i), sw = S(/sandwich|wrap/i);
+   if (cap) out.push({ q: 'How many products does the ' + p.name + ' hold?', a: end(cap.value + [dr && dr.value + ' drinks', sn && sn.value + ' snacks', sw && sw.value + ' sandwiches or wraps'].filter(Boolean).reduce((s, x, i, a) => s + (i === 0 ? ': ' : i === a.length - 1 ? ' and ' : ', ') + x, '')) });
+   const pay = S(/payment/i);
+   if (pay) out.push({ q: 'What payment methods does the ' + p.name + ' accept?', a: end(pay.value) });
+   const dim = S(/dimension|size/i);
+   if (dim) out.push({ q: 'What are the dimensions of the ' + p.name + '?', a: end(dim.value + (/wxdxh/i.test(dim.label) ? ' (width x depth x height)' : '')) });
+   const cool = S(/cool|temperature/i);
+   if (cool) out.push({ q: 'What temperature does the ' + p.name + ' keep products at?', a: end(cool.value) });
+   const pow = S(/power|voltage/i);
+   if (pow) out.push({ q: 'What power supply does the ' + p.name + ' need?', a: end(pow.value.replace(/^~/, '')) });
+   const tel = S(/telemetry/i);
+   if (tel) out.push({ q: 'Can the ' + p.name + ' be monitored remotely?', a: /supported|yes/i.test(tel.value) ? 'Yes. Telemetry is supported, so stock levels and sales can be monitored remotely.' : end(tel.value) });
+   const rest = (p.specs || []).filter(s => ![cap, dr, sn, sw, pay, dim, cool, pow, tel].includes(s) && !/^model$/i.test(s.label));
+   return out.slice(0, 5);
+  };
+  const ownFaqs = buildFaqs(sp);
+  const productFaqs = (ownFaqs.length >= 3 ? ownFaqs : ownFaqs.concat(FAQ_BY_CATEGORY[faqCat] || [])).slice(0, 5).map((q, i) => ({
    ...q,
    onToggle: () => this.setState({ openFaq: faqOpen === i ? -1 : i }),
    iconStyle: `font-size:22px;font-weight:400;color:#C8102E;flex-shrink:0;transition:transform .25s ease;transform:rotate(${faqOpen === i ? 45 : 0}deg);`,
@@ -791,6 +836,7 @@ class Component extends DCLogic {
 
   const mobileOpen = !!this.state.mobileMenu;
   return {
+   ...panelVals,
    toggleMobileMenu: () => this.setState({ mobileMenu: !mobileOpen }),
    closeMobileMenu: () => this.setState({ mobileMenu: false }),
    mobileToggleStyle: "display:none;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;border:1px solid #E1E4E8;background:#FFFFFF;cursor:pointer;flex-shrink:0;padding:0;",
@@ -804,11 +850,11 @@ class Component extends DCLogic {
     { label: 'Water Solutions', href: 'Water Solutions.dc.html' },
     { label: 'Payment Solutions', href: 'Payment Solutions.dc.html' },
     { label: 'Recycling Solutions', href: 'Recycling.dc.html' },
-    { label: 'Rentals', href: 'Rentals.dc.html' },
-    { label: 'Consumables', href: 'Consumables.dc.html' },
     { label: 'Clients', href: 'Clients.dc.html' },
     { label: 'Blog', href: 'Blog.dc.html' },
     { label: 'Contact', href: 'Contact.dc.html' },
+    { label: 'Rentals', href: 'Rentals.dc.html' },
+    { label: 'Consumables', href: 'Consumables.dc.html' },
    ],
    posts: [
     { category: 'Coffee Vending', title: 'Arabica or robusta for commercial coffee machines', excerpt: 'If you\u2019re a coffee lover or a business owner looking to invest in commercial coffee...', image: 'assets/blog-coffee.jpg' },

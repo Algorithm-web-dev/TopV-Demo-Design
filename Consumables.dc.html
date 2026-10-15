@@ -25,13 +25,19 @@
  <link rel="stylesheet" href="responsive.css" />
  <script src="quote-cart.js"></script>
  <script src="site-search.js"></script>
- <script src="copy-review.js"></script>
+ <style>
+  @media (max-width: 1024px) { [data-cons-grid] { grid-template-columns: repeat(3, minmax(0,1fr)) !important; } }
+  @media (min-width: 901px) { [data-cons-layout] { grid-template-columns: 250px minmax(0,1fr) !important; } }
+  @media (max-width: 900px) { [data-cons-layout] { grid-template-columns: 1fr !important; } [data-cons-side] { position: static !important; } }
+  @media (max-width: 640px) { [data-cons-grid] { grid-template-columns: repeat(2, minmax(0,1fr)) !important; gap: 10px !important; } }
+ </style>
+ <script src="site-motion.js"></script>
 </helmet>
 
-<div style="font-family:'Inter',sans-serif;color:#1C1C1A;background:#FAFBFC;overflow-x:hidden;">
+<div style="font-family:'Inter',sans-serif;color:#1C1C1A;background:#FAFBFC;overflow-x:clip;">
 
  <nav style="position:fixed;top:20px;left:24px;right:24px;height:72px;background:rgba(250,250,248,0.88);backdropFilter:blur(18px);WebkitBackdropFilter:blur(18px);border:1px solid rgba(255,255,255,0.5);box-shadow:0 10px 30px rgba(0,0,0,0.08);border-radius:999px;display:flex;align-items:center;justify-content:space-between;gap:32px;padding:0 28px;z-index:100;box-sizing:border-box;">
-  <a href="index.html" style="display:flex;align-items:center;flex:0 1 auto;width:100%;max-width:190px;min-width:90px;height:52px;"><img src="assets/logo.png" alt="Top Vending" style="height:100%;width:100%;object-fit:contain;object-position:left center;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.18));" /></a>
+  <a href="index.html" style="display:flex;align-items:center;flex:0 1 auto;width:100%;max-width:190px;min-width:90px;height:52px;"><img src="assets/logo-30.png" alt="Top Vending" style="height:100%;width:100%;object-fit:contain;object-position:left center;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.18));" /></a>
   <div style="display:flex;align-items:center;gap:40px;">
    <div data-nav-links="1" style="display:flex;gap:32px;font-size:14px;">
     <a href="About.dc.html" style="color:#1C1C1A;white-space:nowrap;" style-hover="color:#C8102E;">About</a>
@@ -88,99 +94,99 @@
    <a href="index.html" style="display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:600;color:#6B6B68;margin-bottom:26px;" style-hover="color:#C8102E;">
     <span style="font-family:Inter,sans-serif;font-size:15px;">←</span>Back to home
    </a>
-   <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Ingredients &amp; Consumables</div>
-   <h1 style="font-family:'Inter',sans-serif;font-weight:700;font-size:52px;line-height:1.05;letter-spacing:-0.032em;margin:0 0 18px;">Everything your machines need to keep trading.</h1>
-   <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#45443F;margin:0;">Coffee, snacks, cold drinks, cups and filters delivered on a schedule that suits your site, as a standing order or on demand.</p>
+   <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Consumables</div>
+   <h1 style="font-family:'Inter',sans-serif;font-weight:700;font-size:52px;line-height:1.05;letter-spacing:-0.032em;margin:0 0 18px;max-width:1200px;">Everything your machines need to keep trading.</h1>
+   <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#45443F;margin:0;max-width:1200px;">Coffee, snacks, cold drinks, cups and filters delivered on a schedule that suits your site, as a standing order or on demand.</p>
   </div>
  </section>
 
- <section style="background:#FAFBFC;padding:110px 48px 40px;box-sizing:border-box;">
-  <div style="max-width:1200px;margin:0 auto;">
-   <div style="display:grid;grid-template-columns:1.05fr 1fr;gap:70px;align-items:stretch;">
-    <div data-match-copy="1" style="overflow:hidden;background:#1C1C1A;box-shadow:0 24px 60px rgba(28,28,26,0.18);position:relative;">
-     <img loading="lazy" decoding="async" src="assets/blog-coffee.jpg" alt="Consumables" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.06) saturate(1.05) brightness(0.88);" />
-     <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(20,20,18,0.18) 0%, rgba(20,20,18,0.06) 45%, rgba(20,20,18,0.28) 100%);"></div>
-    </div>
-    <div>
-     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Ingredients &amp; Consumables</div>
-     <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 20px;">Everything the machines run on</h2>
-     <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#45443F;margin:0 0 28px;max-width:460px;">Coffee, tea, sugar, milk, cups and cleaning products delivered to site, ordered on their own or supplied as part of a rental agreement.</p>
-     <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:34px;">
-      <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
-       <span style="font-family:'Inter',sans-serif;width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Instant and bean coffee, tea and hot chocolate
-      </div>
-      <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
-       <span style="font-family:'Inter',sans-serif;width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Cups, lids, stirrers and sugar
-      </div>
-      <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
-       <span style="font-family:'Inter',sans-serif;width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Descalers and milk system cleaners
-      </div>
-     </div>
-     <a href="Contact.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:#C8102E;color:#FAFBFC;padding:16px 32px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#8f0c20;">Get a Quote
-      <span style="font-family:'Inter',sans-serif;font-size:13px;">→</span>
-     </a>
-    </div>
-   </div>
-  </div>
- </section>
 
- <section style="background:#FAFBFC;padding:70px 48px 130px;box-sizing:border-box;">
+ <section id="pricelist" ref="{{ consRef }}" data-screen-label="Consumables shop" style="background:#FAFBFC;padding:70px 48px 130px;box-sizing:border-box;scroll-margin-top:110px;">
   <div style="max-width:1200px;margin:0 auto;">
-   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
-    <sc-for list="{{ consumables }}" as="c" hint-placeholder-count="4">
-     <div style="background:#FFFFFF;border:1px solid #E1E4E8;border-radius:20px;padding:16px 16px 26px;box-sizing:border-box;display:flex;flex-direction:column;">
-      <div style="height:200px;overflow:hidden;background:#1C1C1A;margin-bottom:24px;">
-       <img loading="lazy" decoding="async" ref="{{ c.imgRef }}" alt="{{ c.title }}" style="width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.04) saturate(1.03) brightness(0.9);" />
-      </div>
-      <div style="padding:0 8px;">
-       <div style="font-size:20px;font-weight:700;letter-spacing:-0.02em;margin-bottom:10px;">{{ c.title }}</div>
-       <p style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:#45443F;margin:0;">{{ c.body }}</p>
-      </div>
-     </div>
-    </sc-for>
-   </div>
-  </div>
- </section>
-
- <section id="pricelist" style="background:#FAFBFC;padding:0 48px 130px;box-sizing:border-box;">
-  <div style="max-width:1200px;margin:0 auto;">
-   <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Price list</div>
-   <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.12;letter-spacing:-0.03em;margin:0 0 28px;max-width:620px;">Current product list.</h2>
-   <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px;">
-    <sc-for list="{{ priceFilters }}" as="f" hint-placeholder-count="8">
-     <button onClick="{{ f.onClick }}" style="{{ f.style }}">{{ f.label }}</button>
-    </sc-for>
-   </div>
-   <div style="display:flex;flex-direction:column;gap:50px;">
-    <sc-for list="{{ priceGroups }}" as="g" hint-placeholder-count="7">
+   <sc-if value="{{ consShelves }}" hint-placeholder-val="{{ true }}">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:32px;">
      <div>
-      <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#1C1C1A;font-weight:700;margin-bottom:16px;">{{ g.title }}</div>
-      <div data-price-head="1" style="display:grid;grid-template-columns:130px 1fr 150px 124px 140px;gap:0;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#6B6B68;font-weight:700;padding:0 0 12px;border-bottom:1px solid #1C1C1A;">
-       <div>Product code</div>
-       <div>Description</div>
-       <div>Sell unit</div>
-       <div></div>
-       <div></div>
-      </div>
-      <sc-for list="{{ g.items }}" as="item" hint-placeholder-count="3">
-       <div data-price-row="1" style="display:grid;grid-template-columns:130px 1fr 150px 124px 140px;gap:0;font-size:15px;padding:15px 0;border-bottom:1px solid #E1E4E8;align-items:center;">
-        <div style="color:#6B6B68;font-size:13.5px;">{{ item.code }}</div>
-        <div style="font-weight:600;">{{ item.name }}</div>
-        <div style="color:#45443F;">{{ item.unit }}</div>
-        <div data-thumb="1" style="width:104px;height:104px;background:#FFFFFF;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:8px;box-sizing:border-box;position:relative;z-index:1;transition:transform .22s ease, box-shadow .22s ease;" style-hover="transform:scale(2.1);box-shadow:0 22px 50px rgba(28,28,26,0.22);z-index:5;">
-         <img loading="lazy" decoding="async" ref="{{ item.imgRef }}" alt="{{ item.name }}" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;" />
-        </div>
-        <div style="display:flex;justify-content:flex-end;">
-         <a href="Contact.dc.html#quote" data-quote-add="1" data-quote-name="{{ item.name }}" data-quote-cat="Consumables" data-quote-unit="{{ item.unit }}" style="border:1.5px solid #1C1C1A;color:#1C1C1A;padding:8px 18px;border-radius:999px;font-size:13px;font-weight:600;white-space:nowrap;" style-hover="background:#1C1C1A;color:#FAFBFC;">Add to Quote</a>
-        </div>
-       </div>
-      </sc-for>
+      <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Price list</div>
+      <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.12;letter-spacing:-0.03em;margin:0;">Current product list.</h2>
      </div>
-    </sc-for>
-   </div>
-   <sc-if value="{{ hasMoreGroups }}" hint-placeholder-val="{{ true }}">
-    <div style="display:flex;justify-content:center;margin-top:56px;">
-     <button onClick="{{ showMoreGroups }}" style="border:1.5px solid #1C1C1A;background:transparent;color:#1C1C1A;padding:15px 34px;border-radius:999px;font-size:15px;font-weight:600;font-family:Inter,sans-serif;cursor:pointer;" style-hover="background:#1C1C1A;color:#FAFBFC;">Load More Categories</button>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:22px;">
+     <sc-for list="{{ consShelfGroups }}" as="g" hint-placeholder-count="3">
+      <div style="background:#EFF1F3;border-radius:20px;padding:22px 22px 24px;box-sizing:border-box;">
+       <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:18px;padding:0 4px;">
+        <div style="display:flex;align-items:baseline;gap:10px;"><span style="font-size:19px;font-weight:700;letter-spacing:-0.015em;color:#1C1C1A;">{{ g.title }}</span><span style="font-size:13px;color:#6B6B68;">{{ g.countLabel }}</span></div>
+        <button onClick="{{ g.onViewAll }}" style="background:#1C1C1A;color:#FAFBFC;border:none;padding:10px 20px;border-radius:999px;font-family:'Inter',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;flex-shrink:0;" style-hover="background:#C8102E;">View all</button>
+       </div>
+       <div data-cons-row="1" style="display:flex;gap:16px;overflow-x:auto;scrollbar-width:thin;padding-bottom:4px;">
+        <sc-for list="{{ g.preview }}" as="it" hint-placeholder-count="5">
+       <div data-cons-card="1" style="flex:0 0 calc((100% - 80px) / 6);min-width:170px;display:flex;flex-direction:column;align-items:center;text-align:center;background:#FFFFFF;padding:18px 14px 20px;box-sizing:border-box;border-radius:14px;transition:box-shadow .25s ease, transform .25s ease;" style-hover="box-shadow:0 18px 40px rgba(28,28,26,0.10);transform:translateY(-3px);">
+        <div style="width:100%;height:170px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+         <sc-if value="{{ it.hasImg }}" hint-placeholder-val="{{ true }}"><img src="{{ it.img }}" alt="{{ it.name }}" loading="lazy" style="max-width:100%;max-height:100%;object-fit:contain;display:block;"></img></sc-if>
+         <sc-if value="{{ it.noImg }}" hint-placeholder-val="{{ false }}"><div style="width:100%;height:100%;background:#F3F4F6;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#8A8984;letter-spacing:1px;text-transform:uppercase;">Image coming soon</div></sc-if>
+        </div>
+        <div style="font-size:14px;font-weight:600;line-height:1.35;color:#1C1C1A;margin-bottom:6px;text-wrap:balance;">{{ it.name }}</div>
+        <div style="font-size:13px;color:#6B6B68;margin-bottom:16px;">{{ it.unit }}</div>
+        <a href="Contact.dc.html#quote" data-quote-add="1" data-quote-name="{{ it.name }}" data-quote-cat="Consumables" data-quote-unit="{{ it.unit }}" style="margin-top:auto;display:block;width:100%;box-sizing:border-box;background:#C8102E;color:#FAFBFC;padding:11px 14px;border-radius:999px;font-size:13.5px;font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Add to Quote</a>
+       </div>
+        </sc-for>
+       </div>
+      </div>
+     </sc-for>
+    </div>
+    <sc-if value="{{ hasMoreGroups }}" hint-placeholder-val="{{ true }}">
+     <div style="display:flex;justify-content:center;margin-top:44px;">
+      <button onClick="{{ showMoreGroups }}" style="border:1.5px solid #1C1C1A;background:transparent;color:#1C1C1A;padding:15px 34px;border-radius:999px;font-size:15px;font-weight:600;font-family:Inter,sans-serif;cursor:pointer;" style-hover="background:#1C1C1A;color:#FAFBFC;">Load More Categories</button>
+     </div>
+    </sc-if>
+   </sc-if>
+   <sc-if value="{{ consBrowse }}" hint-placeholder-val="{{ false }}">
+    <div data-cons-layout="1" style="display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;align-items:start;">
+     <aside data-cons-side="1" style="position:sticky;top:112px;max-height:calc(100vh - 132px);overflow-y:auto;background:#FFFFFF;border:1px solid #E1E4E8;border-radius:18px;box-sizing:border-box;">
+      <div style="padding:20px 22px;border-bottom:1px solid #E1E4E8;font-size:19px;font-weight:700;">Filters</div>
+      <div style="padding:18px 22px;border-bottom:1px solid #E1E4E8;">
+       <input type="search" placeholder="Search consumables" value="{{ consQuery }}" onInput="{{ consOnQuery }}" style="width:100%;box-sizing:border-box;border:1px solid #D3D7DD;border-radius:999px;padding:11px 16px;font-family:'Inter',sans-serif;font-size:14px;background:#FAFBFC;outline:none;" style-focus="border-color:#C8102E;"></input>
+      </div>
+      <div style="padding:18px 22px 20px;">
+       <div style="font-size:12px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:#1C1C1A;margin-bottom:12px;">Categories</div>
+       <div style="display:flex;flex-direction:column;gap:2px;">
+        <sc-for list="{{ consCats }}" as="c" hint-placeholder-count="10">
+         <button onClick="{{ c.onClick }}" style="{{ c.style }}"><span>{{ c.label }}</span><span style="font-size:12.5px;color:#8A8984;font-weight:500;">{{ c.count }}</span></button>
+        </sc-for>
+       </div>
+      </div>
+     </aside>
+     <div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#6B6B68;margin-bottom:12px;">
+       <button onClick="{{ consBackToShelves }}" style="background:transparent;border:none;padding:0;font-family:'Inter',sans-serif;font-size:13px;color:#6B6B68;cursor:pointer;" style-hover="color:#C8102E;">Consumables</button>
+       <span>›</span><span style="color:#1C1C1A;font-weight:600;">{{ consCatLabel }}</span>
+      </div>
+      <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:16px;">
+       <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:30px;line-height:1.15;letter-spacing:-0.025em;margin:0;">{{ consCatLabel }}</h2>
+       <span style="font-size:14px;color:#6B6B68;">{{ consCountLabel }}</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap;border-bottom:1px solid #E1E4E8;margin-bottom:22px;font-size:14px;">
+       <span style="color:#6B6B68;padding:10px 0;">Sort by</span>
+       <sc-for list="{{ consSorts }}" as="s" hint-placeholder-count="3">
+        <button onClick="{{ s.onClick }}" style="{{ s.style }}">{{ s.label }}</button>
+       </sc-for>
+      </div>
+      <div data-cons-grid="1" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;">
+       <sc-for list="{{ consItems }}" as="it" hint-placeholder-count="8">
+       <div data-cons-card="1" style="display:flex;flex-direction:column;align-items:center;text-align:center;background:#FFFFFF;padding:18px 14px 20px;box-sizing:border-box;border-radius:14px;transition:box-shadow .25s ease, transform .25s ease;" style-hover="box-shadow:0 18px 40px rgba(28,28,26,0.10);transform:translateY(-3px);">
+        <div style="width:100%;height:210px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+         <sc-if value="{{ it.hasImg }}" hint-placeholder-val="{{ true }}"><img src="{{ it.img }}" alt="{{ it.name }}" loading="lazy" style="max-width:100%;max-height:100%;object-fit:contain;display:block;"></img></sc-if>
+         <sc-if value="{{ it.noImg }}" hint-placeholder-val="{{ false }}"><div style="width:100%;height:100%;background:#F3F4F6;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#8A8984;letter-spacing:1px;text-transform:uppercase;">Image coming soon</div></sc-if>
+        </div>
+        <div style="font-size:15px;font-weight:600;line-height:1.35;color:#1C1C1A;margin-bottom:6px;text-wrap:balance;">{{ it.name }}</div>
+        <div style="font-size:13px;color:#6B6B68;margin-bottom:16px;">{{ it.unit }}</div>
+        <a href="Contact.dc.html#quote" data-quote-add="1" data-quote-name="{{ it.name }}" data-quote-cat="Consumables" data-quote-unit="{{ it.unit }}" style="margin-top:auto;display:block;width:100%;box-sizing:border-box;background:#C8102E;color:#FAFBFC;padding:11px 14px;border-radius:999px;font-size:13.5px;font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Add to Quote</a>
+       </div>
+       </sc-for>
+      </div>
+      <sc-if value="{{ consEmpty }}" hint-placeholder-val="{{ false }}">
+       <div style="padding:60px 0;text-align:center;color:#6B6B68;font-size:15px;">No products match your search.</div>
+      </sc-if>
+     </div>
     </div>
    </sc-if>
    <div style="background:#EFF1F3;border-radius:20px;padding:34px;box-sizing:border-box;margin-top:50px;">
@@ -211,7 +217,7 @@
  </section>
 
  <section style="background:#1C1C1A;padding:130px 48px;box-sizing:border-box;text-align:center;position:relative;overflow:hidden;">
-  <img loading="lazy" decoding="async" src="assets/rentals-bg.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;z-index:0;filter:saturate(0.7);" />
+  <img src="assets/rentals-bg.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;z-index:0;filter:saturate(0.7);" />
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 90% at 50% 50%, rgba(20,20,18,0.9) 0%, rgba(20,20,18,0.82) 55%, rgba(20,20,18,0.7) 100%);z-index:1;"></div>
   <div style="position:relative;z-index:2;max-width:720px;margin:0 auto;">
    <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:42px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 18px;color:#FAFBFC;">Set up a standing order.</h2>
@@ -224,7 +230,7 @@
   <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto;">
    <div>
     <div style="margin-bottom:16px;">
-     <a href="index.html" style="display:inline-block;"><img loading="lazy" decoding="async" src="assets/logo.png" alt="Top Vending" style="height:34px;object-fit:contain;" /></a>
+     <a href="index.html" style="display:inline-block;"><img src="assets/logo-30.png" alt="Top Vending" style="height:34px;object-fit:contain;" /></a>
     </div>
     <p style="font-family:'Inter',sans-serif;font-size:14px;color:#6B6B68;line-height:1.6;margin:0 0 20px;max-width:280px;">Vending, coffee and water for South African workplaces. Since 1991.</p>
     <div style="display:flex;">
@@ -274,7 +280,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;productGridColumns&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;2&quot;,&quot;options&quot;:[&quot;2&quot;,&quot;3&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Catalogue&quot;},&quot;filterBarSticky&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Catalogue&quot;}}">
 const PRODUCTS = [
- { name: 'Palma Hz70', category: 'Vending Machines', variant: 'default', image: 'assets/products-2026/hz70.jpg',
+ { name: 'Palma Hz70', category: 'Vending Machines', variant: 'default', image: 'assets/hz70-v4.png',
   tagline: 'Standard Combo Vending Machine',
   description: 'A dual-temperature combo vending machine with full payment support, refrigeration and MDB compatibility, carrying 60 drink items and 120 snack items, 180 items in total.',
   tags: ['Dual Temperature Zones', 'Refrigerated', 'MDB Compatible'],
@@ -304,6 +310,16 @@ const PRODUCTS = [
   description: 'An elevator belt system for big-size multi-product dispensing, with full payment support, refrigeration, temperature control and expiry date tracking, channels can be blocked once expiry date is reached.',
   tags: ['Elevator Belt System', 'Expiry Date Tracking', 'Refrigerated'],
   specs: [{ label: 'Function', value: 'Multi-Product Dispensing' }, { label: 'Payment', value: 'Full Payment Support' }, { label: 'Dimensions (WxDxH)', value: '1120 x 820 x 1870mm' }] },
+ { name: 'Smart Fridge', category: 'Vending Machines', variant: 'default',
+  tagline: 'Smart Fresh Food Fridge',
+  description: 'A weight-sensing smart fridge for fresh products, open the door, make a selection, close the door and enjoy. Cashless only, MDB compatible.',
+  tags: ['Weight Sensing Plate', 'Cashless Only', 'Refrigerated'],
+  specs: [{ label: 'Function', value: 'Fresh Products' }, { label: 'Payment', value: 'Cashless Only' }, { label: 'Dimensions (WxDxH)', value: '670 x 550 x 1830mm' }] },
+ { name: 'Smart Freezer', category: 'Vending Machines', variant: 'accent',
+  tagline: 'Smart Frozen Food Freezer',
+  description: 'A weight-sensing smart freezer for frozen products, open the door, make a selection, close the door and enjoy. Cashless only, MDB compatible.',
+  tags: ['Weight Sensing Plate', 'Cashless Only', 'Refrigerated'],
+  specs: [{ label: 'Function', value: 'Frozen Products' }, { label: 'Payment', value: 'Cashless Only' }, { label: 'Dimensions (WxDxH)', value: '670 x 550 x 1830mm' }] },
 ];
 
 const PRODUCTS_COFFEE = [
@@ -381,7 +397,7 @@ const PRODUCTS_WATER = [
   description: 'Offers 2 water options, cold and sparkling, with portion control, a back-lit front panel with premium aesthetics, and eco-sustainable R290 refrigeration. Plumbed in solution.',
   tags: ['Cold & Sparkling', 'Back-Lit Front Panel', 'R290 Eco Refrigeration'],
   specs: [{ label: 'Water Options', value: 'Cold & Sparkling' }, { label: 'Refrigeration', value: 'R290 Natural Gas' }, { label: 'Installation', value: 'Plumbed In' }] },
- { name: 'Campione Tower - 2 or 3 Way Tap', category: 'Water Solutions', variant: 'accent',
+ { name: 'Campione Tower', category: 'Water Solutions', variant: 'accent',
   tagline: 'Where space is limited',
   description: 'Offers 3 water options: cold, ambient and sparkling, with ice cold water produced using Ice Bath cooling technology and high performance filtration. Plumbed in with the Frizzante 60 under-counter solution.',
   tags: ['Cold, Ambient & Sparkling', 'Ice Bath Cooling', 'Space-Saving Tower'],
@@ -395,11 +411,16 @@ const PRODUCTS_WATER = [
 PRODUCTS.push(...PRODUCTS_WATER);
 
 const PRODUCTS_RECYCLING = [
- { name: 'Tritech Compactor or Shredder', category: 'Recycling', variant: 'default',
-  tagline: 'Automatic shredding and compacting machine for cups, PET bottles and cans',
+ { name: 'Tritech Shredder', category: 'Recycling', variant: 'default',
+  tagline: 'Automatic shredding machine for disposable plastic and paper cups',
   description: 'Shreds disposable plastic and paper cups automatically on deposit, reducing waste volume by up to 7x. Waste is collected in the container below, with an integrated sanitising system, an incentive reward system and a tablet touchscreen.',
   tags: ['Up to 7x Volume Reduction', 'Automated Operation', 'Incentive Reward System'],
-  specs: [{ label: 'Waste Type', value: 'Paper Cups, PET Bottles & Cans' }, { label: 'Telemetry', value: 'Included' }, { label: 'Interface', value: 'Tablet Touchscreen' }] },
+  specs: [{ label: 'Waste Type', value: 'Disposable Plastic & Paper Cups' }, { label: 'Telemetry', value: 'Included' }, { label: 'Interface', value: 'Tablet Touchscreen' }] },
+ { name: 'Tritech Compactor', category: 'Recycling', variant: 'accent',
+  tagline: 'Automatic compacting machine for PET plastic bottles and cans',
+  description: 'Compacts PET bottles and cans automatically on deposit, reducing waste volume by up to 7x. Pair it with the Tritech Shredder for a complete cup, bottle and can recycling station.',
+  tags: ['Up to 7x Volume Reduction', 'PET Bottles & Cans', 'Incentive Reward System'],
+  specs: [{ label: 'Waste Type', value: 'PET Plastic Bottles & Cans' }, { label: 'Telemetry', value: 'Included' }, { label: 'Interface', value: 'Tablet Touchscreen' }] },
 ];
 PRODUCTS.push(...PRODUCTS_RECYCLING);
 
@@ -444,7 +465,7 @@ class Component extends DCLogic {
     el.style.transform = 'none';
     el.dataset.revealed = '1';
    };
-   const limit = window.innerHeight * 1.1;
+   const limit = window.innerHeight * 0.85;
    const hidden = [];
    targets.forEach(el => {
     el.style.transition = 'opacity .7s cubic-bezier(.22,.8,.3,1), transform .7s cubic-bezier(.22,.8,.3,1)';
@@ -541,7 +562,9 @@ class Component extends DCLogic {
   const CONSUMABLES = [
    { title: 'Coffee', body: 'Instant, filter and whole bean in blends matched to your machine and drink mix.', image: 'assets/cat-coffee.jpg' },
    { title: 'Hot beverage sundries', body: 'Tea, hot chocolate, sugar sticks, stirrers and non-dairy creamers.', image: 'assets/blog-coffee.jpg' },
-   { title: 'Cups and lids', body: 'Paper and plastic cups, lids and carriers sized for your machine.', image: 'assets/products-2026/consumables-cups.jpg' },
+   { title: 'Snacks', body: 'Confectionery, salty snacks and biscuits, planogrammed to what your site actually buys.', image: 'assets/cat-vending.jpg' },
+   { title: 'Cold drinks', body: 'Carbonated soft drinks, juices and bottled water in can and PET formats.', image: 'assets/hero-bg-2.png' },
+   { title: 'Cups and lids', body: 'Paper and plastic cups, lids and carriers sized for your machine.', image: 'assets/blog-payment.jpg' },
    { title: 'Water filters', body: 'Replacement filters and UVC parts for plumbed-in and bottled coolers.', image: 'assets/cat-water.jpg' },
   ];
 
@@ -551,7 +574,7 @@ class Component extends DCLogic {
      "Ricoffy": "ricoffy.png",
      "HOC Ciro Café Oro Espresso": "ciro-cafe-oro.png",
      "Nescafe Espresso Bean": "nescafe-espresso-bean.png",
-     "Supremo Espresso Bean": "supremo-espresso-bean.png",
+     "Jacobs Kronung Bean": "jacobs-jar.png",
      "Nestle Hot Chocolate": "nestle-hot-chocolate.png",
      "Ciro Hot Chocolate": "ciro-hot-chocolate.png",
      "Cremora": "cremora.png",
@@ -563,13 +586,13 @@ class Component extends DCLogic {
      "Fresh Milk": "milk.png",
      "Freshpak Rooibos (2.5g)": "freshpak-rooibos.png",
      "Rooibos Leaf TV Vending": "rooibos-leaf.png",
-     "Five Roses Tea Bags (2.5g)": "five-roses-bags.png",
-     "Five Roses - Vending Tea": "five-roses-vending-tea.png",
+     "Five Roses (2.5g)": "five-roses-bags.png",
+     "Five Roses Vending Tea": "five-roses-box.png",
      "Five Roses Tea Bags": "five-roses-bags.png",
      "5 Roses Packet": "five-roses-packet.png",
      "Freshpak Rooibos": "freshpak-rooibos.png",
      "Ciro Vending Rooibos": "ciro-vending-rooibos.png",
-     "Nestle Nestea Instant Tea Black": "nestea.png",
+     "Nestle Nestea Instant Tea": "nestea.png",
      "Vending Sugar": "vending-sugar.png",
      "Sugar": "vending-sugar.png",
      "Brown sugar sachets": "sugar-sachets.png",
@@ -578,20 +601,21 @@ class Component extends DCLogic {
      "Canderel": "canderel.png",
      "Cup Lids": "coffee-lid.png",
      "Coffee Cups 250ml": "coffee-cup.png",
-     "Ripple Cups Black - Lids": "coffee-lid.png",
-     "Ripple Cups Black": "ripple-cup.png",
+     "Ripple Cups Black with Lids 250ml": "ripple-cup.png",
+     "Ripple Cups Black 250ml": "ripple-cup.png",
      "Plain White Cooler Cup 175ml": "cooler-cup.png",
      "Cooler Cup": "cooler-cup.png",
      "Plain White Cover Cup 170ml": "cooler-cup.png",
-     "Wooden Stirrers (new 180mm)": "wooden-stirrers.png",
+     "Wooden Stirrers (160mm)": "wooden-stirrers.png",
      "Plastic Stick Stirrers": "plastic-stirrers.png",
      "Plastic Teaspoons": "plastic-teaspoons.png",
      "Liquid Descaler": "liquid-descaler.png",
-     "Acidic Milk Cleaner (Red)": "acidic-milk-cleaner.png",
-     "Milk System Cleaner (Blue)": "milk-system-cleaner.png",
+     "Acidic Milk Cleaner": "acidic-milk-cleaner.png",
+     "Milk System Cleaner": "milk-system-cleaner.png",
      "Dish Cloth": "dish-cloth.png",
      "Bleach": "bleach.png",
-     "Dishwash (Green)": "dishwash-gel.png"
+     "Dishwash Gel": "dishwash-gel.png",
+     "OCS": "ocs.png"
   };
 
   const PRICE_GROUPS = [
@@ -603,60 +627,92 @@ class Component extends DCLogic {
    { title: 'Coffee beans', items: [
     { code: '4501201', name: 'HOC Ciro Café Oro Espresso', unit: '1 x 1kg', price: 'R425.00' },
     { code: '12570371', name: 'Nescafe Espresso Bean', unit: '1 x 1kg', price: 'R350.00' },
-    { code: '4055443', name: 'Supremo Espresso Bean', unit: '1 x 1kg', price: 'R350.00' },
-    { code: 'SUP004', name: 'Supremo Espresso Bean (House Blend)', unit: '1 x 1kg', price: 'On request' },
+    { code: '4055443', name: 'Jacobs Kronung Bean', unit: '1 x 1kg', price: 'R350.00' },
    ]},
    { title: 'Hot chocolate', items: [
-    { code: '12598339', name: 'Nestle Hot Chocolate', unit: '1 x 1kg', price: 'R199.00' },
+    { code: '8303793', name: 'Nestle Hot Chocolate', unit: '1 x 1kg', price: 'R199.00' },
     { code: '3070218', name: 'Ciro Hot Chocolate', unit: '1 x 500g', price: 'R85.00' },
    ]},
    { title: 'Milk / creamer products', items: [
     { code: '12341782', name: 'Cremora', unit: '1 x 750g (2 x 375g)', price: 'R79.00' },
-    { code: '8309905', name: 'Cremora Bulk', unit: '6 x 25kg', price: 'On request' },
-    { code: '8309905', name: 'Nestle Creamer', unit: '6 x 500g', price: 'On request' },
     { code: 'MILKFCPL', name: 'Full Cream Milk (pack of 6)', unit: '6 x 1 Litre', price: 'R169.00' },
     { code: 'MILK2PL', name: 'Low fat milk (pack of 6)', unit: '6 x 1 Litre', price: 'R169.00' },
-    { code: 'ML6CPL', name: 'Nestle Skimmed Milk Powder', unit: '6 x 500g', price: 'On request' },
+    { code: 'ML6CPL', name: 'Cremora Bulk', unit: '6 x 1.5L', price: 'On request' },
+    { code: 'ML6CPL', name: 'Nestle Creamer', unit: '6 x 1.5L', price: 'On request' },
+    { code: 'ML6CPL', name: 'Nestle Skimmed Milk Powder', unit: '6 x 1.5L', price: 'On request' },
+    { code: 'MILK', name: 'Fresh Milk', unit: 'As required', price: 'R335.00' },
    ]},
    { title: 'Tea', items: [
     { code: '3001238', name: 'Freshpak Rooibos (2.5g)', unit: '1 x 80', price: 'R79.00' },
     { code: '3001983', name: 'Rooibos Leaf TV Vending', unit: '6 x 500g', price: 'R729.00' },
-    { code: 'TEA002', name: 'Five Roses Tea Bags (2.5g)', unit: '1 x 100', price: 'R95.00' },
-    { code: '300866', name: 'Five Roses - Vending Tea', unit: '6 x 500g', price: 'R779.00' },
-    { code: '13488791', name: 'Nestle Nestea Instant Tea Black', unit: '1 x 10 x 100g', price: 'On request' },
+    { code: 'TEA002', name: 'Five Roses (2.5g)', unit: '1 x 100', price: 'R95.00' },
+    { code: '300866', name: 'Five Roses Vending Tea', unit: '6 x 500g', price: 'R779.00' },
+    { code: 'GS0128', name: 'Five Roses Tea Bags', unit: '1 x 500g', price: 'On request' },
+    { code: 'GS0128', name: '5 Roses Packet', unit: '6 x 500g', price: 'On request' },
+    { code: 'TA6030', name: 'Freshpak Rooibos', unit: '1 x 500g', price: 'On request' },
+    { code: 'TA6030', name: 'Ciro Vending Rooibos', unit: '1 x 500g', price: 'On request' },
+    { code: 'NS0001', name: 'Nestle Nestea Instant Tea', unit: '1 x 1kg', price: 'On request' },
    ]},
    { title: 'Sugar', items: [
     { code: '60066', name: 'Vending Sugar', unit: '1 x 1kg', price: 'R59.00' },
     { code: '5836', name: 'Sugar', unit: '1 x 2.5kg', price: 'R95.00' },
     { code: 'SUG001', name: 'Brown sugar sachets', unit: '1 x 2000', price: 'R465.00' },
     { code: 'SUG002', name: 'White sugar sachets', unit: '1 x 2000', price: 'R465.00' },
-    { code: 'HSW002', name: 'Canderel Yellow Sticks', unit: '1 x 1000', price: 'R325.00' },
+    { code: 'SU6S02Y', name: 'Canderel Yellow Sticks', unit: '1 x 500', price: 'R325.00' },
+    { code: 'SU6S02', name: 'Canderel', unit: '1 x 1000', price: 'On request' },
    ]},
    { title: 'Cups', items: [
     { code: 'D5347', name: 'Cup Lids', unit: '1 x 1000', price: 'R725.00' },
-    { code: 'TVCFED', name: 'Coffee Cups 250ml', unit: '1 x 1000', price: 'R885.00' },
-    { code: 'MCRBL250', name: 'Ripple Cups Black - Lids', unit: '1 x 1000', price: 'R950.00' },
-    { code: 'MCRB250', name: 'Ripple Cups Black', unit: '1 x 1000', price: 'R2100.00' },
+    { code: 'TVCFED002', name: 'Coffee Cups 250ml', unit: '1 x 1000', price: 'R885.00' },
+    { code: 'MCRBL250', name: 'Ripple Cups Black with Lids 250ml', unit: '1 x 10000', price: 'R950.00' },
+    { code: 'MCRB250', name: 'Ripple Cups Black 250ml', unit: '1 x 10000', price: 'R2100.00' },
     { code: '263', name: 'Plain White Cooler Cup 175ml', unit: '1 x 3000', price: 'R1850.00' },
+    { code: 'COOL', name: 'Cooler Cup', unit: '1 x 1000', price: 'On request' },
+    { code: 'WC170', name: 'Plain White Cover Cup 170ml', unit: '1 x 500', price: 'On request' },
    ]},
    { title: 'Tea spoons / stirrers', items: [
-    { code: '8305868', name: 'Wooden Stirrers (new 180mm)', unit: '1 x 1000', price: 'R145.00' },
+    { code: 'SG0S00', name: 'Wooden Stirrers (160mm)', unit: '1 x 1000', price: 'R145.00' },
     { code: 'PSS', name: 'Plastic Stick Stirrers', unit: '1 x 1000', price: 'R95.00' },
     { code: 'PT', name: 'Plastic Teaspoons', unit: '1 x 500', price: 'R65.00' },
    ]},
    { title: 'Cleaning & maintenance', items: [
-    { code: 'C001', name: 'Dishwash (Green)', unit: '1 x 5L', price: 'On request' },
-    { code: 'C002', name: 'Bleach', unit: '1 x 5L', price: 'On request' },
-    { code: 'C008', name: 'Dish Cloth', unit: 'EACH', price: 'On request' },
-    { code: 'C039', name: 'Sponge Scourer - (Yellow)', unit: '1 x Pack of 3', price: 'On request' },
-    { code: 'CFLDUN100 - 01', name: 'Liquid Descaler', unit: 'As required', price: 'On request' },
-    { code: 'CFMSAC100-01', name: 'Acidic Milk Cleaner (Red)', unit: 'As required', price: 'On request' },
-    { code: 'CFMSAK100 - 01', name: 'Milk System Cleaner (Blue)', unit: 'As required', price: 'On request' },
-    { code: 'C059', name: 'Handy Andy - Ammoniated cleaner', unit: '1 x 750ml', price: 'On request' },
-    { code: 'C0062', name: 'Mr Muscle', unit: '1 x 750ml', price: 'On request' },
+    { code: 'LD', name: 'Liquid Descaler', unit: 'As required', price: 'On request' },
+    { code: 'AMC', name: 'Acidic Milk Cleaner', unit: 'As required', price: 'On request' },
+    { code: 'MSC', name: 'Milk System Cleaner', unit: 'As required', price: 'On request' },
+    { code: 'DC', name: 'Dish Cloth', unit: 'As required', price: 'On request' },
+    { code: 'BL', name: 'Bleach', unit: 'As required', price: 'On request' },
+    { code: 'DG', name: 'Dishwash Gel', unit: 'As required', price: 'On request' },
+    { code: 'OCS', name: 'OCS', unit: 'As required', price: 'On request' },
    ]},
   ];
 
+  const ALL_ITEMS = PRICE_GROUPS.flatMap((g, gi) => g.items.map((it, ii) => ({ ...it, cat: g.title, order: gi * 100 + ii })));
+  const decorate = (it) => { const src = CONSUMABLE_IMAGES[it.name]; return { ...it, img: src ? 'assets/consumables/thumbs/' + src : '', hasImg: !!src, noImg: !src }; };
+  const view = this.state.consView || null;
+  const goTo = (v) => { this.setState({ consView: v, consQuery: '' }); const el = this.__consEl; if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 110, behavior: 'smooth' }); };
+  const q = (this.state.consQuery || '').trim().toLowerCase();
+  const sort = this.state.consSort || 'Default';
+  let items = ALL_ITEMS.filter(it => (view === 'All' || it.cat === view) && (!q || (it.name + ' ' + it.code + ' ' + it.cat).toLowerCase().includes(q)));
+  if (sort === 'Name A–Z') items = items.slice().sort((x, y) => x.name.localeCompare(y.name));
+  else if (sort === 'Name Z–A') items = items.slice().sort((x, y) => y.name.localeCompare(x.name));
+  const gc = this.state.groupCount || 3;
+  const consVals = {
+   consRef: (el) => { this.__consEl = el; },
+   consShelves: !view, consBrowse: !!view,
+   consViewAllEverything: () => goTo('All'),
+   consBackToShelves: () => goTo(null),
+   consShelfGroups: [{ title: 'Popular consumables', countLabel: ALL_ITEMS.length + ' products', onViewAll: () => goTo('All'), preview: PRICE_GROUPS.map(g => g.items.find(it => CONSUMABLE_IMAGES[it.name]) || g.items[0]).slice(0, 6).map(decorate) }],
+   hasMoreGroups: false,
+   showMoreGroups: () => this.setState({ groupCount: gc + 3 }),
+   consCats: [{ title: 'All', label: 'All products', count: ALL_ITEMS.length }].concat(PRICE_GROUPS.map(g => ({ title: g.title, label: g.title, count: g.items.length }))).map(c => ({ ...c, onClick: () => this.setState({ consView: c.title }), style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', textAlign: 'left', background: view === c.title ? '#FBE8EB' : 'transparent', color: view === c.title ? '#C8102E' : '#1C1C1A', border: 'none', borderRadius: '10px', padding: '9px 12px', fontFamily: "'Inter',sans-serif", fontSize: '14px', fontWeight: view === c.title ? 700 : 500, cursor: 'pointer' } })),
+   consCatLabel: view === 'All' ? 'All products' : (view || ''),
+   consCountLabel: '(Showing ' + items.length + (items.length === 1 ? ' product)' : ' products)'),
+   consQuery: this.state.consQuery || '',
+   consOnQuery: (e) => this.setState({ consQuery: e.target.value }),
+   consSorts: ['Default', 'Name A–Z', 'Name Z–A'].map(label => ({ label, onClick: () => this.setState({ consSort: label }), style: { background: 'transparent', border: 'none', borderBottom: '2px solid ' + (sort === label ? '#1C1C1A' : 'transparent'), padding: '10px 0', marginBottom: '-1px', fontFamily: "'Inter',sans-serif", fontSize: '14px', fontWeight: sort === label ? 700 : 500, color: '#1C1C1A', cursor: 'pointer' } })),
+   consItems: items.map(decorate),
+   consEmpty: items.length === 0,
+  };
   const mobileOpen = !!this.state.mobileMenu;
   return {
    toggleMobileMenu: () => this.setState({ mobileMenu: !mobileOpen }),
@@ -672,35 +728,13 @@ class Component extends DCLogic {
     { label: 'Water Solutions', href: 'Water Solutions.dc.html' },
     { label: 'Payment Solutions', href: 'Payment Solutions.dc.html' },
     { label: 'Recycling Solutions', href: 'Recycling.dc.html' },
-    { label: 'Rentals', href: 'Rentals.dc.html' },
-    { label: 'Consumables', href: 'Consumables.dc.html' },
     { label: 'Clients', href: 'Clients.dc.html' },
     { label: 'Blog', href: 'Blog.dc.html' },
     { label: 'Contact', href: 'Contact.dc.html' },
+    { label: 'Rentals', href: 'Rentals.dc.html' },
+    { label: 'Consumables', href: 'Consumables.dc.html' },
    ],
-   hasMoreGroups: this.state.priceFilter === 'All Products' && (this.state.groupCount || 2) < PRICE_GROUPS.length,
-   showMoreGroups: () => this.setState({ groupCount: (this.state.groupCount || 2) + 2 }),
-   priceFilters: ['All Products'].concat(PRICE_GROUPS.map(g => g.title)).map(label => ({
-    label,
-    onClick: () => this.setState({ priceFilter: label, groupCount: 2 }),
-    style: `border:1px solid ${this.state.priceFilter === label ? (label === 'All Products' ? '#C8102E' : '#1C1C1A') : '#D3D7DD'};background:${this.state.priceFilter === label ? (label === 'All Products' ? '#C8102E' : '#1C1C1A') : 'transparent'};color:${this.state.priceFilter === label ? '#FAFBFC' : '#1C1C1A'};border-radius:999px;padding:10px 20px;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;`,
-   })),
-   priceGroups: PRICE_GROUPS
-    .filter(g => this.state.priceFilter === 'All Products' || g.title === this.state.priceFilter)
-    .slice(0, this.state.priceFilter === 'All Products' ? (this.state.groupCount || 2) : PRICE_GROUPS.length)
-    .map(g => ({
-    ...g,
-    items: g.items.map(it => ({
-     ...it,
-     imgRef: (el) => {
-      if (!el) return;
-      const src = CONSUMABLE_IMAGES[it.name];
-      if (!src) { el.style.display = 'none'; return; }
-      const path = 'assets/consumables/thumbs/' + src;
-      if (el.getAttribute('src') !== path) el.setAttribute('src', path);
-     },
-    })),
-   })),
+   ...consVals,
    priceTerms: [
     'Any order below R2000.00 (Excl VAT) will be subject to an additional R350.00 delivery charge.',
     'Any deliveries outside of the JHB & PTA area are subject to a minimum order of R5000.00 (Excl VAT)',
