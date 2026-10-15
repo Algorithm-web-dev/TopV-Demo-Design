@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+  <div style="width:100%;height:100%;background:linear-gradient(160deg,#E7E4DA,#CDC9BC);border-radius:16px;border:1px solid #B9B5A8;position:relative;padding:12%;display:flex;flex-direction:column;gap:10%;box-sizing:border-box;">
+    <div style="flex:1;background:{{ displayBg }};border-radius:8px;border:1px solid rgba(0,0,0,0.1);"></div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8%;">
+      <sc-for list="{{ dots }}" as="d" hint-placeholder-count="6">
+        <div style="aspect-ratio:1;border-radius:50%;background:{{ d.bg }};"></div>
+      </sc-for>
+    </div>
+    <div style="height:8%;background:rgba(0,0,0,0.18);border-radius:4px;"></div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:220,&quot;height&quot;:300},&quot;variant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;default&quot;,&quot;options&quot;:[&quot;default&quot;,&quot;accent&quot;],&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const accent = this.props.variant === 'accent';
+    const displayBg = accent
+      ? 'linear-gradient(135deg,#C8102E,#8f0c20)'
+      : 'linear-gradient(135deg,#3a3a37,#1C1C1A)';
+    const dots = [0,1,2,3,4,5].map(i => ({
+      bg: accent && i === 4 ? '#C8102E' : '#8f8c81'
+    }));
+    return { displayBg, dots };
+  }
+}
+</script>
+</body>
+</html>
