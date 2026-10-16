@@ -59,13 +59,12 @@
       <div style="background:#FFFFFF;border:1px solid #E1E4E8;border-radius:16px;padding:8px;box-shadow:0 18px 40px rgba(0,0,0,0.12);display:flex;flex-direction:column;gap:2px;">
        <a href="Contact.dc.html#type=rental" style="display:block;padding:11px 18px;border-radius:10px;font-size:14px;color:#1C1C1A;white-space:nowrap;" style-hover="background:#EFF1F3;color:#C8102E;">General Enquiry</a>
        <a href="Contact.dc.html#type=support" style="display:block;padding:11px 18px;border-radius:10px;font-size:14px;color:#1C1C1A;white-space:nowrap;" style-hover="background:#EFF1F3;color:#C8102E;">Technical Support</a>
-       <a href="Contact.dc.html#type=service" style="display:block;padding:11px 18px;border-radius:10px;font-size:14px;color:#1C1C1A;white-space:nowrap;" style-hover="background:#EFF1F3;color:#C8102E;">Log a Service Call</a>
       </div>
      </div>
     </div>
    </div>
    <button data-tv-search="1" aria-label="Search" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:1px solid #E1E4E8;background:#FFFFFF;cursor:pointer;flex-shrink:0;padding:0;color:#45443F;" style-hover="border-color:#C8102E;color:#C8102E;"><svg width="17" height="17" viewBox="0 0 17 17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="7.2" cy="7.2" r="5.1"></circle><line x1="11.2" y1="11.2" x2="15.4" y2="15.4"></line></svg></button>
-   <a data-nav-cta="1" href="Contact.dc.html#type=rental" style="background:#C8102E;color:#FAFBFC;padding:12px 26px;border-radius:999px;font-size:14px;font-weight:600;white-space:nowrap;flex-shrink:0;" style-hover="background:#8f0c20;color:#FAFBFC;">Get a Free Quote</a>
+   <a data-nav-cta="1" href="Contact.dc.html#type=rental" style="background:#C8102E;color:#FAFBFC;padding:12px 26px;border-radius:999px;font-size:14px;font-weight:600;white-space:nowrap;flex-shrink:0;" style-hover="background:#8f0c20;color:#FAFBFC;">Get a Quote</a>
    <button data-nav-toggle="1" aria-label="Menu" onClick="{{ toggleMobileMenu }}" style="{{ mobileToggleStyle }}">
     <span style="font-family:'Inter',sans-serif;display:block;width:18px;height:2px;background:#1C1C1A;position:relative;">
      <span style="font-family:'Inter',sans-serif;position:absolute;top:-6px;left:0;width:18px;height:2px;background:#1C1C1A;display:block;"></span>
@@ -80,7 +79,7 @@
    <a href="{{ m.href }}" onClick="{{ closeMobileMenu }}" style="display:block;padding:13px 16px;border-radius:12px;font-size:15px;font-weight:500;color:#1C1C1A;" style-hover="background:#EFF1F3;color:#C8102E;">{{ m.label }}</a>
   </sc-for>
    <button data-tv-search="1" onClick="{{ closeMobileMenu }}" style="display:block;width:100%;text-align:left;background:transparent;border:none;padding:13px 16px;border-radius:12px;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:#1C1C1A;cursor:pointer;">Search</button>
-  <a href="Contact.dc.html#quote" onClick="{{ closeMobileMenu }}" style="display:block;margin-top:8px;text-align:center;background:#C8102E;color:#FAFBFC;padding:14px 20px;border-radius:999px;font-size:14px;font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Get a Free Quote</a>
+  <a href="Contact.dc.html#quote" onClick="{{ closeMobileMenu }}" style="display:block;margin-top:8px;text-align:center;background:#C8102E;color:#FAFBFC;padding:14px 20px;border-radius:999px;font-size:14px;font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Get a Quote</a>
  </div>
 
  <section style="padding:170px 48px 60px;box-sizing:border-box;background:#EFF1F3;">
@@ -448,11 +447,6 @@ const PRODUCTS_RECYCLING = [
   description: 'Shreds disposable plastic and paper cups automatically on deposit, reducing waste volume by up to 7x. Waste is collected in the container below, with an integrated sanitising system, an incentive reward system and a tablet touchscreen.',
   tags: ['Up to 7x Volume Reduction', 'Automated Operation', 'Incentive Reward System'],
   specs: [{ label: 'Waste Type', value: 'Disposable Plastic & Paper Cups' }, { label: 'Telemetry', value: 'Included' }, { label: 'Interface', value: 'Tablet Touchscreen' }] },
- { name: 'Tritech Compactor', category: 'Recycling', variant: 'accent',
-  tagline: 'Automatic compacting machine for PET plastic bottles and cans',
-  description: 'Compacts PET bottles and cans automatically on deposit, reducing waste volume by up to 7x. Pair it with the Tritech Shredder for a complete cup, bottle and can recycling station.',
-  tags: ['Up to 7x Volume Reduction', 'PET Bottles & Cans', 'Incentive Reward System'],
-  specs: [{ label: 'Waste Type', value: 'PET Plastic Bottles & Cans' }, { label: 'Telemetry', value: 'Included' }, { label: 'Interface', value: 'Tablet Touchscreen' }] },
 ];
 PRODUCTS.push(...PRODUCTS_RECYCLING);
 
