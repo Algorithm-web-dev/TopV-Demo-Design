@@ -76,13 +76,12 @@
       <div style="background:#FFFFFF;border:1px solid #E1E4E8;border-radius:16px;padding:8px;box-shadow:0 18px 40px rgba(0,0,0,0.12);display:flex;flex-direction:column;gap:2px;">
        <a href="Contact.dc.html" style="display:block;padding:11px 18px;border-radius:10px;font-size:14px;color:#1C1C1A;white-space:nowrap;" style-hover="background:#EFF1F3;color:#C8102E;">General Enquiry</a>
        <a href="Contact.dc.html#type=support" style="display:block;padding:11px 18px;border-radius:10px;font-size:14px;color:#1C1C1A;white-space:nowrap;" style-hover="background:#EFF1F3;color:#C8102E;">Technical Support</a>
-       <a href="Contact.dc.html#type=service" style="display:block;padding:11px 18px;border-radius:10px;font-size:14px;color:#1C1C1A;white-space:nowrap;" style-hover="background:#EFF1F3;color:#C8102E;">Log a Service Call</a>
       </div>
      </div>
     </div>
    </div>
    <button data-tv-search="1" aria-label="Search" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:1px solid #E1E4E8;background:#FFFFFF;cursor:pointer;flex-shrink:0;padding:0;color:#45443F;" style-hover="border-color:#C8102E;color:#C8102E;"><svg width="17" height="17" viewBox="0 0 17 17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="7.2" cy="7.2" r="5.1"></circle><line x1="11.2" y1="11.2" x2="15.4" y2="15.4"></line></svg></button>
-   <a data-nav-cta="1" href="Contact.dc.html" style="background:#C8102E;color:#FAFBFC;padding:12px 26px;border-radius:999px;font-size:14px;font-weight:600;white-space:nowrap;flex-shrink:0;" style-hover="background:#8f0c20;color:#FAFBFC;">Get a Free Quote</a>
+   <a data-nav-cta="1" href="Contact.dc.html" style="background:#C8102E;color:#FAFBFC;padding:12px 26px;border-radius:999px;font-size:14px;font-weight:600;white-space:nowrap;flex-shrink:0;" style-hover="background:#8f0c20;color:#FAFBFC;">Get a Quote</a>
    <button data-nav-toggle="1" aria-label="Menu" onClick="{{ toggleMobileMenu }}" style="{{ mobileToggleStyle }}">
     <span style="font-family:'Inter',sans-serif;display:block;width:18px;height:2px;background:#1C1C1A;position:relative;">
      <span style="font-family:'Inter',sans-serif;position:absolute;top:-6px;left:0;width:18px;height:2px;background:#1C1C1A;display:block;"></span>
@@ -97,19 +96,46 @@
    <a href="{{ m.href }}" onClick="{{ closeMobileMenu }}" style="display:block;padding:13px 16px;border-radius:12px;font-size:15px;font-weight:500;color:#1C1C1A;" style-hover="background:#EFF1F3;color:#C8102E;">{{ m.label }}</a>
   </sc-for>
    <button data-tv-search="1" onClick="{{ closeMobileMenu }}" style="display:block;width:100%;text-align:left;background:transparent;border:none;padding:13px 16px;border-radius:12px;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:#1C1C1A;cursor:pointer;">Search</button>
-  <a href="Contact.dc.html#quote" onClick="{{ closeMobileMenu }}" style="display:block;margin-top:8px;text-align:center;background:#C8102E;color:#FAFBFC;padding:14px 20px;border-radius:999px;font-size:14px;font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Get a Free Quote</a>
+  <a href="Contact.dc.html#quote" onClick="{{ closeMobileMenu }}" style="display:block;margin-top:8px;text-align:center;background:#C8102E;color:#FAFBFC;padding:14px 20px;border-radius:999px;font-size:14px;font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Get a Quote</a>
  </div>
 
- <section data-screen-label="Hot beverage hero" style="padding:190px 48px 110px;box-sizing:border-box;background:#0B1426;position:relative;overflow:hidden;{{ catalogueStyle }}">
-  <img src="assets/hero-coffee-1920.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;z-index:0;"></img>
-  <div style="position:absolute;inset:0;z-index:1;background:linear-gradient(90deg, rgba(11,20,38,0.92) 0%, rgba(11,20,38,0.8) 38%, rgba(11,20,38,0.3) 70%, rgba(11,20,38,0.12) 100%);"></div>
-  <div style="max-width:1200px;margin:0 auto;position:relative;z-index:2;">
-   <a href="index.html" style="display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:600;color:#D9D9D5;margin-bottom:26px;" style-hover="color:#FAFBFC;">
-    <span style="font-family:Inter,sans-serif;font-size:15px;">←</span>Back to home
+ <section data-screen-label="Hot beverage header" style="padding:170px 48px 60px;box-sizing:border-box;background:#EFF1F3;{{ catalogueStyle }}">
+  <div style="max-width:1200px;margin:0 auto;">
+   <a href="index.html" style="display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:600;color:#6B6B68;margin-bottom:26px;" style-hover="color:#C8102E;">
+    <span style="font-size:15px;">←</span>Back to home
    </a>
-   <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#D9D9D5;font-weight:600;margin-bottom:18px;">Hot Beverage Solutions</div>
-   <h1 style="font-family:'Inter',sans-serif;font-weight:700;font-size:52px;line-height:1.05;letter-spacing:-0.032em;margin:0 0 18px;max-width:620px;color:#FAFBFC;">Coffee that keeps a workplace going.</h1>
-   <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#D9D9D5;margin:0;max-width:560px;">Instant, bean-to-cup and freshly brewed machines in table top and free-standing options, sized for any staff complement.</p>
+   <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Hot Beverage Solutions</div>
+   <h1 style="font-family:'Inter',sans-serif;font-weight:700;font-size:52px;line-height:1.05;letter-spacing:-0.032em;margin:0 0 18px;">Coffee that keeps a workplace going.</h1>
+   <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#45443F;margin:0;">Instant, bean-to-cup and freshly brewed machines in table top and free-standing options, sized for any staff complement.</p>
+  </div>
+ </section>
+
+ <section data-screen-label="Hot beverage feature" style="background:#FAFBFC;padding:110px 48px 40px;box-sizing:border-box;{{ catalogueStyle }}">
+  <div style="max-width:1200px;margin:0 auto;">
+   <div style="display:grid;grid-template-columns:1fr 1.05fr;gap:70px;align-items:stretch;">
+    <div>
+     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Hot beverage solutions</div>
+     <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 20px;max-width:460px;">Coffee Solutions tailored to your workplace</h2>
+     <p style="font-size:17px;line-height:1.7;color:#45443F;margin:0 0 28px;max-width:460px;">Bean to cup, fresh brew and instant machines in table top and free standing options, sized to the number of cups your site pours a day.</p>
+     <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:34px;">
+      <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
+       <span style="width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Bean to cup, fresh brew and instant
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
+       <span style="width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Fresh milk and touchscreen selection
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
+       <span style="width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Fully customisable drink menus
+      </div>
+     </div>
+     <a href="#products" style="display:inline-flex;align-items:center;gap:10px;background:#C8102E;color:#FAFBFC;padding:16px 32px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#8f0c20;">View Hot Beverage Machines
+      <span style="font-size:13px;">→</span>
+     </a>
+    </div>
+    <div data-feature-img="1" style="min-height:360px;overflow:hidden;background:#1C1C1A;box-shadow:0 24px 60px rgba(28,28,26,0.18);position:relative;">
+     <img src="assets/coffee-feature.png" alt="Milk pouring from a coffee machine into a glass" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%;display:block;" />
+    </div>
+   </div>
   </div>
  </section>
 
@@ -246,13 +272,24 @@
   </div>
  </section>
 
- <section style="background:#1C1C1A;padding:130px 48px;box-sizing:border-box;text-align:center;position:relative;overflow:hidden;">
-  <img src="assets/rentals-bg.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;z-index:0;filter:saturate(0.7);" />
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 90% at 50% 50%, rgba(20,20,18,0.9) 0%, rgba(20,20,18,0.82) 55%, rgba(20,20,18,0.7) 100%);z-index:1;"></div>
-  <div style="position:relative;z-index:2;max-width:720px;margin:0 auto;">
-   <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:42px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 18px;color:#FAFBFC;">Not sure which machine fits?</h2>
-   <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#A8A59C;margin:0 0 36px;">Tell us about your site and we will size the right solution.</p>
-   <a href="Contact.dc.html" style="display:inline-block;background:#C8102E;color:#FAFBFC;padding:17px 38px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#8f0c20;">Contact Us</a>
+ <section style="background:#FAFBFC;padding:100px 48px 120px;box-sizing:border-box;">
+  <div style="max-width:1200px;margin:0 auto;">
+   <a href="Contact.dc.html" data-home-cta="1" style="position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:40px;min-height:300px;padding:56px 64px;box-sizing:border-box;border-radius:24px;overflow:hidden;background:#0B1426;color:#FAFBFC;transition:transform .25s ease, box-shadow .25s ease;" style-hover="transform:translateY(-3px);box-shadow:0 28px 60px rgba(11,20,38,0.28);color:#FAFBFC;">
+    <div aria-hidden="true" style="position:absolute;right:-160px;top:-200px;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle, rgba(200,16,46,0.45) 0%, rgba(200,16,46,0) 68%);pointer-events:none;"></div>
+    <div style="position:relative;z-index:1;display:flex;flex-direction:column;gap:10px;">
+     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#D9D9D5;font-weight:600;">Get in touch</div>
+     <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:42px;line-height:1.1;letter-spacing:-0.03em;margin:0;color:#FAFBFC;">Not sure which machine fits?</h2>
+     <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#C9CCD3;margin:4px 0 0;">Tell us about your site and we will size the right solution.</p>
+     <div style="display:flex;gap:8px;margin-top:20px;">
+      <span style="display:inline-flex;align-items:center;gap:8px;background:#C8102E;color:#FAFBFC;padding:15px 30px;border-radius:999px;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Contact Us <span style="font-size:13px;">→</span></span>
+     </div>
+    </div>
+    <div data-home-cta-imgs="1" style="position:relative;z-index:1;display:flex;align-items:flex-end;gap:14px;height:220px;">
+     <img src="assets/cta-vending.png" alt="" loading="lazy" style="height:100%;width:auto;max-width:140px;object-fit:contain;display:block;filter:drop-shadow(0 12px 22px rgba(0,0,0,0.4));" />
+     <img src="assets/wl7.png" alt="" loading="lazy" style="height:92%;width:auto;max-width:110px;object-fit:contain;display:block;filter:drop-shadow(0 12px 22px rgba(0,0,0,0.4));" />
+     <img src="assets/cta-coffee.png" alt="" loading="lazy" style="height:58%;width:auto;max-width:170px;object-fit:contain;display:block;filter:drop-shadow(0 12px 22px rgba(0,0,0,0.4));" />
+    </div>
+   </a>
   </div>
  </section>
 
@@ -353,7 +390,7 @@ const PRODUCTS = [
 ];
 
 const PRODUCTS_COFFEE = [
- { name: 'Orion G23', image: 'assets/orion-g23.png', category: 'Hot Beverage Solutions', variant: 'default',
+ { name: 'Orion G23', image: 'assets/coffee/orion-g23.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Sleek Black Design with Blue LED Lighting',
   description: 'A fresh bean brewer with a stylish, energy-efficient design, blue LED lighting and a customised setup to suit your requirements. Aluminium boiler.',
   tags: ['Fresh Bean Brewer', 'Energy Efficient', 'Blue LED Lighting'],
@@ -364,7 +401,7 @@ const PRODUCTS_COFFEE = [
    'A pressure valve in the distribution unit and a monitored water distributor keep extraction consistent cup to cup, and the boiler is aluminium. The setup is customised to your requirements, so drink selections, strengths and volumes are configured at installation.',
    'Payment is cashless through Nayax and telemetry is supported for remote monitoring. Dimensions are 417 x 463 x 767mm on a 230V 50Hz supply.',
   ] },
- { name: 'Jettino JL33', image: 'assets/jettino-jl33.png', category: 'Hot Beverage Solutions', variant: 'accent',
+ { name: 'Jettino JL33', image: 'assets/coffee/jettino-jl33.png', category: 'Hot Beverage Solutions', variant: 'accent',
   tagline: 'Exceptional dual-grinding, unmatched flavour',
   description: 'Dual grinders plus 2 instants, a 10.1" touchscreen and up to 15 beverages, with a fresh milk fridge and premium brewing system.',
   tags: ['Dual Grinders', '10.1" Touchscreen', 'Up to 15 Beverages'],
@@ -375,7 +412,7 @@ const PRODUCTS_COFFEE = [
    'The premium brewing system uses pre-infusion and anti-gravity extraction, and the fresh milk foam system runs dual boilers and dual pumps for fast milk based coffee. A fresh milk fridge is part of the unit.',
    'Payment is cashless through Nayax with telemetry supported. Dimensions are 350 x 560 x 628mm on a 220V to 240V 50/60Hz supply.',
   ] },
- { name: 'Gaggia Milano La Brillante', image: 'assets/gaggia-la-brillante.png', category: 'Hot Beverage Solutions', variant: 'default',
+ { name: 'Gaggia Milano La Brillante', image: 'assets/coffee/gaggia-brillante.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Brilliance in every cup',
   description: 'Bean-to-cup plus 2 instants with a wide range of customisable drinks, fresh milk, a 7-inch touchscreen and Prime Milk automatic froth.',
   tags: ['Bean-to-Cup + 2 Instants', '7" Touchscreen', 'Automatic Milk Froth'],
@@ -386,7 +423,7 @@ const PRODUCTS_COFFEE = [
    'Prime Milk froths fresh milk automatically in one step, so milk based drinks need no manual work from the user. Dual grinders run one per hopper, allowing two beans to be held at the same time.',
    'Energy efficient components and low water waste reduce running costs and carbon footprint. Payment is cashless through Nayax with telemetry supported, on a 230V 50Hz supply.',
   ] },
- { name: 'Azkoyen Vitro X1', image: 'assets/vitro-x1.png', category: 'Hot Beverage Solutions', variant: 'accent',
+ { name: 'Azkoyen Vitro X1', image: 'assets/coffee/vitro-x1.png', category: 'Hot Beverage Solutions', variant: 'accent',
   tagline: 'Innovative design for quality coffee',
   description: 'A fresh bean brewer with a fresh milk fridge, high capacity boilers, 12 selection touch panel, variable brewing unit and an illuminated dispensing area.',
   tags: ['Fresh Bean Brewer', '12 Selection Touch Panel', 'High Capacity Boilers'],
@@ -397,7 +434,7 @@ const PRODUCTS_COFFEE = [
    'The variable brewing unit adjusts the strength and size of espressos, dosing at 7g or 14g of coffee. Easy access hoppers hold 1kg of beans plus up to two hoppers for chocolate or other soluble ingredients, and the dispensing area is illuminated.',
    'Payment is cashless through Nayax with telemetry supported. Dimensions are 567 x 505 x 672mm including the fridge, on a 220V to 240V 50Hz supply.',
   ] },
- { name: 'Azkoyen Vitro S5 MIA', image: 'assets/vitro-s5.png', category: 'Hot Beverage Solutions', variant: 'default',
+ { name: 'Azkoyen Vitro S5 MIA', image: 'assets/coffee/vitro-s5.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Innovative design for large capacity quality coffee',
   description: 'A high volume fresh bean brewer with up to 20 hot beverage options, a fresh milk fridge, a 2kg bean hopper and an independent water spout for tea and infusions.',
   tags: ['Fresh Bean Brewer', 'Up to 20 Beverages', 'High Volume Capacity'],
@@ -408,7 +445,7 @@ const PRODUCTS_COFFEE = [
    'High autonomy comes from a 2kg bean hopper, four hoppers for chocolate and other soluble ingredients, and a waste drawer, so the machine runs longer between refills. An independent water spout handles tea and other infusions without carrying coffee flavour across.',
    'The dispensing area is illuminated to present drinks clearly. Payment is cashless through Nayax with telemetry supported. Dimensions are 710 x 590 x 775mm including the fridge, on a 220V to 240V 50Hz supply.',
   ] },
- { name: 'Saeco Magic', image: 'assets/saeco-magic.png', category: 'Hot Beverage Solutions', variant: 'default',
+ { name: 'Saeco Magic', image: 'assets/coffee/saeco-magic.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Revolutionary coffee machine',
   description: 'A fresh bean brewer with a touchscreen display, fresh milk, one-touch high-speed milk, high capacity and a double boiler, double pump system.',
   tags: ['Double Boiler, Double Pump', 'Touchscreen Display', 'High Capacity'],
@@ -419,7 +456,7 @@ const PRODUCTS_COFFEE = [
    'A double boiler and double pump system, plus one touch high speed milk, keep service fast despite the size, and steel conical blades grind consistently. Capacity is high for the footprint.',
    'Payment is cashless through Nayax with telemetry supported. Dimensions are 280 x 481 x 470mm on a 230V 50Hz supply.',
   ] },
- { name: 'NEOQs', image: 'assets/neoqs.png', category: 'Hot Beverage Solutions', variant: 'accent',
+ { name: 'NEOQs', image: 'assets/coffee/neoqs.png', category: 'Hot Beverage Solutions', variant: 'accent',
   tagline: 'Your all-in-one premium espresso and fresh leaf tea solution',
   description: 'Cup recognition technology with energy-saving ECO mode, a 21.5" Full HD touchscreen, 7 hoppers (1 tea, 1 bean, 5 instant) and fully customisable beverages and volumes.',
   tags: ['Cup Recognition Technology', '21.5" Full HD Touchscreen', '7 Hoppers'],
@@ -430,7 +467,7 @@ const PRODUCTS_COFFEE = [
    'The I-Detect sensor recognises a cup the user has brought with them, so the machine does not dispense a disposable cup unnecessarily. Brewing units allow beverages and volumes to be customised to your requirements, and an energy saving ECO mode reduces standby consumption.',
    'The dispensing area is illuminated. Dimensions are 600 x 715 x 1830mm on a 220V to 240V 50Hz supply, drawing a maximum of 1700W.',
   ] },
- { name: 'Novara DFB', image: 'assets/novara-dfb.png', category: 'Hot Beverage Solutions', variant: 'default',
+ { name: 'Novara DFB', image: 'assets/coffee/novara-dfb.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'The widest range of hot beverages',
   description: 'Double fresh brew with high capacity, fully customisable drinks, a fully automatic auto cup dispenser, cup detector and a modern stainless steel, glass front with touch selection.',
   tags: ['Double Fresh Brew', 'Fully Customisable Drinks', 'Auto Cup Dispenser'],
@@ -441,7 +478,7 @@ const PRODUCTS_COFFEE = [
    'It is fully automatic with an auto cup dispenser and a cup detector, so it will not dispense into a missing or misplaced cup. The front is a modern stainless steel and glass panel with touch selection, and the layout is configurable.',
    'Payment is cashless through Nayax with telemetry supported. Dimensions are 600 x 650 x 1830mm on a 220V to 240V 50Hz supply.',
   ] },
- { name: 'ZEN Fresh Bean', category: 'Hot Beverage Solutions', variant: 'accent', image: 'assets/zen.png',
+ { name: 'ZEN Fresh Bean', category: 'Hot Beverage Solutions', image: 'assets/coffee/zen-fresh-bean.png', variant: 'accent',
   tagline: 'Fully automatic fresh bean machine',
   description: 'Beans, instant coffee, sugar, milk powder and hot chocolate in door-mounted hoppers, with powder milk, a touch selection panel and an auto cup dispenser. Compact, easy to clean and fill, with an optional stand.',
   tags: ['Fresh Bean', 'Fully Automatic', 'Vending Sugar in Door'],
@@ -452,7 +489,7 @@ const PRODUCTS_COFFEE = [
    'Ingredients sit in door mounted hoppers, including vending sugar in the door, which keeps the cabinet compact and refilling quick. An auto cup dispenser is included and milk is powder.',
    'It is built for easy cleaning and filling, with high reliability and straightforward maintenance. Payment is cashless through Nayax with telemetry supported, on a 220V to 240V 50Hz supply.',
   ] },
- { name: 'ZEN DFB', category: 'Hot Beverage Solutions', variant: 'default', image: 'assets/zen.png',
+ { name: 'ZEN DFB', category: 'Hot Beverage Solutions', image: 'assets/coffee/zen-dfb.png', variant: 'default',
   tagline: 'Fully automatic fresh bean and tea leaf machine',
   description: 'Adds fresh tea leaf to the ZEN range, beans, tea leaf, coffee, milk powder and hot chocolate in door hoppers, powder milk, auto cup dispenser and an optional stand. Easy cleaning, filling and maintenance.',
   tags: ['Fresh Bean & Tea Leaf', 'Fully Automatic', 'Vending Sugar in Door'],
@@ -463,7 +500,7 @@ const PRODUCTS_COFFEE = [
    'It is fully automatic with an auto cup dispenser, powder milk and vending sugar in the door, and an optional stand is available. The brochure notes it is productive for operators, with easy cleaning and filling.',
    'Payment is cashless through Nayax with telemetry supported. Machine and stand are both 480 x 590 x 842mm, on a 220V to 240V 50Hz supply.',
   ] },
- { name: 'Ascaso Barista T', category: 'Hot Beverage Solutions', variant: 'default',
+ { name: 'Ascaso Barista T', image: 'assets/coffee/ascaso-grinder.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Where coffee craft meets efficiency & sustainability',
   description: 'A multi-group barista machine for commercial spaces, in stainless steel with thermoblocks, PID control, extraction plus digital control and a rotary pump.',
   tags: ['Multi-Group Function', 'PID Control', 'Rotary Pump'],
@@ -604,11 +641,6 @@ const PRODUCTS_RECYCLING = [
   description: 'Shreds disposable plastic and paper cups automatically on deposit, reducing waste volume by up to 7x. Waste is collected in the container below, with an integrated sanitising system, an incentive reward system and a tablet touchscreen.',
   tags: ['Up to 7x Volume Reduction', 'Automated Operation', 'Incentive Reward System'],
   specs: [{ label: 'Waste Type', value: 'Disposable Plastic & Paper Cups' }, { label: 'Telemetry', value: 'Included' }, { label: 'Interface', value: 'Tablet Touchscreen' }] },
- { name: 'Tritech Compactor', category: 'Recycling', variant: 'accent',
-  tagline: 'Automatic compacting machine for PET plastic bottles and cans',
-  description: 'Compacts PET bottles and cans automatically on deposit, reducing waste volume by up to 7x. Pair it with the Tritech Shredder for a complete cup, bottle and can recycling station.',
-  tags: ['Up to 7x Volume Reduction', 'PET Bottles & Cans', 'Incentive Reward System'],
-  specs: [{ label: 'Waste Type', value: 'PET Plastic Bottles & Cans' }, { label: 'Telemetry', value: 'Included' }, { label: 'Interface', value: 'Tablet Touchscreen' }] },
 ];
 PRODUCTS.push(...PRODUCTS_RECYCLING);
 
@@ -707,9 +739,17 @@ class Component extends DCLogic {
    };
   });
 
+  const COFFEE_HIDE = ['ZEN DFB', 'Azkoyen Vitro S5 MIA', 'Ascaso I-Bar F83E'];
+  const COFFEE_RENAME = { 'Jettino JL33': 'Jetinno JL33', 'ZEN Fresh Bean': 'ZEN', 'Ascaso Barista T': 'Ascaso + Grinder' };
+  const PRODUCTS_VIEW = PRODUCTS
+   .filter(p => !(p.category === 'Hot Beverage Solutions' && COFFEE_HIDE.includes(p.name)))
+   .map(p => (p.category === 'Hot Beverage Solutions' && COFFEE_RENAME[p.name]) ? { ...p, name: COFFEE_RENAME[p.name] } : p);
+  const COFFEE_ORDER = ['Novara DFB', 'ZEN', 'Azkoyen Vitro X1', 'Saeco Magic', 'Gaggia Milano La Brillante', 'Jetinno JL33', 'Ascaso + Grinder', 'Orion G23', 'NEOQs'];
+  const coffeeRank = (p) => { const i = COFFEE_ORDER.indexOf(p.name); return i === -1 ? 999 : i; };
   const base = this.state.activeFilter === 'All Products'
-   ? PRODUCTS
-   : PRODUCTS.filter(p => p.category === this.state.activeFilter);
+   ? PRODUCTS_VIEW
+   : PRODUCTS_VIEW.filter(p => p.category === this.state.activeFilter)
+   .slice().sort((a, b) => (a.category === 'Hot Beverage Solutions' && b.category === 'Hot Beverage Solutions') ? coffeeRank(a) - coffeeRank(b) : 0);
   const hasMore = base.length > this.state.visibleCount;
   const visible = base.slice(0, this.state.visibleCount);
   const OVERVIEW_COPY = {
@@ -802,24 +842,21 @@ class Component extends DCLogic {
     { q: 'How energy efficient are the machines?', a: 'Cabinets are fully foam insulated with double glazed viewing windows and LED internal lighting. Combo models use R-134a refrigerant, and the Smart Fridge and Smart Freezer use R600a.' },
    ],
    'Hot Beverage Solutions': [
-    { q: 'Instant, fresh bean or barista?', a: 'All three. Fresh bean brewers such as the Orion G23, Saeco Magic and Azkoyen Vitro range grind per cup, the Gaggia La Brillante and Jettino JL33 combine bean to cup with instant hoppers, and the Ascaso Barista T is a multi-group machine for a trained operator.' },
-    { q: 'Which machine suits a busy site?', a: 'The Azkoyen Vitro S5 MIA holds a 2kg bean hopper, four soluble hoppers and offers up to 20 beverages, while the free standing NEOQs and Novara DFB are built for continuous use. The Saeco Magic at 280mm wide suits small offices.' },
-    { q: 'Fresh milk or powder?', a: 'Fresh milk fridges are part of the Jettino JL33, Gaggia La Brillante and both Azkoyen Vitro models, and the Saeco Magic offers one touch high speed milk. The ZEN Fresh Bean and ZEN DFB use powder milk.' },
-    { q: 'Can we serve freshly brewed tea?', a: 'Yes. The ZEN DFB adds fresh tea leaf to the fresh bean platform, NEOQs runs a dedicated tea hopper alongside coffee and five instants, and the Vitro S5 MIA has an independent water spout for tea and infusions.' },
-    { q: 'How many drinks can staff choose from?', a: 'It depends on the model: over 15 beverages on the Jettino JL33, up to 20 on the Vitro S5 MIA, and a 12 selection touch panel on the Vitro X1. Drink menus, strengths and volumes are configured at installation.' },
+    { q: 'Instant, fresh bean or barista?', a: 'All three. Fresh bean brewers such as the Orion G23, Saeco Magic and Azkoyen Vitro X1 grind per cup, the Gaggia La Brillante and Jetinno JL33 combine bean to cup with instant hoppers, and the Ascaso + Grinder is a multi-group barista set for a trained operator.' },
+    { q: 'Which machine suits a busy site?', a: 'The free standing NEOQs and Novara DFB are built for continuous use, and the Jetinno JL33 offers over 15 beverages from dual grinders. The Saeco Magic at 280mm wide suits small offices.' },
+    { q: 'Fresh milk or powder?', a: 'Fresh milk fridges are part of the Jetinno JL33, Gaggia La Brillante and Azkoyen Vitro X1, and the Saeco Magic offers one touch high speed milk. The ZEN uses powder milk.' },
+    { q: 'Can we serve freshly brewed tea?', a: 'Yes. NEOQs runs a dedicated fresh leaf tea hopper alongside coffee and five instants, and the Novara DFB offers double fresh brew for coffee and tea.' },
+    { q: 'How many drinks can staff choose from?', a: 'It depends on the model: over 15 beverages on the Jetinno JL33 and a 12 selection touch panel on the Vitro X1. Drink menus, strengths and volumes are configured at installation.' },
     { q: 'Which payment methods are supported?', a: 'Cashless payment through Nayax across the range, with telemetry supported so usage and faults can be monitored remotely.' },
     { q: 'Do the machines waste disposable cups?', a: 'NEOQs uses I-Detect cup recognition, so it will not dispense a cup when the user brings their own. The Novara DFB has a cup detector, and the ZEN range includes an auto cup dispenser.' },
     { q: 'Do you supply the coffee?', a: 'Yes. Instant, filter and whole bean, plus tea, hot chocolate, milk and sundries, on a standing order or on demand.' },
    ],
    'Water Solutions': [
-    { q: 'Plumbed-in or bottled?', a: 'Both. Point-of-use units such as the Purezza Bar Classe, Waterlogic and Kastella ranges plumb into the mains and filter on site. The Legend Classic is manually refilled with an 18L filtering bottle and needs no plumbing.' },
-    { q: 'What water options are there?', a: 'It depends on the model. The Waterlogic 7 dispenses five types: ice-cold, ambient, sparkling, hot and extra-hot. The Bar Classe and Campione Tap serve cold, sparkling and ambient, the Waterlogic 2 and 100 serve cold and ambient, and The River is cold only.' },
-    { q: 'How much water can they deliver?', a: 'The Bar Classe dispenses 160L/hr, the Campione Tap 60L/hr, The River 20L/hr at 5°C to 12°C, and the Waterlogic 7 has a 17L/hr cooling capacity with 1.5L of hot water storage.' },
-    { q: 'How many people can one unit serve?', a: 'The Waterlogic 100 is rated for up to 20 users and the Waterlogic 2 for up to 30. For larger sites the high flow Purezza and Kastella units are sized on throughput rather than headcount.' },
-    { q: 'How is the water purified?', a: 'Firewall UVC purification on the Waterlogic and Purezza units purifies water up to 99.9999%, 100% of the time, reducing bacteria, viruses and cysts. Filtration is certified by IAPMO R&T and carries the Water Quality Platinum Seal, and BioCote antimicrobial protection uses a silver ion additive to reduce odours and cross contamination.' },
-    { q: 'Can it be installed under a counter?', a: 'Yes. The Bluglass Tower, BluTower and Campione Tap are counter-top taps fed by an under-counter unit, typically the Box Hot 60 Fizz at 318 x 335 x 467mm, and the Frizzante 80 Box is a dedicated under-counter model.' },
-    { q: 'How often are filters changed?', a: 'Filters are replaced on a service schedule based on throughput. Replacement carbon filters and UVC parts are stocked.' },
-    { q: 'What space does a unit need?', a: 'Counter taps start at 140mm square on the BluTower. Free standing units range from 310mm to 400mm wide, and the table top Waterlogic models stand around 450mm tall.' },
+    { q: 'Plumbed-in or bottled?', a: 'Both. The Top Coolers Waterlogic range and the Purezza units plumb into the mains and filter on site. The Legend Classic is manually refilled with an 18L filtering bottle and needs no plumbing.' },
+    { q: 'What water options are there?', a: 'It depends on the model. The Waterlogic 7 serves five types: ice-cold, ambient, sparkling, hot and extra-hot. The FW Bar Classe, P1 Bar Series E and the Purezza towers serve cold, ambient and sparkling, the Waterlogic 2 and 100 serve cold and ambient, and The River is cold only.' },
+    { q: 'Which towers come with the Frizzante 80 Box?', a: 'The Campione Tower, Murano Tower and Purezza T-Bar Tower are all supplied with the Frizzante 80 Box. The box sits under the counter and chills and carbonates the water, while the tower on the counter does the dispensing.' },
+    { q: 'How many people can one unit serve?', a: 'The Waterlogic 100 is rated for up to 20 users and the Waterlogic 2 for up to 30. For larger sites and hospitality, the Purezza units are sized on throughput: the FW Bar Classe dispenses 160L/hr and the Campione Tower 60L/hr.' },
+    { q: 'How is the water purified?', a: 'Firewall UVC purification on the Waterlogic and FW Bar Classe purifies water up to 99.9999%, reducing bacteria, viruses and cysts. The Purezza towers offer optional inline UVC, and filtration across the range is carbon based to address taste, colour and odour.' },
    ],
    'Payment Solutions': [
     { q: 'Do these replace our machines?', a: 'No. Card readers, coin changers, bill validators and telemetry units retrofit to machines already on site. We handle the fitment, the merchant setup and the reporting login.' },
