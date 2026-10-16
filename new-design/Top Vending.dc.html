@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+ <style>
+  body { margin: 0; background: #FAFBFC; }
+  body, h1, h2, h3, h4, h5, h6, p, div, span, a, button, input, textarea, select, label, li, td, th {
+   font-family: Inter, system-ui, -apple-system, sans-serif;
+  }
+  a { color: #C8102E; text-decoration: none; }
+  a:hover { color: #8f0c20; }
+  @keyframes scrollBounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+  @keyframes logoMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  @keyframes glowDrift { 0% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(60px,-40px,0) scale(1.12); } 100% { transform: translate3d(-50px,30px,0) scale(0.95); } }
+  @keyframes caretBlink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+  ::selection { background: #C8102E; color: #FAFBFC; }
+ </style>
+ <link rel="stylesheet" href="responsive.css" />
+ <script src="quote-cart.js"></script>
+ <script src="site-search.js"></script>
+ <script src="image-slot.js"></script>
+ <style>
+  [data-hc-section] [data-hc-title] { font-size: clamp(1.9rem,2.9vw,4.25rem) !important; line-height: 1.06 !important; }
+  @media (max-width: 560px) { [data-hc-section] [data-hc-title] { font-size: 30px !important; } }
+  @media (hover: none) { [data-svc-cta] { clip-path: none !important; } [data-svc-label] { opacity: 1 !important; transform: none !important; } }
+  @media (max-width: 1024px) {
+   #clients { padding-top: 26px !important; padding-bottom: 26px !important; }
+   [data-svc-grid] { grid-template-columns: repeat(3, minmax(0,1fr)) !important; }
+  }
+  @media (prefers-reduced-motion: reduce) { [data-glow] { animation: none !important; } }
+  @media (max-width: 700px) {
+   [data-t-card] { padding: 36px 26px !important; }
+   [data-hc-arrow] { display: none !important; }
+   [data-hc-inner] { padding: 0 22px !important; }
+   [data-svc-grid] { grid-template-columns: repeat(2, minmax(0,1fr)) !important; gap: 12px !important; }
+  }
+  @media (max-width: 420px) {
+   [data-svc-grid] { grid-template-columns: 1fr !important; }
+  }
+ </style>
+ <script src="site-motion.js"></script>
+</helmet>
+
+<div style="font-family:'Inter',sans-serif;color:#1C1C1A;background:#FAFBFC;overflow-x:hidden;">
+
+ <nav style="position:fixed;top:20px;left:24px;right:24px;height:72px;background:rgba(250,250,248,0.88);backdropFilter:blur(18px);WebkitBackdropFilter:blur(18px);border:1px solid rgba(255,255,255,0.5);box-shadow:0 10px 30px rgba(0,0,0,0.08);border-radius:999px;display:flex;align-items:center;justify-content:space-between;gap:32px;padding:0 28px;z-index:100;box-sizing:border-box;">
+  <a href="Top Vending.dc.html" style="display:flex;align-items:center;flex:0 1 auto;width:100%;max-width:190px;min-width:90px;height:52px;"><img src="assets/logo-30.png" alt="Top Vending" style="height:100%;width:100%;object-fit:contain;object-position:left center;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.18));" /></a>
+  <div style="display:flex;align-items:center;gap:40px;">
+   <div data-nav-links="1" style="display:flex;gap:32px;font-size:14px;">
+    <a href="About.dc.html" style="color:#1C1C1A;white-space:nowrap;" style-hover="color:#C8102E;">About</a>
+    <div style="position:relative;display:flex;align-items:center;" onMouseEnter="{{ openProductsMenu }}" onMouseLeave="{{ closeProductsMenu }}">
+     <a href="Products.dc.html" style="color:#1C1C1A;display:flex;align-items:center;gap:6px;white-space:nowrap;" style-hover="color:#C8102E;">Products
+      <span style="font-family:'Inter',sans-serif;font-size:9px;line-height:1;opacity:0.6;">▼</span>
+     </a>
+     <div style="{{ productsMenuStyle }}">
+      <div style="background:#FFFFFF;border:1px solid #E1E4E8;border-radius:16px;padding:8px;box-shadow:0 18px 40px rgba(0,0,0,0.12);display:flex;flex-direction:column;gap:2px;">
+       <sc-for list="{{ categoryLinks }}" as="c" hint-placeholder-count="4">
+        <a href="{{ c.href }}" onClick="{{ c.onClick }}" style="display:block;padding:11px 18px;border-radius:10px;font-size:14px;color:#1C1C1A;white-space:nowrap;" style-hover="background:#EFF1F3;color:#C8102E;">{{ c.label }}</a>
+       </sc-for>
+      </div>
+     </div>
+    </div>
+    <a href="Rentals.dc.html" style="color:#1C1C1A;white-space:nowrap;" style-hover="color:#C8102E;">Rentals</a>
+    <a href="Consumables.dc.html" style="color:#1C1C1A;white-space:nowrap;" style-hover="color:#C8102E;">Consumables</a>
+    <a href="Clients.dc.html" style="color:#1C1C1A;white-space:nowrap;" style-hover="color:#C8102E;">Our Clients</a>
+    <a href="Blog.dc.html" style="color:#1C1C1A;white-space:nowrap;" style-hover="color:#C8102E;">Blog</a>
+    <div style="position:relative;display:flex;align-items:center;" onMouseEnter="{{ openContactMenu }}" onMouseLeave="{{ closeContactMenu }}">
+     <a href="Contact.dc.html" style="color:#1C1C1A;display:flex;align-items:center;gap:6px;white-space:nowrap;" style-hover="color:#C8102E;">Contact
+      <span style="font-family:'Inter',sans-serif;font-size:9px;line-height:1;opacity:0.6;">▼</span>
+     </a>
+     <div style="{{ contactMenuStyle }}">
+      <div style="background:#FFFFFF;border:1px solid #E1E4E8;border-radius:16px;padding:8px;box-shadow:0 18px 40px rgba(0,0,0,0.12);display:flex;flex-direction:column;gap:2px;">
+       <a href="Contact.dc.html" style="display:block;padding:11px 18px;border-radius:10px;font-size:14px;color:#1C1C1A;white-space:nowrap;" style-hover="background:#EFF1F3;color:#C8102E;">General Enquiry</a>
+       <a href="Contact.dc.html#type=support" style="display:block;padding:11px 18px;border-radius:10px;font-size:14px;color:#1C1C1A;white-space:nowrap;" style-hover="background:#EFF1F3;color:#C8102E;">Technical Support</a>
+      </div>
+     </div>
+    </div>
+   </div>
+   <button data-tv-search="1" aria-label="Search" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:1px solid #E1E4E8;background:#FFFFFF;cursor:pointer;flex-shrink:0;padding:0;color:#45443F;" style-hover="border-color:#C8102E;color:#C8102E;"><svg width="17" height="17" viewBox="0 0 17 17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="7.2" cy="7.2" r="5.1"></circle><line x1="11.2" y1="11.2" x2="15.4" y2="15.4"></line></svg></button>
+   <a data-nav-cta="1" href="Contact.dc.html" style="background:#C8102E;color:#FAFBFC;padding:12px 26px;border-radius:999px;font-size:14px;font-weight:600;white-space:nowrap;flex-shrink:0;" style-hover="background:#8f0c20;color:#FAFBFC;">Get a Quote</a>
+   <button data-nav-toggle="1" aria-label="Menu" onClick="{{ toggleMobileMenu }}" style="{{ mobileToggleStyle }}">
+    <span style="font-family:'Inter',sans-serif;display:block;width:18px;height:2px;background:#1C1C1A;position:relative;">
+     <span style="font-family:'Inter',sans-serif;position:absolute;top:-6px;left:0;width:18px;height:2px;background:#1C1C1A;display:block;"></span>
+     <span style="font-family:'Inter',sans-serif;position:absolute;top:6px;left:0;width:18px;height:2px;background:#1C1C1A;display:block;"></span>
+    </span>
+   </button>
+  </div>
+ </nav>
+
+ <div style="{{ mobileMenuStyle }}">
+  <sc-for list="{{ mobileNavLinks }}" as="m" hint-placeholder-count="7">
+   <a href="{{ m.href }}" onClick="{{ closeMobileMenu }}" style="display:block;padding:13px 16px;border-radius:12px;font-size:15px;font-weight:500;color:#1C1C1A;" style-hover="background:#EFF1F3;color:#C8102E;">{{ m.label }}</a>
+  </sc-for>
+   <button data-tv-search="1" onClick="{{ closeMobileMenu }}" style="display:block;width:100%;text-align:left;background:transparent;border:none;padding:13px 16px;border-radius:12px;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:#1C1C1A;cursor:pointer;">Search</button>
+  <a href="Contact.dc.html#quote" onClick="{{ closeMobileMenu }}" style="display:block;margin-top:8px;text-align:center;background:#C8102E;color:#FAFBFC;padding:14px 20px;border-radius:999px;font-size:14px;font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Get a Quote</a>
+ </div>
+
+ <section data-hc-section="1" data-screen-label="Hero carousel" onMouseEnter="{{ heroPause }}" onMouseLeave="{{ heroResume }}" style="position:relative;height:calc(100vh - 92px);min-height:420px;overflow:hidden;background:#0B1426;color:#FAFBFC;box-sizing:border-box;">
+  <div style="position:absolute;inset:0;">
+   <div style="{{ slide0Media }}"><image-slot id="hero-service-vending" shape="rect" src="assets/hero-vending-v2.jpg" placeholder="Drop the Vending Machines image"></image-slot></div>
+   <div style="{{ slide1Media }}"><image-slot id="hero-service-coffee" shape="rect" src="assets/hero-coffee-1920.jpg" placeholder="Drop the Hot Beverage image"></image-slot></div>
+   <div style="{{ slide2Media }}"><image-slot id="hero-service-water" shape="rect" src="assets/hero-water-1920.jpg" placeholder="Drop the Water Solutions image"></image-slot></div>
+   <div style="position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(90deg, rgba(11,20,38,0.9) 0%, rgba(11,20,38,0.7) 34%, rgba(11,20,38,0.15) 66%, rgba(11,20,38,0) 100%), linear-gradient(180deg, rgba(11,20,38,0.45) 0%, rgba(11,20,38,0) 28%);"></div>
+   <div style="position:absolute;inset:0;z-index:4;pointer-events:none;display:flex;align-items:center;padding-top:72px;box-sizing:border-box;">
+    <div data-hc-inner="1" style="width:100%;padding:0 clamp(24px,3.6vw,96px);box-sizing:border-box;display:grid;">
+     <div style="{{ slide0Copy }}">
+      <div style="border-left:3px solid #C8102E;padding-left:clamp(20px,1.6vw,36px);max-width:clamp(440px,34vw,760px);">
+       <div style="font-size:clamp(12px,0.8vw,16px);letter-spacing:2px;text-transform:uppercase;color:#D9D9D5;font-weight:600;margin-bottom:clamp(14px,1.1vw,22px);">Vending Machines</div>
+       <h1 data-hero="1" data-hc-title="1" style="font-weight:700;font-size:clamp(1.9rem,2.9vw,4.25rem);line-height:1.06;letter-spacing:-0.03em;text-wrap:balance;margin:0 0 16px;color:#FAFBFC;">Snack and Drink Vending, <em style="font-style:normal;color:#C8102E;">Fully Supported</em></h1>
+       <p style="font-size:clamp(16px,1.05vw,21px);line-height:1.6;color:#D9D9D5;max-width:30em;margin:0 0 clamp(24px,2vw,40px);text-wrap:pretty;">Snack, cold drink, combo and smart fridge machines. We are the exclusive distributor and look after every machine we supply, nationwide.</p>
+       <div style="display:flex;gap:14px;flex-wrap:wrap;"><a href="Vending Machines.dc.html" style="background:#C8102E;color:#FAFBFC;padding:clamp(14px,0.95vw,20px) clamp(28px,1.9vw,40px);border-radius:999px;font-size:clamp(15px,0.9vw,18px);font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Explore Vending</a><a href="Contact.dc.html" style="border:1.5px solid #FAFBFC;color:#FAFBFC;padding:clamp(14px,0.95vw,20px) clamp(28px,1.9vw,40px);border-radius:999px;font-size:clamp(15px,0.9vw,18px);font-weight:600;" style-hover="border-color:#C8102E;color:#C8102E;">Get a Free Quote</a></div>
+      </div>
+     </div>
+     <div style="{{ slide1Copy }}">
+      <div style="border-left:3px solid #C8102E;padding-left:clamp(20px,1.6vw,36px);max-width:clamp(440px,34vw,760px);">
+       <div style="font-size:clamp(12px,0.8vw,16px);letter-spacing:2px;text-transform:uppercase;color:#D9D9D5;font-weight:600;margin-bottom:clamp(14px,1.1vw,22px);">Hot Beverage Solutions</div>
+       <h2 data-hc-title="1" style="font-weight:700;font-size:clamp(1.9rem,2.9vw,4.25rem);line-height:1.06;letter-spacing:-0.03em;text-wrap:balance;margin:0 0 16px;color:#FAFBFC;">Great Coffee on <em style="font-style:normal;color:#C8102E;">Every Floor</em></h2>
+       <p style="font-size:clamp(16px,1.05vw,21px);line-height:1.6;color:#D9D9D5;max-width:30em;margin:0 0 clamp(24px,2vw,40px);text-wrap:pretty;">Bean to cup, espresso and instant coffee machines for offices, hospitality and self service. Our own technicians install and service every machine.</p>
+       <div style="display:flex;gap:14px;flex-wrap:wrap;"><a href="Hot Beverage Solutions.dc.html" style="background:#C8102E;color:#FAFBFC;padding:clamp(14px,0.95vw,20px) clamp(28px,1.9vw,40px);border-radius:999px;font-size:clamp(15px,0.9vw,18px);font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Explore Coffee</a><a href="Contact.dc.html" style="border:1.5px solid #FAFBFC;color:#FAFBFC;padding:clamp(14px,0.95vw,20px) clamp(28px,1.9vw,40px);border-radius:999px;font-size:clamp(15px,0.9vw,18px);font-weight:600;" style-hover="border-color:#C8102E;color:#C8102E;">Get a Free Quote</a></div>
+      </div>
+     </div>
+     <div style="{{ slide2Copy }}">
+      <div style="border-left:3px solid #C8102E;padding-left:clamp(20px,1.6vw,36px);max-width:clamp(440px,34vw,760px);">
+       <div style="font-size:clamp(12px,0.8vw,16px);letter-spacing:2px;text-transform:uppercase;color:#D9D9D5;font-weight:600;margin-bottom:clamp(14px,1.1vw,22px);">Water Solutions</div>
+       <h2 data-hc-title="1" style="font-weight:700;font-size:clamp(1.9rem,2.9vw,4.25rem);line-height:1.06;letter-spacing:-0.03em;text-wrap:balance;margin:0 0 16px;color:#FAFBFC;">Chilled, Filtered Water <em style="font-style:normal;color:#C8102E;">On Tap</em></h2>
+       <p style="font-size:clamp(16px,1.05vw,21px);line-height:1.6;color:#D9D9D5;max-width:30em;margin:0 0 clamp(24px,2vw,40px);text-wrap:pretty;">Mains fed and bottled water coolers for any size of workplace. We change the filters and sanitise the machines on a set schedule.</p>
+       <div style="display:flex;gap:14px;flex-wrap:wrap;"><a href="Water Solutions.dc.html" style="background:#C8102E;color:#FAFBFC;padding:clamp(14px,0.95vw,20px) clamp(28px,1.9vw,40px);border-radius:999px;font-size:clamp(15px,0.9vw,18px);font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Explore Water</a><a href="Contact.dc.html" style="border:1.5px solid #FAFBFC;color:#FAFBFC;padding:clamp(14px,0.95vw,20px) clamp(28px,1.9vw,40px);border-radius:999px;font-size:clamp(15px,0.9vw,18px);font-weight:600;" style-hover="border-color:#C8102E;color:#C8102E;">Get a Free Quote</a></div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <button data-hc-arrow="1" aria-label="Previous" onClick="{{ heroPrev }}" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);z-index:5;width:48px;height:48px;border-radius:50%;border:none;background:transparent;color:#FAFBFC;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;" style-hover="background:rgba(250,251,252,0.14);"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="14,4 7,11 14,18"></polyline></svg></button>
+   <button data-hc-arrow="1" aria-label="Next" onClick="{{ heroNext }}" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);z-index:5;width:48px;height:48px;border-radius:50%;border:none;background:transparent;color:#FAFBFC;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;" style-hover="background:rgba(250,251,252,0.14);"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="8,4 15,11 8,18"></polyline></svg></button>
+   <div style="position:absolute;left:0;right:0;bottom:28px;z-index:5;display:flex;justify-content:center;pointer-events:none;">
+    <div style="display:flex;gap:10px;pointer-events:auto;">
+     <sc-for list="{{ heroSegs }}" as="g" hint-placeholder-count="3">
+      <button aria-label="{{ g.label }}" onClick="{{ g.onClick }}" style="width:64px;height:20px;padding:9px 0;border:none;background:transparent;cursor:pointer;box-sizing:border-box;"><span style="display:block;height:2px;background:rgba(250,251,252,0.35);position:relative;overflow:hidden;"><span ref="{{ g.barRef }}" style="position:absolute;left:0;top:0;bottom:0;width:0;background:#C8102E;"></span></span></button>
+     </sc-for>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section id="clients" style="background:#0B1426;border-top:1px solid rgba(250,251,252,0.06);padding:26px 0;box-sizing:border-box;overflow:hidden;">
+  <div style="display:flex;width:max-content;animation:logoMarquee 28s linear infinite;">
+   <sc-for list="{{ marqueeClients }}" as="c" hint-placeholder-count="16">
+    <div style="width:140px;height:40px;flex-shrink:0;margin-right:40px;display:flex;align-items:center;justify-content:center;">
+     <img ref="{{ c.imgRef }}" alt="{{ c.name }}" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;" />
+    </div>
+   </sc-for>
+  </div>
+ </section>
+
+ <section id="services" data-screen-label="Services" style="background:#FAFBFC;padding:110px 48px 40px;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div data-glow="1" aria-hidden="true" style="position:absolute;top:-260px;right:-180px;width:720px;height:720px;border-radius:50%;background:radial-gradient(circle, rgba(200,16,46,0.1) 0%, rgba(200,16,46,0.035) 38%, rgba(200,16,46,0) 68%);pointer-events:none;z-index:0;animation:glowDrift 22s ease-in-out 0s infinite alternate;"></div>
+  <div style="max-width:1200px;margin:0 auto;position:relative;z-index:1;">
+   <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:44px;">
+    <div>
+     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:16px;">Our Solutions</div>
+     <h2 style="font-weight:700;font-size:40px;line-height:1.1;letter-spacing:-0.03em;margin:0;">Explore by service</h2>
+    </div>
+    <a href="Products.dc.html" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600;color:#1C1C1A;border-bottom:1.5px solid #1C1C1A;padding-bottom:4px;" style-hover="color:#C8102E;border-color:#C8102E;">View all products <span style="font-size:17px;line-height:1;">→</span></a>
+   </div>
+   <div data-svc-grid="1" style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;">
+    <sc-for list="{{ serviceCards }}" as="s" hint-placeholder-count="5">
+     <a href="{{ s.href }}" onMouseEnter="{{ s.onEnter }}" onMouseLeave="{{ s.onLeave }}" style="display:flex;flex-direction:column;background:#FFFFFF;border:1px solid #E1E4E8;color:#1C1C1A;transition:border-color .25s, box-shadow .25s, transform .25s;" style-hover="border-color:#C8102E;box-shadow:0 22px 44px rgba(28,28,26,0.10);transform:translateY(-4px);color:#1C1C1A;">
+      <span style="position:relative;display:flex;align-items:center;justify-content:center;height:260px;background:#F3F4F6;padding:28px;box-sizing:border-box;overflow:hidden;"><img src="{{ s.image }}" alt="{{ s.title }}" loading="lazy" style="{{ s.imgStyle }}"></img></span>
+      <span style="display:flex;flex-direction:column;padding:22px 22px 22px;flex:1;">
+       <span style="font-size:12px;font-weight:700;letter-spacing:1px;color:#C8102E;margin-bottom:10px;">{{ s.num }}</span>
+       <span style="font-size:17px;font-weight:700;letter-spacing:-0.015em;line-height:1.25;margin-bottom:8px;text-wrap:balance;">{{ s.title }}</span>
+       <span style="font-size:14px;line-height:1.55;color:#5C5B56;text-wrap:pretty;">{{ s.body }}</span>
+      </span>
+      <span style="display:block;height:50px;background:#FFFFFF;position:relative;"><span data-svc-cta="1" style="{{ s.ctaStyle }}"><span>{{ s.cta }}</span><span data-svc-label="1" style="{{ s.labelStyle }}">→</span></span></span>
+     </a>
+    </sc-for>
+   </div>
+  </div>
+ </section>
+
+ <section id="ranges" data-screen-label="Who we are" style="background:#EFF1F3;color:#1C1C1A;padding:140px 48px;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="max-width:1200px;margin:0 auto;position:relative;z-index:1;">
+   <div style="display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;margin-bottom:80px;">
+    <figure style="margin:0;display:flex;flex-direction:column;gap:12px;">
+     <div style="height:440px;overflow:hidden;background:#F1F3F5;position:relative;">
+      <img data-parallax="0.12" src="assets/about-story.png" alt="The Top Vending team, 1991" style="position:absolute;left:0;top:-10%;width:100%;height:120%;object-fit:cover;object-position:center 45%;display:block;filter:brightness(1.12) contrast(1.02);" />
+     </div>
+     <figcaption style="font-size:13px;color:#6B6A65;">The Top Vending Team, 1991</figcaption>
+    </figure>
+    <div>
+     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Who we are</div>
+     <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:40px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 20px;">Supplying South African workplaces since 1991.</h2>
+     <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#45443F;margin:0 0 20px;">Top Vending supplies, installs and services vending machines, hot beverage equipment, water coolers and recycling stations for offices, factories, mines and campuses across the country.</p>
+     <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#45443F;margin:0 0 32px;">We partner with leading international manufacturers and back every machine with our own installation, service and consumables teams, working out of three national hubs.</p>
+     <a href="About.dc.html" style="display:inline-block;border:1.5px solid #1C1C1A;color:#1C1C1A;padding:15px 32px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#1C1C1A;color:#FAFBFC;">More About Us</a>
+    </div>
+   </div>
+   <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:26px;">What we do</div>
+   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
+    <sc-for list="{{ whatWeDo }}" as="w" hint-placeholder-count="4">
+     <a href="{{ w.href }}" style="display:block;border-top:2px solid #1C1C1A;padding:20px 0 0;color:#1C1C1A;transition:border-color .3s;" style-hover="color:#C8102E;border-color:#C8102E;">
+      <span style="font-family:'Inter',sans-serif;display:block;font-size:13px;font-weight:700;color:#C8102E;margin-bottom:10px;">{{ w.number }}</span>
+      <span style="font-family:'Inter',sans-serif;display:block;font-size:19px;font-weight:700;letter-spacing:-0.02em;line-height:1.25;margin-bottom:10px;">{{ w.title }}</span>
+      <sc-if value="{{ w.hasBody }}" hint-placeholder-val="{{ true }}"><span style="font-family:'Inter',sans-serif;display:block;font-size:15px;line-height:1.65;color:#45443F;">{{ w.body }}</span></sc-if>
+      <span style="display:flex;flex-direction:column;gap:4px;">
+       <sc-for list="{{ w.bullets }}" as="bl" hint-placeholder-count="0">
+        <span style="font-family:'Inter',sans-serif;display:flex;gap:8px;font-size:15px;line-height:1.6;color:#45443F;"><span style="color:#C8102E;">•</span><span>{{ bl }}</span></span>
+       </sc-for>
+      </span>
+     </a>
+    </sc-for>
+   </div>
+  </div>
+ </section>
+
+ <section id="rentals" data-screen-label="Rental Programme" style="background:#1C1C1A;color:#FAFBFC;padding:140px 48px;box-sizing:border-box;position:relative;overflow:hidden;">
+  <img src="assets/rentals-bg-2.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;z-index:0;filter:saturate(0.75);" />
+  <div style="position:absolute;inset:0;background:linear-gradient(100deg, rgba(20,20,18,0.95) 0%, rgba(20,20,18,0.88) 45%, rgba(20,20,18,0.66) 100%);z-index:1;"></div>
+  <div style="position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1200px;margin:0 auto;">
+   <div>
+    <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Rental Programme</div>
+    <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:40px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 24px;">Rent the machine, We'll look after it.</h2>
+    <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#A8A59C;margin:0 0 32px;max-width:480px;">Every rental includes installation, ongoing maintenance and dedicated after-sales support.</p>
+    <a href="Contact.dc.html" style="display:inline-block;background:#C8102E;color:#FAFBFC;padding:16px 32px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#8f0c20;">Enquire About Rentals</a>
+   </div>
+   <div style="display:flex;flex-wrap:wrap;gap:12px;">
+    <sc-for list="{{ rentalTags }}" as="tag" hint-placeholder-count="4">
+     <div style="border:2px solid rgba(255,255,255,0.38);border-radius:999px;padding:14px 24px;font-size:15px;font-weight:700;color:#FFFFFF;">{{ tag }}</div>
+    </sc-for>
+   </div>
+  </div>
+ </section>
+
+ <section style="background:#FFFFFF;padding:90px 48px;box-sizing:border-box;">
+  <div style="max-width:1200px;margin:0 auto;">
+   <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Our Clients</div>
+   <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 48px;">Who trust us.</h2>
+   <div style="overflow:hidden;">
+    <div style="display:flex;gap:40px;width:max-content;animation:logoMarquee 40s linear infinite;">
+     <sc-for list="{{ marqueeCustomers }}" as="c" hint-placeholder-count="24">
+      <div style="width:210px;height:120px;flex-shrink:0;display:flex;align-items:center;justify-content:center;box-sizing:border-box;">
+       <img ref="{{ c.imgRef }}" alt="{{ c.name }}" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;" />
+      </div>
+     </sc-for>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section data-screen-label="Testimonials" style="background:#FAFBFC;padding:110px 48px 80px;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div data-glow="1" aria-hidden="true" style="position:absolute;top:80px;left:50%;margin-left:-450px;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle, rgba(200,16,46,0.08) 0%, rgba(200,16,46,0.028) 38%, rgba(200,16,46,0) 68%);pointer-events:none;z-index:0;animation:glowDrift 24s ease-in-out 0s infinite alternate;"></div>
+  <div style="max-width:1200px;margin:0 auto;position:relative;z-index:1;">
+   <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:44px;">
+    <div>
+     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Testimonials</div>
+     <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.1;letter-spacing:-0.03em;margin:0;">What our clients say about us.</h2>
+    </div>
+   </div>
+   <div data-t-card="1" style="background:#FFFFFF;border:1px solid #E1E4E8;border-radius:24px;padding:56px 96px 56px;box-sizing:border-box;position:relative;">
+    <div style="position:absolute;top:24px;right:24px;display:flex;gap:8px;z-index:2;">
+     <button aria-label="Previous testimonial" onClick="{{ tPrev }}" style="width:38px;height:38px;border-radius:50%;border:1px solid #E1E4E8;background:#FFFFFF;color:#1C1C1A;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;" style-hover="border-color:#C8102E;color:#C8102E;"><svg width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="11,4 6,9 11,14"></polyline></svg></button>
+     <button aria-label="Next testimonial" onClick="{{ tNext }}" style="width:38px;height:38px;border-radius:50%;border:1px solid #E1E4E8;background:#FFFFFF;color:#1C1C1A;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;" style-hover="border-color:#C8102E;color:#C8102E;"><svg width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="7,4 12,9 7,14"></polyline></svg></button>
+    </div>
+    <div style="font-family:Georgia,serif;font-size:96px;line-height:0.6;height:40px;color:#F6D3D9;margin:0 0 16px -26px;">“</div>
+    <div style="{{ tBodyStyle }}">
+     <p style="{{ tQuoteStyle }}">{{ tQuote }}</p>
+     <sc-if value="{{ tCanExpand }}" hint-placeholder-val="{{ true }}"><button onClick="{{ tToggle }}" style="background:transparent;border:none;padding:0;margin:16px 0 0;font-family:'Inter',sans-serif;font-size:15px;font-weight:700;color:#C8102E;cursor:pointer;" style-hover="color:#8f0c20;">{{ tToggleLabel }}</button></sc-if>
+     <div style="border-left:3px solid #C8102E;padding:2px 0 2px 22px;margin-top:36px;">
+      <div style="font-size:17px;font-weight:700;color:#1C1C1A;margin-bottom:6px;">{{ tName }}</div>
+      <div style="font-size:15px;color:#6B6A65;">{{ tRole }}</div>
+     </div>
+    </div>
+   </div>
+   <div style="display:flex;justify-content:center;align-items:center;gap:10px;margin-top:36px;">
+    <sc-for list="{{ tDots }}" as="d" hint-placeholder-count="3">
+     <button aria-label="{{ d.label }}" onClick="{{ d.onClick }}" style="{{ d.style }}"></button>
+    </sc-for>
+   </div>
+  </div>
+ </section>
+
+
+ <section data-screen-label="Final CTA" style="background:#FAFBFC;padding:100px 48px 120px;box-sizing:border-box;">
+  <div style="max-width:1200px;margin:0 auto;">
+   <a href="Contact.dc.html" data-home-cta="1" style="position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:40px;min-height:300px;padding:56px 64px;box-sizing:border-box;border-radius:24px;overflow:hidden;background:#0B1426;color:#FAFBFC;transition:transform .25s ease, box-shadow .25s ease;" style-hover="transform:translateY(-3px);box-shadow:0 28px 60px rgba(11,20,38,0.28);color:#FAFBFC;">
+    <div aria-hidden="true" style="position:absolute;right:-160px;top:-200px;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle, rgba(200,16,46,0.45) 0%, rgba(200,16,46,0) 68%);pointer-events:none;"></div>
+    <div style="position:relative;z-index:1;display:flex;flex-direction:column;gap:10px;">
+     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#D9D9D5;font-weight:600;">Get in touch</div>
+     <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:42px;line-height:1.1;letter-spacing:-0.03em;margin:0;color:#FAFBFC;">Ready to upgrade your vending?</h2>
+     <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#C9CCD3;margin:4px 0 0;">We handle sales, rentals and full-service maintenance.</p>
+     <div style="display:flex;gap:8px;margin-top:20px;">
+      <span style="display:inline-flex;align-items:center;gap:8px;background:#C8102E;color:#FAFBFC;padding:15px 30px;border-radius:999px;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Contact Us <span style="font-size:13px;">→</span></span>
+     </div>
+    </div>
+    <div data-home-cta-imgs="1" style="position:relative;z-index:1;display:flex;align-items:flex-end;gap:14px;height:220px;">
+     <img src="assets/cta-vending.png" alt="" loading="lazy" style="height:100%;width:auto;max-width:140px;object-fit:contain;display:block;filter:drop-shadow(0 12px 22px rgba(0,0,0,0.4));" />
+     <img src="assets/wl7.png" alt="" loading="lazy" style="height:92%;width:auto;max-width:110px;object-fit:contain;display:block;filter:drop-shadow(0 12px 22px rgba(0,0,0,0.4));" />
+     <img src="assets/cta-coffee.png" alt="" loading="lazy" style="height:58%;width:auto;max-width:170px;object-fit:contain;display:block;filter:drop-shadow(0 12px 22px rgba(0,0,0,0.4));" />
+    </div>
+   </a>
+  </div>
+ </section>
+
+ <footer id="contact" style="background:#FAFBFC;padding:80px 48px 32px;box-sizing:border-box;border-top:1px solid #E1E4E8;">
+  <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto;">
+   <div>
+    <div style="margin-bottom:16px;">
+     <a href="Top Vending.dc.html" style="display:inline-block;"><img src="assets/logo-30.png" alt="Top Vending" style="height:34px;object-fit:contain;" /></a>
+    </div>
+    <p style="font-family:'Inter',sans-serif;font-size:14px;color:#6B6B68;line-height:1.6;margin:0 0 20px;max-width:280px;">Vending, coffee and water for South African workplaces. Since 1991.</p>
+    <div style="display:flex;">
+     <input type="email" placeholder="Your email" style="border:1px solid #E1E4E8;border-radius:999px 0 0 999px;padding:12px 18px;font-size:14px;font-family:'Inter',sans-serif;background:#FAFBFC;width:180px;outline:none;box-sizing:border-box;" />
+     <button style="background:#C8102E;color:#FAFBFC;border:none;border-radius:0 999px 999px 0;padding:12px 20px;font-size:14px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;" style-hover="background:#8f0c20;">Enquire</button>
+    </div>
+   </div>
+   <div>
+    <div style="font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#1C1C1A;font-weight:700;margin-bottom:18px;">Products</div>
+    <div style="display:flex;flex-direction:column;gap:12px;font-size:14px;color:#6B6B68;">
+     <a href="Vending Machines.dc.html" style="color:#6B6B68;">Vending Machines</a>
+     <a href="Hot Beverage Solutions.dc.html" style="color:#6B6B68;">Hot Beverage Solutions</a>
+     <a href="Water Solutions.dc.html" style="color:#6B6B68;">Water Solutions</a>
+     <a href="Payment Solutions.dc.html" style="color:#6B6B68;">Payment Solutions</a>
+    </div>
+   </div>
+   <div>
+    <div style="font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#1C1C1A;font-weight:700;margin-bottom:18px;">Company</div>
+    <div style="display:flex;flex-direction:column;gap:12px;font-size:14px;color:#6B6B68;">
+     <a href="About.dc.html" style="color:#6B6B68;">About</a>
+     <a href="Rentals.dc.html" style="color:#6B6B68;">Rentals</a>
+     <a href="Clients.dc.html" style="color:#6B6B68;">Our Clients</a>
+     <a href="Contact.dc.html" style="color:#6B6B68;">Contact</a>
+    </div>
+   </div>
+   <div>
+    <div style="font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#1C1C1A;font-weight:700;margin-bottom:18px;">Support</div>
+    <div style="display:flex;flex-direction:column;gap:12px;font-size:14px;color:#6B6B68;">
+     <div style="color:#1C1C1A;font-weight:600;">0861 100 185</div>
+     <div>Johannesburg</div>
+     <div>Cape Town</div>
+     <div>Durban</div>
+    </div>
+   </div>
+  </div>
+  <div style="max-width:1200px;margin:48px auto 0;padding-top:32px;border-top:1px solid #E1E4E8;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#6B6B68;">
+   <div style="display:flex;gap:24px;flex:1;">
+    <a href="#" style="color:#6B6B68;">Privacy Policy</a>
+    <a href="#" style="color:#6B6B68;">Terms &amp; Conditions</a>
+   </div>
+   <div style="flex:1;text-align:center;">© 2026 Top Vending. All rights reserved.</div>
+   <div style="flex:1;text-align:right;">Proudly South African</div>
+  </div>
+ </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroAutoplay&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;productGridColumns&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;2&quot;,&quot;options&quot;:[&quot;2&quot;,&quot;3&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Catalogue&quot;},&quot;filterBarSticky&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Catalogue&quot;}}">
+const PRODUCTS = [
+ { name: 'Palma Hz70', category: 'Vending Machines', variant: 'default', image: 'assets/hz70-v4.png',
+  tagline: 'Standard Combo Vending Machine',
+  description: 'A dual-temperature combo vending machine with full payment support, refrigeration and MDB compatibility, carrying 60 drink items and 120 snack items, 180 items in total.',
+  tags: ['Dual Temperature Zones', 'Refrigerated', 'MDB Compatible'],
+  specs: [{ label: 'Capacity', value: '180 items total' }, { label: 'Payment', value: 'Full Payment Support' }, { label: 'Dimensions (WxDxH)', value: '723 x 840 x 1830mm' }] },
+ { name: 'Palma Hz87', category: 'Vending Machines', variant: 'accent', image: 'assets/hz87-cropped.png',
+  tagline: 'High Capacity Combo Vending Machine',
+  description: 'A higher-capacity combo vending machine with dual temperature zones, full payment support, refrigeration and MDB compatibility, 120 drink items and 160 snack items, 280 items in total.',
+  tags: ['Dual Temperature Zones', 'Refrigerated', 'MDB Compatible'],
+  specs: [{ label: 'Capacity', value: '280 items total' }, { label: 'Payment', value: 'Full Payment Support' }, { label: 'Dimensions (WxDxH)', value: '888 x 840 x 1830mm' }] },
+ { name: 'Palma Hz87 Premium', category: 'Vending Machines', variant: 'default',
+  tagline: 'Premium Combo Vending Machine',
+  description: 'Our premium combo vending machine adds a selective belt system for multi-purpose use, refrigeration and full payment support, 40 drink items, 160 snack items and 20 sandwiches/wraps, 220 items in total.',
+  tags: ['Selective Belt System', 'Multi-Purpose Use', 'Refrigerated'],
+  specs: [{ label: 'Capacity', value: '220 items total' }, { label: 'Payment', value: 'Full Payment Support' }, { label: 'Dimensions (WxDxH)', value: '888 x 840 x 1830mm' }] },
+ { name: 'CV1000', category: 'Vending Machines', variant: 'accent', image: 'assets/cv1000-v2.png',
+  tagline: 'Combo Vending Machine',
+  description: 'A dual-temperature combo vending machine with full payment support, refrigeration and MDB compatibility, 144 drink items and 168 snack items, 312 items in total.',
+  tags: ['Dual Temperature Zones', 'Refrigerated', 'MDB Compatible'],
+  specs: [{ label: 'Capacity', value: '312 items total' }, { label: 'Payment', value: 'Full Payment Support' }, { label: 'Dimensions (WxDxH)', value: '925 x 820 x 1830mm' }] },
+ { name: 'CV4000 with Touchscreen', category: 'Vending Machines', variant: 'default',
+  tagline: 'Combo Vending Machine with Cart Functionality',
+  description: 'Adds cart functionality and a full touchscreen to the combo range, with dual temperature zones, refrigeration and MDB compatibility, 144 drink items and 168 snack items, 312 items in total. Cashless only.',
+  tags: ['Cart Functionality', 'Dual Temperature Zones', 'Cashless Only'],
+  specs: [{ label: 'Capacity', value: '312 items total' }, { label: 'Payment', value: 'Cashless Only' }, { label: 'Dimensions (WxDxH)', value: '1120 x 820 x 1870mm' }] },
+ { name: 'Vision Esplus Bluetec', category: 'Vending Machines', variant: 'accent',
+  tagline: 'Multi-Product Dispensing Machine',
+  description: 'An elevator belt system for big-size multi-product dispensing, with full payment support, refrigeration, temperature control and expiry date tracking, channels can be blocked once expiry date is reached.',
+  tags: ['Elevator Belt System', 'Expiry Date Tracking', 'Refrigerated'],
+  specs: [{ label: 'Function', value: 'Multi-Product Dispensing' }, { label: 'Payment', value: 'Full Payment Support' }, { label: 'Dimensions (WxDxH)', value: '1120 x 820 x 1870mm' }] },
+ { name: 'Smart Fridge', category: 'Vending Machines', variant: 'default',
+  tagline: 'Smart Fresh Food Fridge',
+  description: 'A weight-sensing smart fridge for fresh products, open the door, make a selection, close the door and enjoy. Cashless only, MDB compatible.',
+  tags: ['Weight Sensing Plate', 'Cashless Only', 'Refrigerated'],
+  specs: [{ label: 'Function', value: 'Fresh Products' }, { label: 'Payment', value: 'Cashless Only' }, { label: 'Dimensions (WxDxH)', value: '670 x 550 x 1830mm' }] },
+ { name: 'Smart Freezer', category: 'Vending Machines', variant: 'accent',
+  tagline: 'Smart Frozen Food Freezer',
+  description: 'A weight-sensing smart freezer for frozen products, open the door, make a selection, close the door and enjoy. Cashless only, MDB compatible.',
+  tags: ['Weight Sensing Plate', 'Cashless Only', 'Refrigerated'],
+  specs: [{ label: 'Function', value: 'Frozen Products' }, { label: 'Payment', value: 'Cashless Only' }, { label: 'Dimensions (WxDxH)', value: '670 x 550 x 1830mm' }] },
+];
+
+const PRODUCTS_COFFEE = [
+ { name: 'Orion G23', category: 'Hot Beverage Solutions', variant: 'default',
+  tagline: 'Sleek Black Design with Blue LED Lighting',
+  description: 'A fresh bean brewer with a stylish, energy-efficient design, blue LED lighting and a customised setup to suit your requirements. Aluminium boiler.',
+  tags: ['Fresh Bean Brewer', 'Energy Efficient', 'Blue LED Lighting'],
+  specs: [{ label: 'Boiler', value: 'Aluminium Boiler' }, { label: 'Setup', value: 'Customised to Requirements' }, { label: 'Dimensions (WxDxH)', value: '417 x 463 x 767mm' }] },
+ { name: 'Jettino JL33', category: 'Hot Beverage Solutions', variant: 'accent',
+  tagline: 'Exceptional dual-grinding, unmatched flavour',
+  description: 'Dual grinders plus 2 instants, a 10.1" touchscreen and up to 15 beverages, with a fresh milk fridge and premium brewing system.',
+  tags: ['Dual Grinders', '10.1" Touchscreen', 'Up to 15 Beverages'],
+  specs: [{ label: 'Fridge', value: 'Fresh Milk Fridge' }, { label: 'Brewing', value: 'Premium Brewing System' }, { label: 'Dimensions (WxDxH)', value: '350 x 560 x 628mm' }] },
+ { name: 'Gaggia Milano La Brillante', category: 'Hot Beverage Solutions', variant: 'default',
+  tagline: 'Brilliance in every cup',
+  description: 'Bean-to-cup plus 2 instants with a wide range of customisable drinks, fresh milk, a 7-inch touchscreen and Prime Milk automatic froth.',
+  tags: ['Bean-to-Cup + 2 Instants', '7" Touchscreen', 'Automatic Milk Froth'],
+  specs: [{ label: 'Grinder', value: 'One Grinder, One Per Hopper' }, { label: 'Milk', value: 'Prime Milk – Automatic Froth' }, { label: 'Dimensions (WxDxH)', value: '308 x 570 x 629mm' }] },
+ { name: 'Azkoyen Vitro X1', category: 'Hot Beverage Solutions', variant: 'accent',
+  tagline: 'Innovative design for quality coffee',
+  description: 'A fresh bean brewer with a fresh milk fridge, high capacity boilers, 12 selection touch panel, variable brewing unit and an illuminated dispensing area.',
+  tags: ['Fresh Bean Brewer', '12 Selection Touch Panel', 'High Capacity Boilers'],
+  specs: [{ label: 'Milk', value: 'Fresh Milk Fridge' }, { label: 'Access', value: 'Easy-Access Hoppers' }, { label: 'Dimensions (WxDxH)', value: '567 x 505 x 672mm (includes fridge)' }] },
+ { name: 'Saeco Magic', category: 'Hot Beverage Solutions', variant: 'default',
+  tagline: 'Revolutionary coffee machine',
+  description: 'A fresh bean brewer with a touchscreen display, fresh milk, one-touch high-speed milk, high capacity and a double boiler, double pump system.',
+  tags: ['Double Boiler, Double Pump', 'Touchscreen Display', 'High Capacity'],
+  specs: [{ label: 'Milk', value: 'One-Touch High-Speed Milk' }, { label: 'Lighting', value: 'LED Lighting' }, { label: 'Dimensions (WxDxH)', value: '280 x 481 x 470mm' }] },
+ { name: 'NEOQs', category: 'Hot Beverage Solutions', variant: 'accent',
+  tagline: 'Your all-in-one premium espresso and fresh leaf tea solution',
+  description: 'Cup recognition technology with energy-saving ECO mode, a 21.5" Full HD touchscreen, 7 hoppers (1 tea, 1 bean, 5 instant) and fully customisable beverages and volumes.',
+  tags: ['Cup Recognition Technology', '21.5" Full HD Touchscreen', '7 Hoppers'],
+  specs: [{ label: 'Mode', value: 'Energy-Saving ECO Mode' }, { label: 'Customisation', value: 'Custom Beverages & Volumes' }, { label: 'Dimensions (WxDxH)', value: '600 x 715 x 1830mm' }] },
+ { name: 'Novara DFB', category: 'Hot Beverage Solutions', variant: 'default',
+  tagline: 'The widest range of hot beverages',
+  description: 'Double fresh brew with high capacity, fully customisable drinks, a fully automatic auto cup dispenser, cup detector and a modern stainless steel, glass front with touch selection.',
+  tags: ['Double Fresh Brew', 'Fully Customisable Drinks', 'Auto Cup Dispenser'],
+  specs: [{ label: 'Detection', value: 'Cup Detector' }, { label: 'Finish', value: 'Stainless Steel, Glass Front' }, { label: 'Dimensions (WxDxH)', value: '600 x 650 x 1830mm' }] },
+ { name: 'ZEN Fresh Bean', category: 'Hot Beverage Solutions', variant: 'accent',
+  tagline: 'Fully automatic fresh bean machine',
+  description: 'Beans, instant coffee, sugar, milk powder and hot chocolate in door-mounted hoppers, with powder milk, a touch selection panel and an auto cup dispenser. Compact, easy to clean and fill, with an optional stand.',
+  tags: ['Fresh Bean', 'Fully Automatic', 'Vending Sugar in Door'],
+  specs: [{ label: 'Milk', value: 'Powder Milk' }, { label: 'Stand', value: 'Optional Stand' }, { label: 'Dimensions (WxDxH)', value: 'Machine: 480 x 590 x 842mm · Stand: 480 x 590 x 842mm' }] },
+ { name: 'ZEN DFB', category: 'Hot Beverage Solutions', variant: 'default',
+  tagline: 'Fully automatic fresh bean and tea leaf machine',
+  description: 'Adds fresh tea leaf to the ZEN range, beans, tea leaf, coffee, milk powder and hot chocolate in door hoppers, powder milk, auto cup dispenser and an optional stand. Easy cleaning, filling and maintenance.',
+  tags: ['Fresh Bean & Tea Leaf', 'Fully Automatic', 'Vending Sugar in Door'],
+  specs: [{ label: 'Milk', value: 'Powder Milk' }, { label: 'Stand', value: 'Optional Stand' }, { label: 'Dimensions (WxDxH)', value: 'Machine: 480 x 590 x 842mm · Stand: 480 x 590 x 842mm' }] },
+ { name: 'Ascaso Barista T', category: 'Hot Beverage Solutions', variant: 'default',
+  tagline: 'Where coffee craft meets efficiency & sustainability',
+  description: 'A multi-group barista machine for commercial spaces, in stainless steel with thermoblocks, PID control, extraction plus digital control and a rotary pump.',
+  tags: ['Multi-Group Function', 'PID Control', 'Rotary Pump'],
+  specs: [{ label: 'Build', value: 'Stainless Steel' }, { label: 'Control', value: 'Extraction + Digital Control' }, { label: 'Dimensions (WxDxH)', value: '700 x 535 x 475mm' }] },
+ { name: 'Ascaso I-Bar F83E', category: 'Hot Beverage Solutions', variant: 'accent',
+  tagline: 'Built for durability, reliability and consistent performance',
+  description: 'A high-volume grinder with quiet operation, micrometric grinding adjustment for burrs that always work flat, and an aluminium body with a removable stainless steel drip tray.',
+  tags: ['High Volume Use', 'Micrometric Grinding Adjustment', 'Quiet Operation'],
+  specs: [{ label: 'Body', value: 'Aluminium Body' }, { label: 'Tray', value: 'Removable Stainless Steel Drip Tray' }, { label: 'Dimensions (WxDxH)', value: '230 x 270 x 670mm' }] },
+];
+PRODUCTS.push(...PRODUCTS_COFFEE);
+
+const PRODUCTS_WATER = [
+ { name: 'FW Bar Classe', category: 'Water Solutions', variant: 'default',
+  tagline: 'Premium solution',
+  description: 'Offers 2 water options, cold and sparkling, with portion control and Firewall UVC Purification, removing up to 99.999% of bacteria, viruses and cysts. Ice cold water via Ice Bath cooling, high performance filtration and BioCote protection. Plumbed in solution.',
+  tags: ['Cold & Sparkling', 'Firewall UVC Purification', 'Portion Control'],
+  specs: [{ label: 'Water Options', value: 'Cold & Sparkling' }, { label: 'Purification', value: 'Firewall UVC, 99.999% Bacteria/Virus Removal' }, { label: 'Installation', value: 'Plumbed In' }] },
+ { name: 'P1 Bar Series E', category: 'Water Solutions', variant: 'accent',
+  tagline: 'Stylish, Efficient & High Flow solution',
+  description: 'Offers 3 water options: cold, ambient and sparkling, with portion control, an adjustable drip tray height for different bottle sizes, and eco-sustainable R290 refrigeration. Plumbed in solution.',
+  tags: ['Cold, Ambient & Sparkling', 'Adjustable Drip Tray', 'R290 Eco Refrigeration'],
+  specs: [{ label: 'Water Options', value: 'Cold, Ambient & Sparkling' }, { label: 'Refrigeration', value: 'R290 Natural Gas' }, { label: 'Installation', value: 'Plumbed In' }] },
+ { name: 'P1 Bar Series B', category: 'Water Solutions', variant: 'default',
+  tagline: 'Stylish, Efficient & High Flow solution',
+  description: 'Offers 2 water options, cold and sparkling, with portion control, a back-lit front panel with premium aesthetics, and eco-sustainable R290 refrigeration. Plumbed in solution.',
+  tags: ['Cold & Sparkling', 'Back-Lit Front Panel', 'R290 Eco Refrigeration'],
+  specs: [{ label: 'Water Options', value: 'Cold & Sparkling' }, { label: 'Refrigeration', value: 'R290 Natural Gas' }, { label: 'Installation', value: 'Plumbed In' }] },
+ { name: 'Campione Tower', category: 'Water Solutions', variant: 'accent',
+  tagline: 'Where space is limited',
+  description: 'Offers 3 water options: cold, ambient and sparkling, with ice cold water produced using Ice Bath cooling technology and high performance filtration. Plumbed in with the Frizzante 60 under-counter solution.',
+  tags: ['Cold, Ambient & Sparkling', 'Ice Bath Cooling', 'Space-Saving Tower'],
+  specs: [{ label: 'Water Options', value: 'Cold, Ambient & Sparkling' }, { label: 'Cooling', value: 'Ice Bath Technology' }, { label: 'Installation', value: 'Plumbed With Frizzante 60' }] },
+ { name: 'Frizzante 80 Box', category: 'Water Solutions', variant: 'default',
+  tagline: 'Under the counter unit',
+  description: 'Offers 3 water options: cold, ambient and sparkling, with ice cold water produced using Ice Bath cooling technology and high performance filtration.',
+  tags: ['Cold, Ambient & Sparkling', 'Ice Bath Cooling', 'Under-Counter Unit'],
+  specs: [{ label: 'Water Options', value: 'Cold, Ambient & Sparkling' }, { label: 'Cooling', value: 'Ice Bath Technology' }, { label: 'Placement', value: 'Under-Counter' }] },
+];
+PRODUCTS.push(...PRODUCTS_WATER);
+
+const PRODUCTS_RECYCLING = [
+ { name: 'Tritech Shredder', category: 'Recycling', variant: 'default',
+  tagline: 'Automatic shredding machine for disposable plastic and paper cups',
+  description: 'Shreds disposable plastic and paper cups automatically on deposit, reducing waste volume by up to 7x. Waste is collected in the container below, with an integrated sanitising system, an incentive reward system and a tablet touchscreen.',
+  tags: ['Up to 7x Volume Reduction', 'Automated Operation', 'Incentive Reward System'],
+  specs: [{ label: 'Waste Type', value: 'Disposable Plastic & Paper Cups' }, { label: 'Telemetry', value: 'Included' }, { label: 'Interface', value: 'Tablet Touchscreen' }] },
+];
+PRODUCTS.push(...PRODUCTS_RECYCLING);
+
+const CATEGORY_IMAGES = {
+ 'Vending Machines': 'assets/cat-vending.jpg',
+ 'Hot Beverage Solutions': 'assets/cat-coffee.jpg',
+ 'Water Solutions': 'assets/cat-water.jpg',
+ 'Payment Solutions': 'assets/cat-payment.jpg',
+ 'Recycling': 'assets/recycling-symbol.png',
+};
+
+const FILTER_LABELS = ['All', 'Vending Machines', 'Hot Beverage Solutions', 'Water Solutions', 'Payment Solutions', 'Recycling'];
+
+class Component extends DCLogic {
+
+ componentWillUnmount() { cancelAnimationFrame(this.__heroRaf); }
+
+ heroGo(i) {
+  this.__heroT = 0;
+  this.setState({ heroIndex: (i + 3) % 3 });
+ }
+
+ heroLoop() {
+  if (this.__heroLooping) return;
+  this.__heroLooping = true;
+  this.__heroBars = this.__heroBars || [React.createRef(), React.createRef(), React.createRef()];
+  this.__heroT = 0;
+  let last = performance.now();
+  const DUR = 6500;
+  const tick = (now) => {
+   const dt = now - last; last = now;
+   const auto = (this.props.heroAutoplay ?? true) && !this.__heroPaused && !document.hidden;
+   if (auto) this.__heroT += dt;
+   const idx = this.state.heroIndex || 0;
+   const p = Math.min(this.__heroT / DUR, 1);
+   this.__heroBars.forEach((r, k) => { if (r.current) r.current.style.width = k === idx ? ((auto || this.__heroPaused) ? p * 100 : 100) + '%' : '0%'; });
+   if (auto && this.__heroT >= DUR) this.heroGo(idx + 1);
+   this.__heroRaf = requestAnimationFrame(tick);
+  };
+  this.__heroRaf = requestAnimationFrame(tick);
+ }
+
+ componentDidMount() {
+  this.heroLoop();
+  if (this.__anim) return;
+  this.__anim = true;
+
+  const typeHero = () => document.querySelector('h1[data-hero]');
+
+  const startReveals = (hero) => {
+   const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+   const targets = Array.from(document.querySelectorAll('section > div'))
+    .filter(el => !el.closest('nav') && !(hero && el.contains(hero)) && !el.hasAttribute('data-glow'));
+   if (reduced || !targets.length) return;
+
+   const pEls = Array.from(document.querySelectorAll('[data-parallax]'));
+   let pTick = false;
+   const runParallax = () => {
+    pTick = false;
+    const vh = window.innerHeight;
+    pEls.forEach(el => {
+     const box = el.parentElement.getBoundingClientRect();
+     if (box.bottom < -100 || box.top > vh + 100) return;
+     const off = (box.top + box.height / 2 - vh / 2) * parseFloat(el.dataset.parallax || '0.15');
+     el.style.transform = 'translate3d(0,' + (-off).toFixed(1) + 'px,0)';
+    });
+   };
+   if (pEls.length) {
+    window.addEventListener('scroll', () => { if (!pTick) { pTick = true; requestAnimationFrame(runParallax); } }, { passive: true });
+    window.addEventListener('resize', runParallax);
+    runParallax();
+   }
+
+   const heads = Array.from(document.querySelectorAll('section h2')).filter(el => !el.closest('[data-hc-section]'));
+   heads.forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight * 0.85) return;
+    el.style.clipPath = 'inset(0 0 100% 0)';
+    el.style.transform = 'translateY(0.35em)';
+    el.style.transition = 'clip-path 1s cubic-bezier(.65,0,.2,1) .15s, transform 1s cubic-bezier(.22,.8,.3,1) .15s';
+    el.dataset.headReveal = '1';
+   });
+   const headLoop = () => {
+    const pending = heads.filter(el => el.dataset.headReveal === '1');
+    pending.forEach(el => {
+     if (el.getBoundingClientRect().top < window.innerHeight * 0.88) {
+      el.style.clipPath = 'inset(0 0 -10% 0)';
+      el.style.transform = 'none';
+      el.dataset.headReveal = 'done';
+     }
+    });
+    if (pending.length) requestAnimationFrame(headLoop);
+   };
+   requestAnimationFrame(headLoop);
+
+   const show = (el) => {
+    el.style.opacity = '1';
+    el.style.transform = 'none';
+    el.dataset.revealed = '1';
+   };
+   const limit = window.innerHeight * 0.85;
+   const hidden = [];
+   targets.forEach(el => {
+    el.style.transition = 'opacity .7s cubic-bezier(.22,.8,.3,1), transform .7s cubic-bezier(.22,.8,.3,1)';
+    if (el.getBoundingClientRect().top < limit) { show(el); return; }
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(26px)';
+    hidden.push(el);
+   });
+   if (!hidden.length) return;
+
+   const loop = () => {
+    for (let k = hidden.length - 1; k >= 0; k--) {
+     if (hidden[k].getBoundingClientRect().top < window.innerHeight * 0.88) {
+      show(hidden[k]);
+      hidden.splice(k, 1);
+     }
+    }
+    if (hidden.length) requestAnimationFrame(loop);
+   };
+   requestAnimationFrame(loop);
+  };
+
+  const boot = () => {
+   const hero = typeHero();
+   requestAnimationFrame(() => requestAnimationFrame(() => startReveals(hero)));
+  };
+
+  const ready = () => {
+   if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => setTimeout(boot, 80));
+   else setTimeout(boot, 200);
+  };
+  if (document.readyState === 'complete') ready();
+  else window.addEventListener('load', ready);
+ }
+
+ state = { mobileMenu: false, activeFilter: 'All', selectedProduct: null, visibleCount: 9, productsMenu: false, contactMenu: false };
+
+ renderVals() {
+  this.__heroBars = this.__heroBars || [React.createRef(), React.createRef(), React.createRef()];
+  const hi = this.state.heroIndex || 0;
+  const copyStyle = (k) => ({ gridArea: '1 / 1', opacity: hi === k ? 1 : 0, transform: hi === k ? 'translateY(0)' : 'translateY(14px)', transition: 'opacity .6s ease, transform .6s ease', pointerEvents: hi === k ? 'auto' : 'none', visibility: hi === k ? 'visible' : 'hidden', transitionDelay: hi === k ? '.15s' : '0s' });
+  const mediaStyle = (k) => ({ position: 'absolute', inset: 0, opacity: hi === k ? 1 : 0, transform: hi === k ? 'scale(1)' : 'scale(1.04)', transition: 'opacity .8s ease, transform 1.2s ease', zIndex: hi === k ? 2 : 1, pointerEvents: hi === k ? 'auto' : 'none' });
+  const hov = this.state.svcHover;
+  const svcCards = (list) => list.map((s, k) => {
+   const on = hov === k;
+   return { ...s,
+    onEnter: () => this.setState({ svcHover: k }),
+    onLeave: () => this.setState(st => st.svcHover === k ? { svcHover: null } : null),
+    imgStyle: { height: '100%', maxWidth: '100%', objectFit: 'contain', display: 'block', mixBlendMode: 'multiply', transform: on ? 'scale(1.06) translateY(-10px)' : 'scale(1)', transition: 'transform .5s cubic-bezier(.2,.7,.2,1)' },
+    ctaStyle: { position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 22px', boxSizing: 'border-box', background: '#C8102E', color: '#FAFBFC', fontSize: '14px', fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', clipPath: on ? 'inset(0 0 0 0)' : 'inset(0 100% 0 0)', visibility: on ? 'visible' : 'hidden', transition: on ? 'clip-path .55s cubic-bezier(.2,.8,.25,1), visibility 0s' : 'clip-path .35s ease, visibility 0s linear .35s' },
+    labelStyle: { fontSize: '17px', lineHeight: 1, opacity: on ? 1 : 0, transform: on ? 'translateX(0)' : 'translateX(-10px)', transition: on ? 'opacity .3s ease .25s, transform .4s ease .2s' : 'opacity .15s ease, transform .2s ease' }
+   };
+  });
+  const TESTIMONIALS = [
+   { quote: 'We are proud to partner with Top Vending. Their exceptional service has consistently exceeded our expectations, making them an integral part of our operations. Our relationship with Top Vending is more than just a client-supplier arrangement; it\u2019s a true partnership built on trust, mutual respect, and a shared vision for the future of Coffee Vending and service excellence. Their ability to seamlessly mobilize a large national contract went above and beyond our expectations, showcasing their professionalism and unmatched expertise. Top Vending\u2019s commitment to innovation, and customer-centric solutions sets them apart, and their alignment with our goals ensures we remain ahead of industry trends, delivering value to our customers every step of the way. We highly recommend Top Vending to anyone looking for a partner who truly understands their business needs and delivers with excellence.', name: 'Tsebo Beverage', role: 'MD' },
+   { quote: 'I have dealt with Shane and his Team from Top Vending for many years and can honestly say that their products and customer service is always outstanding and has never diminished over the many years that we have dealt with them. I have always felt that we as a company are important to them by the way that they look after us. Nothing is too much trouble when we request their help and they are professional at every level from the first enquiry through to the delivery of our machines to their after sales service.', name: 'Trish Steenfeldt-Kristensen', role: 'rewardsco' },
+   { quote: 'Top Coolers has been responsible for supplying and maintaining water coolers across our campus. We have found their service to be professional, reliable and consistently of a high standard. Their team has demonstrated excellent communication, responsiveness and a commitment to meeting agreed timelines and expectations. Some of the key strengths we have observed include; professional and courteous service, High-quality service delivery and maintenance, Reliability and responsiveness, Efficient turnaround times and support. Based on our experience, we would confidently recommend Top Coolers to any organisation seeking a dependable water cooler supplier and service provider.', name: 'Karabo Tlokotsi', role: 'Redhill School' },
+  ];
+  const ti = this.state.tIndex || 0;
+  const tOpen = !!this.state.tOpen;
+  const tCur = TESTIMONIALS[ti];
+  const tGo = (i) => this.setState({ tIndex: (i + TESTIMONIALS.length) % TESTIMONIALS.length, tOpen: false });
+  const tVals = {
+   tQuote: tCur.quote, tName: tCur.name, tRole: tCur.role,
+   tCanExpand: true,
+   tToggleLabel: tOpen ? 'Read less' : 'Read more',
+   tToggle: () => this.setState({ tOpen: !tOpen }),
+   tPrev: () => tGo(ti - 1), tNext: () => tGo(ti + 1),
+   tBodyStyle: { maxWidth: '1000px', paddingLeft: '0' },
+   tQuoteStyle: Object.assign({ fontFamily: "'Inter',sans-serif", fontStyle: 'italic', fontSize: '21px', lineHeight: 1.8, color: '#1C1C1A', margin: 0, textWrap: 'pretty' }, tOpen ? {} : { display: '-webkit-box', WebkitLineClamp: 4, WebkitBoxOrient: 'vertical', overflow: 'hidden' }),
+   tDots: TESTIMONIALS.map((_, k) => ({ label: 'Testimonial ' + (k + 1), onClick: () => tGo(k), style: { width: k === ti ? '42px' : '9px', height: '9px', borderRadius: '999px', border: 'none', padding: 0, cursor: 'pointer', background: k === ti ? '#C8102E' : '#D3D6DB', transition: 'width .3s ease, background .3s ease' } }))
+  };
+  const heroVals = {
+   slide0Copy: copyStyle(0), slide1Copy: copyStyle(1), slide2Copy: copyStyle(2),
+   slide0Media: mediaStyle(0), slide1Media: mediaStyle(1), slide2Media: mediaStyle(2),
+   heroPrev: () => this.heroGo(hi - 1),
+   heroNext: () => this.heroGo(hi + 1),
+   heroPause: () => { this.__heroPaused = true; },
+   heroResume: () => { this.__heroPaused = false; },
+   heroSegs: [0, 1, 2].map(k => ({ label: 'Go to slide ' + (k + 1), barRef: this.__heroBars[k], onClick: () => this.heroGo(k) })),
+   serviceCards: svcCards([
+    { num: '01', title: 'Vending Machines', body: 'Snack, cold drink, combo and smart fridge vending.', image: 'assets/hz87-cropped.png', href: 'Vending Machines.dc.html', cta: 'Explore Vending' },
+    { num: '02', title: 'Hot Beverage Solutions', body: 'Bean-to-cup, espresso and instant coffee machines.', image: 'assets/jettino-jl33.png', href: 'Hot Beverage Solutions.dc.html', cta: 'Explore Coffee' },
+    { num: '03', title: 'Water Solutions', body: 'Point-of-use and bottled water coolers.', image: 'assets/blutower.png', href: 'Water Solutions.dc.html', cta: 'Explore Water' },
+    { num: '04', title: 'Payment Solutions', body: 'Cashless, cash and telemetry devices.', image: 'assets/payment/vpos-touch.png', href: 'Payment Solutions.dc.html', cta: 'Explore Payments' },
+    { num: '05', title: 'Recycling', body: 'Compactors and recycling stations.', image: 'assets/tritech-compactor.png', href: 'Recycling.dc.html', cta: 'Explore Recycling' }
+   ])
+  };
+  const cols = this.props.productGridColumns === '3' ? 3 : 2;
+  const sticky = this.props.filterBarSticky
+   ? 'position:sticky;top:96px;background:#FAFBFC;z-index:5;padding:12px 0;'
+   : '';
+
+  const filters = FILTER_LABELS.map(label => {
+   const active = this.state.activeFilter === label;
+   return {
+    label,
+    onClick: () => this.setState({ activeFilter: label, visibleCount: 9 }),
+    style: `padding:10px 22px;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;border:1px solid ${active ? '#1C1C1A' : '#D3D7DD'};background:${active ? '#1C1C1A' : 'transparent'};color:${active ? '#FAFBFC' : '#1C1C1A'};font-family:'Inter',sans-serif;`,
+   };
+  });
+
+  const base = this.state.activeFilter === 'All'
+   ? PRODUCTS
+   : PRODUCTS.filter(p => p.category === this.state.activeFilter);
+  const hasMore = base.length > this.state.visibleCount;
+  const visible = base.slice(0, this.state.visibleCount);
+  const products = visible.map(p => ({
+   ...p,
+   imgRef: (el) => { if (el) el.src = 'assets/hz87-cropped.png'; },
+   imageDisplay: 'block',
+   iconDisplay: 'none',
+   onOpen: () => this.setState({ selectedProduct: p }),
+   stopPropagation: (e) => e.stopPropagation(),
+  }));
+
+  const open = this.state.productsMenu;
+  const categoryLinks = FILTER_LABELS.filter(l => l !== 'All').map(label => ({
+   label,
+   href: label + '.dc.html',
+   onClick: () => this.setState({ productsMenu: false }),
+  }));
+
+  const BLURBS = {
+   'Vending Machines': 'Snack, drink and combo machines with dual-temperature zones, refrigeration and capacities from 160 to 312 items.',
+   'Hot Beverage Solutions': 'Bean-to-cup, fresh brew and instant machines with fresh milk, touchscreen selection and fully customisable drinks.',
+   'Water Solutions': 'Plumbed-in and under-counter coolers serving cold, ambient and sparkling water with UVC purification and filtration.',
+   'Payment Solutions': 'Cashless, card and mobile payment systems with real-time reporting that retrofit to your existing machines.',
+   'Recycling': 'Automatic cup shredding and bottle compacting stations that cut waste volume by up to 7x, with an incentive reward system.',
+  };
+  const categoryCards = categoryLinks.map(c => ({
+   ...c,
+   blurb: BLURBS[c.label],
+   onClick: () => { window.location.href = c.label + '.dc.html'; },
+   imgRef: (el) => { if (el && CATEGORY_IMAGES[c.label]) el.src = CATEGORY_IMAGES[c.label]; },
+   imgStyle: CATEGORY_IMAGES[c.label]
+    ? 'width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.05) saturate(1.03) brightness(0.9);'
+    : 'display:none;',
+   placeholderStyle: CATEGORY_IMAGES[c.label]
+    ? 'display:none;'
+    : "font-size:12px;letter-spacing:2px;text-align:center;text-indent:2px;white-space:nowrap;text-transform:uppercase;color:rgba(250,250,248,0.4);font-weight:600;font-family:'Inter',sans-serif;",
+  }));
+
+  const mobileOpen = !!this.state.mobileMenu;
+  return {
+   ...heroVals,
+   ...tVals,
+   whatWeDo: [
+    { number: '01', title: 'Supply', body: '', bullets: ['Snack & Can Vending', 'Hot Beverage Solutions', 'Water Solutions', 'Recycling Solutions', 'Payment Solutions'], href: 'Products.dc.html' },
+    { number: '02', title: 'Rental Or Purchase', body: 'Fully maintained rental agreements with consumables supply available on request.', bullets: [], href: 'Rentals.dc.html' },
+    { number: '03', title: 'Service - No Third Parties Involved', body: '', bullets: ['Installation', 'Offer In-House Training', 'Maintenance', 'Service Calls'], href: 'Contact.dc.html#type=service' },
+    { number: '04', title: 'Ingredients & Consumables', body: 'Coffee, tea, sugar, cups and cleaning consumables delivered to site.', bullets: [], href: 'Consumables.dc.html' },
+   ].map(w => ({ ...w, hasBody: !!w.body })),
+   marqueeCustomers: (() => {
+    const CUSTOMERS = [
+     { name: 'Tsebo Beverages', logo: 'assets/customers/norm-tsebo-beverages.png' },
+     { name: 'Bidvest Catering Services', logo: 'assets/customers/norm-bidvest-catering.png' },
+     { name: 'Nedbank', logo: 'assets/customers/norm-nedbank.png' },
+     { name: 'Tsogo Sun', logo: 'assets/customers/norm-tsogo-sun.png' },
+     { name: 'Feedem', logo: 'assets/customers/norm-feedem.png' },
+     { name: 'OUTsurance', logo: 'assets/customers/norm-outsurance.png' },
+     { name: 'RMB', logo: 'assets/customers/norm-rmb.png' },
+     { name: 'Tsebo', logo: 'assets/customers/norm-tsebo.png' },
+     { name: 'Empact Group', logo: 'assets/customers/norm-empact-group.png' },
+     { name: 'Sun International', logo: 'assets/customers/norm-sun-international.png' },
+     { name: 'Sage', logo: 'assets/customers/norm-sage.png' },
+     { name: 'Bidvest Facilities Management', logo: 'assets/customers/norm-bidvest-facilities.png' },
+    ];
+    return CUSTOMERS.concat(CUSTOMERS).map(c => ({ ...c, imgRef: (el) => { if (el) el.src = c.logo; } }));
+   })(),
+   rangesRail: (el) => { this.__rangesRail = el; },
+   rangesPrev: () => { if (this.__rangesRail) this.__rangesRail.scrollBy({ left: -320, behavior: 'smooth' }); },
+   rangesNext: () => { if (this.__rangesRail) this.__rangesRail.scrollBy({ left: 320, behavior: 'smooth' }); },
+   toggleMobileMenu: () => this.setState({ mobileMenu: !mobileOpen }),
+   closeMobileMenu: () => this.setState({ mobileMenu: false }),
+   mobileToggleStyle: "display:none;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;border:1px solid #E1E4E8;background:#FFFFFF;cursor:pointer;flex-shrink:0;padding:0;",
+   mobileMenuStyle: mobileOpen
+    ? "position:fixed;top:88px;left:12px;right:12px;background:#FFFFFF;border:1px solid #E1E4E8;border-radius:20px;box-shadow:0 22px 50px rgba(0,0,0,0.18);padding:12px;z-index:120;display:flex;flex-direction:column;gap:2px;max-height:calc(100vh - 110px);overflow:auto;box-sizing:border-box;"
+    : "display:none;",
+   mobileNavLinks: [
+    { label: 'About', href: 'About.dc.html' },
+    { label: 'Vending Machines', href: 'Vending Machines.dc.html' },
+    { label: 'Hot Beverage Solutions', href: 'Hot Beverage Solutions.dc.html' },
+    { label: 'Water Solutions', href: 'Water Solutions.dc.html' },
+    { label: 'Payment Solutions', href: 'Payment Solutions.dc.html' },
+    { label: 'Recycling Solutions', href: 'Recycling.dc.html' },
+    { label: 'Clients', href: 'Clients.dc.html' },
+    { label: 'Blog', href: 'Blog.dc.html' },
+    { label: 'Contact', href: 'Contact.dc.html' },
+    { label: 'Rentals', href: 'Rentals.dc.html' },
+    { label: 'Consumables', href: 'Consumables.dc.html' },
+   ],
+   posts: [
+    { category: 'Coffee Vending', title: 'Arabica or robusta for commercial coffee machines', excerpt: 'If you\u2019re a coffee lover or a business owner looking to invest in commercial coffee...', image: 'assets/blog-coffee.jpg' },
+    { category: 'Vending Machines', title: 'Convenience at your fingertips with Top Vending', excerpt: 'Vending machines have been a popular fixture in public spaces for decades. From airports and...', image: 'assets/blog-payment.jpg' },
+    { category: 'Business', title: 'Renting vs. Buying', excerpt: 'In today\u2019s economic climate coupled with the negative impact that COVID and load shedding has...', image: 'assets/blog-rent.jpg', fit: 'contain' },
+   ].map(p => ({
+    ...p,
+    imgRef: (el) => { if (el) el.src = p.image; },
+    imgStyle: p.fit === 'contain'
+     ? 'width:100%;height:100%;object-fit:contain;display:block;background:#1C1C1A;'
+     : 'width:100%;height:100%;object-fit:cover;display:block;',
+   })),
+   categoryCards,
+   categoryLinks,
+   openContactMenu: () => this.setState({ contactMenu: true }),
+   closeContactMenu: () => this.setState({ contactMenu: false }),
+   contactMenuStyle: `position:absolute;top:100%;right:-14px;padding-top:26px;min-width:210px;opacity:${this.state.contactMenu ? 1 : 0};transform:translateY(${this.state.contactMenu ? '0' : '-6px'});pointer-events:${this.state.contactMenu ? 'auto' : 'none'};transition:opacity .18s ease, transform .18s ease;`,
+   openProductsMenu: () => this.setState({ productsMenu: true }),
+   closeProductsMenu: () => this.setState({ productsMenu: false }),
+   productsMenuStyle: `position:absolute;top:100%;left:-14px;padding-top:26px;min-width:220px;opacity:${open ? 1 : 0};transform:translateY(${open ? '0' : '-6px'});pointer-events:${open ? 'auto' : 'none'};transition:opacity .18s ease, transform .18s ease;`,
+   hasMore,
+   isEmpty: base.length === 0,
+   showMore: () => this.setState({ visibleCount: this.state.visibleCount + 9 }),
+   selectedProduct: this.state.selectedProduct ? {
+    ...this.state.selectedProduct,
+    imgRef: (el) => { if (el) el.src = 'assets/hz87-cropped.png'; },
+    imageDisplay: 'block',
+    iconDisplay: 'none',
+   } : null,
+   closeDetail: () => this.setState({ selectedProduct: null }),
+   filters,
+   products,
+   gridColStyle: `grid-template-columns:repeat(${cols},1fr);`,
+   filterBarStickyStyle: sticky,
+   stats: [
+    { value: '30+', label: 'Years in Business' },
+    { value: '3', label: 'National Hubs' },
+    { value: '100+', label: 'Active Clients' },
+    { value: '4', label: 'Exclusive Brands' },
+   ],
+   steps: [
+    { number: '01', title: 'Choose Your Machine' },
+    { number: '02', title: 'Rental or Purchase' },
+    { number: '03', title: 'Full Aftersales Support' },
+   ],
+   editorialIcons: [
+    { variant: 'default' }, { variant: 'accent' }, { variant: 'default' }, { variant: 'accent' },
+   ],
+   clients: [
+    { name: 'Evoca Group', logo: 'assets/clients/norm-client1.png' },
+    { name: 'Vendon', logo: 'assets/clients/norm-client2.png' },
+    { name: 'Ascaso', logo: 'assets/clients/norm-client3.png' },
+    { name: 'Waterlogic', logo: 'assets/clients/norm-client4.png' },
+    { name: 'Azkoyen Group', logo: 'assets/clients/norm-client5.png' },
+    { name: 'Coges', logo: 'assets/clients/norm-client6.png' },
+    { name: 'Jofemar', logo: 'assets/clients/norm-client7.png' },
+    { name: 'Nayax', logo: 'assets/clients/norm-client8.png' },
+   ].map(c => ({ ...c, imgRef: (el) => { if (el) el.src = c.logo; } })),
+   marqueeClients: [
+    { name: 'Evoca Group', logo: 'assets/clients/norm-client1.png' },
+    { name: 'Vendon', logo: 'assets/clients/norm-client2.png' },
+    { name: 'Ascaso', logo: 'assets/clients/norm-client3.png' },
+    { name: 'Waterlogic', logo: 'assets/clients/norm-client4.png' },
+    { name: 'Azkoyen Group', logo: 'assets/clients/norm-client5.png' },
+    { name: 'Coges', logo: 'assets/clients/norm-client6.png' },
+    { name: 'Jofemar', logo: 'assets/clients/norm-client7.png' },
+    { name: 'Nayax', logo: 'assets/clients/norm-client8.png' },
+    { name: 'Evoca Group', logo: 'assets/clients/norm-client1.png' },
+    { name: 'Vendon', logo: 'assets/clients/norm-client2.png' },
+    { name: 'Ascaso', logo: 'assets/clients/norm-client3.png' },
+    { name: 'Waterlogic', logo: 'assets/clients/norm-client4.png' },
+    { name: 'Azkoyen Group', logo: 'assets/clients/norm-client5.png' },
+    { name: 'Coges', logo: 'assets/clients/norm-client6.png' },
+    { name: 'Jofemar', logo: 'assets/clients/norm-client7.png' },
+    { name: 'Nayax', logo: 'assets/clients/norm-client8.png' },
+   ].map(c => ({ ...c, imgRef: (el) => { if (el) el.src = c.logo; } })),
+   rentalTags: [
+    'Maintenance Included',
+    'Consumables Available',
+    'Dedicated Aftersales Team',
+    '3 Hubs · National Coverage',
+   ],
+  };
+ }
+}
+</script>
+</body>
+</html>
