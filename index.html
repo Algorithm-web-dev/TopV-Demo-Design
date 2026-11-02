@@ -52,7 +52,7 @@
 <div style="font-family:'Inter',sans-serif;color:#1C1C1A;background:#FAFBFC;overflow-x:hidden;">
 
  <nav style="position:fixed;top:20px;left:24px;right:24px;height:72px;background:rgba(250,250,248,0.88);backdropFilter:blur(18px);WebkitBackdropFilter:blur(18px);border:1px solid rgba(255,255,255,0.5);box-shadow:0 10px 30px rgba(0,0,0,0.08);border-radius:999px;display:flex;align-items:center;justify-content:space-between;gap:32px;padding:0 28px;z-index:100;box-sizing:border-box;">
-  <a href="index.html" style="display:flex;align-items:center;flex:0 1 auto;width:100%;max-width:190px;min-width:90px;height:52px;"><img src="assets/logo-30.png" alt="Top Vending" style="height:100%;width:100%;object-fit:contain;object-position:left center;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.18));" /></a>
+  <a href="index.html" style="display:flex;align-items:center;flex:0 1 auto;width:100%;max-width:190px;min-width:90px;height:52px;"><img src="assets/tv-logo.svg" alt="Top Vending" style="height:100%;width:100%;object-fit:contain;object-position:left center;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.18));" /></a>
   <div style="display:flex;align-items:center;gap:40px;">
    <div data-nav-links="1" style="display:flex;gap:32px;font-size:14px;">
     <a href="About.dc.html" style="color:#1C1C1A;white-space:nowrap;" style-hover="color:#C8102E;">About</a>
@@ -103,53 +103,24 @@
   <a href="Contact.dc.html#quote" onClick="{{ closeMobileMenu }}" style="display:block;margin-top:8px;text-align:center;background:#C8102E;color:#FAFBFC;padding:14px 20px;border-radius:999px;font-size:14px;font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Get a Quote</a>
  </div>
 
- <section data-hc-section="1" data-screen-label="Hero carousel" onMouseEnter="{{ heroPause }}" onMouseLeave="{{ heroResume }}" style="position:relative;height:calc(100vh - 92px);min-height:420px;overflow:hidden;background:#0B1426;color:#FAFBFC;box-sizing:border-box;">
+ <section data-hc-section="1" data-screen-label="Hero" style="position:relative;height:calc(100vh - 92px);min-height:420px;overflow:hidden;background:#0B1426;color:#FAFBFC;box-sizing:border-box;">
   <div style="position:absolute;inset:0;">
-   <div style="{{ slide0Media }}"><image-slot id="hero-service-vending" shape="rect" src="assets/hero-vending-v2.jpg" placeholder="Drop the Vending Machines image"></image-slot></div>
-   <div style="{{ slide1Media }}"><image-slot id="hero-service-coffee" shape="rect" src="assets/hero-coffee-1920.jpg" placeholder="Drop the Hot Beverage image"></image-slot></div>
-   <div style="{{ slide2Media }}"><image-slot id="hero-service-water" shape="rect" src="assets/hero-water-1920.jpg" placeholder="Drop the Water Solutions image"></image-slot></div>
+   <div style="position:absolute;inset:0;"><image-slot id="hero-main-v2" shape="rect" src="assets/hero-main-v2.jpg" placeholder="Drop the hero image"></image-slot></div>
    <div style="position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(90deg, rgba(11,20,38,0.9) 0%, rgba(11,20,38,0.7) 34%, rgba(11,20,38,0.15) 66%, rgba(11,20,38,0) 100%), linear-gradient(180deg, rgba(11,20,38,0.45) 0%, rgba(11,20,38,0) 28%);"></div>
-   <div style="position:absolute;inset:0;z-index:4;pointer-events:none;display:flex;align-items:center;padding-top:72px;box-sizing:border-box;">
-    <div data-hc-inner="1" style="width:100%;padding:0 clamp(24px,3.6vw,96px);box-sizing:border-box;display:grid;">
-     <div style="{{ slide0Copy }}">
-      <div style="border-left:3px solid #C8102E;padding-left:clamp(20px,1.6vw,36px);max-width:clamp(440px,34vw,760px);">
-       <div style="font-size:clamp(12px,0.8vw,16px);letter-spacing:2px;text-transform:uppercase;color:#D9D9D5;font-weight:600;margin-bottom:clamp(14px,1.1vw,22px);">Vending Machines</div>
-       <h1 data-hero="1" data-hc-title="1" style="font-weight:700;font-size:clamp(1.9rem,2.9vw,4.25rem);line-height:1.06;letter-spacing:-0.03em;text-wrap:balance;margin:0 0 16px;color:#FAFBFC;">Snack and Drink Vending, <em style="font-style:normal;color:#C8102E;">Fully Supported</em></h1>
-       <p style="font-size:clamp(16px,1.05vw,21px);line-height:1.6;color:#D9D9D5;max-width:30em;margin:0 0 clamp(24px,2vw,40px);text-wrap:pretty;">Snack, cold drink, combo and smart fridge machines. We are the exclusive distributor and look after every machine we supply, nationwide.</p>
-       <div style="display:flex;gap:14px;flex-wrap:wrap;"><a href="Vending Machines.dc.html" style="background:#C8102E;color:#FAFBFC;padding:clamp(14px,0.95vw,20px) clamp(28px,1.9vw,40px);border-radius:999px;font-size:clamp(15px,0.9vw,18px);font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Explore Vending</a><a href="Contact.dc.html" style="border:1.5px solid #FAFBFC;color:#FAFBFC;padding:clamp(14px,0.95vw,20px) clamp(28px,1.9vw,40px);border-radius:999px;font-size:clamp(15px,0.9vw,18px);font-weight:600;" style-hover="border-color:#C8102E;color:#C8102E;">Get a Free Quote</a></div>
-      </div>
+   <div style="position:absolute;inset:0;z-index:4;display:flex;align-items:center;padding-top:72px;box-sizing:border-box;">
+    <div data-hc-inner="1" style="width:100%;padding:0 clamp(24px,3.6vw,96px);box-sizing:border-box;">
+     <div style="border-left:3px solid #C8102E;padding-left:clamp(20px,1.6vw,36px);max-width:clamp(440px,38vw,820px);">
+      <div style="font-size:clamp(12px,0.8vw,16px);letter-spacing:2px;text-transform:uppercase;color:#D9D9D5;font-weight:600;margin-bottom:clamp(14px,1.1vw,22px);">South Africa's Largest Workplace Solutions Company</div>
+      <h1 data-hero="1" data-hc-title="1" style="font-weight:700;font-size:clamp(1.9rem,2.9vw,4.25rem);line-height:1.06;letter-spacing:-0.03em;text-wrap:balance;margin:0 0 16px;color:#FAFBFC;">3 Solutions. <em style="font-style:normal;color:#C8102E;">1 Partner.</em><br>Trusted for Over 30 Years</h1>
+      <p style="font-size:clamp(16px,1.05vw,21px);line-height:1.6;color:#D9D9D5;max-width:30em;margin:0 0 clamp(24px,2vw,40px);text-wrap:pretty;">Premium hot beverage, snack, cold drink and water cooler machines, exclusively distributed and fully supported, nationwide.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;"><a href="Contact.dc.html" style="background:#C8102E;color:#FAFBFC;padding:clamp(14px,0.95vw,20px) clamp(28px,1.9vw,40px);border-radius:999px;font-size:clamp(15px,0.9vw,18px);font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Get a Quote</a><a href="Products.dc.html" style="border:1.5px solid #FAFBFC;color:#FAFBFC;padding:clamp(14px,0.95vw,20px) clamp(28px,1.9vw,40px);border-radius:999px;font-size:clamp(15px,0.9vw,18px);font-weight:600;" style-hover="border-color:#C8102E;color:#C8102E;">Explore Products</a></div>
      </div>
-     <div style="{{ slide1Copy }}">
-      <div style="border-left:3px solid #C8102E;padding-left:clamp(20px,1.6vw,36px);max-width:clamp(440px,34vw,760px);">
-       <div style="font-size:clamp(12px,0.8vw,16px);letter-spacing:2px;text-transform:uppercase;color:#D9D9D5;font-weight:600;margin-bottom:clamp(14px,1.1vw,22px);">Hot Beverage Solutions</div>
-       <h2 data-hc-title="1" style="font-weight:700;font-size:clamp(1.9rem,2.9vw,4.25rem);line-height:1.06;letter-spacing:-0.03em;text-wrap:balance;margin:0 0 16px;color:#FAFBFC;">Great Coffee on <em style="font-style:normal;color:#C8102E;">Every Floor</em></h2>
-       <p style="font-size:clamp(16px,1.05vw,21px);line-height:1.6;color:#D9D9D5;max-width:30em;margin:0 0 clamp(24px,2vw,40px);text-wrap:pretty;">Bean to cup, espresso and instant coffee machines for offices, hospitality and self service. Our own technicians install and service every machine.</p>
-       <div style="display:flex;gap:14px;flex-wrap:wrap;"><a href="Hot Beverage Solutions.dc.html" style="background:#C8102E;color:#FAFBFC;padding:clamp(14px,0.95vw,20px) clamp(28px,1.9vw,40px);border-radius:999px;font-size:clamp(15px,0.9vw,18px);font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Explore Coffee</a><a href="Contact.dc.html" style="border:1.5px solid #FAFBFC;color:#FAFBFC;padding:clamp(14px,0.95vw,20px) clamp(28px,1.9vw,40px);border-radius:999px;font-size:clamp(15px,0.9vw,18px);font-weight:600;" style-hover="border-color:#C8102E;color:#C8102E;">Get a Free Quote</a></div>
-      </div>
-     </div>
-     <div style="{{ slide2Copy }}">
-      <div style="border-left:3px solid #C8102E;padding-left:clamp(20px,1.6vw,36px);max-width:clamp(440px,34vw,760px);">
-       <div style="font-size:clamp(12px,0.8vw,16px);letter-spacing:2px;text-transform:uppercase;color:#D9D9D5;font-weight:600;margin-bottom:clamp(14px,1.1vw,22px);">Water Solutions</div>
-       <h2 data-hc-title="1" style="font-weight:700;font-size:clamp(1.9rem,2.9vw,4.25rem);line-height:1.06;letter-spacing:-0.03em;text-wrap:balance;margin:0 0 16px;color:#FAFBFC;">Chilled, Filtered Water <em style="font-style:normal;color:#C8102E;">On Tap</em></h2>
-       <p style="font-size:clamp(16px,1.05vw,21px);line-height:1.6;color:#D9D9D5;max-width:30em;margin:0 0 clamp(24px,2vw,40px);text-wrap:pretty;">Mains fed and bottled water coolers for any size of workplace. We change the filters and sanitise the machines on a set schedule.</p>
-       <div style="display:flex;gap:14px;flex-wrap:wrap;"><a href="Water Solutions.dc.html" style="background:#C8102E;color:#FAFBFC;padding:clamp(14px,0.95vw,20px) clamp(28px,1.9vw,40px);border-radius:999px;font-size:clamp(15px,0.9vw,18px);font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Explore Water</a><a href="Contact.dc.html" style="border:1.5px solid #FAFBFC;color:#FAFBFC;padding:clamp(14px,0.95vw,20px) clamp(28px,1.9vw,40px);border-radius:999px;font-size:clamp(15px,0.9vw,18px);font-weight:600;" style-hover="border-color:#C8102E;color:#C8102E;">Get a Free Quote</a></div>
-      </div>
-     </div>
-    </div>
-   </div>
-   <button data-hc-arrow="1" aria-label="Previous" onClick="{{ heroPrev }}" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);z-index:5;width:48px;height:48px;border-radius:50%;border:none;background:transparent;color:#FAFBFC;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;" style-hover="background:rgba(250,251,252,0.14);"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="14,4 7,11 14,18"></polyline></svg></button>
-   <button data-hc-arrow="1" aria-label="Next" onClick="{{ heroNext }}" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);z-index:5;width:48px;height:48px;border-radius:50%;border:none;background:transparent;color:#FAFBFC;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;" style-hover="background:rgba(250,251,252,0.14);"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="8,4 15,11 8,18"></polyline></svg></button>
-   <div style="position:absolute;left:0;right:0;bottom:28px;z-index:5;display:flex;justify-content:center;pointer-events:none;">
-    <div style="display:flex;gap:10px;pointer-events:auto;">
-     <sc-for list="{{ heroSegs }}" as="g" hint-placeholder-count="3">
-      <button aria-label="{{ g.label }}" onClick="{{ g.onClick }}" style="width:64px;height:20px;padding:9px 0;border:none;background:transparent;cursor:pointer;box-sizing:border-box;"><span style="display:block;height:2px;background:rgba(250,251,252,0.35);position:relative;overflow:hidden;"><span ref="{{ g.barRef }}" style="position:absolute;left:0;top:0;bottom:0;width:0;background:#C8102E;"></span></span></button>
-     </sc-for>
     </div>
    </div>
   </div>
  </section>
 
- <section id="clients" style="background:#0B1426;border-top:1px solid rgba(250,251,252,0.06);padding:26px 0;box-sizing:border-box;overflow:hidden;">
+ <section id="clients" style="background:#1C1C1A;border-top:1px solid rgba(250,251,252,0.06);padding:26px 0;box-sizing:border-box;overflow:hidden;">
   <div style="display:flex;width:max-content;animation:logoMarquee 28s linear infinite;">
    <sc-for list="{{ marqueeClients }}" as="c" hint-placeholder-count="16">
     <div style="width:140px;height:40px;flex-shrink:0;margin-right:40px;display:flex;align-items:center;justify-content:center;">
@@ -299,10 +270,10 @@
       <span style="display:inline-flex;align-items:center;gap:8px;background:#C8102E;color:#FAFBFC;padding:15px 30px;border-radius:999px;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Contact Us <span style="font-size:13px;">→</span></span>
      </div>
     </div>
-    <div data-home-cta-imgs="1" style="position:relative;z-index:1;display:flex;align-items:flex-end;gap:14px;height:220px;">
-     <img src="assets/cta-vending.png" alt="" loading="lazy" style="height:100%;width:auto;max-width:140px;object-fit:contain;display:block;filter:drop-shadow(0 12px 22px rgba(0,0,0,0.4));" />
-     <img src="assets/wl7.png" alt="" loading="lazy" style="height:92%;width:auto;max-width:110px;object-fit:contain;display:block;filter:drop-shadow(0 12px 22px rgba(0,0,0,0.4));" />
-     <img src="assets/cta-coffee.png" alt="" loading="lazy" style="height:58%;width:auto;max-width:170px;object-fit:contain;display:block;filter:drop-shadow(0 12px 22px rgba(0,0,0,0.4));" />
+    <div data-home-cta-imgs="1" style="position:relative;z-index:1;display:flex;align-items:flex-end;gap:4px;height:220px;">
+     <img src="assets/cta-vending-trim.png" alt="" loading="lazy" style="height:100%;width:auto;max-width:140px;object-fit:contain;display:block;filter:drop-shadow(0 12px 22px rgba(0,0,0,0.4));" />
+     <img src="assets/cta-water-trim.png" alt="" loading="lazy" style="height:90%;width:auto;max-width:120px;object-fit:contain;display:block;filter:drop-shadow(0 12px 22px rgba(0,0,0,0.4));" />
+     <img src="assets/cta-gaggia-trim.png" alt="" loading="lazy" style="height:62%;width:auto;max-width:170px;object-fit:contain;display:block;filter:drop-shadow(0 12px 22px rgba(0,0,0,0.4));" />
     </div>
    </a>
   </div>
@@ -312,7 +283,7 @@
   <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto;">
    <div>
     <div style="margin-bottom:16px;">
-     <a href="index.html" style="display:inline-block;"><img src="assets/logo-30.png" alt="Top Vending" style="height:34px;object-fit:contain;" /></a>
+     <a href="index.html" style="display:inline-block;"><img src="assets/tv-logo.svg" alt="Top Vending" style="height:34px;object-fit:contain;" /></a>
     </div>
     <p style="font-family:'Inter',sans-serif;font-size:14px;color:#6B6B68;line-height:1.6;margin:0 0 20px;max-width:280px;">Vending, coffee and water for South African workplaces. Since 1991.</p>
     <div style="display:flex;">
@@ -342,9 +313,9 @@
     <div style="font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#1C1C1A;font-weight:700;margin-bottom:18px;">Support</div>
     <div style="display:flex;flex-direction:column;gap:12px;font-size:14px;color:#6B6B68;">
      <div style="color:#1C1C1A;font-weight:600;">0861 100 185</div>
-     <div>Johannesburg</div>
-     <div>Cape Town</div>
-     <div>Durban</div>
+     <div style="display:flex;flex-direction:column;gap:2px;"><span style="color:#1C1C1A;font-weight:600;">Johannesburg (HQ)</span><a href="https://www.google.com/maps/search/?api=1&amp;query=2%20Lyn%20Road%2C%20Ferndale%2C%20Randburg%2C%202169%2C%20South%20Africa" target="_blank" rel="noopener" style="line-height:1.5;color:inherit;text-decoration:underline;text-decoration-color:rgba(200,16,46,0.35);text-underline-offset:3px;" style-hover="color:#C8102E;">2 Lyn Road, Ferndale, Randburg, 2169</a></div>
+     <div style="display:flex;flex-direction:column;gap:2px;"><span style="color:#1C1C1A;font-weight:600;">Durban</span><a href="https://www.google.com/maps/search/?api=1&amp;query=28%20Springfield%20Industrial%20Park%2C%209%20Mahoganyfield%20Way%2C%20Springfield%2C%204051%2C%20South%20Africa" target="_blank" rel="noopener" style="line-height:1.5;color:inherit;text-decoration:underline;text-decoration-color:rgba(200,16,46,0.35);text-underline-offset:3px;" style-hover="color:#C8102E;">28 Springfield Industrial Park, 9 Mahoganyfield Way, Springfield, 4051</a></div>
+     <div style="display:flex;flex-direction:column;gap:2px;"><span style="color:#1C1C1A;font-weight:600;">Cape Town</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Unit%20B28%2F29%20Pinelands%20Business%20Park%2C%20New%20Mill%20Street%2C%20Pinelands%2C%207405%2C%20South%20Africa" target="_blank" rel="noopener" style="line-height:1.5;color:inherit;text-decoration:underline;text-decoration-color:rgba(200,16,46,0.35);text-underline-offset:3px;" style-hover="color:#C8102E;">Unit B28/29 Pinelands Business Park, New Mill Street, Pinelands, 7405</a></div>
     </div>
    </div>
   </div>
@@ -377,11 +348,6 @@ const PRODUCTS = [
   description: 'Our premium combo vending machine adds a selective belt system for multi-purpose use, refrigeration and full payment support, 40 drink items, 160 snack items and 20 sandwiches/wraps, 220 items in total.',
   tags: ['Selective Belt System', 'Multi-Purpose Use', 'Refrigerated'],
   specs: [{ label: 'Capacity', value: '220 items total' }, { label: 'Payment', value: 'Full Payment Support' }, { label: 'Dimensions (WxDxH)', value: '888 x 840 x 1830mm' }] },
- { name: 'CV1000', category: 'Vending Machines', variant: 'accent', image: 'assets/cv1000-v2.png',
-  tagline: 'Combo Vending Machine',
-  description: 'A dual-temperature combo vending machine with full payment support, refrigeration and MDB compatibility, 144 drink items and 168 snack items, 312 items in total.',
-  tags: ['Dual Temperature Zones', 'Refrigerated', 'MDB Compatible'],
-  specs: [{ label: 'Capacity', value: '312 items total' }, { label: 'Payment', value: 'Full Payment Support' }, { label: 'Dimensions (WxDxH)', value: '925 x 820 x 1830mm' }] },
  { name: 'CV4000 with Touchscreen', category: 'Vending Machines', variant: 'default',
   tagline: 'Combo Vending Machine with Cart Functionality',
   description: 'Adds cart functionality and a full touchscreen to the combo range, with dual temperature zones, refrigeration and MDB compatibility, 144 drink items and 168 snack items, 312 items in total. Cashless only.',
@@ -392,16 +358,6 @@ const PRODUCTS = [
   description: 'An elevator belt system for big-size multi-product dispensing, with full payment support, refrigeration, temperature control and expiry date tracking, channels can be blocked once expiry date is reached.',
   tags: ['Elevator Belt System', 'Expiry Date Tracking', 'Refrigerated'],
   specs: [{ label: 'Function', value: 'Multi-Product Dispensing' }, { label: 'Payment', value: 'Full Payment Support' }, { label: 'Dimensions (WxDxH)', value: '1120 x 820 x 1870mm' }] },
- { name: 'Smart Fridge', category: 'Vending Machines', variant: 'default',
-  tagline: 'Smart Fresh Food Fridge',
-  description: 'A weight-sensing smart fridge for fresh products, open the door, make a selection, close the door and enjoy. Cashless only, MDB compatible.',
-  tags: ['Weight Sensing Plate', 'Cashless Only', 'Refrigerated'],
-  specs: [{ label: 'Function', value: 'Fresh Products' }, { label: 'Payment', value: 'Cashless Only' }, { label: 'Dimensions (WxDxH)', value: '670 x 550 x 1830mm' }] },
- { name: 'Smart Freezer', category: 'Vending Machines', variant: 'accent',
-  tagline: 'Smart Frozen Food Freezer',
-  description: 'A weight-sensing smart freezer for frozen products, open the door, make a selection, close the door and enjoy. Cashless only, MDB compatible.',
-  tags: ['Weight Sensing Plate', 'Cashless Only', 'Refrigerated'],
-  specs: [{ label: 'Function', value: 'Frozen Products' }, { label: 'Payment', value: 'Cashless Only' }, { label: 'Dimensions (WxDxH)', value: '670 x 550 x 1830mm' }] },
 ];
 
 const PRODUCTS_COFFEE = [
@@ -541,7 +497,6 @@ class Component extends DCLogic {
  }
 
  componentDidMount() {
-  this.heroLoop();
   if (this.__anim) return;
   this.__anim = true;
 
@@ -679,10 +634,10 @@ class Component extends DCLogic {
    heroResume: () => { this.__heroPaused = false; },
    heroSegs: [0, 1, 2].map(k => ({ label: 'Go to slide ' + (k + 1), barRef: this.__heroBars[k], onClick: () => this.heroGo(k) })),
    serviceCards: svcCards([
-    { num: '01', title: 'Vending Machines', body: 'Snack, cold drink, combo and smart fridge vending.', image: 'assets/hz87-cropped.png', href: 'Vending Machines.dc.html', cta: 'Explore Vending' },
-    { num: '02', title: 'Hot Beverage Solutions', body: 'Bean-to-cup, espresso and instant coffee machines.', image: 'assets/jettino-jl33.png', href: 'Hot Beverage Solutions.dc.html', cta: 'Explore Coffee' },
-    { num: '03', title: 'Water Solutions', body: 'Point-of-use and bottled water coolers.', image: 'assets/blutower.png', href: 'Water Solutions.dc.html', cta: 'Explore Water' },
-    { num: '04', title: 'Payment Solutions', body: 'Cashless, cash and telemetry devices.', image: 'assets/payment/vpos-touch.png', href: 'Payment Solutions.dc.html', cta: 'Explore Payments' },
+    { num: '01', title: 'Vending Machines', body: 'Snack, cold drink, combo and smart fridge vending.', image: 'assets/vending-service.png', href: 'Vending Machines.dc.html', cta: 'Explore Vending' },
+    { num: '02', title: 'Hot Beverage Solutions', body: 'Bean-to-cup, espresso and instant coffee machines.', image: 'assets/hot-bev-service-v2.png', href: 'Hot Beverage Solutions.dc.html', cta: 'Explore Coffee' },
+    { num: '03', title: 'Water Solutions', body: 'Point-of-use and bottled water coolers.', image: 'assets/water-service.png', href: 'Water Solutions.dc.html', cta: 'Explore Water' },
+    { num: '04', title: 'Payment Solutions', body: 'Cashless, cash and telemetry devices.', image: 'assets/payment-service.png', href: 'Payment Solutions.dc.html', cta: 'Explore Payments' },
     { num: '05', title: 'Recycling', body: 'Compactors and recycling stations.', image: 'assets/tritech-compactor.png', href: 'Recycling.dc.html', cta: 'Explore Recycling' }
    ])
   };
