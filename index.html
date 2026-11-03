@@ -277,10 +277,10 @@
       <span style="display:inline-flex;align-items:center;gap:8px;background:#C8102E;color:#FAFBFC;padding:15px 30px;border-radius:999px;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Contact Us <span style="font-size:13px;">→</span></span>
      </div>
     </div>
-    <div data-home-cta-imgs="1" style="position:relative;z-index:1;display:flex;align-items:flex-end;gap:4px;height:220px;">
-     <img src="assets/cta-vending-trim.png" alt="" loading="lazy" style="height:100%;width:auto;max-width:140px;object-fit:contain;display:block;filter:drop-shadow(0 12px 22px rgba(0,0,0,0.4));" />
-     <img src="assets/cta-water-trim.png" alt="" loading="lazy" style="height:90%;width:auto;max-width:120px;object-fit:contain;display:block;filter:drop-shadow(0 12px 22px rgba(0,0,0,0.4));" />
-     <img src="assets/cta-gaggia-trim.png" alt="" loading="lazy" style="height:62%;width:auto;max-width:170px;object-fit:contain;display:block;filter:drop-shadow(0 12px 22px rgba(0,0,0,0.4));" />
+    <div data-home-cta-imgs="1" style="position:relative;z-index:1;display:flex;align-items:flex-end;gap:22px;height:230px;flex-shrink:0;">
+     <img src="assets/cta-vending-trim.png" alt="" loading="lazy" style="height:100%;width:auto;flex-shrink:0;object-fit:contain;display:block;filter:drop-shadow(0 12px 22px rgba(0,0,0,0.4));" />
+     <img src="assets/cta-water-v2.png" alt="" loading="lazy" style="height:88%;width:auto;flex-shrink:0;object-fit:contain;display:block;filter:drop-shadow(0 12px 22px rgba(0,0,0,0.4));" />
+     <img src="assets/cta-gaggia-nokey.png" alt="" loading="lazy" style="height:60%;width:auto;flex-shrink:0;object-fit:contain;display:block;filter:drop-shadow(0 12px 22px rgba(0,0,0,0.4));" />
     </div>
    </a>
   </div>
@@ -460,11 +460,13 @@ const PRODUCTS_RECYCLING = [
   tagline: 'Automatic shredding machine for disposable plastic and paper cups',
   description: 'Shreds disposable plastic and paper cups automatically on deposit, reducing waste volume by up to 7x. Waste is collected in the container below, with an integrated sanitising system, an incentive reward system and a tablet touchscreen.',
   tags: ['Up to 7x Volume Reduction', 'Automated Operation', 'Incentive Reward System'],
+  brochure: 'recycling-options.pdf',
   specs: [{ label: 'Waste Type', value: 'Disposable Plastic & Paper Cups' }, { label: 'Telemetry', value: 'Included' }, { label: 'Interface', value: 'Tablet Touchscreen' }] },
  { name: 'Tritech Compactor', category: 'Recycling', variant: 'accent', image: 'assets/tritech-compactor-v2.png',
   tagline: 'Automatic compacting machine for plastic bottles and cans',
   description: 'Compacts PET plastic bottles of different sizes and beverage cans automatically on deposit. Waste is collected in the container below, with telemetry included, an incentive reward system for staff and a tablet touchscreen.',
   tags: ['Capacity: 350 Bottles/Cans', 'Automated Operation', 'Incentive Reward System'],
+  brochure: 'recycling-options.pdf',
   specs: [{ label: 'Waste Type', value: 'PET Plastic Bottles & Beverage Cans' }, { label: 'Capacity', value: '350 PET bottles/cans' }, { label: 'Telemetry', value: 'Included' }, { label: 'Interface', value: 'Tablet Touchscreen' }] },
 ];
 PRODUCTS.push(...PRODUCTS_RECYCLING);
@@ -648,7 +650,7 @@ class Component extends DCLogic {
    serviceCards: svcCards([
     { num: '01', title: 'Vending Machines', body: 'Snack, cold drink, combo and smart fridge vending.', image: 'assets/vending-service.png', href: 'Vending Machines.dc.html', cta: 'Explore Vending' },
     { num: '02', title: 'Hot Beverage Solutions', body: 'Bean-to-cup, espresso and instant coffee machines.', image: 'assets/hot-bev-service-v2.png', href: 'Hot Beverage Solutions.dc.html', cta: 'Explore Coffee' },
-    { num: '03', title: 'Water Solutions', body: 'Point-of-use and bottled water coolers.', image: 'assets/water-service.png', href: 'Water Solutions.dc.html', cta: 'Explore Water' },
+    { num: '03', title: 'Water Solutions', body: 'Point-of-use and bottled water coolers.', image: 'assets/waterlogic-7-v3.png', href: 'Water Solutions.dc.html', cta: 'Explore Water' },
     { num: '04', title: 'Payment Solutions', body: 'Cashless, cash and telemetry devices.', image: 'assets/payment-service.png', href: 'Payment Solutions.dc.html', cta: 'Explore Payments' },
     { num: '05', title: 'Recycling', body: 'Compactors and recycling stations.', image: 'assets/tritech-compactor.png', href: 'Recycling.dc.html', cta: 'Explore Recycling' }
    ])
