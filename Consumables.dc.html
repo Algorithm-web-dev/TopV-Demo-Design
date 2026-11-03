@@ -64,6 +64,7 @@
      <div style="{{ contactMenuStyle }}">
       <div style="background:#FFFFFF;border:1px solid #E1E4E8;border-radius:16px;padding:8px;box-shadow:0 18px 40px rgba(0,0,0,0.12);display:flex;flex-direction:column;gap:2px;">
        <a href="Contact.dc.html" style="display:block;padding:11px 18px;border-radius:10px;font-size:14px;color:#1C1C1A;white-space:nowrap;" style-hover="background:#EFF1F3;color:#C8102E;">General Enquiry</a>
+       <a href="Rental Enquiry.dc.html" style="display:block;padding:11px 18px;border-radius:10px;font-size:14px;color:#1C1C1A;white-space:nowrap;" style-hover="background:#EFF1F3;color:#C8102E;">Rental Enquiry</a>
        <a href="Contact.dc.html#type=support" style="display:block;padding:11px 18px;border-radius:10px;font-size:14px;color:#1C1C1A;white-space:nowrap;" style-hover="background:#EFF1F3;color:#C8102E;">Technical Support</a>
       </div>
      </div>
@@ -81,9 +82,15 @@
  </nav>
 
  <div style="{{ mobileMenuStyle }}">
-  <sc-for list="{{ mobileNavLinks }}" as="m" hint-placeholder-count="7">
-   <a href="{{ m.href }}" onClick="{{ closeMobileMenu }}" style="display:block;padding:13px 16px;border-radius:12px;font-size:15px;font-weight:500;color:#1C1C1A;" style-hover="background:#EFF1F3;color:#C8102E;">{{ m.label }}</a>
-  </sc-for>
+  <a href="About.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:13px 16px;border-radius:12px;font-size:15px;font-weight:500;color:#1C1C1A;" style-hover="background:#EFF1F3;color:#C8102E;">About</a>
+<button onClick="{{ toggleMProd }}" style="display:flex;align-items:center;justify-content:space-between;width:100%;background:transparent;border:none;padding:13px 16px;border-radius:12px;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:#1C1C1A;cursor:pointer;text-align:left;" style-hover="background:#EFF1F3;color:#C8102E;">Products<span style="{{ mProdChev }}">▼</span></button>
+<sc-if value="{{ mProdOpen }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:2px;padding-bottom:4px;"><a href="Products.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:11px 16px 11px 30px;border-radius:12px;font-size:14px;font-weight:400;color:#45443F;" style-hover="background:#EFF1F3;color:#C8102E;">All Products</a><a href="Vending Machines.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:11px 16px 11px 30px;border-radius:12px;font-size:14px;font-weight:400;color:#45443F;" style-hover="background:#EFF1F3;color:#C8102E;">Vending Machines</a><a href="Hot Beverage Solutions.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:11px 16px 11px 30px;border-radius:12px;font-size:14px;font-weight:400;color:#45443F;" style-hover="background:#EFF1F3;color:#C8102E;">Hot Beverage Solutions</a><a href="Water Solutions.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:11px 16px 11px 30px;border-radius:12px;font-size:14px;font-weight:400;color:#45443F;" style-hover="background:#EFF1F3;color:#C8102E;">Water Solutions</a><a href="Payment Solutions.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:11px 16px 11px 30px;border-radius:12px;font-size:14px;font-weight:400;color:#45443F;" style-hover="background:#EFF1F3;color:#C8102E;">Payment Solutions</a><a href="Recycling.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:11px 16px 11px 30px;border-radius:12px;font-size:14px;font-weight:400;color:#45443F;" style-hover="background:#EFF1F3;color:#C8102E;">Recycling Solutions</a></div></sc-if>
+<a href="Rentals.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:13px 16px;border-radius:12px;font-size:15px;font-weight:500;color:#1C1C1A;" style-hover="background:#EFF1F3;color:#C8102E;">Rentals</a>
+<a href="Consumables.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:13px 16px;border-radius:12px;font-size:15px;font-weight:500;color:#1C1C1A;" style-hover="background:#EFF1F3;color:#C8102E;">Consumables</a>
+<a href="Clients.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:13px 16px;border-radius:12px;font-size:15px;font-weight:500;color:#1C1C1A;" style-hover="background:#EFF1F3;color:#C8102E;">Our Clients</a>
+<a href="Blog.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:13px 16px;border-radius:12px;font-size:15px;font-weight:500;color:#1C1C1A;" style-hover="background:#EFF1F3;color:#C8102E;">Blog</a>
+<button onClick="{{ toggleMContact }}" style="display:flex;align-items:center;justify-content:space-between;width:100%;background:transparent;border:none;padding:13px 16px;border-radius:12px;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:#1C1C1A;cursor:pointer;text-align:left;" style-hover="background:#EFF1F3;color:#C8102E;">Contact<span style="{{ mContactChev }}">▼</span></button>
+<sc-if value="{{ mContactOpen }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:2px;padding-bottom:4px;"><a href="Contact.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:11px 16px 11px 30px;border-radius:12px;font-size:14px;font-weight:400;color:#45443F;" style-hover="background:#EFF1F3;color:#C8102E;">General Enquiry</a><a href="Rental Enquiry.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:11px 16px 11px 30px;border-radius:12px;font-size:14px;font-weight:400;color:#45443F;" style-hover="background:#EFF1F3;color:#C8102E;">Rental Enquiry</a><a href="Contact.dc.html#type=support" onClick="{{ closeMobileMenu }}" style="display:block;padding:11px 16px 11px 30px;border-radius:12px;font-size:14px;font-weight:400;color:#45443F;" style-hover="background:#EFF1F3;color:#C8102E;">Technical Support</a></div></sc-if>
    <button data-tv-search="1" onClick="{{ closeMobileMenu }}" style="display:block;width:100%;text-align:left;background:transparent;border:none;padding:13px 16px;border-radius:12px;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:#1C1C1A;cursor:pointer;">Search</button>
   <a href="Contact.dc.html#quote" onClick="{{ closeMobileMenu }}" style="display:block;margin-top:8px;text-align:center;background:#C8102E;color:#FAFBFC;padding:14px 20px;border-radius:999px;font-size:14px;font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Get a Quote</a>
  </div>
@@ -272,9 +279,9 @@
     <div style="font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#1C1C1A;font-weight:700;margin-bottom:18px;">Support</div>
     <div style="display:flex;flex-direction:column;gap:12px;font-size:14px;color:#6B6B68;">
      <div style="color:#1C1C1A;font-weight:600;">0861 100 185</div>
-     <div style="display:flex;flex-direction:column;gap:2px;"><span style="color:#1C1C1A;font-weight:600;">Johannesburg (HQ)</span><a href="https://www.google.com/maps/search/?api=1&amp;query=2%20Lyn%20Road%2C%20Ferndale%2C%20Randburg%2C%202169%2C%20South%20Africa" target="_blank" rel="noopener" style="line-height:1.5;color:inherit;text-decoration:underline;text-decoration-color:rgba(200,16,46,0.35);text-underline-offset:3px;" style-hover="color:#C8102E;">2 Lyn Road, Ferndale, Randburg, 2169</a></div>
-     <div style="display:flex;flex-direction:column;gap:2px;"><span style="color:#1C1C1A;font-weight:600;">Durban</span><a href="https://www.google.com/maps/search/?api=1&amp;query=28%20Springfield%20Industrial%20Park%2C%209%20Mahoganyfield%20Way%2C%20Springfield%2C%204051%2C%20South%20Africa" target="_blank" rel="noopener" style="line-height:1.5;color:inherit;text-decoration:underline;text-decoration-color:rgba(200,16,46,0.35);text-underline-offset:3px;" style-hover="color:#C8102E;">28 Springfield Industrial Park, 9 Mahoganyfield Way, Springfield, 4051</a></div>
-     <div style="display:flex;flex-direction:column;gap:2px;"><span style="color:#1C1C1A;font-weight:600;">Cape Town</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Unit%20B28%2F29%20Pinelands%20Business%20Park%2C%20New%20Mill%20Street%2C%20Pinelands%2C%207405%2C%20South%20Africa" target="_blank" rel="noopener" style="line-height:1.5;color:inherit;text-decoration:underline;text-decoration-color:rgba(200,16,46,0.35);text-underline-offset:3px;" style-hover="color:#C8102E;">Unit B28/29 Pinelands Business Park, New Mill Street, Pinelands, 7405</a></div>
+     <div>Johannesburg (HQ)</div>
+     <div>Durban</div>
+     <div>Cape Town</div>
     </div>
    </div>
   </div>
@@ -413,6 +420,11 @@ const PRODUCTS_RECYCLING = [
   description: 'Shreds disposable plastic and paper cups automatically on deposit, reducing waste volume by up to 7x. Waste is collected in the container below, with an integrated sanitising system, an incentive reward system and a tablet touchscreen.',
   tags: ['Up to 7x Volume Reduction', 'Automated Operation', 'Incentive Reward System'],
   specs: [{ label: 'Waste Type', value: 'Disposable Plastic & Paper Cups' }, { label: 'Telemetry', value: 'Included' }, { label: 'Interface', value: 'Tablet Touchscreen' }] },
+ { name: 'Tritech Compactor', category: 'Recycling', variant: 'accent', image: 'assets/tritech-compactor-v2.png',
+  tagline: 'Automatic compacting machine for plastic bottles and cans',
+  description: 'Compacts PET plastic bottles of different sizes and beverage cans automatically on deposit. Waste is collected in the container below, with telemetry included, an incentive reward system for staff and a tablet touchscreen.',
+  tags: ['Capacity: 350 Bottles/Cans', 'Automated Operation', 'Incentive Reward System'],
+  specs: [{ label: 'Waste Type', value: 'PET Plastic Bottles & Beverage Cans' }, { label: 'Capacity', value: '350 PET bottles/cans' }, { label: 'Telemetry', value: 'Included' }, { label: 'Interface', value: 'Tablet Touchscreen' }] },
 ];
 PRODUCTS.push(...PRODUCTS_RECYCLING);
 
@@ -561,120 +573,116 @@ class Component extends DCLogic {
   ];
 
   const CONSUMABLE_IMAGES = {
-     "Jacobs Kronung": "jacobs-kronung.png",
-     "Nescafe Classic": "nescafe-classic.png",
-     "Ricoffy": "ricoffy.png",
-     "HOC Ciro Café Oro Espresso": "ciro-cafe-oro.png",
-     "Nescafe Espresso Bean": "nescafe-espresso-bean.png",
-     "Jacobs Kronung Bean": "jacobs-jar.png",
-     "Nestle Hot Chocolate": "nestle-hot-chocolate.png",
-     "Ciro Hot Chocolate": "ciro-hot-chocolate.png",
-     "Cremora": "cremora.png",
-     "Full Cream Milk (pack of 6)": "milk.png",
-     "Low fat milk (pack of 6)": "milk.png",
-     "Cremora Bulk": "cremora-bulk.png",
-     "Nestle Creamer": "nestle-creamer.png",
-     "Nestle Skimmed Milk Powder": "nestle-skimmed-milk.png",
-     "Fresh Milk": "milk.png",
-     "Freshpak Rooibos (2.5g)": "freshpak-rooibos.png",
-     "Rooibos Leaf TV Vending": "rooibos-leaf.png",
-     "Five Roses (2.5g)": "five-roses-bags.png",
-     "Five Roses Vending Tea": "five-roses-box.png",
-     "Five Roses Tea Bags": "five-roses-bags.png",
-     "5 Roses Packet": "five-roses-packet.png",
-     "Freshpak Rooibos": "freshpak-rooibos.png",
-     "Ciro Vending Rooibos": "ciro-vending-rooibos.png",
-     "Nestle Nestea Instant Tea": "nestea.png",
-     "Vending Sugar": "vending-sugar.png",
-     "Sugar": "vending-sugar.png",
-     "Brown sugar sachets": "sugar-sachets.png",
-     "White sugar sachets": "sugar-sachets.png",
-     "Canderel Yellow Sticks": "canderel-yellow.png",
-     "Canderel": "canderel.png",
-     "Cup Lids": "coffee-lid.png",
-     "Coffee Cups 250ml": "coffee-cup.png",
-     "Ripple Cups Black with Lids 250ml": "ripple-cup.png",
-     "Ripple Cups Black 250ml": "ripple-cup.png",
-     "Plain White Cooler Cup 175ml": "cooler-cup.png",
-     "Cooler Cup": "cooler-cup.png",
-     "Plain White Cover Cup 170ml": "cooler-cup.png",
-     "Wooden Stirrers (160mm)": "wooden-stirrers.png",
+     "Jacobs Kronung": "jacobs-kronung-v2.png",
+     "Nescafe Classic": "nescafe-classic-v2.png",
+     "Ricoffy": "ricoffy-v2.png",
+     "HOC Ciro Café Oro Espresso": "ciro-cafe-oro-v2.png",
+     "Nescafe Espresso Bean": "nescafe-espresso-bean-v2.png",
+     "Supremo Espresso Bean": "supremo-espresso-v2.png",
+     "Supremo Espresso Bean (House Blend)": "supremo-house-v2.png",
+     "Nestle Hot Chocolate": "nestle-hot-chocolate-v2.png",
+     "Ciro Hot Chocolate": "ciro-hot-chocolate-v2.png",
+     "Cremora": "cremora-v2.png",
+     "Cremora Bulk": "cremora-bulk-v2.png",
+     "Nestle Creamer": "nestle-creamer-v2.png",
+     "Full Cream Milk (pack of 6)": "full-cream-milk-v2.png",
+     "Low fat milk (pack of 6)": "low-fat-milk-v2.png",
+     "Nestle Skimmed Milk Powder": "nestle-skimmed-milk-v2.png",
+     "ICS Cappuccino Topping": "ocs-v2.png",
+     "Freshpak Rooibos (2.5g)": "freshpak-rooibos-v2.png",
+     "Rooibos Leaf TV - Vending": "ciro-vending-rooibos-v2.png",
+     "Five Roses Tea Bags (2.5g)": "five-roses-bags.png",
+     "Five Roses - Vending Tea": "five-roses-packet-v2.png",
+     "Nestle Nestea Instant Tea Black": "nestea-v2.png",
+     "Vending Sugar": "vending-sugar-v2.png",
+     "Sugar": "huletts-sugar-v2.png",
+     "Brown sugar sachets": "sugar-sachets-v2.png",
+     "White sugar sachets": "sugar-sachets-v2.png",
+     "Canderel yellow sticks": "canderel-yellow-v2.png",
+     "Cup Lids": "coffee-lid-v2.png",
+     "Coffee Cups 250ml": "coffee-cup-v2.png",
+     "Ripple Cups Black - Lids": "ripple-cup-v2.png",
+     "Ripple Cups Black": "ripple-cup-v2.png",
+     "Plain White Cooler Cup 175ml": "cooler-cup-v2.png",
+     "Wooden Stirrers (new 180mm)": "wooden-stirrers-v2.png",
      "Plastic Stick Stirrers": "plastic-stirrers.png",
-     "Plastic Teaspoons": "plastic-teaspoons.png",
-     "Liquid Descaler": "liquid-descaler.png",
-     "Acidic Milk Cleaner": "acidic-milk-cleaner.png",
-     "Milk System Cleaner": "milk-system-cleaner.png",
-     "Dish Cloth": "dish-cloth.png",
-     "Bleach": "bleach.png",
-     "Dishwash Gel": "dishwash-gel.png",
-     "OCS": "ocs.png"
+     "Plastic Teaspoons": "plastic-teaspoons-v2.png",
+     "Dishwasher (Green)": "dishwash-gel-v2.png",
+     "Bleach": "bleach-v2.png",
+     "Dish Cloth": "dish-cloth-v2.png",
+     "Sponge Scourer (Yellow)": "sponge-scourer-v2.png",
+     "Handy Andy - Ammoniated cleaner": "handy-andy-v2.png",
+     "Mr Muscle": "mr-muscle-v2.png",
+     "Acidic Milk Cleaner (Red)": "acidic-milk-cleaner.png",
+     "Milk System Cleaner (Blue)": "milk-system-cleaner.png",
+     "Liquid Descaler": "liquid-descaler-v2.png"
   };
 
   const PRICE_GROUPS = [
    { title: 'Instant coffee', items: [
-    { code: '4030217', name: 'Jacobs Kronung', unit: '1 x 500g', price: 'R475.00' },
-    { code: '8303024', name: 'Nescafe Classic', unit: '1 x 1kg', price: 'R575.00' },
-    { code: '8303248', name: 'Ricoffy', unit: '1 x 1.5kg', price: 'R365.00' },
+    { code: '4030217', name: 'Jacobs Kronung', unit: '1 x 500g', price: 'R435.00' },
+    { code: '8303024', name: 'Nescafe Classic', unit: '1 x 1kg', price: 'R530.00' },
+    { code: '8303248', name: 'Ricoffy', unit: '1 x 1.5kg', price: 'R340.00' },
    ]},
    { title: 'Coffee beans', items: [
-    { code: '4501201', name: 'HOC Ciro Café Oro Espresso', unit: '1 x 1kg', price: 'R425.00' },
+    { code: '4501201', name: 'HOC Ciro Café Oro Espresso', unit: '1 x 1kg', price: 'R395.00' },
     { code: '12570371', name: 'Nescafe Espresso Bean', unit: '1 x 1kg', price: 'R350.00' },
-    { code: '4055443', name: 'Jacobs Kronung Bean', unit: '1 x 1kg', price: 'R350.00' },
+    { code: 'SUP003', name: 'Supremo Espresso Bean', unit: '1 x 1kg', price: 'R425.00' },
+    { code: 'SUP004', name: 'Supremo Espresso Bean (House Blend)', unit: '1 x 1kg', price: 'R405.00' },
    ]},
    { title: 'Hot chocolate', items: [
-    { code: '8303793', name: 'Nestle Hot Chocolate', unit: '1 x 1kg', price: 'R199.00' },
+    { code: '12598339', name: 'Nestle Hot Chocolate', unit: '1 x 1kg', price: 'R190.00' },
     { code: '3070218', name: 'Ciro Hot Chocolate', unit: '1 x 500g', price: 'R85.00' },
    ]},
    { title: 'Milk / creamer products', items: [
-    { code: '12341782', name: 'Cremora', unit: '1 x 750g (2 x 375g)', price: 'R79.00' },
-    { code: 'MILKFCPL', name: 'Full Cream Milk (pack of 6)', unit: '6 x 1 Litre', price: 'R169.00' },
-    { code: 'MILK2PL', name: 'Low fat milk (pack of 6)', unit: '6 x 1 Litre', price: 'R169.00' },
-    { code: 'ML6CPL', name: 'Cremora Bulk', unit: '6 x 1.5L', price: 'On request' },
-    { code: 'ML6CPL', name: 'Nestle Creamer', unit: '6 x 1.5L', price: 'On request' },
-    { code: 'ML6CPL', name: 'Nestle Skimmed Milk Powder', unit: '6 x 1.5L', price: 'On request' },
-    { code: 'MILK', name: 'Fresh Milk', unit: 'As required', price: 'R335.00' },
+    { code: '12341782', name: 'Cremora', unit: '1 x 750g (2 x 375g)', price: 'R75.00' },
+    { code: '8309905', name: 'Cremora Bulk', unit: '1 x 25kg', price: 'R1,985.00' },
+    { code: '', name: 'Nestle Creamer', unit: '6 x 500g', price: 'R276.00' },
+    { code: 'MILKFCPL', name: 'Full Cream Milk (pack of 6)', unit: '6 x 1 Litre', price: 'R155.00' },
+    { code: 'MILK2PL', name: 'Low fat milk (pack of 6)', unit: '6 x 1 Litre', price: 'R155.00' },
+    { code: '12300485', name: 'Nestle Skimmed Milk Powder', unit: '6 x 500g', price: 'R750.00' },
+    { code: 'SUP003', name: 'ICS Cappuccino Topping', unit: '1 x 1kg', price: 'R185.00' },
    ]},
    { title: 'Tea', items: [
-    { code: '3001238', name: 'Freshpak Rooibos (2.5g)', unit: '1 x 80', price: 'R79.00' },
-    { code: '3001983', name: 'Rooibos Leaf TV Vending', unit: '6 x 500g', price: 'R729.00' },
-    { code: 'TEA002', name: 'Five Roses (2.5g)', unit: '1 x 100', price: 'R95.00' },
-    { code: '300866', name: 'Five Roses Vending Tea', unit: '6 x 500g', price: 'R779.00' },
-    { code: 'GS0128', name: 'Five Roses Tea Bags', unit: '1 x 500g', price: 'On request' },
-    { code: 'GS0128', name: '5 Roses Packet', unit: '6 x 500g', price: 'On request' },
-    { code: 'TA6030', name: 'Freshpak Rooibos', unit: '1 x 500g', price: 'On request' },
-    { code: 'TA6030', name: 'Ciro Vending Rooibos', unit: '1 x 500g', price: 'On request' },
-    { code: 'NS0001', name: 'Nestle Nestea Instant Tea', unit: '1 x 1kg', price: 'On request' },
+    { code: '3001238', name: 'Freshpak Rooibos (2.5g)', unit: '1 x 80', price: 'R70.00' },
+    { code: '3001983', name: 'Rooibos Leaf TV - Vending', unit: '6 x 500g', price: 'R710.00' },
+    { code: 'TEA002', name: 'Five Roses Tea Bags (2.5g)', unit: '1 x 100', price: 'R85.00' },
+    { code: '300866', name: 'Five Roses - Vending Tea', unit: '6 x 500g', price: 'R775.00' },
+    { code: '13488791', name: 'Nestle Nestea Instant Tea Black', unit: '1 x 10 x 100g', price: 'R1,815.00' },
    ]},
    { title: 'Sugar', items: [
-    { code: '60066', name: 'Vending Sugar', unit: '1 x 1kg', price: 'R59.00' },
-    { code: '5836', name: 'Sugar', unit: '1 x 2.5kg', price: 'R95.00' },
-    { code: 'SUG001', name: 'Brown sugar sachets', unit: '1 x 2000', price: 'R465.00' },
-    { code: 'SUG002', name: 'White sugar sachets', unit: '1 x 2000', price: 'R465.00' },
-    { code: 'SU6S02Y', name: 'Canderel Yellow Sticks', unit: '1 x 500', price: 'R325.00' },
-    { code: 'SU6S02', name: 'Canderel', unit: '1 x 1000', price: 'On request' },
+    { code: '60066', name: 'Vending Sugar', unit: '1 x 1kg', price: 'R55.00' },
+    { code: '5836', name: 'Sugar', unit: '1 x 2.5kg', price: 'R85.00' },
+    { code: 'SUG001', name: 'Brown sugar sachets', unit: '1 x 2000', price: 'R425.00' },
+    { code: 'SUG002', name: 'White sugar sachets', unit: '1 x 2000', price: 'R425.00' },
+    { code: 'HSW002', name: 'Canderel yellow sticks', unit: '1 x 1000', price: 'R295.00' },
    ]},
    { title: 'Cups', items: [
-    { code: 'D5347', name: 'Cup Lids', unit: '1 x 1000', price: 'R725.00' },
-    { code: 'TVCFED002', name: 'Coffee Cups 250ml', unit: '1 x 1000', price: 'R885.00' },
-    { code: 'MCRBL250', name: 'Ripple Cups Black with Lids 250ml', unit: '1 x 10000', price: 'R950.00' },
-    { code: 'MCRB250', name: 'Ripple Cups Black 250ml', unit: '1 x 10000', price: 'R2100.00' },
-    { code: '263', name: 'Plain White Cooler Cup 175ml', unit: '1 x 3000', price: 'R1850.00' },
-    { code: 'COOL', name: 'Cooler Cup', unit: '1 x 1000', price: 'On request' },
-    { code: 'WC170', name: 'Plain White Cover Cup 170ml', unit: '1 x 500', price: 'On request' },
+    { code: 'D5347', name: 'Cup Lids', unit: '1 x 1000', price: 'R655.00' },
+    { code: 'TVCFED', name: 'Coffee Cups 250ml', unit: '1 x 1000', price: 'R810.00' },
+    { code: 'MCRBL250', name: 'Ripple Cups Black - Lids', unit: '1 x 1000', price: 'R875.00' },
+    { code: 'MCBR250', name: 'Ripple Cups Black', unit: '1 x 1000', price: 'R1,920.00' },
+    { code: '263', name: 'Plain White Cooler Cup 175ml', unit: '1 x 3000', price: 'R1,750.00' },
    ]},
    { title: 'Tea spoons / stirrers', items: [
-    { code: 'SG0S00', name: 'Wooden Stirrers (160mm)', unit: '1 x 1000', price: 'R145.00' },
-    { code: 'PSS', name: 'Plastic Stick Stirrers', unit: '1 x 1000', price: 'R95.00' },
-    { code: 'PT', name: 'Plastic Teaspoons', unit: '1 x 500', price: 'R65.00' },
+    { code: '8305868', name: 'Wooden Stirrers (new 180mm)', unit: '1 x 1000', price: 'R135.00' },
+    { code: 'PSS', name: 'Plastic Stick Stirrers', unit: '1 x 1000', price: 'R85.00' },
+    { code: 'PT', name: 'Plastic Teaspoons', unit: '1 x 500', price: 'R60.00' },
    ]},
    { title: 'Cleaning & maintenance', items: [
-    { code: 'LD', name: 'Liquid Descaler', unit: 'As required', price: 'On request' },
-    { code: 'AMC', name: 'Acidic Milk Cleaner', unit: 'As required', price: 'On request' },
-    { code: 'MSC', name: 'Milk System Cleaner', unit: 'As required', price: 'On request' },
-    { code: 'DC', name: 'Dish Cloth', unit: 'As required', price: 'On request' },
-    { code: 'BL', name: 'Bleach', unit: 'As required', price: 'On request' },
-    { code: 'DG', name: 'Dishwash Gel', unit: 'As required', price: 'On request' },
-    { code: 'OCS', name: 'OCS', unit: 'As required', price: 'On request' },
+    { code: 'C001', name: 'Dishwasher (Green)', unit: '1 x 5L', price: 'R50.00' },
+    { code: 'C002', name: 'Bleach', unit: '1 x 5L', price: 'R55.00' },
+    { code: 'C007', name: 'Dish Swab', unit: 'Each', price: 'R5.00' },
+    { code: 'C008', name: 'Dish Cloth', unit: 'Each', price: 'R15.00' },
+    { code: 'C039', name: 'Sponge Scourer (Yellow)', unit: '1 x Pack of 3', price: 'R35.00' },
+    { code: 'C058', name: 'Bleach', unit: '1 x 750ml', price: 'R35.00' },
+    { code: 'C059', name: 'Handy Andy - Ammoniated cleaner', unit: '1 x 750ml', price: 'R35.00' },
+    { code: 'C0062', name: 'Mr Muscle', unit: '1 x 750ml', price: 'R60.00' },
+   ]},
+   { title: 'Coffee cleaning solutions', items: [
+    { code: 'CFMSAC100-01', name: 'Acidic Milk Cleaner (Red)', unit: '1 x 1000ml', price: 'R690.00' },
+    { code: 'CFMSAK100-01', name: 'Milk System Cleaner (Blue)', unit: '1 x 1000ml', price: 'R690.00' },
+    { code: 'CFLDUN100-01', name: 'Liquid Descaler', unit: '2 x 200ml', price: 'R175.00' },
    ]},
   ];
 
@@ -713,6 +721,12 @@ class Component extends DCLogic {
    mobileMenuStyle: mobileOpen
     ? "position:fixed;top:88px;left:12px;right:12px;background:#FFFFFF;border:1px solid #E1E4E8;border-radius:20px;box-shadow:0 22px 50px rgba(0,0,0,0.18);padding:12px;z-index:120;display:flex;flex-direction:column;gap:2px;max-height:calc(100vh - 110px);overflow:auto;box-sizing:border-box;"
     : "display:none;",
+   mProdOpen: !!this.state.mProd,
+   mContactOpen: !!this.state.mContact,
+   toggleMProd: () => this.setState(s => ({ mProd: !s.mProd })),
+   toggleMContact: () => this.setState(s => ({ mContact: !s.mContact })),
+   mProdChev: this.state.mProd ? "font-size:10px;line-height:1;opacity:0.6;transition:transform .25s ease;transform:rotate(180deg);" : "font-size:10px;line-height:1;opacity:0.6;transition:transform .25s ease;transform:rotate(0deg);",
+   mContactChev: this.state.mContact ? "font-size:10px;line-height:1;opacity:0.6;transition:transform .25s ease;transform:rotate(180deg);" : "font-size:10px;line-height:1;opacity:0.6;transition:transform .25s ease;transform:rotate(0deg);",
    mobileNavLinks: [
     { label: 'About', href: 'About.dc.html' },
     { label: 'Vending Machines', href: 'Vending Machines.dc.html' },
