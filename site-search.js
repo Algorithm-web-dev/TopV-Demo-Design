@@ -44,11 +44,8 @@
     ['VPos Touch Bank Card Device', 'Payment Solutions', 'All-in-one cashless bank payments'],
     ['Onyx Contactless Bank Card Device', 'Payment Solutions', 'Sleek tap-and-go contactless reader'],
     ['Engine Electronic Cashless System', 'Payment Solutions', 'Multi-standard cashless and cash management'],
-    ['Jofemar JF8 Coin Changer', 'Payment Solutions', 'Eight coin tube changer'],
-    ['Creos Bill Validator', 'Payment Solutions', 'Nine optical reading signals'],
-    ['Jofemar BT11 Bill Validator', 'Payment Solutions', 'Optical and magnetic banknote reader'],
-    ['Engine Telemetry System', 'Payment Solutions', 'Real-time remote machine monitoring'],
-    ['Tritech Shredder', 'Recycling', 'Automatic cup shredding machine']
+    ['Tritech Shredder', 'Recycling', 'Automatic cup shredding machine'],
+    ['Tritech Compactor', 'Recycling', 'Automatic bottle and can compactor']
   ];
 
   var CAT_PAGE = {

@@ -58,6 +58,7 @@
      <div style="{{ contactMenuStyle }}">
       <div style="background:#FFFFFF;border:1px solid #E1E4E8;border-radius:16px;padding:8px;box-shadow:0 18px 40px rgba(0,0,0,0.12);display:flex;flex-direction:column;gap:2px;">
        <a href="Contact.dc.html#type=rental" style="display:block;padding:11px 18px;border-radius:10px;font-size:14px;color:#1C1C1A;white-space:nowrap;" style-hover="background:#EFF1F3;color:#C8102E;">General Enquiry</a>
+       <a href="Rental Enquiry.dc.html" style="display:block;padding:11px 18px;border-radius:10px;font-size:14px;color:#1C1C1A;white-space:nowrap;" style-hover="background:#EFF1F3;color:#C8102E;">Rental Enquiry</a>
        <a href="Contact.dc.html#type=support" style="display:block;padding:11px 18px;border-radius:10px;font-size:14px;color:#1C1C1A;white-space:nowrap;" style-hover="background:#EFF1F3;color:#C8102E;">Technical Support</a>
       </div>
      </div>
@@ -75,9 +76,15 @@
  </nav>
 
  <div style="{{ mobileMenuStyle }}">
-  <sc-for list="{{ mobileNavLinks }}" as="m" hint-placeholder-count="7">
-   <a href="{{ m.href }}" onClick="{{ closeMobileMenu }}" style="display:block;padding:13px 16px;border-radius:12px;font-size:15px;font-weight:500;color:#1C1C1A;" style-hover="background:#EFF1F3;color:#C8102E;">{{ m.label }}</a>
-  </sc-for>
+  <a href="About.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:13px 16px;border-radius:12px;font-size:15px;font-weight:500;color:#1C1C1A;" style-hover="background:#EFF1F3;color:#C8102E;">About</a>
+<button onClick="{{ toggleMProd }}" style="display:flex;align-items:center;justify-content:space-between;width:100%;background:transparent;border:none;padding:13px 16px;border-radius:12px;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:#1C1C1A;cursor:pointer;text-align:left;" style-hover="background:#EFF1F3;color:#C8102E;">Products<span style="{{ mProdChev }}">▼</span></button>
+<sc-if value="{{ mProdOpen }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:2px;padding-bottom:4px;"><a href="Products.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:11px 16px 11px 30px;border-radius:12px;font-size:14px;font-weight:400;color:#45443F;" style-hover="background:#EFF1F3;color:#C8102E;">All Products</a><a href="Vending Machines.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:11px 16px 11px 30px;border-radius:12px;font-size:14px;font-weight:400;color:#45443F;" style-hover="background:#EFF1F3;color:#C8102E;">Vending Machines</a><a href="Hot Beverage Solutions.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:11px 16px 11px 30px;border-radius:12px;font-size:14px;font-weight:400;color:#45443F;" style-hover="background:#EFF1F3;color:#C8102E;">Hot Beverage Solutions</a><a href="Water Solutions.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:11px 16px 11px 30px;border-radius:12px;font-size:14px;font-weight:400;color:#45443F;" style-hover="background:#EFF1F3;color:#C8102E;">Water Solutions</a><a href="Payment Solutions.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:11px 16px 11px 30px;border-radius:12px;font-size:14px;font-weight:400;color:#45443F;" style-hover="background:#EFF1F3;color:#C8102E;">Payment Solutions</a><a href="Recycling.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:11px 16px 11px 30px;border-radius:12px;font-size:14px;font-weight:400;color:#45443F;" style-hover="background:#EFF1F3;color:#C8102E;">Recycling Solutions</a></div></sc-if>
+<a href="Rentals.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:13px 16px;border-radius:12px;font-size:15px;font-weight:500;color:#1C1C1A;" style-hover="background:#EFF1F3;color:#C8102E;">Rentals</a>
+<a href="Consumables.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:13px 16px;border-radius:12px;font-size:15px;font-weight:500;color:#1C1C1A;" style-hover="background:#EFF1F3;color:#C8102E;">Consumables</a>
+<a href="Clients.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:13px 16px;border-radius:12px;font-size:15px;font-weight:500;color:#1C1C1A;" style-hover="background:#EFF1F3;color:#C8102E;">Our Clients</a>
+<a href="Blog.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:13px 16px;border-radius:12px;font-size:15px;font-weight:500;color:#1C1C1A;" style-hover="background:#EFF1F3;color:#C8102E;">Blog</a>
+<button onClick="{{ toggleMContact }}" style="display:flex;align-items:center;justify-content:space-between;width:100%;background:transparent;border:none;padding:13px 16px;border-radius:12px;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:#1C1C1A;cursor:pointer;text-align:left;" style-hover="background:#EFF1F3;color:#C8102E;">Contact<span style="{{ mContactChev }}">▼</span></button>
+<sc-if value="{{ mContactOpen }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:2px;padding-bottom:4px;"><a href="Contact.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:11px 16px 11px 30px;border-radius:12px;font-size:14px;font-weight:400;color:#45443F;" style-hover="background:#EFF1F3;color:#C8102E;">General Enquiry</a><a href="Rental Enquiry.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:11px 16px 11px 30px;border-radius:12px;font-size:14px;font-weight:400;color:#45443F;" style-hover="background:#EFF1F3;color:#C8102E;">Rental Enquiry</a><a href="Contact.dc.html#type=support" onClick="{{ closeMobileMenu }}" style="display:block;padding:11px 16px 11px 30px;border-radius:12px;font-size:14px;font-weight:400;color:#45443F;" style-hover="background:#EFF1F3;color:#C8102E;">Technical Support</a></div></sc-if>
    <button data-tv-search="1" onClick="{{ closeMobileMenu }}" style="display:block;width:100%;text-align:left;background:transparent;border:none;padding:13px 16px;border-radius:12px;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:#1C1C1A;cursor:pointer;">Search</button>
   <a href="Contact.dc.html#quote" onClick="{{ closeMobileMenu }}" style="display:block;margin-top:8px;text-align:center;background:#C8102E;color:#FAFBFC;padding:14px 20px;border-radius:999px;font-size:14px;font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Get a Quote</a>
  </div>
@@ -90,168 +97,119 @@
    <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Rental Programme</div>
    <h1 style="font-family:'Inter',sans-serif;font-weight:700;font-size:52px;line-height:1.05;letter-spacing:-0.032em;margin:0 0 18px;">Rental the machine, Keep the service</h1>
    <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#45443F;margin:0 0 18px;max-width:1200px;">No capital outlay. No installation headaches. Just the right machine for your site, fully maintained and supported by our own teams. Choose from vending, hot beverage and water cooler options, with consumables supply available on request.</p>
-   <p style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.6;color:#6B6B68;margin:0;"><strong style="color:#1C1C1A;font-weight:700;">Please note:</strong> Our rental programme is available to businesses only. We do not offer third-party or private rentals.</p>
+   <p style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.6;color:#6B6B68;margin:0 0 32px;"><strong style="color:#1C1C1A;font-weight:700;">Please note:</strong> Our rental programme is available to businesses only. We do not offer third-party or private rentals.</p>
+   <div style="display:flex;flex-wrap:wrap;gap:12px;"><a href="Rental Enquiry.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:#C8102E;color:#FAFBFC;padding:15px 30px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Request a rental quote<span style="font-family:'Inter',sans-serif;font-size:13px;">→</span></a></div>
   </div>
  </section>
 
- <section style="background:#FAFBFC;padding:130px 48px;box-sizing:border-box;">
+ <section data-screen-label="What's included" style="background:#FAFBFC;padding:120px 48px 40px;box-sizing:border-box;">
   <div style="max-width:1200px;margin:0 auto;">
-   <div style="display:grid;grid-template-columns:1.05fr 1fr;gap:70px;align-items:center;">
-    <div style="height:430px;overflow:hidden;background:#1C1C1A;box-shadow:0 24px 60px rgba(28,28,26,0.18);position:relative;">
-     <img src="assets/cat-vending.jpg" alt="Vending Machine Rental" style="width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.06) saturate(1.05) brightness(0.88);" />
-     <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(20,20,18,0.18) 0%, rgba(20,20,18,0.06) 45%, rgba(20,20,18,0.28) 100%);"></div>
+   <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Every rental includes</div>
+   <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:40px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 18px;">One monthly rental. We look after the machine.</h2>
+   <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#45443F;margin:0 0 48px;max-width:760px;">Renting means no upfront purchase. You provide the space and power, and we handle everything the machine needs to keep running.</p>
+   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;">
+    <div style="background:#FFFFFF;border:1px solid #E1E4E8;border-radius:20px;padding:30px;box-sizing:border-box;display:flex;flex-direction:column;gap:12px;">
+     <div style="font-size:13px;font-weight:700;letter-spacing:1px;color:#C8102E;">01</div>
+     <div style="font-size:19px;font-weight:700;letter-spacing:-0.01em;color:#1C1C1A;">Installation</div>
+     <p style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:#45443F;margin:0;">We deliver the machine, install it on site and set it up for your space.</p>
     </div>
-    <div>
-     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Vending</div>
-     <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.12;letter-spacing:-0.03em;margin:0 0 18px;">Vending Machine Rental</h2>
-     <p style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:#45443F;margin:0 0 26px;max-width:480px;">Snack and combo machines in a range of sizes, from compact office units to high-capacity models for large facilities. Self-replenishment, cashless payment ready, and available across the main metropolitan areas. Stocked with a combination of:</p>
-     <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px;">
-      <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;">
-       <span style="font-family:'Inter',sans-serif;width:8px;height:8px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Beverages
-      </div>
-      <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;">
-       <span style="font-family:'Inter',sans-serif;width:8px;height:8px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Confectionery
-      </div>
-      <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;">
-       <span style="font-family:'Inter',sans-serif;width:8px;height:8px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Salty snacks
-      </div>
-     </div>
-     <a href="#quote" style="display:inline-flex;align-items:center;gap:10px;background:#C8102E;color:#FAFBFC;padding:15px 30px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Get a Quote
-      <span style="font-family:'Inter',sans-serif;font-size:13px;">→</span>
-     </a>
+    <div style="background:#FFFFFF;border:1px solid #E1E4E8;border-radius:20px;padding:30px;box-sizing:border-box;display:flex;flex-direction:column;gap:12px;">
+     <div style="font-size:13px;font-weight:700;letter-spacing:1px;color:#C8102E;">02</div>
+     <div style="font-size:19px;font-weight:700;letter-spacing:-0.01em;color:#1C1C1A;">Maintenance and repairs</div>
+     <p style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:#45443F;margin:0;">Routine servicing and repairs are part of the rental, handled by our own technicians.</p>
+    </div>
+    <div style="background:#FFFFFF;border:1px solid #E1E4E8;border-radius:20px;padding:30px;box-sizing:border-box;display:flex;flex-direction:column;gap:12px;">
+     <div style="font-size:13px;font-weight:700;letter-spacing:1px;color:#C8102E;">03</div>
+     <div style="font-size:19px;font-weight:700;letter-spacing:-0.01em;color:#1C1C1A;">Dedicated aftersales team</div>
+     <p style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:#45443F;margin:0;">One in-house team from quote to service calls. No third parties involved.</p>
+    </div>
+    <div style="background:#FFFFFF;border:1px solid #E1E4E8;border-radius:20px;padding:30px;box-sizing:border-box;display:flex;flex-direction:column;gap:12px;">
+     <div style="font-size:13px;font-weight:700;letter-spacing:1px;color:#C8102E;">04</div>
+     <div style="font-size:19px;font-weight:700;letter-spacing:-0.01em;color:#1C1C1A;">Consumables on request</div>
+     <p style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:#45443F;margin:0;">Coffee, tea, sugar, cups and snacks delivered to site when you need them.</p>
     </div>
    </div>
   </div>
  </section>
 
- <section style="background:#EFF1F3;padding:130px 48px;box-sizing:border-box;">
-  <div style="max-width:1200px;margin:0 auto;">
-   <div style="display:grid;grid-template-columns:1.05fr 1fr;gap:70px;align-items:center;">
-    <div>
-     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Hot beverage</div>
-     <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.12;letter-spacing:-0.03em;margin:0 0 18px;">Hot Beverage Machine Rental</h2>
-     <p style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:#45443F;margin:0 0 26px;max-width:480px;">From a compact instant machine for a small team to a bean-to-cup unit for a busy office kitchen, we size the machine to the site. Table-top and free-standing options, available in:</p>
-     <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px;">
-      <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;">
-       <span style="font-family:'Inter',sans-serif;width:8px;height:8px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Instant Coffee
-      </div>
-      <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;">
-       <span style="font-family:'Inter',sans-serif;width:8px;height:8px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Bean to cup Coffee
-      </div>
-      <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;">
-       <span style="font-family:'Inter',sans-serif;width:8px;height:8px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Freshly brewed tea
-      </div>
-     </div>
-     <a href="#quote" style="display:inline-flex;align-items:center;gap:10px;background:#C8102E;color:#FAFBFC;padding:15px 30px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Get a Quote
-      <span style="font-family:'Inter',sans-serif;font-size:13px;">→</span>
-     </a>
-    </div>
-    <div style="height:430px;overflow:hidden;background:#1C1C1A;box-shadow:0 24px 60px rgba(28,28,26,0.18);position:relative;">
-     <img src="assets/cat-coffee.jpg" alt="Hot Beverage Machine Rental" style="width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.06) saturate(1.05) brightness(0.88);" />
-     <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(20,20,18,0.18) 0%, rgba(20,20,18,0.06) 45%, rgba(20,20,18,0.28) 100%);"></div>
-    </div>
+ <section data-screen-label="Who can rent" style="background:#1C1C1A;padding:110px 48px;box-sizing:border-box;margin-top:80px;">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:60px;align-items:start;">
+   <div>
+    <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#FF6B7F;font-weight:600;margin-bottom:18px;">Before you enquire</div>
+    <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:40px;line-height:1.1;letter-spacing:-0.03em;margin:0;color:#FAFBFC;">Who can rent</h2>
+   </div>
+   <div style="display:flex;flex-direction:column;gap:20px;">
+    <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#D9D9D5;margin:0;">Our rental programme is available to businesses only. Rental agreements are made with the business, and we do not offer third-party or private rentals.</p>
+    <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#D9D9D5;margin:0;">If renting isn't the right fit, every machine in our range is also available to buy, with the same installation, training and aftersales support.</p>
+    <a href="Products.dc.html" style="color:#FAFBFC;font-weight:600;font-size:15px;text-decoration:underline;text-decoration-color:rgba(255,107,127,0.6);text-underline-offset:4px;align-self:flex-start;" style-hover="color:#FF6B7F;">Explore machines to buy →</a>
    </div>
   </div>
  </section>
 
- <section style="background:#FAFBFC;padding:130px 48px;box-sizing:border-box;">
-  <div style="max-width:1200px;margin:0 auto;">
-   <div style="display:grid;grid-template-columns:1.05fr 1fr;gap:70px;align-items:center;">
-    <div style="height:430px;overflow:hidden;background:#1C1C1A;box-shadow:0 24px 60px rgba(28,28,26,0.18);position:relative;">
-     <img src="assets/rentals-water.jpg" alt="Water Cooler Rental" style="width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.06) saturate(1.05) brightness(0.88);" />
-     <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(20,20,18,0.18) 0%, rgba(20,20,18,0.06) 45%, rgba(20,20,18,0.28) 100%);"></div>
-    </div>
+ <section data-screen-label="Testimonials" style="background:#FAFBFC;padding:110px 48px 80px;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div data-glow="1" aria-hidden="true" style="position:absolute;top:80px;left:50%;margin-left:-450px;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle, rgba(200,16,46,0.08) 0%, rgba(200,16,46,0.028) 38%, rgba(200,16,46,0) 68%);pointer-events:none;z-index:0;animation:glowDrift 24s ease-in-out 0s infinite alternate;"></div>
+  <div style="max-width:1200px;margin:0 auto;position:relative;z-index:1;">
+   <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:44px;">
     <div>
-     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Water</div>
-     <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.12;letter-spacing:-0.03em;margin:0 0 18px;">Water Cooler Rental</h2>
-     <p style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:#45443F;margin:0 0 26px;max-width:480px;">Plumbed-in or bottled, we supply water coolers that fit your site setup without a plumber on call. POU and manually filled models available, serving:</p>
-     <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px;">
-      <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;">
-       <span style="font-family:'Inter',sans-serif;width:8px;height:8px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Up to 5 water options
-      </div>
-      <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;">
-       <span style="font-family:'Inter',sans-serif;width:8px;height:8px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Filtered &amp; Purified Water on-tap
-      </div>
-     </div>
-     <a href="#quote" style="display:inline-flex;align-items:center;gap:10px;background:#C8102E;color:#FAFBFC;padding:15px 30px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Get a Quote
-      <span style="font-family:'Inter',sans-serif;font-size:13px;">→</span>
-     </a>
+     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Testimonials</div>
+     <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.1;letter-spacing:-0.03em;margin:0;">What our clients say about us.</h2>
     </div>
+   </div>
+   <div data-t-card="1" style="background:#FFFFFF;border:1px solid #E1E4E8;border-radius:24px;padding:56px 96px 56px;box-sizing:border-box;position:relative;">
+    <div style="position:absolute;top:24px;right:24px;display:flex;gap:8px;z-index:2;">
+     <button aria-label="Previous testimonial" onClick="{{ tPrev }}" style="width:38px;height:38px;border-radius:50%;border:1px solid #E1E4E8;background:#FFFFFF;color:#1C1C1A;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;" style-hover="border-color:#C8102E;color:#C8102E;"><svg width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="11,4 6,9 11,14"></polyline></svg></button>
+     <button aria-label="Next testimonial" onClick="{{ tNext }}" style="width:38px;height:38px;border-radius:50%;border:1px solid #E1E4E8;background:#FFFFFF;color:#1C1C1A;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;" style-hover="border-color:#C8102E;color:#C8102E;"><svg width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="7,4 12,9 7,14"></polyline></svg></button>
+    </div>
+    <div style="font-family:Georgia,serif;font-size:96px;line-height:0.6;height:40px;color:#F6D3D9;margin:0 0 16px -26px;">“</div>
+    <div style="{{ tBodyStyle }}">
+     <p style="{{ tQuoteStyle }}">{{ tQuote }}</p>
+     <sc-if value="{{ tCanExpand }}" hint-placeholder-val="{{ true }}"><button onClick="{{ tToggle }}" style="background:transparent;border:none;padding:0;margin:16px 0 0;font-family:'Inter',sans-serif;font-size:15px;font-weight:700;color:#C8102E;cursor:pointer;" style-hover="color:#8f0c20;">{{ tToggleLabel }}</button></sc-if>
+     <div style="border-left:3px solid #C8102E;padding:2px 0 2px 22px;margin-top:36px;">
+      <div style="font-size:17px;font-weight:700;color:#1C1C1A;margin-bottom:6px;">{{ tName }}</div>
+      <div style="font-size:15px;color:#6B6A65;">{{ tRole }}</div>
+     </div>
+    </div>
+   </div>
+   <div style="display:flex;justify-content:center;align-items:center;gap:10px;margin-top:36px;">
+    <sc-for list="{{ tDots }}" as="d" hint-placeholder-count="3">
+     <button aria-label="{{ d.label }}" onClick="{{ d.onClick }}" style="{{ d.style }}"></button>
+    </sc-for>
    </div>
   </div>
  </section>
 
- <section id="quote" style="background:#EFF1F3;padding:130px 48px;box-sizing:border-box;">
+ <section data-screen-label="How it works" style="background:#FAFBFC;padding:130px 48px;box-sizing:border-box;">
   <div style="max-width:1200px;margin:0 auto;">
-   <div style="background:#FFFFFF;border-radius:20px;padding:48px;box-sizing:border-box;box-shadow:0 20px 50px rgba(28,28,26,0.06);">
-    <div style="font-size:24px;font-weight:700;letter-spacing:-0.02em;margin-bottom:26px;">Request a quote</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+   <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">How it works</div>
+   <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:40px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 48px;">From enquiry to a working machine</h2>
+   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;">
+    <div style="border-top:2px solid #C8102E;padding-top:24px;display:flex;flex-direction:column;gap:10px;">
+     <div style="font-size:40px;font-weight:700;letter-spacing:-0.03em;color:#C8102E;line-height:1;">01</div>
+     <div style="font-size:19px;font-weight:700;color:#1C1C1A;">Tell us about your site</div>
+     <p style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:#45443F;margin:0;">Fill in the form below with your location, number of users and the machines you are interested in.</p>
+    </div>
+    <div style="border-top:2px solid #D3D7DD;padding-top:24px;display:flex;flex-direction:column;gap:10px;">
+     <div style="font-size:40px;font-weight:700;letter-spacing:-0.03em;color:#C8102E;line-height:1;">02</div>
+     <div style="font-size:19px;font-weight:700;color:#1C1C1A;">We recommend a machine</div>
+     <p style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:#45443F;margin:0;">We match the machine and size to your site and send you a rental quote.</p>
+    </div>
+    <div style="border-top:2px solid #D3D7DD;padding-top:24px;display:flex;flex-direction:column;gap:10px;">
+     <div style="font-size:40px;font-weight:700;letter-spacing:-0.03em;color:#C8102E;line-height:1;">03</div>
+     <div style="font-size:19px;font-weight:700;color:#1C1C1A;">We install and train</div>
+     <p style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:#45443F;margin:0;">Our team delivers, installs and shows your staff how the machine works.</p>
+    </div>
+    <div style="border-top:2px solid #D3D7DD;padding-top:24px;display:flex;flex-direction:column;gap:10px;">
+     <div style="font-size:40px;font-weight:700;letter-spacing:-0.03em;color:#C8102E;line-height:1;">04</div>
+     <div style="font-size:19px;font-weight:700;color:#1C1C1A;">We keep it running</div>
+     <p style="font-family:'Inter',sans-serif;font-size:15px;line-height:1.65;color:#45443F;margin:0;">Maintenance, repairs and service calls are handled by our own technicians.</p>
+    </div>
+   </div>
+   <div style="margin-top:56px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;background:#1C1C1A;border-radius:24px;padding:40px 48px;box-sizing:border-box;">
     <div style="display:flex;flex-direction:column;gap:8px;">
-     <label for="first" style="font-size:13px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#6B6B68;">First name</label>
-     <input id="first" type="text" style="border:1px solid #D3D7DD;border-radius:12px;padding:14px 16px;font-size:15px;font-family:'Inter',sans-serif;background:#FFFFFF;color:#1C1C1A;outline:none;box-sizing:border-box;width:100%;" style-focus="border-color:#C8102E;" />
+     <div style="font-size:26px;font-weight:700;letter-spacing:-0.02em;color:#FAFBFC;">Ready to rent a machine?</div>
+     <div style="font-size:16px;color:#C9CCD3;">Send us a few details and we'll come back to you with a quote.</div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:8px;">
-     <label for="last" style="font-size:13px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#6B6B68;">Last name</label>
-     <input id="last" type="text" style="border:1px solid #D3D7DD;border-radius:12px;padding:14px 16px;font-size:15px;font-family:'Inter',sans-serif;background:#FFFFFF;color:#1C1C1A;outline:none;box-sizing:border-box;width:100%;" style-focus="border-color:#C8102E;" />
-    </div>
-    <div style="display:flex;flex-direction:column;gap:8px;">
-     <label for="phone" style="font-size:13px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#6B6B68;">Phone</label>
-     <input id="phone" type="text" style="border:1px solid #D3D7DD;border-radius:12px;padding:14px 16px;font-size:15px;font-family:'Inter',sans-serif;background:#FFFFFF;color:#1C1C1A;outline:none;box-sizing:border-box;width:100%;" style-focus="border-color:#C8102E;" />
-    </div>
-    <div style="display:flex;flex-direction:column;gap:8px;">
-     <label for="cemail" style="font-size:13px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#6B6B68;">Company email</label>
-     <input id="cemail" type="text" style="border:1px solid #D3D7DD;border-radius:12px;padding:14px 16px;font-size:15px;font-family:'Inter',sans-serif;background:#FFFFFF;color:#1C1C1A;outline:none;box-sizing:border-box;width:100%;" style-focus="border-color:#C8102E;" />
-    </div>
-    <div style="display:flex;flex-direction:column;gap:8px;">
-     <label for="city" style="font-size:13px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#6B6B68;">City</label>
-     <input id="city" type="text" style="border:1px solid #D3D7DD;border-radius:12px;padding:14px 16px;font-size:15px;font-family:'Inter',sans-serif;background:#FFFFFF;color:#1C1C1A;outline:none;box-sizing:border-box;width:100%;" style-focus="border-color:#C8102E;" />
-    </div>
-    <div style="display:flex;flex-direction:column;gap:8px;">
-     <label for="postal" style="font-size:13px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#6B6B68;">Postal code</label>
-     <input id="postal" type="text" style="border:1px solid #D3D7DD;border-radius:12px;padding:14px 16px;font-size:15px;font-family:'Inter',sans-serif;background:#FFFFFF;color:#1C1C1A;outline:none;box-sizing:border-box;width:100%;" style-focus="border-color:#C8102E;" />
-    </div>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
-     <div>
-      <div style="font-size:13px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#6B6B68;margin-bottom:12px;">Business enquiry</div>
-      <div style="display:flex;gap:10px;">
-       <sc-for list="{{ businessOptions }}" as="o" hint-placeholder-count="2">
-        <button onClick="{{ o.onClick }}" style="{{ o.style }}">{{ o.label }}</button>
-       </sc-for>
-      </div>
-     </div>
-     <div>
-      <div style="font-size:13px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#6B6B68;margin-bottom:12px;">Amount of users</div>
-      <div style="display:flex;flex-wrap:wrap;gap:10px;">
-       <sc-for list="{{ userOptions }}" as="o" hint-placeholder-count="3">
-        <button onClick="{{ o.onClick }}" style="{{ o.style }}">{{ o.label }}</button>
-       </sc-for>
-      </div>
-     </div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:20px;">
-    <div style="display:flex;flex-direction:column;gap:8px;">
-     <label for="company" style="font-size:13px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#6B6B68;">Company name</label>
-     <input id="company" type="text" style="border:1px solid #D3D7DD;border-radius:12px;padding:14px 16px;font-size:15px;font-family:'Inter',sans-serif;background:#FFFFFF;color:#1C1C1A;outline:none;box-sizing:border-box;width:100%;" style-focus="border-color:#C8102E;" />
-    </div>
-    <div style="display:flex;flex-direction:column;gap:8px;">
-     <label for="website" style="font-size:13px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#6B6B68;">Company website</label>
-     <input id="website" type="text" style="border:1px solid #D3D7DD;border-radius:12px;padding:14px 16px;font-size:15px;font-family:'Inter',sans-serif;background:#FFFFFF;color:#1C1C1A;outline:none;box-sizing:border-box;width:100%;" style-focus="border-color:#C8102E;" />
-    </div>
-    </div>
-    <div style="margin-bottom:20px;">
-     <div style="font-size:13px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#6B6B68;margin-bottom:12px;">Which products are you interested in?</div>
-     <div style="display:flex;flex-wrap:wrap;gap:10px;">
-      <sc-for list="{{ productOptions }}" as="o" hint-placeholder-count="4">
-       <button onClick="{{ o.onClick }}" style="{{ o.style }}">{{ o.label }}</button>
-      </sc-for>
-     </div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:26px;">
-     <label for="rmessage" style="font-size:13px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#6B6B68;">Message</label>
-     <textarea id="rmessage" rows="4" style="border:1px solid #D3D7DD;border-radius:12px;padding:14px 16px;font-size:15px;font-family:'Inter',sans-serif;background:#FFFFFF;color:#1C1C1A;outline:none;box-sizing:border-box;width:100%;resize:vertical;" style-focus="border-color:#C8102E;"></textarea>
-    </div>
-    <button onClick="{{ submitRental }}" style="background:#C8102E;color:#FAFBFC;border:none;padding:16px 36px;border-radius:999px;font-size:15px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;" style-hover="background:#8f0c20;">{{ rentalSubmitLabel }}</button>
+    <a href="Rental Enquiry.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:#C8102E;color:#FAFBFC;padding:15px 30px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Request a rental quote<span style="font-family:'Inter',sans-serif;font-size:13px;">→</span></a>
    </div>
   </div>
  </section>
@@ -291,9 +249,9 @@
     <div style="font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#1C1C1A;font-weight:700;margin-bottom:18px;">Support</div>
     <div style="display:flex;flex-direction:column;gap:12px;font-size:14px;color:#6B6B68;">
      <div style="color:#1C1C1A;font-weight:600;">0861 100 185</div>
-     <div style="display:flex;flex-direction:column;gap:2px;"><span style="color:#1C1C1A;font-weight:600;">Johannesburg (HQ)</span><a href="https://www.google.com/maps/search/?api=1&amp;query=2%20Lyn%20Road%2C%20Ferndale%2C%20Randburg%2C%202169%2C%20South%20Africa" target="_blank" rel="noopener" style="line-height:1.5;color:inherit;text-decoration:underline;text-decoration-color:rgba(200,16,46,0.35);text-underline-offset:3px;" style-hover="color:#C8102E;">2 Lyn Road, Ferndale, Randburg, 2169</a></div>
-     <div style="display:flex;flex-direction:column;gap:2px;"><span style="color:#1C1C1A;font-weight:600;">Durban</span><a href="https://www.google.com/maps/search/?api=1&amp;query=28%20Springfield%20Industrial%20Park%2C%209%20Mahoganyfield%20Way%2C%20Springfield%2C%204051%2C%20South%20Africa" target="_blank" rel="noopener" style="line-height:1.5;color:inherit;text-decoration:underline;text-decoration-color:rgba(200,16,46,0.35);text-underline-offset:3px;" style-hover="color:#C8102E;">28 Springfield Industrial Park, 9 Mahoganyfield Way, Springfield, 4051</a></div>
-     <div style="display:flex;flex-direction:column;gap:2px;"><span style="color:#1C1C1A;font-weight:600;">Cape Town</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Unit%20B28%2F29%20Pinelands%20Business%20Park%2C%20New%20Mill%20Street%2C%20Pinelands%2C%207405%2C%20South%20Africa" target="_blank" rel="noopener" style="line-height:1.5;color:inherit;text-decoration:underline;text-decoration-color:rgba(200,16,46,0.35);text-underline-offset:3px;" style-hover="color:#C8102E;">Unit B28/29 Pinelands Business Park, New Mill Street, Pinelands, 7405</a></div>
+     <div>Johannesburg (HQ)</div>
+     <div>Durban</div>
+     <div>Cape Town</div>
     </div>
    </div>
   </div>
@@ -432,6 +390,11 @@ const PRODUCTS_RECYCLING = [
   description: 'Shreds disposable plastic and paper cups automatically on deposit, reducing waste volume by up to 7x. Waste is collected in the container below, with an integrated sanitising system, an incentive reward system and a tablet touchscreen.',
   tags: ['Up to 7x Volume Reduction', 'Automated Operation', 'Incentive Reward System'],
   specs: [{ label: 'Waste Type', value: 'Disposable Plastic & Paper Cups' }, { label: 'Telemetry', value: 'Included' }, { label: 'Interface', value: 'Tablet Touchscreen' }] },
+ { name: 'Tritech Compactor', category: 'Recycling', variant: 'accent', image: 'assets/tritech-compactor-v2.png',
+  tagline: 'Automatic compacting machine for plastic bottles and cans',
+  description: 'Compacts PET plastic bottles of different sizes and beverage cans automatically on deposit. Waste is collected in the container below, with telemetry included, an incentive reward system for staff and a tablet touchscreen.',
+  tags: ['Capacity: 350 Bottles/Cans', 'Automated Operation', 'Incentive Reward System'],
+  specs: [{ label: 'Waste Type', value: 'PET Plastic Bottles & Beverage Cans' }, { label: 'Capacity', value: '350 PET bottles/cans' }, { label: 'Telemetry', value: 'Included' }, { label: 'Interface', value: 'Tablet Touchscreen' }] },
 ];
 PRODUCTS.push(...PRODUCTS_RECYCLING);
 
@@ -448,6 +411,8 @@ const FILTER_LABELS = ['All', 'Vending Machines', 'Hot Beverage Solutions', 'Wat
 class Component extends DCLogic {
 
  componentDidMount() {
+  const hs = window.location.hash;
+  if (hs === '#quote' || hs === '#machines') setTimeout(() => { const el = document.getElementById(hs.slice(1)); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' }); }, 400);
   if (this.__anim) return;
   this.__anim = true;
 
@@ -578,14 +543,40 @@ class Component extends DCLogic {
    this.setState({ chosen });
   };
 
+  const TESTIMONIALS = [
+   { quote: 'We are proud to partner with Top Vending. Their exceptional service has consistently exceeded our expectations, making them an integral part of our operations. Our relationship with Top Vending is more than just a client-supplier arrangement; it\u2019s a true partnership built on trust, mutual respect, and a shared vision for the future of Coffee Vending and service excellence. Their ability to seamlessly mobilize a large national contract went above and beyond our expectations, showcasing their professionalism and unmatched expertise. Top Vending\u2019s commitment to innovation, and customer-centric solutions sets them apart, and their alignment with our goals ensures we remain ahead of industry trends, delivering value to our customers every step of the way. We highly recommend Top Vending to anyone looking for a partner who truly understands their business needs and delivers with excellence.', name: 'Tsebo Beverage', role: 'MD' },
+   { quote: 'I have dealt with Shane and his Team from Top Vending for many years and can honestly say that their products and customer service is always outstanding and has never diminished over the many years that we have dealt with them. I have always felt that we as a company are important to them by the way that they look after us. Nothing is too much trouble when we request their help and they are professional at every level from the first enquiry through to the delivery of our machines to their after sales service.', name: 'Trish Steenfeldt-Kristensen', role: 'rewardsco' },
+   { quote: 'Top Coolers has been responsible for supplying and maintaining water coolers across our campus. We have found their service to be professional, reliable and consistently of a high standard. Their team has demonstrated excellent communication, responsiveness and a commitment to meeting agreed timelines and expectations. Some of the key strengths we have observed include; professional and courteous service, High-quality service delivery and maintenance, Reliability and responsiveness, Efficient turnaround times and support. Based on our experience, we would confidently recommend Top Coolers to any organisation seeking a dependable water cooler supplier and service provider.', name: 'Karabo Tlokotsi', role: 'Redhill School' },
+  ];
+  const ti = this.state.tIndex || 0;
+  const tOpen = !!this.state.tOpen;
+  const tCur = TESTIMONIALS[ti];
+  const tGo = (i) => this.setState({ tIndex: (i + TESTIMONIALS.length) % TESTIMONIALS.length, tOpen: false });
+  const tVals = {
+   tQuote: tCur.quote, tName: tCur.name, tRole: tCur.role,
+   tCanExpand: true,
+   tToggleLabel: tOpen ? 'Read less' : 'Read more',
+   tToggle: () => this.setState({ tOpen: !tOpen }),
+   tPrev: () => tGo(ti - 1), tNext: () => tGo(ti + 1),
+   tBodyStyle: { maxWidth: '1000px', paddingLeft: '0' },
+   tQuoteStyle: Object.assign({ fontFamily: "'Inter',sans-serif", fontStyle: 'italic', fontSize: '21px', lineHeight: 1.8, color: '#1C1C1A', margin: 0, textWrap: 'pretty' }, tOpen ? {} : { display: '-webkit-box', WebkitLineClamp: 4, WebkitBoxOrient: 'vertical', overflow: 'hidden' }),
+   tDots: TESTIMONIALS.map((_, k) => ({ label: 'Testimonial ' + (k + 1), onClick: () => tGo(k), style: { width: k === ti ? '42px' : '9px', height: '9px', borderRadius: '999px', border: 'none', padding: 0, cursor: 'pointer', background: k === ti ? '#C8102E' : '#D3D6DB', transition: 'width .3s ease, background .3s ease' } }))
+  };
   const mobileOpen = !!this.state.mobileMenu;
   return {
+   ...tVals,
    toggleMobileMenu: () => this.setState({ mobileMenu: !mobileOpen }),
    closeMobileMenu: () => this.setState({ mobileMenu: false }),
    mobileToggleStyle: "display:none;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;border:1px solid #E1E4E8;background:#FFFFFF;cursor:pointer;flex-shrink:0;padding:0;",
    mobileMenuStyle: mobileOpen
     ? "position:fixed;top:88px;left:12px;right:12px;background:#FFFFFF;border:1px solid #E1E4E8;border-radius:20px;box-shadow:0 22px 50px rgba(0,0,0,0.18);padding:12px;z-index:120;display:flex;flex-direction:column;gap:2px;max-height:calc(100vh - 110px);overflow:auto;box-sizing:border-box;"
     : "display:none;",
+   mProdOpen: !!this.state.mProd,
+   mContactOpen: !!this.state.mContact,
+   toggleMProd: () => this.setState(s => ({ mProd: !s.mProd })),
+   toggleMContact: () => this.setState(s => ({ mContact: !s.mContact })),
+   mProdChev: this.state.mProd ? "font-size:10px;line-height:1;opacity:0.6;transition:transform .25s ease;transform:rotate(180deg);" : "font-size:10px;line-height:1;opacity:0.6;transition:transform .25s ease;transform:rotate(0deg);",
+   mContactChev: this.state.mContact ? "font-size:10px;line-height:1;opacity:0.6;transition:transform .25s ease;transform:rotate(180deg);" : "font-size:10px;line-height:1;opacity:0.6;transition:transform .25s ease;transform:rotate(0deg);",
    mobileNavLinks: [
     { label: 'About', href: 'About.dc.html' },
     { label: 'Vending Machines', href: 'Vending Machines.dc.html' },

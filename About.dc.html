@@ -59,6 +59,7 @@
      <div style="{{ contactMenuStyle }}">
       <div style="background:#FFFFFF;border:1px solid #E1E4E8;border-radius:16px;padding:8px;box-shadow:0 18px 40px rgba(0,0,0,0.12);display:flex;flex-direction:column;gap:2px;">
        <a href="Contact.dc.html" style="display:block;padding:11px 18px;border-radius:10px;font-size:14px;color:#1C1C1A;white-space:nowrap;" style-hover="background:#EFF1F3;color:#C8102E;">General Enquiry</a>
+       <a href="Rental Enquiry.dc.html" style="display:block;padding:11px 18px;border-radius:10px;font-size:14px;color:#1C1C1A;white-space:nowrap;" style-hover="background:#EFF1F3;color:#C8102E;">Rental Enquiry</a>
        <a href="Contact.dc.html#type=support" style="display:block;padding:11px 18px;border-radius:10px;font-size:14px;color:#1C1C1A;white-space:nowrap;" style-hover="background:#EFF1F3;color:#C8102E;">Technical Support</a>
       </div>
      </div>
@@ -76,9 +77,15 @@
  </nav>
 
  <div style="{{ mobileMenuStyle }}">
-  <sc-for list="{{ mobileNavLinks }}" as="m" hint-placeholder-count="7">
-   <a href="{{ m.href }}" onClick="{{ closeMobileMenu }}" style="display:block;padding:13px 16px;border-radius:12px;font-size:15px;font-weight:500;color:#1C1C1A;" style-hover="background:#EFF1F3;color:#C8102E;">{{ m.label }}</a>
-  </sc-for>
+  <a href="About.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:13px 16px;border-radius:12px;font-size:15px;font-weight:500;color:#1C1C1A;" style-hover="background:#EFF1F3;color:#C8102E;">About</a>
+<button onClick="{{ toggleMProd }}" style="display:flex;align-items:center;justify-content:space-between;width:100%;background:transparent;border:none;padding:13px 16px;border-radius:12px;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:#1C1C1A;cursor:pointer;text-align:left;" style-hover="background:#EFF1F3;color:#C8102E;">Products<span style="{{ mProdChev }}">▼</span></button>
+<sc-if value="{{ mProdOpen }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:2px;padding-bottom:4px;"><a href="Products.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:11px 16px 11px 30px;border-radius:12px;font-size:14px;font-weight:400;color:#45443F;" style-hover="background:#EFF1F3;color:#C8102E;">All Products</a><a href="Vending Machines.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:11px 16px 11px 30px;border-radius:12px;font-size:14px;font-weight:400;color:#45443F;" style-hover="background:#EFF1F3;color:#C8102E;">Vending Machines</a><a href="Hot Beverage Solutions.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:11px 16px 11px 30px;border-radius:12px;font-size:14px;font-weight:400;color:#45443F;" style-hover="background:#EFF1F3;color:#C8102E;">Hot Beverage Solutions</a><a href="Water Solutions.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:11px 16px 11px 30px;border-radius:12px;font-size:14px;font-weight:400;color:#45443F;" style-hover="background:#EFF1F3;color:#C8102E;">Water Solutions</a><a href="Payment Solutions.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:11px 16px 11px 30px;border-radius:12px;font-size:14px;font-weight:400;color:#45443F;" style-hover="background:#EFF1F3;color:#C8102E;">Payment Solutions</a><a href="Recycling.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:11px 16px 11px 30px;border-radius:12px;font-size:14px;font-weight:400;color:#45443F;" style-hover="background:#EFF1F3;color:#C8102E;">Recycling Solutions</a></div></sc-if>
+<a href="Rentals.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:13px 16px;border-radius:12px;font-size:15px;font-weight:500;color:#1C1C1A;" style-hover="background:#EFF1F3;color:#C8102E;">Rentals</a>
+<a href="Consumables.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:13px 16px;border-radius:12px;font-size:15px;font-weight:500;color:#1C1C1A;" style-hover="background:#EFF1F3;color:#C8102E;">Consumables</a>
+<a href="Clients.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:13px 16px;border-radius:12px;font-size:15px;font-weight:500;color:#1C1C1A;" style-hover="background:#EFF1F3;color:#C8102E;">Our Clients</a>
+<a href="Blog.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:13px 16px;border-radius:12px;font-size:15px;font-weight:500;color:#1C1C1A;" style-hover="background:#EFF1F3;color:#C8102E;">Blog</a>
+<button onClick="{{ toggleMContact }}" style="display:flex;align-items:center;justify-content:space-between;width:100%;background:transparent;border:none;padding:13px 16px;border-radius:12px;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:#1C1C1A;cursor:pointer;text-align:left;" style-hover="background:#EFF1F3;color:#C8102E;">Contact<span style="{{ mContactChev }}">▼</span></button>
+<sc-if value="{{ mContactOpen }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:2px;padding-bottom:4px;"><a href="Contact.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:11px 16px 11px 30px;border-radius:12px;font-size:14px;font-weight:400;color:#45443F;" style-hover="background:#EFF1F3;color:#C8102E;">General Enquiry</a><a href="Rental Enquiry.dc.html" onClick="{{ closeMobileMenu }}" style="display:block;padding:11px 16px 11px 30px;border-radius:12px;font-size:14px;font-weight:400;color:#45443F;" style-hover="background:#EFF1F3;color:#C8102E;">Rental Enquiry</a><a href="Contact.dc.html#type=support" onClick="{{ closeMobileMenu }}" style="display:block;padding:11px 16px 11px 30px;border-radius:12px;font-size:14px;font-weight:400;color:#45443F;" style-hover="background:#EFF1F3;color:#C8102E;">Technical Support</a></div></sc-if>
    <button data-tv-search="1" onClick="{{ closeMobileMenu }}" style="display:block;width:100%;text-align:left;background:transparent;border:none;padding:13px 16px;border-radius:12px;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:#1C1C1A;cursor:pointer;">Search</button>
   <a href="Contact.dc.html#quote" onClick="{{ closeMobileMenu }}" style="display:block;margin-top:8px;text-align:center;background:#C8102E;color:#FAFBFC;padding:14px 20px;border-radius:999px;font-size:14px;font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Get a Quote</a>
  </div>
@@ -98,7 +105,7 @@
   <div style="max-width:1200px;margin:0 auto;">
    <div style="display:grid;grid-template-columns:0.7fr 1fr;gap:70px;align-items:stretch;">
     <div data-story-img="1" style="min-height:0;overflow:hidden;background:#1C1C1A;box-shadow:0 24px 60px rgba(28,28,26,0.18);position:relative;">
-     <img src="assets/about-first-machine-full.png" alt="Top Vending's first vending machine, now in our showroom" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:52% 42%;display:block;" />
+     <img src="assets/about-first-machine-v2.jpg" alt="Top Vending's first vending machine, now in our showroom" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:45% 35%;display:block;" />
     </div>
     <div>
      <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Our Story</div>
@@ -208,9 +215,9 @@
     <div style="font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#1C1C1A;font-weight:700;margin-bottom:18px;">Support</div>
     <div style="display:flex;flex-direction:column;gap:12px;font-size:14px;color:#6B6B68;">
      <div style="color:#1C1C1A;font-weight:600;">0861 100 185</div>
-     <div style="display:flex;flex-direction:column;gap:2px;"><span style="color:#1C1C1A;font-weight:600;">Johannesburg (HQ)</span><a href="https://www.google.com/maps/search/?api=1&amp;query=2%20Lyn%20Road%2C%20Ferndale%2C%20Randburg%2C%202169%2C%20South%20Africa" target="_blank" rel="noopener" style="line-height:1.5;color:inherit;text-decoration:underline;text-decoration-color:rgba(200,16,46,0.35);text-underline-offset:3px;" style-hover="color:#C8102E;">2 Lyn Road, Ferndale, Randburg, 2169</a></div>
-     <div style="display:flex;flex-direction:column;gap:2px;"><span style="color:#1C1C1A;font-weight:600;">Durban</span><a href="https://www.google.com/maps/search/?api=1&amp;query=28%20Springfield%20Industrial%20Park%2C%209%20Mahoganyfield%20Way%2C%20Springfield%2C%204051%2C%20South%20Africa" target="_blank" rel="noopener" style="line-height:1.5;color:inherit;text-decoration:underline;text-decoration-color:rgba(200,16,46,0.35);text-underline-offset:3px;" style-hover="color:#C8102E;">28 Springfield Industrial Park, 9 Mahoganyfield Way, Springfield, 4051</a></div>
-     <div style="display:flex;flex-direction:column;gap:2px;"><span style="color:#1C1C1A;font-weight:600;">Cape Town</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Unit%20B28%2F29%20Pinelands%20Business%20Park%2C%20New%20Mill%20Street%2C%20Pinelands%2C%207405%2C%20South%20Africa" target="_blank" rel="noopener" style="line-height:1.5;color:inherit;text-decoration:underline;text-decoration-color:rgba(200,16,46,0.35);text-underline-offset:3px;" style-hover="color:#C8102E;">Unit B28/29 Pinelands Business Park, New Mill Street, Pinelands, 7405</a></div>
+     <div>Johannesburg (HQ)</div>
+     <div>Durban</div>
+     <div>Cape Town</div>
     </div>
    </div>
   </div>
@@ -349,6 +356,11 @@ const PRODUCTS_RECYCLING = [
   description: 'Shreds disposable plastic and paper cups automatically on deposit, reducing waste volume by up to 7x. Waste is collected in the container below, with an integrated sanitising system, an incentive reward system and a tablet touchscreen.',
   tags: ['Up to 7x Volume Reduction', 'Automated Operation', 'Incentive Reward System'],
   specs: [{ label: 'Waste Type', value: 'Disposable Plastic & Paper Cups' }, { label: 'Telemetry', value: 'Included' }, { label: 'Interface', value: 'Tablet Touchscreen' }] },
+ { name: 'Tritech Compactor', category: 'Recycling', variant: 'accent', image: 'assets/tritech-compactor-v2.png',
+  tagline: 'Automatic compacting machine for plastic bottles and cans',
+  description: 'Compacts PET plastic bottles of different sizes and beverage cans automatically on deposit. Waste is collected in the container below, with telemetry included, an incentive reward system for staff and a tablet touchscreen.',
+  tags: ['Capacity: 350 Bottles/Cans', 'Automated Operation', 'Incentive Reward System'],
+  specs: [{ label: 'Waste Type', value: 'PET Plastic Bottles & Beverage Cans' }, { label: 'Capacity', value: '350 PET bottles/cans' }, { label: 'Telemetry', value: 'Included' }, { label: 'Interface', value: 'Tablet Touchscreen' }] },
 ];
 PRODUCTS.push(...PRODUCTS_RECYCLING);
 
@@ -520,6 +532,12 @@ class Component extends DCLogic {
    mobileMenuStyle: mobileOpen
     ? "position:fixed;top:88px;left:12px;right:12px;background:#FFFFFF;border:1px solid #E1E4E8;border-radius:20px;box-shadow:0 22px 50px rgba(0,0,0,0.18);padding:12px;z-index:120;display:flex;flex-direction:column;gap:2px;max-height:calc(100vh - 110px);overflow:auto;box-sizing:border-box;"
     : "display:none;",
+   mProdOpen: !!this.state.mProd,
+   mContactOpen: !!this.state.mContact,
+   toggleMProd: () => this.setState(s => ({ mProd: !s.mProd })),
+   toggleMContact: () => this.setState(s => ({ mContact: !s.mContact })),
+   mProdChev: this.state.mProd ? "font-size:10px;line-height:1;opacity:0.6;transition:transform .25s ease;transform:rotate(180deg);" : "font-size:10px;line-height:1;opacity:0.6;transition:transform .25s ease;transform:rotate(0deg);",
+   mContactChev: this.state.mContact ? "font-size:10px;line-height:1;opacity:0.6;transition:transform .25s ease;transform:rotate(180deg);" : "font-size:10px;line-height:1;opacity:0.6;transition:transform .25s ease;transform:rotate(0deg);",
    mobileNavLinks: [
     { label: 'About', href: 'About.dc.html' },
     { label: 'Vending Machines', href: 'Vending Machines.dc.html' },
