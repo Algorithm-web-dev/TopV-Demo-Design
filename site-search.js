@@ -41,6 +41,7 @@
     ['Waterlogic 100', 'Water Solutions', 'Economical cold and ambient'],
     ['The River', 'Water Solutions', 'Stainless steel cold water dispenser'],
     ['Legend Classic', 'Water Solutions', 'Manually refilled, cold, ambient and hot'],
+    ['Petalosa Bottles', 'Water Solutions', 'Eco-friendly glass bottle range for hospitality'],
     ['VPos Touch Bank Card Device', 'Payment Solutions', 'All-in-one cashless bank payments'],
     ['Onyx Contactless Bank Card Device', 'Payment Solutions', 'Sleek tap-and-go contactless reader'],
     ['Engine Electronic Cashless System', 'Payment Solutions', 'Multi-standard cashless and cash management'],
