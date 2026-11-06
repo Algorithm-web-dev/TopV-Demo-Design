@@ -22,7 +22,7 @@
   if (window.CopyReview) return;
 
   var FLAG = 'tv_review_mode';
-  var STORE = 'tv_copy_review_v1';
+  var STORE = 'tv_copy_review_v2';
   var NAME = 'tv_review_name';
   var API = '/api/review';
   var RED = '#C8102E';
@@ -38,7 +38,7 @@
 
   // ---------- data ----------
 
-  var PENDING = 'tv_copy_review_pending';
+  var PENDING = 'tv_copy_review_v2_pending';
   var items = [];
   // 'checking' until the first server response, then 'cloud' (shared store
   // reachable), 'offline' (server unreachable, retrying) or 'local' (storage

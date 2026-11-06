@@ -21,9 +21,11 @@ const crypto = require('crypto');
 
 const URL_ = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
 const TOKEN = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
-const KEY = 'topv:copy-review';
+// v2: fresh start for the November review round (older suggestions are
+// left untouched under 'topv:copy-review' but no longer shown).
+const KEY = 'topv:copy-review:v2';
 const IMG_KEY = 'topv:copy-review:img:';
-const LOG_KEY = 'topv:copy-review:log';
+const LOG_KEY = 'topv:copy-review:v2:log';
 const LOG_MAX = 5000;
 const MAX_FIELD = 5000;
 const MAX_IMAGE_BYTES = 3.2 * 1024 * 1024;
