@@ -390,6 +390,8 @@
     '.card .note{margin-top:6px;color:#45443F;font-style:italic;line-height:1.45}',
     '.card .foot{display:flex;align-items:center;gap:10px;margin-top:8px;font-size:11px;color:#6B6B68}',
     '.card .foot label{display:flex;align-items:center;gap:4px;cursor:pointer}',
+    '.chip{position:fixed;z-index:2147483001;display:none;border:none;border-radius:999px;background:' + RED + ';color:#fff;font:700 12px/1 Inter,system-ui,sans-serif;padding:7px 12px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.2);white-space:nowrap}',
+    '.chip:hover{background:#A50D26}',
     '.hover .lbl{position:absolute;top:-2px;left:-2px;transform:translateY(-100%);background:' + RED + ';color:#fff;font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px 6px 6px 0;white-space:nowrap;display:none}',
     '.hover.img .lbl{display:block}',
     '.pin.img{border-radius:6px}',
@@ -481,6 +483,16 @@
     pop = h('div', 'pop');
     root.appendChild(pop);
 
+    chip = h('button', 'chip', '✎ Edit text');
+    chip.title = 'Suggest new wording for this button or question';
+    chip.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var el = chipFor;
+      hideChip();
+      if (el && document.contains(el)) openFor(el, 'text', null);
+    });
+    root.appendChild(chip);
+
     panel = h('div', 'panel');
     root.appendChild(panel);
 
@@ -490,7 +502,7 @@
     document.addEventListener('mousemove', onMove, true);
     document.addEventListener('click', onClick, true);
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closePop(); if (panelOpen) togglePanel(false); } });
-    window.addEventListener('scroll', schedule, { passive: true, capture: true });
+    window.addEventListener('scroll', function () { schedule(); placeChip(); }, { passive: true, capture: true });
     window.addEventListener('resize', schedule);
     new MutationObserver(function () { domVersion++; schedule(); })
       .observe(document.body, { childList: true, subtree: true, characterData: true });
@@ -510,7 +522,53 @@
     selecting = on;
     selectBtn.classList.toggle('on', on);
     selectBtn.textContent = on ? 'Click to comment' : 'Browsing (links work)';
-    if (!on) hoverBox.style.display = 'none';
+    if (!on) { hoverBox.style.display = 'none'; hideChip(); }
+  }
+
+  // ---------- button text (FAQ questions, button labels) ----------
+  //
+  // Buttons keep working in review mode (FAQ toggles, Load More, tabs), so
+  // clicking them can't open a note. Instead, hovering or tapping a button
+  // with copy shows an "Edit text" tab on it that opens the note.
+
+  var chip, chipFor = null, chipBtn = null;
+
+  function buttonCopy(target) {
+    if (!target || target.nodeType !== 1 || !target.closest) return null;
+    var btn = target.closest('button, [role="button"]');
+    if (!btn || isOurs(btn) || inSiteChrome(btn)) return null;
+    var best = null, bestLen = 0;
+    [btn].concat([].slice.call(btn.querySelectorAll('*'))).forEach(function (n) {
+      if (!hasOwnText(n)) return;
+      var len = textOf(n).length;
+      if (len > bestLen) { best = n; bestLen = len; }
+    });
+    // Skip icon-only buttons like "+", "×" or arrows.
+    if (!best || bestLen < 2 || !/[A-Za-z0-9]/.test(textOf(best))) return null;
+    return { btn: btn, el: best };
+  }
+
+  function placeChip() {
+    if (!chipBtn || chip.style.display === 'none') return;
+    if (!document.contains(chipBtn)) { hideChip(); return; }
+    var r = chipBtn.getBoundingClientRect();
+    if (r.bottom < 0 || r.top > window.innerHeight) { hideChip(); return; }
+    var cw = chip.offsetWidth || 90;
+    chip.style.left = Math.max(8, Math.min(r.right - cw - 8, window.innerWidth - cw - 8)) + 'px';
+    chip.style.top = Math.max(8, r.top - 14) + 'px';
+  }
+
+  function showChip(bc) {
+    chipFor = bc.el;
+    chipBtn = bc.btn;
+    chip.style.display = 'block';
+    placeChip();
+  }
+
+  function hideChip() {
+    if (!chip) return;
+    chip.style.display = 'none';
+    chipFor = chipBtn = null;
   }
 
   function placeBox(box, el) {
@@ -534,6 +592,9 @@
     if (!selecting || editing) return;
     var path = e.composedPath ? e.composedPath() : [];
     if (path.indexOf(host) !== -1) { hoverBox.style.display = 'none'; return; }
+    var bc = buttonCopy(e.target);
+    if (bc) { if (bc.btn !== chipBtn) showChip(bc); }
+    else if (chipBtn) hideChip();
     var t = pickTarget(e);
     if (!t) { hoverBox.style.display = 'none'; return; }
     showHover(t);
@@ -553,18 +614,26 @@
       return;
     }
     if (!selecting) return;
+    // Tapping a button (e.g. an FAQ question) still works, and shows the
+    // "Edit text" tab for it, which is how touch screens reach it.
+    var bc = buttonCopy(e.target);
+    if (bc) { showChip(bc); setTimeout(placeChip, 350); return; }
     var t = pickTarget(e);
     if (!t) return;
     e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation();
-    var el = t.el;
-    var original = sigOf(el, t.kind);
+    openFor(t.el, t.kind, { x: e.clientX, y: e.clientY });
+  }
+
+  function openFor(el, kind, point) {
+    hideChip();
+    var original = sigOf(el, kind);
     var existing = items.filter(function (i) {
-      return i.page === pageKey() && kindOf(i) === t.kind && i.original === original && locate(i) === el;
+      return i.page === pageKey() && kindOf(i) === kind && i.original === original && locate(i) === el;
     })[0];
     openPop(existing || {
-      id: uid(), page: pageKey(), kind: t.kind, selector: cssPath(el), original: original,
-      suggested: t.kind === 'text' ? original : '', note: '', status: 'open',
-    }, el, !existing, { x: e.clientX, y: e.clientY });
+      id: uid(), page: pageKey(), kind: kind, selector: cssPath(el), original: original,
+      suggested: kind === 'text' ? original : '', note: '', status: 'open',
+    }, el, !existing, point);
   }
 
   function beginEdit(item, el, point) {
