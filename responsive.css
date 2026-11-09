@@ -40,6 +40,10 @@
     padding-top: 64px !important;
     padding-bottom: 64px !important;
   }
+  section[data-pt="80"] { padding-top: 48px !important; }
+  section[data-pt="32"] { padding-top: 24px !important; }
+  section[data-pb="80"] { padding-bottom: 48px !important; }
+  section[data-pb="32"] { padding-bottom: 24px !important; }
   section:first-of-type,
   section[style*="padding:170px"],
   section[style*="padding:130px 48px 0"],
