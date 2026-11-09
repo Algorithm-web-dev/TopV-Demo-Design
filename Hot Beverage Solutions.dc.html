@@ -49,7 +49,7 @@
 <div style="font-family:'Inter',sans-serif;color:#1C1C1A;background:#FAFBFC;overflow-x:hidden;">
 
  <nav style="position:fixed;top:20px;left:24px;right:24px;height:72px;background:rgba(250,250,248,0.88);backdropFilter:blur(18px);WebkitBackdropFilter:blur(18px);border:1px solid rgba(255,255,255,0.5);box-shadow:0 10px 30px rgba(0,0,0,0.08);border-radius:999px;display:flex;align-items:center;justify-content:space-between;gap:32px;padding:0 28px;z-index:100;box-sizing:border-box;">
-  <a href="index.html" style="display:flex;align-items:center;flex:0 1 auto;width:100%;max-width:190px;min-width:90px;height:52px;"><img src="assets/tv-logo.svg" alt="Top Vending" style="height:100%;width:100%;object-fit:contain;object-position:left center;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.18));" /></a>
+  <a href="index.html" style="display:flex;align-items:center;flex:0 1 auto;width:100%;max-width:190px;min-width:90px;height:52px;"><img src="assets/tv-logo.svg" alt="Top Vending" style="height:100%;width:100%;object-fit:contain;object-position:left center;" /></a>
   <div style="display:flex;align-items:center;gap:40px;">
    <div data-nav-links="1" style="display:flex;gap:32px;font-size:14px;">
     <a href="About.dc.html" style="color:#1C1C1A;white-space:nowrap;" style-hover="color:#C8102E;">About</a>
@@ -107,7 +107,7 @@
   <a href="Contact.dc.html#quote" onClick="{{ closeMobileMenu }}" style="display:block;margin-top:8px;text-align:center;background:#C8102E;color:#FAFBFC;padding:14px 20px;border-radius:999px;font-size:14px;font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Get a Quote</a>
  </div>
 
- <section data-screen-label="Hot beverage header" style="padding:170px 48px 60px;box-sizing:border-box;background:#EFF1F3;{{ catalogueStyle }}">
+ <section data-pb="80" data-screen-label="Hot beverage header" style="padding:170px 48px 80px;box-sizing:border-box;background:#EFF1F3;{{ catalogueStyle }}">
   <div style="max-width:1200px;margin:0 auto;">
    <a href="index.html" style="display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:600;color:#6B6B68;margin-bottom:26px;" style-hover="color:#C8102E;">
     <span style="font-size:15px;">←</span>Back to home
@@ -118,7 +118,7 @@
   </div>
  </section>
 
- <section data-screen-label="Hot beverage feature" style="background:#FAFBFC;padding:110px 48px 40px;box-sizing:border-box;{{ catalogueStyle }}">
+ <section data-pt="80" data-pb="32" data-screen-label="Hot beverage feature" style="background:#FAFBFC;padding:80px 48px 32px;box-sizing:border-box;{{ catalogueStyle }}">
   <div style="max-width:1200px;margin:0 auto;">
    <div style="display:grid;grid-template-columns:1.05fr 1fr;gap:70px;align-items:stretch;">
     <div style="order:2;">
@@ -150,7 +150,7 @@
   </div>
  </section>
 
- <section id="products" style="background:#FAFBFC;padding:60px 48px 130px;box-sizing:border-box;{{ catalogueStyle }}">
+ <section data-pt="32" data-pb="80" id="products" style="background:#FAFBFC;padding:32px 48px 80px;box-sizing:border-box;{{ catalogueStyle }}">
   <div style="max-width:1200px;margin:0 auto;">
    <div style="background:#EFF1F3;border-radius:24px;padding:24px 22px 22px;box-sizing:border-box;">
     <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:20px;padding:0 4px;">
@@ -183,7 +183,7 @@
   </div>
  </section>
 
- <section data-detail-section="1" style="background:#FAFBFC;padding:150px 48px 130px;box-sizing:border-box;{{ detailStyle }}">
+ <section data-pb="80" data-detail-section="1" style="background:#FAFBFC;padding:150px 48px 80px;box-sizing:border-box;{{ detailStyle }}">
   <div style="max-width:1200px;margin:0 auto;">
    <a href="#products" onClick="{{ closeDetail }}" style="display:inline-flex;align-items:center;gap:10px;font-size:14px;color:#6B6B68;margin-bottom:36px;" style-hover="color:#C8102E;">
     <span>←</span>All machines
@@ -243,7 +243,7 @@
   </div>
  </section>
 
- <section style="background:#EFF1F3;padding:110px 48px;box-sizing:border-box;{{ detailStyle }}">
+ <section data-pt="80" data-pb="32" style="background:#EFF1F3;padding:80px 48px 32px;box-sizing:border-box;{{ detailStyle }}">
   <div style="max-width:1200px;margin:0 auto;">
     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">FAQs</div>
     <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:32px;line-height:1.15;letter-spacing:-0.03em;margin:0 0 34px;">About this machine.</h2>
@@ -263,7 +263,7 @@
   </div>
  </section>
 
- <section style="background:#EFF1F3;padding:120px 48px;box-sizing:border-box;{{ catalogueStyle }}">
+ <section data-pt="32" data-pb="80" style="background:#EFF1F3;padding:32px 48px 80px;box-sizing:border-box;{{ catalogueStyle }}">
   <div style="max-width:1200px;margin:0 auto;">
    <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">FAQs</div>
    <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.12;letter-spacing:-0.03em;margin:0 0 40px;">Questions about this range.</h2>
@@ -283,7 +283,7 @@
   </div>
  </section>
 
- <section style="background:#FAFBFC;padding:100px 48px 120px;box-sizing:border-box;">
+ <section data-pt="80" data-pb="80" style="background:#FAFBFC;padding:80px 48px 80px;box-sizing:border-box;">
   <div style="max-width:1200px;margin:0 auto;">
    <a href="Contact.dc.html" data-home-cta="1" style="position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:40px;min-height:300px;padding:56px 64px;box-sizing:border-box;border-radius:24px;overflow:hidden;background:#0B1426;color:#FAFBFC;transition:transform .25s ease, box-shadow .25s ease;" style-hover="transform:translateY(-3px);box-shadow:0 28px 60px rgba(11,20,38,0.28);color:#FAFBFC;">
     <div aria-hidden="true" style="position:absolute;right:-160px;top:-200px;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle, rgba(200,16,46,0.45) 0%, rgba(200,16,46,0) 68%);pointer-events:none;"></div>
@@ -359,25 +359,20 @@
 <script type="text/x-dc" data-dc-script data-props="{&quot;productGridColumns&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;2&quot;,&quot;options&quot;:[&quot;2&quot;,&quot;3&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Catalogue&quot;},&quot;filterBarSticky&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Catalogue&quot;}}">
 const PRODUCTS = [
  { name: 'Palma Hz70', category: 'Vending Machines', variant: 'default', image: 'assets/hz70-v4.png',
-  tagline: 'Standard Combo Vending Machine',
+  tagline: 'Snack and Can Vending Machine',
   description: 'A dual-temperature combo vending machine with full payment support, refrigeration and MDB compatibility, carrying 60 drink items and 120 snack items, 180 items in total.',
   tags: ['Dual Temperature Zones', 'Refrigerated', 'MDB Compatible'],
   specs: [{ label: 'Capacity', value: '180 items total' }, { label: 'Payment', value: 'Full Payment Support' }, { label: 'Dimensions (WxDxH)', value: '723 x 840 x 1830mm' }] },
  { name: 'Palma Hz87', category: 'Vending Machines', variant: 'accent', image: 'assets/hz87-v2.png',
-  tagline: 'High Capacity Combo Vending Machine',
+  tagline: 'Snack and Can Vending Machine',
   description: 'A higher-capacity combo vending machine with dual temperature zones, full payment support, refrigeration and MDB compatibility, 120 drink items and 160 snack items, 280 items in total.',
   tags: ['Dual Temperature Zones', 'Refrigerated', 'MDB Compatible'],
   specs: [{ label: 'Capacity', value: '280 items total' }, { label: 'Payment', value: 'Full Payment Support' }, { label: 'Dimensions (WxDxH)', value: '888 x 840 x 1830mm' }] },
  { name: 'Palma Hz87 Premium', image: 'assets/hz87-premium-v2.png', category: 'Vending Machines', variant: 'default',
-  tagline: 'Premium Combo Vending Machine',
-  description: 'Our premium combo vending machine adds a selective belt system for multi-purpose use, refrigeration and full payment support, 40 drink items, 160 snack items and 20 sandwiches/wraps, 220 items in total.',
-  tags: ['Selective Belt System', 'Multi-Purpose Use', 'Refrigerated'],
+  tagline: 'Snack and Can Vending Machine',
+  description: 'A snack and can vending machine with a selective belt system for sandwiches and wraps, refrigeration and full payment support, 40 drink items, 160 snack items and 20 sandwiches/wraps, 220 items in total.',
+  tags: ['Selective Belt System', 'Sandwiches and Wraps', 'Refrigerated'],
   specs: [{ label: 'Capacity', value: '220 items total' }, { label: 'Payment', value: 'Full Payment Support' }, { label: 'Dimensions (WxDxH)', value: '888 x 840 x 1830mm' }] },
- { name: 'CV4000 with Touchscreen', image: 'assets/cv4000-v2.png', category: 'Vending Machines', variant: 'default',
-  tagline: 'Combo Vending Machine with Cart Functionality',
-  description: 'Adds cart functionality and a full touchscreen to the combo range, with dual temperature zones, refrigeration and MDB compatibility, 144 drink items and 168 snack items, 312 items in total. Cashless only.',
-  tags: ['Cart Functionality', 'Dual Temperature Zones', 'Cashless Only'],
-  specs: [{ label: 'Capacity', value: '312 items total' }, { label: 'Payment', value: 'Cashless Only' }, { label: 'Dimensions (WxDxH)', value: '1120 x 820 x 1870mm' }] },
  { name: 'Vision Esplus Bluetec', image: 'assets/vision-esplus.png', category: 'Vending Machines', variant: 'accent',
   tagline: 'Multi-Product Dispensing Machine',
   description: 'An elevator belt system for big-size multi-product dispensing, with full payment support, refrigeration, temperature control and expiry date tracking, channels can be blocked once expiry date is reached.',
@@ -395,7 +390,7 @@ const PRODUCTS_COFFEE = [
   details: [
    'The Orion G23 is a fresh bean brewer in a compact table top cabinet, finished in black with blue LED lighting. It suits office kitchens and staff rooms where the machine is on show and floor space is limited.',
    'A pressure valve in the distribution unit and a monitored water distributor keep extraction consistent cup to cup, and the boiler is aluminium. The setup is customised to your requirements, so drink selections, strengths and volumes are configured at installation.',
-   'Payment is cashless through Nayax and telemetry is supported for remote monitoring. Dimensions are 417 x 463 x 767mm on a 230V 50Hz supply.',
+   'Payment is cashless through Nayax and telemetry is supported for remote monitoring. It runs on a 230V 50Hz supply.',
   ] },
  { name: 'Jettino JL33', image: 'assets/coffee/jettino-jl33.png', category: 'Hot Beverage Solutions', variant: 'accent',
   tagline: 'Exceptional dual-grinding, unmatched flavour',
@@ -406,7 +401,7 @@ const PRODUCTS_COFFEE = [
   details: [
    'The Jettino JL33 runs a dual grinding system with two PGH64 grinders plus two instant hoppers, so it can hold two different beans at once and serve two cups from one click. Over 15 beverages are available from the 10.1 inch touchscreen.',
    'The premium brewing system uses pre-infusion and anti-gravity extraction, and the fresh milk foam system runs dual boilers and dual pumps for fast milk based coffee. A fresh milk fridge is part of the unit.',
-   'Payment is cashless through Nayax with telemetry supported. Dimensions are 350 x 560 x 628mm on a 220V to 240V 50/60Hz supply.',
+   'It runs on a 220V to 240V 50/60Hz supply.',
   ] },
  { name: 'Gaggia Milano La Brillante', image: 'assets/coffee/gaggia-brillante.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Brilliance in every cup',
@@ -428,7 +423,7 @@ const PRODUCTS_COFFEE = [
   details: [
    'The Vitro X1 is a fresh bean brewer with a fresh milk fridge and high capacity boilers, built around a 12 selection touch panel that keeps operation simple for staff.',
    'The variable brewing unit adjusts the strength and size of espressos, dosing at 7g or 14g of coffee. Easy access hoppers hold 1kg of beans plus up to two hoppers for chocolate or other soluble ingredients, and the dispensing area is illuminated.',
-   'Payment is cashless through Nayax with telemetry supported. Dimensions are 567 x 505 x 672mm including the fridge, on a 220V to 240V 50Hz supply.',
+   'It runs on a 220V to 240V 50Hz supply.',
   ] },
  { name: 'Azkoyen Vitro S5 MIA', image: 'assets/coffee/vitro-s5.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Innovative design for large capacity quality coffee',
@@ -439,7 +434,7 @@ const PRODUCTS_COFFEE = [
   details: [
    'The Vitro S5 MIA is the high volume machine in the Vitro range, offering up to 20 hot beverage options from a 12 or 20 selection touch panel, with a fresh milk fridge included.',
    'High autonomy comes from a 2kg bean hopper, four hoppers for chocolate and other soluble ingredients, and a waste drawer, so the machine runs longer between refills. An independent water spout handles tea and other infusions without carrying coffee flavour across.',
-   'The dispensing area is illuminated to present drinks clearly. Payment is cashless through Nayax with telemetry supported. Dimensions are 710 x 590 x 775mm including the fridge, on a 220V to 240V 50Hz supply.',
+   'The dispensing area is illuminated to present drinks clearly. It runs on a 220V to 240V 50Hz supply.',
   ] },
  { name: 'Saeco Magic', image: 'assets/coffee/saeco-magic.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Revolutionary coffee machine',
@@ -450,7 +445,7 @@ const PRODUCTS_COFFEE = [
   details: [
    'The Saeco Magic is the most compact fresh bean machine in the range at 280mm wide, with a touchscreen display and fresh milk, suited to small offices and counter tops.',
    'A double boiler and double pump system, plus one touch high speed milk, keep service fast despite the size, and steel conical blades grind consistently. Capacity is high for the footprint.',
-   'Payment is cashless through Nayax with telemetry supported. Dimensions are 280 x 481 x 470mm on a 230V 50Hz supply.',
+   'It runs on a 230V 50Hz supply.',
   ] },
  { name: 'NEOQs', image: 'assets/coffee/neoqs.png', category: 'Hot Beverage Solutions', variant: 'accent',
   tagline: 'Your all-in-one premium espresso and fresh leaf tea solution',
@@ -461,7 +456,7 @@ const PRODUCTS_COFFEE = [
   details: [
    'NEOQs is a free standing all in one machine covering premium espresso and fresh leaf tea from seven hoppers: one tea, one coffee and five instant. Selections are made on a 21.5 inch Full HD touchscreen.',
    'The I-Detect sensor recognises a cup the user has brought with them, so the machine does not dispense a disposable cup unnecessarily. Brewing units allow beverages and volumes to be customised to your requirements, and an energy saving ECO mode reduces standby consumption.',
-   'The dispensing area is illuminated. Dimensions are 600 x 715 x 1830mm on a 220V to 240V 50Hz supply, drawing a maximum of 1700W.',
+   'The dispensing area is illuminated. It runs on a 220V to 240V 50Hz supply, drawing a maximum of 1700W.',
   ] },
  { name: 'Novara DFB', image: 'assets/coffee/novara-dfb.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'The widest range of hot beverages',
@@ -472,29 +467,29 @@ const PRODUCTS_COFFEE = [
   details: [
    'The Novara DFB is a free standing double fresh brew machine offering the widest range of hot beverages in the range, with fully customisable drinks and high capacity for busy sites.',
    'It is fully automatic with an auto cup dispenser and a cup detector, so it will not dispense into a missing or misplaced cup. The front is a modern stainless steel and glass panel with touch selection, and the layout is configurable.',
-   'Payment is cashless through Nayax with telemetry supported. Dimensions are 600 x 650 x 1830mm on a 220V to 240V 50Hz supply.',
+   'It runs on a 220V to 240V 50Hz supply.',
   ] },
  { name: 'ZEN Fresh Bean', category: 'Hot Beverage Solutions', image: 'assets/coffee/zen-fresh-bean.png', variant: 'accent',
   tagline: 'Fully automatic fresh bean machine',
-  description: 'Beans, instant coffee, sugar, milk powder and hot chocolate in door-mounted hoppers, with powder milk, a touch selection panel and an auto cup dispenser. Compact, easy to clean and fill, with an optional stand.',
-  tags: ['Fresh Bean', 'Fully Automatic', 'Vending Sugar in Door'],
+  description: 'Fully automatic Zen DFB TableTop machine. Beans, fresh leaf tea, instant coffee, vending sugar, milk powder and hot chocolate.',
+  tags: ['Fresh Bean', 'Fully Automatic', 'Auto Cup Dispenser'],
   brochure: 'zen-fresh-bean.pdf',
-  specs: [{ label: 'Model', value: 'ZEN Fresh Bean' }, { label: 'Type', value: 'Fresh bean, fully automatic' }, { label: 'Milk', value: 'Powder milk' }, { label: 'Dispensing', value: 'Auto cup dispenser' }, { label: 'Sugar', value: 'Vending sugar in door' }, { label: 'Dimensions (machine)', value: '480 x 590 x 842mm' }, { label: 'Dimensions (stand)', value: '480 x 590 x 842mm' }, { label: 'Payment', value: 'Cashless/Nayax' }, { label: 'Telemetry', value: 'Yes' }, { label: 'Power Supply', value: '220-240V 50Hz' }],
+  specs: [{ label: 'Model', value: 'ZEN Fresh Bean' }, { label: 'Type', value: 'Fresh bean, fully automatic' }, { label: 'Milk', value: 'Powder milk' }, { label: 'Dispensing', value: 'Auto cup dispenser' }, { label: 'Dimensions (machine)', value: '480 x 590 x 842mm' }, { label: 'Dimensions (stand)', value: '480 x 590 x 842mm' }, { label: 'Payment', value: 'Cashless/Nayax' }, { label: 'Telemetry', value: 'Yes' }, { label: 'Power Supply', value: '220-240V 50Hz' }],
   details: [
    'The ZEN Fresh Bean is a fully automatic fresh bean machine in a compact table top cabinet, with an optional stand of the same footprint if no counter is available.',
-   'Ingredients sit in door mounted hoppers, including vending sugar in the door, which keeps the cabinet compact and refilling quick. An auto cup dispenser is included and milk is powder.',
-   'It is built for easy cleaning and filling, with high reliability and straightforward maintenance. Payment is cashless through Nayax with telemetry supported, on a 220V to 240V 50Hz supply.',
+   'An auto cup dispenser is included and milk is powder.',
+   'It is built for easy cleaning and filling, with high reliability and straightforward maintenance. It runs on a 220V to 240V 50Hz supply.',
   ] },
  { name: 'ZEN DFB', category: 'Hot Beverage Solutions', image: 'assets/coffee/zen-dfb.png', variant: 'default',
   tagline: 'Fully automatic fresh bean and tea leaf machine',
   description: 'Adds fresh tea leaf to the ZEN range, beans, tea leaf, coffee, milk powder and hot chocolate in door hoppers, powder milk, auto cup dispenser and an optional stand. Easy cleaning, filling and maintenance.',
   tags: ['Fresh Bean & Tea Leaf', 'Fully Automatic', 'Vending Sugar in Door'],
   brochure: 'zen-dfb.pdf',
-  specs: [{ label: 'Model', value: 'ZEN DFB' }, { label: 'Type', value: 'Fresh bean and fresh tea leaf, fully automatic' }, { label: 'Milk', value: 'Powder milk' }, { label: 'Dispensing', value: 'Auto cup dispenser' }, { label: 'Sugar', value: 'Vending sugar in door' }, { label: 'Dimensions (machine)', value: '480 x 590 x 842mm' }, { label: 'Dimensions (stand)', value: '480 x 590 x 842mm' }, { label: 'Payment', value: 'Cashless/Nayax' }, { label: 'Telemetry', value: 'Yes' }, { label: 'Power Supply', value: '220-240V 50Hz' }],
+  specs: [{ label: 'Model', value: 'ZEN DFB' }, { label: 'Type', value: 'Fresh bean and fresh tea leaf, fully automatic' }, { label: 'Milk', value: 'Powder milk' }, { label: 'Dispensing', value: 'Auto cup dispenser' }, { label: 'Dimensions (machine)', value: '480 x 590 x 842mm' }, { label: 'Dimensions (stand)', value: '480 x 590 x 842mm' }, { label: 'Payment', value: 'Cashless/Nayax' }, { label: 'Telemetry', value: 'Yes' }, { label: 'Power Supply', value: '220-240V 50Hz' }],
   details: [
    'The ZEN DFB adds fresh tea leaf to the ZEN platform, so the same compact cabinet serves both fresh bean coffee and freshly brewed leaf tea.',
    'It is fully automatic with an auto cup dispenser, powder milk and vending sugar in the door, and an optional stand is available. The brochure notes it is productive for operators, with easy cleaning and filling.',
-   'Payment is cashless through Nayax with telemetry supported. Machine and stand are both 480 x 590 x 842mm, on a 220V to 240V 50Hz supply.',
+   'It runs on a 220V to 240V 50Hz supply.',
   ] },
  { name: 'Ascaso Barista T', image: 'assets/coffee/ascaso-grinder.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Where coffee craft meets efficiency & sustainability',
@@ -505,7 +500,7 @@ const PRODUCTS_COFFEE = [
   details: [
    'The Ascaso Barista T is a multi-group barista machine for commercial spaces, built in stainless steel where a trained operator is pulling shots rather than a self service machine.',
    'Insulated high performance thermoblocks and PID control hold temperature to within 0.5°C with dynamic pre-heating, and an independent 8.5L steam boiler handles continuous milk work. Extraction uses precise volumetric control with programmable pre-infusion.',
-   'Each coffee group has two digital multifunction displays, and the rotary pump has adjustable pressure. Dimensions are 700 x 535 x 475mm.',
+   'Each coffee group has two digital multifunction displays, and the rotary pump has adjustable pressure.',
   ] },
  { name: 'Ascaso I-Bar F83E', category: 'Hot Beverage Solutions', variant: 'accent',
   tagline: 'Built for durability, reliability and consistent performance',
@@ -516,7 +511,7 @@ const PRODUCTS_COFFEE = [
   details: [
    'The Ascaso I-Bar F83E is a high volume grinder to pair with a barista machine, running quietly with an elegant aluminium body and a removable stainless steel drip tray.',
    'Micrometric grinding adjustment keeps the Ø83mm Planas burrs working flat, which holds the grind consistent over long shifts and extends burr life. A ring nut lock secures the 1.5kg coffee bean hopper.',
-   'Two tampers at Ø57 and Ø53mm and an aluminium fork for all filter holder types are included. The motor draws 350W at 1350 rpm. Dimensions are 230 x 270 x 670mm.',
+   'Two tampers at Ø57 and Ø53mm and an aluminium fork for all filter holder types are included. The motor draws 350W at 1350 rpm.',
   ] },
 ];
 PRODUCTS.push(...PRODUCTS_COFFEE);
@@ -699,11 +694,11 @@ class Component extends DCLogic {
   });
 
   const COFFEE_HIDE = ['ZEN DFB', 'Azkoyen Vitro S5 MIA', 'Ascaso I-Bar F83E', 'NEOQs'];
-  const COFFEE_RENAME = { 'Jettino JL33': 'Jetinno JL33', 'ZEN Fresh Bean': 'Azkoyen ZEN', 'Novara DFB': 'Azkoyen Novara DFB', 'Ascaso Barista T': 'Ascaso + Grinder' };
+  const COFFEE_RENAME = { 'Jettino JL33': 'Jetinno JL33', 'ZEN Fresh Bean': 'Azkoyen ZEN DFB', 'Novara DFB': 'Azkoyen Novara DFB', 'Ascaso Barista T': 'Ascaso + Grinder' };
   const PRODUCTS_VIEW = PRODUCTS
    .filter(p => !(p.category === 'Hot Beverage Solutions' && COFFEE_HIDE.includes(p.name)))
    .map(p => (p.category === 'Hot Beverage Solutions' && COFFEE_RENAME[p.name]) ? { ...p, name: COFFEE_RENAME[p.name] } : p);
-  const COFFEE_ORDER = ['Azkoyen Novara DFB', 'Azkoyen ZEN', 'Azkoyen Vitro X1', 'Saeco Magic', 'Gaggia Milano La Brillante', 'Jetinno JL33', 'Orion G23', 'Ascaso + Grinder'];
+  const COFFEE_ORDER = ['Azkoyen Novara DFB', 'Azkoyen ZEN DFB', 'Azkoyen Vitro X1', 'Saeco Magic', 'Gaggia Milano La Brillante', 'Jetinno JL33', 'Orion G23', 'Ascaso + Grinder'];
   const coffeeRank = (p) => { const i = COFFEE_ORDER.indexOf(p.name); return i === -1 ? 999 : i; };
   const base = this.state.activeFilter === 'All Products'
    ? PRODUCTS_VIEW
@@ -727,11 +722,20 @@ class Component extends DCLogic {
     'Available to buy or rent. Rental agreements include maintenance and aftersales support, and consumables supply can be added so the machine is stocked without a separate order each month.',
    ],
   });
-  const withSpecSplit = (p) => ({
+  const orderSpecs = (specs) => {
+   const s = (specs || []).slice();
+   const mi = s.findIndex(x => /^model$/i.test(x.label));
+   const di = s.findIndex(x => /dimension/i.test(x.label));
+   if (mi < 0 || di < 0 || di === mi + 1) return s;
+   const [d] = s.splice(di, 1);
+   s.splice(s.findIndex(x => /^model$/i.test(x.label)) + 1, 0, d);
+   return s;
+  };
+  const withSpecSplit = (p) => { const sp = orderSpecs(p.specs); return {
    ...p,
-   specsKey: (p.specs || []).slice(0, 4),
-   specsRest: (p.specs || []).slice(4),
-  });
+   specsKey: sp.slice(0, 4),
+   specsRest: sp.slice(4),
+  }; };
 
   const withBrochure = (p) => ({
    ...p,
@@ -797,24 +801,24 @@ class Component extends DCLogic {
     { q: 'What happens if someone places their hand inside the shredder opening?', a: "Safety is built into the design. The shredding process will not start while the safety flap is open. In addition, the shredding blades are positioned beyond the reach of an operator's arm, providing an added layer of protection." },
    ],
    'Vending Machines': [
-    { q: 'Which vending machines do you offer?', a: 'There are five machines in the range. The Palma Hz70 is the standard combo for offices and smaller sites. The Palma Hz87 is the high capacity combo for busier sites. The Palma Hz87 Premium adds a selective belt for sandwiches and wraps. The CV4000 with Touchscreen adds cart functionality so customers can buy several items in one transaction. The Vision Esplus Bluetec uses an elevator belt for larger and fragile products, with expiry date tracking.' },
-    { q: 'How many products can each machine hold?', a: 'The Palma Hz70 carries 180 items (60 drinks, 120 snacks). The Hz87 carries 280 (120 drinks, 160 snacks). The Hz87 Premium carries 220, made up of 40 drinks, 160 snacks and 20 sandwiches or wraps. The CV4000 with Touchscreen carries 312 (144 drinks, 168 snacks). The Vision Esplus Bluetec is configured for multi-product dispensing, so capacity depends on the products loaded.' },
+    { q: 'Which vending machines do you offer?', a: 'There are four machines in the range. The Palma Hz70 is the standard combo for offices and smaller sites. The Palma Hz87 is the high capacity combo for busier sites. The Palma Hz87 Premium adds a selective belt for sandwiches and wraps. The Vision Esplus Bluetec uses an elevator belt for larger and fragile products, with expiry date tracking.' },
+    { q: 'How many products can each machine hold?', a: 'The Palma Hz70 carries 180 items (60 drinks, 120 snacks). The Hz87 carries 280 (120 drinks, 160 snacks). The Hz87 Premium carries 220, made up of 40 drinks, 160 snacks and 20 sandwiches or wraps. The Vision Esplus Bluetec is configured for multi-product dispensing, so capacity depends on the products loaded.' },
     { q: 'Can one machine hold both cold drinks and snacks?', a: 'Yes. Every machine in the range runs two independently controlled temperature zones: lower trays at 4°C to 10°C for chilled cans and bottles, upper trays at 14°C to 25°C for confectionery and snacks.' },
-    { q: 'Which payment methods are supported?', a: 'The Palma Hz70, Hz87, Hz87 Premium and Vision Esplus Bluetec take notes, coins and cashless payment through Nayax, and a debit, credit and virtual card facility can be added. The CV4000 with Touchscreen is cashless only.' },
+    { q: 'Which payment methods are supported?', a: 'The Palma Hz70, Hz87 and Hz87 Premium take notes, coins and cashless payment through Nayax, and a debit, credit and virtual card facility can be added. The Vision Esplus Bluetec is cashless through Nayax.' },
     { q: 'Can fresh food and sandwiches be vended?', a: 'Yes. The Hz87 Premium uses a selective belt system for sandwiches and wraps, and a belt tray is available as an option on the Hz87. The Vision Esplus Bluetec lifts items on an elevator belt instead of dropping them, which suits fresh and fragile products.' },
-    { q: 'What power and space does each machine need?', a: 'All five run on a standard 220V to 240V 50Hz supply. The Palma Hz70 is 723mm wide, the Hz87 and Hz87 Premium are 888mm wide, and the CV4000 and Vision Esplus Bluetec are 1120mm wide. Heights are 1830mm on the Palma range and 1870mm on the CV4000 and Vision Esplus Bluetec.' },
+    { q: 'What power and space does each machine need?', a: 'All four run on a standard 220V to 240V 50Hz supply. The Palma Hz70 is 723mm wide, the Hz87 and Hz87 Premium are 888mm wide, and the Vision Esplus Bluetec is 1120mm wide. Heights are 1830mm on the Palma range and 1870mm on the Vision Esplus Bluetec.' },
     { q: 'Can stock be monitored remotely?', a: 'Yes. Telemetry is supported on every machine, so sales, stock levels and faults can be seen remotely. The Vision Esplus Bluetec also tracks expiry dates per channel and can block a channel automatically once the date is reached.' },
-    { q: 'How energy efficient are the machines?', a: 'Cabinets are fully foam insulated with double glazed viewing windows and LED internal lighting, and all five machines use R-134a refrigerant.' },
+    { q: 'How energy efficient are the machines?', a: 'Cabinets are fully foam insulated with double glazed viewing windows and LED internal lighting, and all four machines use R-134a refrigerant.' },
    ],
    'Hot Beverage Solutions': [
-    { q: 'Which hot beverage machines do you offer?', a: 'There are eight machines in the range. The Azkoyen Novara DFB is a free standing double fresh brew machine for coffee and tea. The Azkoyen ZEN is a compact, fully automatic fresh bean machine. The Azkoyen Vitro X1 is a fresh bean brewer with a fresh milk fridge. The Saeco Magic is the most compact fresh bean machine at 280mm wide. The Gaggia Milano La Brillante is bean to cup with two instant hoppers. The Jetinno JL33 has dual grinders and over 15 beverages. The Orion G23 is a fresh bean brewer with an aluminium boiler. The Ascaso + Grinder is a multi-group barista machine for a trained operator.' },
-    { q: 'Instant, fresh bean or barista?', a: 'All three. The Azkoyen ZEN, Azkoyen Vitro X1, Saeco Magic and Orion G23 grind fresh beans per cup. The Gaggia Milano La Brillante combines bean to cup with two instant hoppers, and the Azkoyen Novara DFB brews fresh coffee and tea. The Ascaso + Grinder is a barista set for a trained operator.' },
+    { q: 'Which hot beverage machines do you offer?', a: 'There are eight machines in the range. The Azkoyen Novara DFB is a free standing double fresh brew machine for coffee and tea. The Azkoyen ZEN DFB is a compact, fully automatic fresh bean machine. The Azkoyen Vitro X1 is a fresh bean brewer with a fresh milk fridge. The Saeco Magic is the most compact fresh bean machine at 280mm wide. The Gaggia Milano La Brillante is bean to cup with two instant hoppers. The Jetinno JL33 has dual grinders and over 15 beverages. The Orion G23 is a fresh bean brewer with an aluminium boiler. The Ascaso + Grinder is a multi-group barista machine for a trained operator.' },
+    { q: 'Instant, fresh bean or barista?', a: 'All three. The Azkoyen ZEN DFB, Azkoyen Vitro X1, Saeco Magic and Orion G23 grind fresh beans per cup. The Gaggia Milano La Brillante combines bean to cup with two instant hoppers, and the Azkoyen Novara DFB brews fresh coffee and tea. The Ascaso + Grinder is a barista set for a trained operator.' },
     { q: 'Which machine suits a busy site?', a: 'The free standing Azkoyen Novara DFB is built for continuous use, with an auto cup dispenser. The Jetinno JL33 serves over 15 beverages from dual grinders. For small offices, the Saeco Magic at 280mm wide and the Gaggia Milano La Brillante at 308mm wide fit on a counter top.' },
-    { q: 'Fresh milk or powder?', a: 'The Azkoyen Vitro X1 has a fresh milk fridge, the Jetinno JL33 froths fresh milk with dual boilers and pumps, the Gaggia Milano La Brillante uses Prime Milk automatic froth, and the Saeco Magic offers one touch high speed milk. The Azkoyen ZEN uses powder milk.' },
+    { q: 'Fresh milk or powder?', a: 'The Azkoyen Vitro X1 has a fresh milk fridge, the Jetinno JL33 froths fresh milk with dual boilers and pumps, the Gaggia Milano La Brillante uses Prime Milk automatic froth, and the Saeco Magic offers one touch high speed milk. The Azkoyen ZEN DFB uses powder milk.' },
     { q: 'Can we serve freshly brewed tea?', a: 'Yes. The Azkoyen Novara DFB offers double fresh brew for coffee and tea. Every machine can also serve hot water for tea bags, and we supply tea and hot chocolate.' },
     { q: 'How many drinks can staff choose from?', a: 'It depends on the model: over 15 beverages on the Jetinno JL33, a 12 selection touch panel on the Azkoyen Vitro X1, and a 7 inch touchscreen menu on the Gaggia Milano La Brillante. Drink menus, strengths and volumes are configured at installation.' },
     { q: 'Which payment methods are supported?', a: 'Cashless payment through Nayax across the range, with telemetry supported so usage and faults can be monitored remotely.' },
-    { q: 'Do the machines waste disposable cups?', a: 'The Azkoyen Novara DFB has a cup detector, so it will not dispense a cup when the user brings their own. The Azkoyen Novara DFB and Azkoyen ZEN both include an auto cup dispenser.' },
+    { q: 'Do the machines waste disposable cups?', a: 'The Azkoyen Novara DFB has a cup detector, so it will not dispense a cup when the user brings their own. The Azkoyen Novara DFB and Azkoyen ZEN DFB both include an auto cup dispenser.' },
     { q: 'Do you supply the coffee?', a: 'Yes. Instant, filter and whole bean, plus tea, hot chocolate, milk and sundries, on a standing order or on demand.' },
    ],
    'Water Solutions': [
@@ -936,7 +940,7 @@ class Component extends DCLogic {
    gridColStyle: `grid-template-columns:repeat(${cols},1fr);`,
    filterBarStickyStyle: sticky,
    stats: [
-    { value: '30+', label: 'Years in Business' },
+    { value: '35+', label: 'Years in Business' },
     { value: '3', label: 'National Hubs' },
     { value: '100+', label: 'Active Clients' },
     { value: '4', label: 'Exclusive Brands' },

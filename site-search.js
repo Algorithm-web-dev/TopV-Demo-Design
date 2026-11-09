@@ -19,10 +19,9 @@
   ];
 
   var MACHINES = [
-    ['Palma Hz70', 'Vending Machines', 'Standard combo vending machine'],
-    ['Palma Hz87', 'Vending Machines', 'High capacity combo vending machine'],
-    ['Palma Hz87 Premium', 'Vending Machines', 'Premium combo vending machine'],
-    ['CV4000 with Touchscreen', 'Vending Machines', 'Combo machine with cart functionality'],
+    ['Palma Hz70', 'Vending Machines', 'Snack and can vending machine'],
+    ['Palma Hz87', 'Vending Machines', 'Snack and can vending machine'],
+    ['Palma Hz87 Premium', 'Vending Machines', 'Snack and can vending machine'],
     ['Vision Esplus Bluetec', 'Vending Machines', 'Multi-product dispensing machine'],
     ['Orion G23', 'Hot Beverage Solutions', 'Fresh bean brewer'],
     ['Jetinno JL33', 'Hot Beverage Solutions', 'Dual grinders, 10.1 inch touchscreen'],
@@ -30,7 +29,7 @@
     ['Azkoyen Vitro X1', 'Hot Beverage Solutions', 'Fresh bean brewer with milk fridge'],
     ['Saeco Magic', 'Hot Beverage Solutions', 'Compact fresh bean brewer'],
     ['Azkoyen Novara DFB', 'Hot Beverage Solutions', 'Double fresh brew, free standing'],
-    ['Azkoyen ZEN', 'Hot Beverage Solutions', 'Fully automatic fresh bean machine'],
+    ['Azkoyen ZEN DFB', 'Hot Beverage Solutions', 'Fully automatic fresh bean machine'],
     ['Ascaso + Grinder', 'Hot Beverage Solutions', 'Barista machine with grinder'],
     ['FW Bar Classe', 'Water Solutions', 'Premium water cooler'],
     ['P1 Bar Series E', 'Water Solutions', 'Stylish, efficient, high flow'],

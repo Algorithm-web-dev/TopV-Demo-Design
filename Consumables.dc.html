@@ -38,7 +38,7 @@
 <div style="font-family:'Inter',sans-serif;color:#1C1C1A;background:#FAFBFC;overflow-x:clip;">
 
  <nav style="position:fixed;top:20px;left:24px;right:24px;height:72px;background:rgba(250,250,248,0.88);backdropFilter:blur(18px);WebkitBackdropFilter:blur(18px);border:1px solid rgba(255,255,255,0.5);box-shadow:0 10px 30px rgba(0,0,0,0.08);border-radius:999px;display:flex;align-items:center;justify-content:space-between;gap:32px;padding:0 28px;z-index:100;box-sizing:border-box;">
-  <a href="index.html" style="display:flex;align-items:center;flex:0 1 auto;width:100%;max-width:190px;min-width:90px;height:52px;"><img src="assets/tv-logo.svg" alt="Top Vending" style="height:100%;width:100%;object-fit:contain;object-position:left center;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.18));" /></a>
+  <a href="index.html" style="display:flex;align-items:center;flex:0 1 auto;width:100%;max-width:190px;min-width:90px;height:52px;"><img src="assets/tv-logo.svg" alt="Top Vending" style="height:100%;width:100%;object-fit:contain;object-position:left center;" /></a>
   <div style="display:flex;align-items:center;gap:40px;">
    <div data-nav-links="1" style="display:flex;gap:32px;font-size:14px;">
     <a href="About.dc.html" style="color:#1C1C1A;white-space:nowrap;" style-hover="color:#C8102E;">About</a>
@@ -96,7 +96,7 @@
   <a href="Contact.dc.html#quote" onClick="{{ closeMobileMenu }}" style="display:block;margin-top:8px;text-align:center;background:#C8102E;color:#FAFBFC;padding:14px 20px;border-radius:999px;font-size:14px;font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Get a Quote</a>
  </div>
 
- <section style="padding:170px 48px 60px;box-sizing:border-box;background:#EFF1F3;">
+ <section data-pb="80" style="padding:170px 48px 80px;box-sizing:border-box;background:#EFF1F3;">
   <div style="max-width:1200px;margin:0 auto;">
    <a href="index.html" style="display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:600;color:#6B6B68;margin-bottom:26px;" style-hover="color:#C8102E;">
     <span style="font-family:Inter,sans-serif;font-size:15px;">←</span>Back to home
@@ -108,7 +108,7 @@
  </section>
 
 
- <section id="pricelist" ref="{{ consRef }}" data-screen-label="Consumables shop" style="background:#FAFBFC;padding:70px 48px 130px;box-sizing:border-box;scroll-margin-top:110px;">
+ <section data-pt="80" data-pb="80" id="pricelist" ref="{{ consRef }}" data-screen-label="Consumables shop" style="background:#FAFBFC;padding:80px 48px 80px;box-sizing:border-box;scroll-margin-top:110px;">
   <div style="max-width:1200px;margin:0 auto;">
    <sc-if value="{{ consShelves }}" hint-placeholder-val="{{ true }}">
     <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:32px;">
@@ -133,7 +133,7 @@
         </div>
         <div style="font-size:14px;font-weight:600;line-height:1.35;color:#1C1C1A;margin-bottom:6px;text-wrap:balance;">{{ it.name }}</div>
         <div style="font-size:13px;color:#6B6B68;margin-bottom:6px;">{{ it.unit }}</div>
-        <div style="font-size:15px;font-weight:700;color:#1C1C1A;margin-bottom:16px;">{{ it.price }}</div>
+        <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:16px;"><span style="font-size:15px;font-weight:700;color:#1C1C1A;">{{ it.price }}</span><span style="font-size:12px;font-weight:500;color:#6B6B68;">ex VAT</span></div>
         <a href="Contact.dc.html#quote" data-quote-add="1" data-quote-name="{{ it.name }}" data-quote-cat="Consumables" data-quote-unit="{{ it.unit }}" style="margin-top:auto;display:block;width:100%;box-sizing:border-box;background:#C8102E;color:#FAFBFC;padding:11px 14px;border-radius:999px;font-size:13.5px;font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Add to Quote</a>
        </div>
         </sc-for>
@@ -187,7 +187,7 @@
         </div>
         <div style="font-size:15px;font-weight:600;line-height:1.35;color:#1C1C1A;margin-bottom:6px;text-wrap:balance;">{{ it.name }}</div>
         <div style="font-size:13px;color:#6B6B68;margin-bottom:6px;">{{ it.unit }}</div>
-        <div style="font-size:15px;font-weight:700;color:#1C1C1A;margin-bottom:16px;">{{ it.price }}</div>
+        <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:16px;"><span style="font-size:15px;font-weight:700;color:#1C1C1A;">{{ it.price }}</span><span style="font-size:12px;font-weight:500;color:#6B6B68;">ex VAT</span></div>
         <a href="Contact.dc.html#quote" data-quote-add="1" data-quote-name="{{ it.name }}" data-quote-cat="Consumables" data-quote-unit="{{ it.unit }}" style="margin-top:auto;display:block;width:100%;box-sizing:border-box;background:#C8102E;color:#FAFBFC;padding:11px 14px;border-radius:999px;font-size:13.5px;font-weight:600;" style-hover="background:#8f0c20;color:#FAFBFC;">Add to Quote</a>
        </div>
        </sc-for>
@@ -209,7 +209,7 @@
   </div>
  </section>
 
- <section style="background:#EFF1F3;padding:130px 48px;box-sizing:border-box;">
+ <section data-pt="80" data-pb="80" style="background:#EFF1F3;padding:80px 48px 80px;box-sizing:border-box;">
   <div style="max-width:1200px;margin:0 auto;">
    <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">How supply works</div>
    <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.12;letter-spacing:-0.03em;margin:0 0 50px;max-width:620px;">Stocked without you having to think about it.</h2>
@@ -225,7 +225,7 @@
   </div>
  </section>
 
- <section style="background:#FAFBFC;padding:100px 48px 120px;box-sizing:border-box;">
+ <section data-pt="80" data-pb="80" style="background:#FAFBFC;padding:80px 48px 80px;box-sizing:border-box;">
   <div style="max-width:1200px;margin:0 auto;">
    <a href="Contact.dc.html#type=consumables" data-home-cta="1" style="position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:40px;min-height:300px;padding:56px 64px;box-sizing:border-box;border-radius:24px;overflow:hidden;background:#0B1426;color:#FAFBFC;transition:transform .25s ease, box-shadow .25s ease;" style-hover="transform:translateY(-3px);box-shadow:0 28px 60px rgba(11,20,38,0.28);color:#FAFBFC;">
     <div aria-hidden="true" style="position:absolute;right:-160px;top:-200px;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle, rgba(200,16,46,0.45) 0%, rgba(200,16,46,0) 68%);pointer-events:none;"></div>
@@ -301,25 +301,20 @@
 <script type="text/x-dc" data-dc-script data-props="{&quot;productGridColumns&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;2&quot;,&quot;options&quot;:[&quot;2&quot;,&quot;3&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Catalogue&quot;},&quot;filterBarSticky&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Catalogue&quot;}}">
 const PRODUCTS = [
  { name: 'Palma Hz70', category: 'Vending Machines', variant: 'default', image: 'assets/hz70-v4.png',
-  tagline: 'Standard Combo Vending Machine',
+  tagline: 'Snack and Can Vending Machine',
   description: 'A dual-temperature combo vending machine with full payment support, refrigeration and MDB compatibility, carrying 60 drink items and 120 snack items, 180 items in total.',
   tags: ['Dual Temperature Zones', 'Refrigerated', 'MDB Compatible'],
   specs: [{ label: 'Capacity', value: '180 items total' }, { label: 'Payment', value: 'Full Payment Support' }, { label: 'Dimensions (WxDxH)', value: '723 x 840 x 1830mm' }] },
  { name: 'Palma Hz87', category: 'Vending Machines', variant: 'accent', image: 'assets/hz87-cropped.png',
-  tagline: 'High Capacity Combo Vending Machine',
+  tagline: 'Snack and Can Vending Machine',
   description: 'A higher-capacity combo vending machine with dual temperature zones, full payment support, refrigeration and MDB compatibility, 120 drink items and 160 snack items, 280 items in total.',
   tags: ['Dual Temperature Zones', 'Refrigerated', 'MDB Compatible'],
   specs: [{ label: 'Capacity', value: '280 items total' }, { label: 'Payment', value: 'Full Payment Support' }, { label: 'Dimensions (WxDxH)', value: '888 x 840 x 1830mm' }] },
  { name: 'Palma Hz87 Premium', category: 'Vending Machines', variant: 'default',
-  tagline: 'Premium Combo Vending Machine',
-  description: 'Our premium combo vending machine adds a selective belt system for multi-purpose use, refrigeration and full payment support, 40 drink items, 160 snack items and 20 sandwiches/wraps, 220 items in total.',
-  tags: ['Selective Belt System', 'Multi-Purpose Use', 'Refrigerated'],
+  tagline: 'Snack and Can Vending Machine',
+  description: 'A snack and can vending machine with a selective belt system for sandwiches and wraps, refrigeration and full payment support, 40 drink items, 160 snack items and 20 sandwiches/wraps, 220 items in total.',
+  tags: ['Selective Belt System', 'Sandwiches and Wraps', 'Refrigerated'],
   specs: [{ label: 'Capacity', value: '220 items total' }, { label: 'Payment', value: 'Full Payment Support' }, { label: 'Dimensions (WxDxH)', value: '888 x 840 x 1830mm' }] },
- { name: 'CV4000 with Touchscreen', category: 'Vending Machines', variant: 'default',
-  tagline: 'Combo Vending Machine with Cart Functionality',
-  description: 'Adds cart functionality and a full touchscreen to the combo range, with dual temperature zones, refrigeration and MDB compatibility, 144 drink items and 168 snack items, 312 items in total. Cashless only.',
-  tags: ['Cart Functionality', 'Dual Temperature Zones', 'Cashless Only'],
-  specs: [{ label: 'Capacity', value: '312 items total' }, { label: 'Payment', value: 'Cashless Only' }, { label: 'Dimensions (WxDxH)', value: '1120 x 820 x 1870mm' }] },
  { name: 'Vision Esplus Bluetec', category: 'Vending Machines', variant: 'accent',
   tagline: 'Multi-Product Dispensing Machine',
   description: 'An elevator belt system for big-size multi-product dispensing, with full payment support, refrigeration, temperature control and expiry date tracking, channels can be blocked once expiry date is reached.',
@@ -365,8 +360,8 @@ const PRODUCTS_COFFEE = [
   specs: [{ label: 'Detection', value: 'Cup Detector' }, { label: 'Finish', value: 'Stainless Steel, Glass Front' }, { label: 'Dimensions (WxDxH)', value: '600 x 650 x 1830mm' }] },
  { name: 'ZEN Fresh Bean', category: 'Hot Beverage Solutions', variant: 'accent',
   tagline: 'Fully automatic fresh bean machine',
-  description: 'Beans, instant coffee, sugar, milk powder and hot chocolate in door-mounted hoppers, with powder milk, a touch selection panel and an auto cup dispenser. Compact, easy to clean and fill, with an optional stand.',
-  tags: ['Fresh Bean', 'Fully Automatic', 'Vending Sugar in Door'],
+  description: 'Fully automatic Zen DFB TableTop machine. Beans, fresh leaf tea, instant coffee, vending sugar, milk powder and hot chocolate.',
+  tags: ['Fresh Bean', 'Fully Automatic', 'Auto Cup Dispenser'],
   specs: [{ label: 'Milk', value: 'Powder Milk' }, { label: 'Stand', value: 'Optional Stand' }, { label: 'Dimensions (WxDxH)', value: 'Machine: 480 x 590 x 842mm · Stand: 480 x 590 x 842mm' }] },
  { name: 'ZEN DFB', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Fully automatic fresh bean and tea leaf machine',
@@ -808,7 +803,7 @@ class Component extends DCLogic {
    gridColStyle: `grid-template-columns:repeat(${cols},1fr);`,
    filterBarStickyStyle: sticky,
    stats: [
-    { value: '30+', label: 'Years in Business' },
+    { value: '35+', label: 'Years in Business' },
     { value: '3', label: 'National Hubs' },
     { value: '100+', label: 'Active Clients' },
     { value: '4', label: 'Exclusive Brands' },
