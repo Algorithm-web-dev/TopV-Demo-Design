@@ -127,13 +127,10 @@
      <p style="font-size:17px;line-height:1.7;color:#45443F;margin:0 0 28px;max-width:460px;">Bean to cup, fresh brew and instant machines in table top and free standing options, sized to the number of cups your site pours a day.</p>
      <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:34px;">
       <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
-       <span style="width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Bean to cup, fresh brew and instant
+       <span style="width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Bean-to-cup with fresh milk
       </div>
       <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
-       <span style="width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Fresh milk and touchscreen selection
-      </div>
-      <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
-       <span style="width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Hot chocolate, tea and specialty drinks
+       <span style="width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Coffee and Fresh Leaf Tea Vending Machines
       </div>
       <div style="display:flex;align-items:center;gap:14px;font-size:15.5px;color:#1C1C1A;font-weight:500;">
        <span style="width:9px;height:9px;border-radius:50%;background:#C8102E;flex-shrink:0;"></span>Fully customisable drink menus
@@ -381,16 +378,15 @@ const PRODUCTS = [
 ];
 
 const PRODUCTS_COFFEE = [
- { name: 'Orion G23', image: 'assets/coffee/orion-g23.png', category: 'Hot Beverage Solutions', variant: 'default',
+ { name: 'Jofemar Orion G23', image: 'assets/coffee/orion-g23.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Sleek Black Design with Blue LED Lighting',
   description: 'A fresh bean brewer with a stylish, energy-efficient design, blue LED lighting and a customised setup to suit your requirements. Aluminium boiler.',
   tags: ['Fresh Bean Brewer', 'Energy Efficient', 'Blue LED Lighting'],
   brochure: 'orion-g23.pdf',
   specs: [{ label: 'Model', value: 'ORION G23' }, { label: 'Type', value: 'Fresh bean brewer' }, { label: 'Boiler', value: 'Aluminium boiler' }, { label: 'Dimensions (WxDxH)', value: '417 x 463 x 767mm' }, { label: 'Payment', value: 'Cashless/Nayax' }, { label: 'Telemetry', value: 'Yes' }, { label: 'Power Supply', value: '230V 50Hz' }, { label: 'Water', value: 'Monitored water distributor' }, { label: 'Distribution', value: 'Pressure valve in distribution unit' }],
   details: [
-   'The Orion G23 is a fresh bean brewer in a compact table top cabinet, finished in black with blue LED lighting. It suits office kitchens and staff rooms where the machine is on show and floor space is limited.',
+   'The Jofemar Orion G23 is a fresh bean brewer in a compact table top cabinet, finished in black with blue LED lighting. It suits office kitchens and staff rooms where the machine is on show and floor space is limited.',
    'A pressure valve in the distribution unit and a monitored water distributor keep extraction consistent cup to cup, and the boiler is aluminium. The setup is customised to your requirements, so drink selections, strengths and volumes are configured at installation.',
-   'Payment is cashless through Nayax and telemetry is supported for remote monitoring. It runs on a 230V 50Hz supply.',
   ] },
  { name: 'Jettino JL33', image: 'assets/coffee/jettino-jl33.png', category: 'Hot Beverage Solutions', variant: 'accent',
   tagline: 'Exceptional dual-grinding, unmatched flavour',
@@ -401,18 +397,17 @@ const PRODUCTS_COFFEE = [
   details: [
    'The Jettino JL33 runs a dual grinding system with two PGH64 grinders plus two instant hoppers, so it can hold two different beans at once and serve two cups from one click. Over 15 beverages are available from the 10.1 inch touchscreen.',
    'The premium brewing system uses pre-infusion and anti-gravity extraction, and the fresh milk foam system runs dual boilers and dual pumps for fast milk based coffee. A fresh milk fridge is part of the unit.',
-   'It runs on a 220V to 240V 50/60Hz supply.',
   ] },
  { name: 'Gaggia Milano La Brillante', image: 'assets/coffee/gaggia-brillante.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Brilliance in every cup',
   description: 'Bean-to-cup plus 2 instants with a wide range of customisable drinks, fresh milk, a 7-inch touchscreen and Prime Milk automatic froth.',
   tags: ['Bean-to-Cup + 2 Instants', '7" Touchscreen', 'Automatic Milk Froth'],
   brochure: 'gaggia-milano-la-brillante.pdf',
-  specs: [{ label: 'Model', value: 'Gaggia Milano La Brillante' }, { label: 'Type', value: 'Bean to cup plus 2 instants' }, { label: 'Grinders', value: 'Dual grinders, one per hopper' }, { label: 'Milk', value: 'Prime Milk automatic froth' }, { label: 'Dimensions (WxDxH)', value: '308 x 570 x 629mm' }, { label: 'Payment', value: 'Cashless/Nayax' }, { label: 'Telemetry', value: 'Yes' }, { label: 'Power Supply', value: '230V 50Hz' }, { label: 'Screen', value: '7 inch touchscreen' }],
+  specs: [{ label: 'Model', value: 'Gaggia Milano La Brillante' }, { label: 'Type', value: 'Bean to cup plus 2 instants' }, { label: 'Grinders', value: 'One grinder per hopper' }, { label: 'Milk', value: 'Prime Milk automatic froth' }, { label: 'Dimensions (WxDxH)', value: '308 x 570 x 629mm' }, { label: 'Payment', value: 'Cashless/Nayax' }, { label: 'Telemetry', value: 'Yes' }, { label: 'Power Supply', value: '230V 50Hz' }, { label: 'Screen', value: '7 inch touchscreen' }],
   details: [
    'La Brillante is a bean to cup machine with two additional instant hoppers, giving a wide range of customisable drinks from a narrow 308mm cabinet. Selections are made on a 7 inch touchscreen.',
-   'Prime Milk froths fresh milk automatically in one step, so milk based drinks need no manual work from the user. Dual grinders run one per hopper, allowing two beans to be held at the same time.',
-   'Energy efficient components and low water waste reduce running costs and carbon footprint. Payment is cashless through Nayax with telemetry supported, on a 230V 50Hz supply.',
+   'Prime Milk froths fresh milk automatically in one step, so milk based drinks need no manual work from the user. One grinder per hopper, allowing two beans to be held at the same time.',
+   'Energy efficient components and low water waste reduce running costs and carbon footprint.',
   ] },
  { name: 'Azkoyen Vitro X1', image: 'assets/coffee/vitro-x1-v2.png', category: 'Hot Beverage Solutions', variant: 'accent',
   tagline: 'Innovative design for quality coffee',
@@ -423,7 +418,6 @@ const PRODUCTS_COFFEE = [
   details: [
    'The Vitro X1 is a fresh bean brewer with a fresh milk fridge and high capacity boilers, built around a 12 selection touch panel that keeps operation simple for staff.',
    'The variable brewing unit adjusts the strength and size of espressos, dosing at 7g or 14g of coffee. Easy access hoppers hold 1kg of beans plus up to two hoppers for chocolate or other soluble ingredients, and the dispensing area is illuminated.',
-   'It runs on a 220V to 240V 50Hz supply.',
   ] },
  { name: 'Azkoyen Vitro S5 MIA', image: 'assets/coffee/vitro-s5.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Innovative design for large capacity quality coffee',
@@ -436,7 +430,7 @@ const PRODUCTS_COFFEE = [
    'High autonomy comes from a 2kg bean hopper, four hoppers for chocolate and other soluble ingredients, and a waste drawer, so the machine runs longer between refills. An independent water spout handles tea and other infusions without carrying coffee flavour across.',
    'The dispensing area is illuminated to present drinks clearly. It runs on a 220V to 240V 50Hz supply.',
   ] },
- { name: 'Saeco Magic', image: 'assets/coffee/saeco-magic.png', category: 'Hot Beverage Solutions', variant: 'default',
+ { name: 'Saeco Magic', image: 'assets/coffee/saeco-magic-v2.jpg', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Revolutionary coffee machine',
   description: 'A fresh bean brewer with a touchscreen display, fresh milk, one-touch high-speed milk, high capacity and a double boiler, double pump system.',
   tags: ['Double Boiler, Double Pump', 'Touchscreen Display', 'High Capacity'],
@@ -445,7 +439,6 @@ const PRODUCTS_COFFEE = [
   details: [
    'The Saeco Magic is the most compact fresh bean machine in the range at 280mm wide, with a touchscreen display and fresh milk, suited to small offices and counter tops.',
    'A double boiler and double pump system, plus one touch high speed milk, keep service fast despite the size, and steel conical blades grind consistently. Capacity is high for the footprint.',
-   'It runs on a 230V 50Hz supply.',
   ] },
  { name: 'NEOQs', image: 'assets/coffee/neoqs.png', category: 'Hot Beverage Solutions', variant: 'accent',
   tagline: 'Your all-in-one premium espresso and fresh leaf tea solution',
@@ -467,7 +460,6 @@ const PRODUCTS_COFFEE = [
   details: [
    'The Novara DFB is a free standing double fresh brew machine offering the widest range of hot beverages in the range, with fully customisable drinks and high capacity for busy sites.',
    'It is fully automatic with an auto cup dispenser and a cup detector, so it will not dispense into a missing or misplaced cup. The front is a modern stainless steel and glass panel with touch selection, and the layout is configurable.',
-   'It runs on a 220V to 240V 50Hz supply.',
   ] },
  { name: 'ZEN Fresh Bean', category: 'Hot Beverage Solutions', image: 'assets/coffee/zen-fresh-bean.png', variant: 'accent',
   tagline: 'Fully automatic fresh bean machine',
@@ -477,8 +469,7 @@ const PRODUCTS_COFFEE = [
   specs: [{ label: 'Model', value: 'ZEN Fresh Bean' }, { label: 'Type', value: 'Fresh bean, fully automatic' }, { label: 'Milk', value: 'Powder milk' }, { label: 'Dispensing', value: 'Auto cup dispenser' }, { label: 'Dimensions (machine)', value: '480 x 590 x 842mm' }, { label: 'Dimensions (stand)', value: '480 x 590 x 842mm' }, { label: 'Payment', value: 'Cashless/Nayax' }, { label: 'Telemetry', value: 'Yes' }, { label: 'Power Supply', value: '220-240V 50Hz' }],
   details: [
    'The ZEN Fresh Bean is a fully automatic fresh bean machine in a compact table top cabinet, with an optional stand of the same footprint if no counter is available.',
-   'An auto cup dispenser is included and milk is powder.',
-   'It is built for easy cleaning and filling, with high reliability and straightforward maintenance. It runs on a 220V to 240V 50Hz supply.',
+   'An auto cup dispenser is included with powder milk.',
   ] },
  { name: 'ZEN DFB', category: 'Hot Beverage Solutions', image: 'assets/coffee/zen-dfb.png', variant: 'default',
   tagline: 'Fully automatic fresh bean and tea leaf machine',
@@ -489,7 +480,6 @@ const PRODUCTS_COFFEE = [
   details: [
    'The ZEN DFB adds fresh tea leaf to the ZEN platform, so the same compact cabinet serves both fresh bean coffee and freshly brewed leaf tea.',
    'It is fully automatic with an auto cup dispenser, powder milk and vending sugar in the door, and an optional stand is available. The brochure notes it is productive for operators, with easy cleaning and filling.',
-   'It runs on a 220V to 240V 50Hz supply.',
   ] },
  { name: 'Ascaso Barista T', image: 'assets/coffee/ascaso-grinder.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Where coffee craft meets efficiency & sustainability',
@@ -694,11 +684,11 @@ class Component extends DCLogic {
   });
 
   const COFFEE_HIDE = ['ZEN DFB', 'Azkoyen Vitro S5 MIA', 'Ascaso I-Bar F83E', 'NEOQs'];
-  const COFFEE_RENAME = { 'Jettino JL33': 'Jetinno JL33', 'ZEN Fresh Bean': 'Azkoyen ZEN DFB', 'Novara DFB': 'Azkoyen Novara DFB', 'Ascaso Barista T': 'Ascaso + Grinder' };
+  const COFFEE_RENAME = { 'Jettino JL33': 'Jetinno JL33', 'ZEN Fresh Bean': 'Azkoyen Zen DFB', 'Novara DFB': 'Azkoyen Novara DFB', 'Ascaso Barista T': 'Ascaso + Grinder' };
   const PRODUCTS_VIEW = PRODUCTS
    .filter(p => !(p.category === 'Hot Beverage Solutions' && COFFEE_HIDE.includes(p.name)))
    .map(p => (p.category === 'Hot Beverage Solutions' && COFFEE_RENAME[p.name]) ? { ...p, name: COFFEE_RENAME[p.name] } : p);
-  const COFFEE_ORDER = ['Azkoyen Novara DFB', 'Azkoyen ZEN DFB', 'Azkoyen Vitro X1', 'Saeco Magic', 'Gaggia Milano La Brillante', 'Jetinno JL33', 'Orion G23', 'Ascaso + Grinder'];
+  const COFFEE_ORDER = ['Azkoyen Novara DFB', 'Azkoyen Zen DFB', 'Azkoyen Vitro X1', 'Saeco Magic', 'Gaggia Milano La Brillante', 'Jetinno JL33', 'Jofemar Orion G23', 'Ascaso + Grinder'];
   const coffeeRank = (p) => { const i = COFFEE_ORDER.indexOf(p.name); return i === -1 ? 999 : i; };
   const base = this.state.activeFilter === 'All Products'
    ? PRODUCTS_VIEW
@@ -811,14 +801,14 @@ class Component extends DCLogic {
     { q: 'How energy efficient are the machines?', a: 'Cabinets are fully foam insulated with double glazed viewing windows and LED internal lighting, and all four machines use R-134a refrigerant.' },
    ],
    'Hot Beverage Solutions': [
-    { q: 'Which hot beverage machines do you offer?', a: 'There are eight machines in the range. The Azkoyen Novara DFB is a free standing double fresh brew machine for coffee and tea. The Azkoyen ZEN DFB is a compact, fully automatic fresh bean machine. The Azkoyen Vitro X1 is a fresh bean brewer with a fresh milk fridge. The Saeco Magic is the most compact fresh bean machine at 280mm wide. The Gaggia Milano La Brillante is bean to cup with two instant hoppers. The Jetinno JL33 has dual grinders and over 15 beverages. The Orion G23 is a fresh bean brewer with an aluminium boiler. The Ascaso + Grinder is a multi-group barista machine for a trained operator.' },
-    { q: 'Instant, fresh bean or barista?', a: 'All three. The Azkoyen ZEN DFB, Azkoyen Vitro X1, Saeco Magic and Orion G23 grind fresh beans per cup. The Gaggia Milano La Brillante combines bean to cup with two instant hoppers, and the Azkoyen Novara DFB brews fresh coffee and tea. The Ascaso + Grinder is a barista set for a trained operator.' },
+    { q: 'Which hot beverage machines do you offer?', a: 'There are eight machines in the range. The Azkoyen Novara DFB is a free standing double fresh brew machine for coffee and tea. The Azkoyen Zen DFB is a compact, fully automatic fresh bean machine. The Azkoyen Vitro X1 is a fresh bean brewer with a fresh milk fridge. The Saeco Magic is the most compact fresh bean machine at 280mm wide. The Gaggia Milano La Brillante is bean to cup with two instant hoppers. The Jetinno JL33 has dual grinders and over 15 beverages. The Jofemar Orion G23 is a fresh bean brewer with an aluminium boiler. The Ascaso + Grinder is a multi-group barista machine for a trained operator.' },
+    { q: 'Instant, fresh bean or barista?', a: 'All three. The Azkoyen Zen DFB, Azkoyen Vitro X1, Saeco Magic and Jofemar Orion G23 grind fresh beans per cup. The Gaggia Milano La Brillante combines bean to cup with two instant hoppers, and the Azkoyen Novara DFB brews fresh coffee and tea. The Ascaso + Grinder is a barista set for a trained operator.' },
     { q: 'Which machine suits a busy site?', a: 'The free standing Azkoyen Novara DFB is built for continuous use, with an auto cup dispenser. The Jetinno JL33 serves over 15 beverages from dual grinders. For small offices, the Saeco Magic at 280mm wide and the Gaggia Milano La Brillante at 308mm wide fit on a counter top.' },
-    { q: 'Fresh milk or powder?', a: 'The Azkoyen Vitro X1 has a fresh milk fridge, the Jetinno JL33 froths fresh milk with dual boilers and pumps, the Gaggia Milano La Brillante uses Prime Milk automatic froth, and the Saeco Magic offers one touch high speed milk. The Azkoyen ZEN DFB uses powder milk.' },
+    { q: 'Fresh milk or powder?', a: 'The Azkoyen Vitro X1 has a fresh milk fridge, the Jetinno JL33 froths fresh milk with dual boilers and pumps, the Gaggia Milano La Brillante uses Prime Milk automatic froth, and the Saeco Magic offers one touch high speed milk. The Azkoyen Zen DFB uses powder milk.' },
     { q: 'Can we serve freshly brewed tea?', a: 'Yes. The Azkoyen Novara DFB offers double fresh brew for coffee and tea. Every machine can also serve hot water for tea bags, and we supply tea and hot chocolate.' },
     { q: 'How many drinks can staff choose from?', a: 'It depends on the model: over 15 beverages on the Jetinno JL33, a 12 selection touch panel on the Azkoyen Vitro X1, and a 7 inch touchscreen menu on the Gaggia Milano La Brillante. Drink menus, strengths and volumes are configured at installation.' },
     { q: 'Which payment methods are supported?', a: 'Cashless payment through Nayax across the range, with telemetry supported so usage and faults can be monitored remotely.' },
-    { q: 'Do the machines waste disposable cups?', a: 'The Azkoyen Novara DFB has a cup detector, so it will not dispense a cup when the user brings their own. The Azkoyen Novara DFB and Azkoyen ZEN DFB both include an auto cup dispenser.' },
+    { q: 'Do the machines waste disposable cups?', a: 'The Azkoyen Novara DFB has a cup detector, so it will not dispense a cup when the user brings their own. The Azkoyen Novara DFB and Azkoyen Zen DFB both include an auto cup dispenser.' },
     { q: 'Do you supply the coffee?', a: 'Yes. Instant, filter and whole bean, plus tea, hot chocolate, milk and sundries, on a standing order or on demand.' },
    ],
    'Water Solutions': [
