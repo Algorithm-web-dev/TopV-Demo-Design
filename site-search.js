@@ -35,7 +35,7 @@
     ['P1 Bar Series E', 'Water Solutions', 'Stylish, efficient, high flow'],
     ['P1 Bar Series B', 'Water Solutions', 'Stylish, efficient, high flow'],
     ['Campione Tower - 2 or 3 Way Tap', 'Water Solutions', 'Where space is limited'],
-    ['Waterlogic 7', 'Water Solutions', 'Up to 5 types of water'],
+    ['Waterlogic 7', 'Water Solutions', 'Up to 4 or 5 types of water'],
     ['Waterlogic 2', 'Water Solutions', 'Cold and ambient, up to 30 users'],
     ['Waterlogic 100', 'Water Solutions', 'Economical cold and ambient'],
     ['The River', 'Water Solutions', 'Stainless steel cold water dispenser'],
