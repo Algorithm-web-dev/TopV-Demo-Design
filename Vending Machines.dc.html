@@ -365,7 +365,7 @@ const PRODUCTS = [
   details: [
    'The Palma Hz70 is the standard machine in the Palma combo range, sized for offices and smaller sites where a single unit needs to cover both snacks and cold drinks. Two independently controlled temperature zones run the lower trays at 4°C to 10°C for chilled cans and bottles, and the upper trays at 14°C to 25°C for confectionery and salty snacks.',
    'The cabinet is fully foam insulated with a double glazed viewing window and LED internal lighting, which keeps running costs down while products stay clearly visible. Shelves are set at 25° so loading is quick and the product faces stay presented to the customer.',
-   'Payment covers notes, coins and cashless through Nayax, and telemetry is supported so stock and sales can be monitored remotely. A debit, credit and virtual card facility can be added as an option. It runs on a standard 220V to 240V 50Hz supply, using R-134a refrigerant.',
+   'Payment covers notes, coins and cashless through Nayax, and telemetry is supported so stock and sales can be monitored remotely. A debit, credit and virtual card facility can be added as an option.',
   ] },
  { name: 'Palma Hz87', category: 'Vending Machines', variant: 'accent', image: 'assets/hz87-v2.png',
   tagline: 'Snack and Can Vending Machine',
@@ -376,7 +376,7 @@ const PRODUCTS = [
   details: [
    'The Palma Hz87 is the high capacity machine in the Palma range, holding 280 items in total across 120 drinks and 160 snacks. It suits busier sites, factory floors and reception areas where a smaller machine would need refilling too often.',
    'Dual temperature control runs the lower trays at 4°C to 10°C and the upper trays at 14°C to 25°C, so chilled drinks and ambient snacks are vended from one cabinet. The unit is fully foam insulated with a double glazed window and LED internal lighting, and 25° shelving keeps loading straightforward.',
-   'Notes, coins and cashless payment through Nayax are supported as standard, with telemetry for remote stock monitoring. Options include a debit, credit and virtual card facility, and a belt tray that extends the range to sandwiches and wraps. It runs on 220V to 240V 50Hz, using R-134a refrigerant.',
+   'Notes, coins and cashless payment through Nayax are supported as standard, with telemetry for remote stock monitoring. Options include a debit, credit and virtual card facility, and a belt tray that extends the range to sandwiches and wraps.',
   ] },
  { name: 'Palma Hz87 Premium', image: 'assets/hz87-premium-v2.png', category: 'Vending Machines', variant: 'default',
   tagline: 'Snack and Can Vending Machine',
@@ -387,7 +387,7 @@ const PRODUCTS = [
   details: [
    'The Palma Hz87 Premium adds a selective belt system to the high capacity cabinet, which allows fresh items to be vended alongside snacks and drinks. The layout carries 160 snack items, 40 drinks and 20 sandwiches or wraps, 220 items in total.',
    'The belt handles products that cannot be dropped, so the machine can serve a light lunch offering as well as confectionery. Dual temperature control runs the lower trays at 4°C to 10°C and the upper trays at 14°C to 25°C, with a fully foam insulated cabinet, double glazed window and LED internal lighting.',
-   'Payment covers notes, coins and cashless through Nayax, with telemetry supported and a debit, credit and virtual card facility available as an option. It runs on 220V to 240V 50Hz, using R-134a refrigerant.',
+   'Payment covers notes, coins and cashless through Nayax, with telemetry supported and a debit, credit and virtual card facility available as an option.',
   ] },
  { name: 'Vision Esplus Bluetec', image: 'assets/vision-esplus.png', category: 'Vending Machines', variant: 'accent',
   tagline: 'Multi-Product Dispensing Machine',
@@ -398,12 +398,12 @@ const PRODUCTS = [
   details: [
    'The Vision Esplus Bluetec is a large multi-product dispensing machine built around an elevator belt system, so items are lifted and delivered rather than dropped. That makes it suitable for fragile or fresh products alongside standard vending lines.',
    'Each channel has its own temperature control and individual expiry date tracking. Channels can be blocked automatically once the expiry date is reached, which keeps out of date stock from being sold and supports food safety requirements on site.',
-   'Dual temperature control covers 4°C to 10°C on the lower trays and 14°C to 25°C on the upper trays, in a fully foam insulated cabinet with a double glazed window and LED internal lighting. Payment is cashless through Nayax, with a card facility available. It runs on 220V to 240V 50Hz, using R-134a refrigerant.',
+   'Dual temperature control covers 4°C to 10°C on the lower trays and 14°C to 25°C on the upper trays, in a fully foam insulated cabinet with a double glazed window and LED internal lighting. Payment is cashless through Nayax, with a card facility available.',
   ] },
 ];
 
 const PRODUCTS_COFFEE = [
- { name: 'Orion G23', image: 'assets/coffee/orion-g23.png', category: 'Hot Beverage Solutions', variant: 'default',
+ { name: 'Jofemar Orion G23', image: 'assets/coffee/orion-g23.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Sleek Black Design with Blue LED Lighting',
   description: 'A fresh bean brewer with a stylish, energy-efficient design, blue LED lighting and a customised setup to suit your requirements. Aluminium boiler.',
   tags: ['Fresh Bean Brewer', 'Energy Efficient', 'Blue LED Lighting'],
@@ -423,7 +423,7 @@ const PRODUCTS_COFFEE = [
   description: 'A fresh bean brewer with a fresh milk fridge, high capacity boilers, 12 selection touch panel, variable brewing unit and an illuminated dispensing area.',
   tags: ['Fresh Bean Brewer', '12 Selection Touch Panel', 'High Capacity Boilers'],
   specs: [{ label: 'Milk', value: 'Fresh Milk Fridge' }, { label: 'Access', value: 'Easy-Access Hoppers' }, { label: 'Dimensions (WxDxH)', value: '567 x 505 x 672mm (includes fridge)' }] },
- { name: 'Saeco Magic', image: 'assets/coffee/saeco-magic.png', category: 'Hot Beverage Solutions', variant: 'default',
+ { name: 'Saeco Magic', image: 'assets/coffee/saeco-magic-v2.jpg', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Revolutionary coffee machine',
   description: 'A fresh bean brewer with a touchscreen display, fresh milk, one-touch high-speed milk, high capacity and a double boiler, double pump system.',
   tags: ['Double Boiler, Double Pump', 'Touchscreen Display', 'High Capacity'],
@@ -748,14 +748,14 @@ class Component extends DCLogic {
     { q: 'How energy efficient are the machines?', a: 'Cabinets are fully foam insulated with double glazed viewing windows and LED internal lighting, and all four machines use R-134a refrigerant.' },
    ],
    'Hot Beverage Solutions': [
-    { q: 'Which hot beverage machines do you offer?', a: 'There are eight machines in the range. The Azkoyen Novara DFB is a free standing double fresh brew machine for coffee and tea. The Azkoyen ZEN DFB is a compact, fully automatic fresh bean machine. The Azkoyen Vitro X1 is a fresh bean brewer with a fresh milk fridge. The Saeco Magic is the most compact fresh bean machine at 280mm wide. The Gaggia Milano La Brillante is bean to cup with two instant hoppers. The Jetinno JL33 has dual grinders and over 15 beverages. The Orion G23 is a fresh bean brewer with an aluminium boiler. The Ascaso + Grinder is a multi-group barista machine for a trained operator.' },
-    { q: 'Instant, fresh bean or barista?', a: 'All three. The Azkoyen ZEN DFB, Azkoyen Vitro X1, Saeco Magic and Orion G23 grind fresh beans per cup. The Gaggia Milano La Brillante combines bean to cup with two instant hoppers, and the Azkoyen Novara DFB brews fresh coffee and tea. The Ascaso + Grinder is a barista set for a trained operator.' },
+    { q: 'Which hot beverage machines do you offer?', a: 'There are eight machines in the range. The Azkoyen Novara DFB is a free standing double fresh brew machine for coffee and tea. The Azkoyen Zen DFB is a compact, fully automatic fresh bean machine. The Azkoyen Vitro X1 is a fresh bean brewer with a fresh milk fridge. The Saeco Magic is the most compact fresh bean machine at 280mm wide. The Gaggia Milano La Brillante is bean to cup with two instant hoppers. The Jetinno JL33 has dual grinders and over 15 beverages. The Jofemar Orion G23 is a fresh bean brewer with an aluminium boiler. The Ascaso + Grinder is a multi-group barista machine for a trained operator.' },
+    { q: 'Instant, fresh bean or barista?', a: 'All three. The Azkoyen Zen DFB, Azkoyen Vitro X1, Saeco Magic and Jofemar Orion G23 grind fresh beans per cup. The Gaggia Milano La Brillante combines bean to cup with two instant hoppers, and the Azkoyen Novara DFB brews fresh coffee and tea. The Ascaso + Grinder is a barista set for a trained operator.' },
     { q: 'Which machine suits a busy site?', a: 'The free standing Azkoyen Novara DFB is built for continuous use, with an auto cup dispenser. The Jetinno JL33 serves over 15 beverages from dual grinders. For small offices, the Saeco Magic at 280mm wide and the Gaggia Milano La Brillante at 308mm wide fit on a counter top.' },
-    { q: 'Fresh milk or powder?', a: 'The Azkoyen Vitro X1 has a fresh milk fridge, the Jetinno JL33 froths fresh milk with dual boilers and pumps, the Gaggia Milano La Brillante uses Prime Milk automatic froth, and the Saeco Magic offers one touch high speed milk. The Azkoyen ZEN DFB uses powder milk.' },
+    { q: 'Fresh milk or powder?', a: 'The Azkoyen Vitro X1 has a fresh milk fridge, the Jetinno JL33 froths fresh milk with dual boilers and pumps, the Gaggia Milano La Brillante uses Prime Milk automatic froth, and the Saeco Magic offers one touch high speed milk. The Azkoyen Zen DFB uses powder milk.' },
     { q: 'Can we serve freshly brewed tea?', a: 'Yes. The Azkoyen Novara DFB offers double fresh brew for coffee and tea. Every machine can also serve hot water for tea bags, and we supply tea and hot chocolate.' },
     { q: 'How many drinks can staff choose from?', a: 'It depends on the model: over 15 beverages on the Jetinno JL33, a 12 selection touch panel on the Azkoyen Vitro X1, and a 7 inch touchscreen menu on the Gaggia Milano La Brillante. Drink menus, strengths and volumes are configured at installation.' },
     { q: 'Which payment methods are supported?', a: 'Cashless payment through Nayax across the range, with telemetry supported so usage and faults can be monitored remotely.' },
-    { q: 'Do the machines waste disposable cups?', a: 'The Azkoyen Novara DFB has a cup detector, so it will not dispense a cup when the user brings their own. The Azkoyen Novara DFB and Azkoyen ZEN DFB both include an auto cup dispenser.' },
+    { q: 'Do the machines waste disposable cups?', a: 'The Azkoyen Novara DFB has a cup detector, so it will not dispense a cup when the user brings their own. The Azkoyen Novara DFB and Azkoyen Zen DFB both include an auto cup dispenser.' },
     { q: 'Do you supply the coffee?', a: 'Yes. Instant, filter and whole bean, plus tea, hot chocolate, milk and sundries, on a standing order or on demand.' },
    ],
    'Water Solutions': [
