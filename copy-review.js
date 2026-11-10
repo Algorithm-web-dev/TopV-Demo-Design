@@ -280,13 +280,41 @@
     // Buttons do things on the page (Load More, Add to Quote, filters, tabs),
     // so leave them working rather than opening a note.
     if (e.target && e.target.closest && e.target.closest('button, [role="button"]')) return null;
+    if (pdfLink(e.target)) return null;
     var el = copyTarget(e.target);
     if (el) return { el: el, kind: 'text' };
     return imageAt(e.clientX, e.clientY);
   }
 
   function kindOf(item) { return item.kind || 'text'; }
-  function sigOf(el, kind) { return kind === 'text' ? textOf(el) : srcOf(el); }
+  function sigOf(el, kind) {
+    if (kind === 'text') return textOf(el);
+    if (kind === 'brochure') return pathOf(el.getAttribute('href') || '');
+    return srcOf(el);
+  }
+
+  // A link to a PDF (the "Download Brochure" buttons).
+  function pdfLink(target) {
+    if (!target || target.nodeType !== 1 || !target.closest) return null;
+    var a = target.closest('a[href]');
+    if (!a || isOurs(a) || inSiteChrome(a)) return null;
+    return /\.pdf$/i.test(pathOf(a.getAttribute('href') || '')) ? a : null;
+  }
+  function findByHref(path) {
+    var all = document.body.querySelectorAll('a[href]');
+    for (var i = 0; i < all.length; i++) {
+      if (!isOurs(all[i]) && pathOf(all[i].getAttribute('href') || '') === path) return all[i];
+    }
+    return null;
+  }
+  // The product a brochure belongs to: the nearest heading above its link.
+  function brochureFor(a) {
+    for (var cur = a.parentElement, depth = 0; cur && cur !== document.body && depth < 8; cur = cur.parentElement, depth++) {
+      var hd = cur.querySelector('h1, h2, h3');
+      if (hd && textOf(hd)) return textOf(hd);
+    }
+    return '';
+  }
 
   function findBySrc(src) {
     var all = document.body.querySelectorAll('img, [style*="url("]');
@@ -306,7 +334,7 @@
     el = null;
     try { el = document.querySelector(item.selector); } catch (e) {}
     if (!el || sigOf(el, kind) !== item.original) {
-      el = kind === 'text' ? findByText(item.original) : findBySrc(item.original);
+      el = kind === 'text' ? findByText(item.original) : kind === 'brochure' ? findByHref(item.original) : findBySrc(item.original);
     }
     if (el) { resolved.set(item.id, el); misses.delete(item.id); }
     else { resolved.delete(item.id); misses.set(item.id, domVersion); }
@@ -487,9 +515,9 @@
     chip.title = 'Suggest new wording for this button or question';
     chip.addEventListener('click', function (e) {
       e.stopPropagation();
-      var el = chipFor;
+      var el = chipFor, kind = chipKind;
       hideChip();
-      if (el && document.contains(el)) openFor(el, 'text', null);
+      if (el && document.contains(el)) openFor(el, kind, null);
     });
     root.appendChild(chip);
 
@@ -531,7 +559,17 @@
   // clicking them can't open a note. Instead, hovering or tapping a button
   // with copy shows an "Edit text" tab on it that opens the note.
 
-  var chip, chipFor = null, chipBtn = null;
+  var chip, chipFor = null, chipBtn = null, chipKind = 'text';
+
+  // What the tab offers for the element under the pointer: replacing the
+  // brochure for a PDF link, or editing the wording of a button.
+  function chipTarget(target) {
+    var a = pdfLink(target);
+    if (a) return { btn: a, el: a, kind: 'brochure' };
+    var bc = buttonCopy(target);
+    if (bc) bc.kind = 'text';
+    return bc;
+  }
 
   function buttonCopy(target) {
     if (!target || target.nodeType !== 1 || !target.closest) return null;
@@ -561,6 +599,9 @@
   function showChip(bc) {
     chipFor = bc.el;
     chipBtn = bc.btn;
+    chipKind = bc.kind || 'text';
+    chip.textContent = chipKind === 'brochure' ? '⇪ Replace brochure' : '✎ Edit text';
+    chip.title = chipKind === 'brochure' ? 'Upload the correct brochure for this product' : 'Suggest new wording for this button or question';
     chip.style.display = 'block';
     placeChip();
   }
@@ -579,7 +620,7 @@
     box.style.height = (r.height + 8) + 'px';
   }
 
-  var KIND_LABEL = { text: 'Copy', image: 'Image', background: 'Background image' };
+  var KIND_LABEL = { text: 'Copy', image: 'Image', background: 'Background image', brochure: 'Brochure' };
 
   function showHover(t) {
     placeBox(hoverBox, t.el);
@@ -592,7 +633,7 @@
     if (!selecting || editing) return;
     var path = e.composedPath ? e.composedPath() : [];
     if (path.indexOf(host) !== -1) { hoverBox.style.display = 'none'; return; }
-    var bc = buttonCopy(e.target);
+    var bc = chipTarget(e.target);
     if (bc) { if (bc.btn !== chipBtn) showChip(bc); }
     else if (chipBtn) hideChip();
     var t = pickTarget(e);
@@ -616,7 +657,7 @@
     if (!selecting) return;
     // Tapping a button (e.g. an FAQ question) still works, and shows the
     // "Edit text" tab for it, which is how touch screens reach it.
-    var bc = buttonCopy(e.target);
+    var bc = chipTarget(e.target);
     if (bc) { showChip(bc); setTimeout(placeChip, 350); return; }
     var t = pickTarget(e);
     if (!t) return;
@@ -632,7 +673,7 @@
     })[0];
     openPop(existing || {
       id: uid(), page: pageKey(), kind: kind, selector: cssPath(el), original: original,
-      suggested: kind === 'text' ? original : '', note: '', status: 'open',
+      suggested: kind === 'text' ? original : kind === 'brochure' ? brochureFor(el) : '', note: '', status: 'open',
     }, el, !existing, point);
   }
 
@@ -646,6 +687,7 @@
   }
 
   function openPop(item, el, isNew, point) {
+    if (kindOf(item) === 'brochure') { openBrochurePop(item, el, isNew, point); return; }
     if (kindOf(item) !== 'text') { openImagePop(item, el, isNew, point); return; }
     beginEdit(item, el, point);
 
@@ -795,6 +837,188 @@
       if (!r.ok) throw new Error('Upload failed, please try again.');
       return r.json();
     }).then(function (res) { return res.id; });
+  }
+
+  // ---------- large files (brochures) ----------
+
+  var PIECE = 512 * 1024; // matches the server's chunk size
+  var BROCHURE_MAX = 20 * 1024 * 1024;
+
+  function postJson(url, body) {
+    return fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+      .then(function (r) {
+        if (r.status === 501) throw new Error('Uploads need the shared review list connected.');
+        return r.json().catch(function () { return {}; }).then(function (res) {
+          if (!r.ok) throw new Error(res.error || 'Upload failed, please try again.');
+          return res;
+        });
+      });
+  }
+
+  // Uploads in 512KB pieces, so files over Vercel's 4.5MB request limit work.
+  function uploadLarge(file, onProgress) {
+    return readBase64(file).then(function (data) {
+      var total = Math.ceil(data.length / PIECE);
+      return postJson(API + '?upload=begin', { type: file.type, name: file.name }).then(function (res) {
+        var id = res.id, i = 0;
+        function next() {
+          if (i >= total) return postJson(API + '?upload=end', { id: id, chunks: total });
+          var idx = i++;
+          if (onProgress) onProgress(idx, total);
+          var body = { id: id, index: idx, data: data.slice(idx * PIECE, (idx + 1) * PIECE) };
+          return postJson(API + '?upload=part', body)
+            .catch(function () { return postJson(API + '?upload=part', body); }) // one retry
+            .then(next);
+        }
+        return next().then(function () { return id; });
+      });
+    });
+  }
+
+  // Downloads a stored file piece by piece (responses are capped at 4.5MB too).
+  function fetchFile(id) {
+    return fetch(imageUrl(id) + '&info=1').then(function (r) {
+      if (!r.ok) throw new Error('File not found');
+      return r.json();
+    }).then(function (meta) {
+      var parts = [];
+      for (var i = 0; i < meta.chunks; i++) parts.push(i);
+      return Promise.all(parts.map(function (n) {
+        return fetch(imageUrl(id) + '&chunk=' + n).then(function (r) {
+          if (!r.ok) throw new Error('File incomplete');
+          return r.json();
+        }).then(function (res) { return res.data; });
+      })).then(function (pieces) {
+        var bin = atob(pieces.join(''));
+        var bytes = new Uint8Array(bin.length);
+        for (var j = 0; j < bin.length; j++) bytes[j] = bin.charCodeAt(j);
+        return { blob: new Blob([bytes], { type: meta.type }), name: meta.name, bytes: bytes };
+      });
+    });
+  }
+
+  // Links to uploaded brochures carry data-file and open through fetchFile.
+  function openStoredFile(id, name) {
+    var w = window.open('', '_blank');
+    toast('Opening ' + (name || 'file') + '…');
+    fetchFile(id).then(function (f) {
+      var url = URL.createObjectURL(f.blob);
+      if (w) w.location.href = url; else download(f.blob, f.name);
+    }).catch(function () {
+      if (w) w.close();
+      toast('Could not open that file, please try again');
+    });
+  }
+  function fileLink(id, name, label) {
+    return '<a class="dl" href="#" data-file="' + esc(id) + '" data-name="' + esc(name || '') + '">' + esc(label) + '</a>';
+  }
+  function wireFileLinks(node) {
+    node.querySelectorAll('a[data-file]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault(); e.stopPropagation();
+        openStoredFile(a.getAttribute('data-file'), a.getAttribute('data-name'));
+      });
+    });
+  }
+  function fmtSize(n) { return n > 1048576 ? (n / 1048576).toFixed(1) + 'MB' : Math.max(1, Math.round(n / 1024)) + 'KB'; }
+
+  function openBrochurePop(item, el, isNew, point) {
+    beginEdit(item, el, point);
+    var chosen = null;
+    var current = item.original.split('/').pop();
+    pop.innerHTML =
+      '<label>Current brochure' + (item.suggested ? ' for ' + esc(item.suggested) : '') + '</label>' +
+      '<div class="orig"><a class="dl" href="' + esc(item.original) + '" target="_blank" rel="noopener">' + esc(current) + ' ↗</a></div>' +
+      '<label>Correct brochure</label>' +
+      '<div class="drop" tabindex="0"></div><input class="file" type="file" accept="application/pdf,.pdf" hidden />' +
+      '<div class="err"></div>' +
+      '<label>Comment (optional)</label><textarea class="note" rows="2" placeholder="e.g. this is last year\'s brochure"></textarea>' +
+      '<label>Your name</label><input class="who" type="text" placeholder="Required, shown in the change history" />' +
+      (isNew ? '' : '<div class="meta"></div>') +
+      '<div class="row">' +
+      (isNew ? '' : '<button class="btn danger del">Delete</button>') +
+      '<span class="spacer"></span>' +
+      '<button class="btn ghost cancel">Cancel</button>' +
+      '<button class="btn primary save">' + (isNew ? 'Save brochure' : 'Update') + '</button></div>';
+    var drop = pop.querySelector('.drop');
+    var input = pop.querySelector('.file');
+    var err = pop.querySelector('.err');
+    var note = pop.querySelector('.note');
+    var who = pop.querySelector('.who');
+    var saveBtn = pop.querySelector('.save');
+    note.value = item.note || '';
+    who.value = item.author || lsGet(NAME) || '';
+    function showErr(msg) { err.textContent = msg || ''; err.style.display = msg ? 'block' : 'none'; }
+    function renderDrop() {
+      if (chosen) {
+        drop.innerHTML = '<strong>' + esc(chosen.name) + '</strong><span>' + fmtSize(chosen.size) + ' · click to choose a different file</span>';
+      } else if (item.imageId) {
+        drop.innerHTML = '<strong>Uploaded: ' + esc(item.imageName || 'brochure.pdf') + '</strong><span>Click to replace it with another PDF</span>';
+      } else {
+        drop.innerHTML = '<strong>Upload the correct brochure</strong><span>Click to choose, or drag a PDF here</span><span class="fname">PDF, up to 20MB</span>';
+      }
+      positionPop(el);
+    }
+    function pick(file) {
+      showErr('');
+      if (!file) return;
+      if (file.type !== 'application/pdf' && !/\.pdf$/i.test(file.name)) { showErr('Please choose a PDF file.'); return; }
+      if (file.size > BROCHURE_MAX) { showErr('That PDF is over 20MB, please compress it first.'); return; }
+      chosen = file;
+      renderDrop();
+    }
+    drop.addEventListener('click', function () { input.click(); });
+    drop.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); input.click(); } });
+    input.addEventListener('change', function () { pick(input.files[0]); });
+    drop.addEventListener('dragover', function (e) { e.preventDefault(); drop.classList.add('over'); });
+    drop.addEventListener('dragleave', function () { drop.classList.remove('over'); });
+    drop.addEventListener('drop', function (e) {
+      e.preventDefault();
+      drop.classList.remove('over');
+      pick(e.dataTransfer.files && e.dataTransfer.files[0]);
+    });
+    if (!isNew) {
+      pop.querySelector('.meta').textContent =
+        (item.author ? item.author + ' · ' : '') + fmtDate(item.updatedAt) + (item.status === 'resolved' ? ' · Resolved' : '');
+      pop.querySelector('.del').addEventListener('click', function () {
+        if (!confirm('Delete this brochure replacement?') || !ensureName()) return;
+        closePop();
+        remove(item.id).then(function (ok) { toast(ok ? 'Deleted' : 'Deleted here, will sync when the connection is back'); });
+      });
+    }
+    pop.querySelector('.cancel').addEventListener('click', closePop);
+    saveBtn.addEventListener('click', function () {
+      var n = note.value.trim();
+      if (!chosen && !item.imageId) { showErr('Please choose the correct brochure PDF first.'); return; }
+      var author = who.value.trim();
+      if (!author) { showErr('Please add your name so the change log shows who made it.'); who.focus(); return; }
+      lsSet(NAME, author);
+      showErr('');
+      saveBtn.disabled = true;
+      var upload = chosen
+        ? uploadLarge(new File([chosen], chosen.name, { type: 'application/pdf' }), function (i, total) {
+            saveBtn.textContent = 'Uploading ' + Math.round((i / total) * 100) + '%';
+          }).then(function (id) { return { imageId: id, imageName: chosen.name }; })
+        : Promise.resolve({ imageId: item.imageId, imageName: item.imageName });
+      upload.then(function (file) {
+        var now = Date.now();
+        closePop();
+        toast('Saving…');
+        return upsert(Object.assign({}, item, file, {
+          note: n, author: author, createdAt: item.createdAt || now, updatedAt: now,
+        })).then(function (ok) {
+          if (ok) toast(isNew ? 'Brochure saved ✓' : 'Brochure updated ✓');
+          else toast('Not sent yet, it is kept here and will retry automatically');
+        });
+      }).catch(function (e) {
+        saveBtn.disabled = false;
+        saveBtn.textContent = isNew ? 'Save brochure' : 'Update';
+        showErr(e && e.message ? e.message : 'Upload failed, please try again.');
+      });
+    });
+    renderDrop();
+    pop.style.display = 'block';
+    positionPop(el);
   }
 
   function openImagePop(item, el, isNew, point) {
@@ -1037,6 +1261,12 @@
           if (e.action === 'edited' && b.suggested !== a.suggested) what += '<div class="what was">' + esc(b.suggested) + '</div>';
           if (a.suggested && a.suggested !== e.original) what += '<div class="what now">' + esc(a.suggested) + '</div>';
         }
+      } else if (kind === 'brochure') {
+        what = '<div class="what">Brochure' + (a.suggested || b.suggested ? ' for ' + esc(a.suggested || b.suggested) : '') +
+          ' · <a href="' + esc(e.original) + '" target="_blank" rel="noopener">current ↗</a>';
+        if (e.action === 'edited' && b.imageId && b.imageId !== a.imageId) what += ' · ' + fileLink(b.imageId, b.imageName, 'previous upload ↗');
+        if (a.imageId && (e.action === 'created' || b.imageId !== a.imageId)) what += ' · ' + fileLink(a.imageId, a.imageName, 'new upload ↗');
+        what += '</div>';
       } else {
         what = '<div class="what">' + KIND_LABEL[kind] + ' · <a href="' + esc(e.original) + '" target="_blank" rel="noopener">current image ↗</a>';
         if (e.action === 'edited' && b.imageId && b.imageId !== a.imageId) what += ' · <a href="' + esc(imageUrl(b.imageId)) + '" target="_blank" rel="noopener">previous upload ↗</a>';
@@ -1051,6 +1281,7 @@
         '<strong style="color:#1C1C1A">' + esc(e.by || 'Unknown') + '</strong><span class="spacer" style="flex:1"></span>' +
         '<span>' + esc(pageLabel(e.page)) + ' · ' + esc(fmtTime(e.at)) + '</span></div>' + what);
       card.querySelectorAll('a').forEach(function (l) { l.addEventListener('click', function (ev) { ev.stopPropagation(); }); });
+      wireFileLinks(card);
       if (live) card.addEventListener('click', function () {
         var it = items.filter(function (i) { return i.id === e.id; })[0];
         if (it) goTo(it);
@@ -1133,6 +1364,10 @@
           body = item.suggested !== item.original
             ? '<div class="was">' + esc(item.original) + '</div><div class="now">' + esc(item.suggested) + '</div>'
             : '<div class="now" style="margin-top:8px">' + esc(item.original) + '</div>';
+        } else if (kind === 'brochure') {
+          body = (item.suggested ? '<div class="now" style="margin-top:8px">' + esc(item.suggested) + '</div>' : '') +
+            '<div style="margin-top:6px"><a class="dl cur" href="' + esc(item.original) + '" target="_blank" rel="noopener">Current: ' + esc(item.original.split('/').pop()) + ' ↗</a></div>' +
+            (item.imageId ? '<div style="margin-top:4px">' + fileLink(item.imageId, item.imageName, 'Correct brochure: ' + (item.imageName || 'brochure.pdf') + ' ↗') + '</div>' : '');
         } else {
           body = '<div class="imgs"><img src="' + esc(item.original) + '" alt="Current" />' +
             (item.imageId ? '<span class="arrow">→</span><img src="' + esc(imageUrl(item.imageId)) + '" alt="Replacement" />' : '') + '</div>' +
@@ -1150,8 +1385,8 @@
           if (!ensureName()) { e.target.checked = !e.target.checked; return; }
           upsert(Object.assign({}, item, { status: e.target.checked ? 'resolved' : 'open' }));
         });
-        var dl = card.querySelector('.dl');
-        if (dl) dl.addEventListener('click', function (e) { e.stopPropagation(); });
+        card.querySelectorAll('a.dl').forEach(function (a) { a.addEventListener('click', function (e) { e.stopPropagation(); }); });
+        wireFileLinks(card);
         card.addEventListener('click', function () { goTo(item); });
         list.appendChild(card);
       });
@@ -1200,21 +1435,25 @@
 
   // Name of each uploaded image inside the ZIP export, keyed by item id.
   function zipImageName(r) {
+    if (kindOf(r.item) === 'brochure') {
+      var base = (r.item.original.split('/').pop() || 'brochure.pdf').replace(/\.pdf$/i, '');
+      return 'brochures/' + base + '.pdf';
+    }
     var ext = (/\.(jpe?g|png|webp|gif)$/i.exec(r.item.imageName || '') || [, 'jpg'])[1].toLowerCase();
     return 'images/' + r.page.replace(/[^\w-]+/g, '-') + '-' + r.n + '.' + ext;
   }
 
   function csvText(withFiles) {
     var cell = function (v) { return '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"'; };
-    var head = ['Page', 'Page file', '#', 'Type', 'Current copy / image', 'Suggested copy', 'Replacement image', 'Note', 'Suggested by', 'Status', 'Updated', 'ID'];
-    if (withFiles) head.splice(7, 0, 'Image file in ZIP');
+    var head = ['Page', 'Page file', '#', 'Type', 'Current copy / image / brochure', 'Suggested copy / product', 'Replacement image / brochure', 'Note', 'Suggested by', 'Status', 'Updated', 'ID'];
+    if (withFiles) head.splice(7, 0, 'File in ZIP');
     var lines = [head.map(cell).join(',')];
     rows().forEach(function (r) {
       var i = r.item, kind = kindOf(i);
       var row = [
         r.page, i.page, r.n, KIND_LABEL[kind],
         kind === 'text' ? i.original : absUrl(i.original),
-        kind === 'text' ? i.suggested : '',
+        kind === 'text' || kind === 'brochure' ? i.suggested : '',
         i.imageId ? absUrl(imageUrl(i.imageId)) : '',
         i.note, i.author, i.status, new Date(i.updatedAt || 0).toISOString(), i.id,
       ];
@@ -1303,12 +1542,9 @@
     function next() {
       if (i >= withImages.length) return Promise.resolve();
       var r = withImages[i++];
-      toast('Downloading images ' + i + ' of ' + withImages.length + '…');
-      return fetch(imageUrl(r.item.imageId)).then(function (res) {
-        if (!res.ok) throw new Error();
-        return res.arrayBuffer();
-      }).then(function (buf) {
-        files.push({ name: zipImageName(r), data: new Uint8Array(buf) });
+      toast('Downloading files ' + i + ' of ' + withImages.length + '…');
+      return fetchFile(r.item.imageId).then(function (f) {
+        files.push({ name: zipImageName(r), data: f.bytes });
       }).catch(function () {
         failed.push(r.page + ' #' + r.n);
       }).then(next);
@@ -1355,6 +1591,7 @@
         out.push('   Current:   ' + i.original);
         if (i.suggested !== i.original) out.push('   Suggested: ' + i.suggested);
       } else {
+        if (kind === 'brochure' && i.suggested) out.push('   Product:     ' + i.suggested);
         out.push('   Current:     ' + absUrl(i.original));
         if (i.imageId) out.push('   Replacement: ' + absUrl(imageUrl(i.imageId)));
       }
