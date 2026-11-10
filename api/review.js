@@ -13,6 +13,14 @@
 //   GET    /api/review?image=<id>   serve an uploaded image
 //   GET    /api/review?log=1        change history, newest first
 //
+// Large files (brochure PDFs) go up in pieces, because a Vercel request or
+// response is capped at 4.5MB:
+//   POST   /api/review?upload=begin  { type, name } -> { id }
+//   POST   /api/review?upload=part   { id, index, data } (one 512KB base64 piece)
+//   POST   /api/review?upload=end    { id, chunks }
+//   GET    /api/review?image=<id>&info=1       { type, name, chunks, bytes }
+//   GET    /api/review?image=<id>&chunk=<n>    { data } (one base64 piece)
+//
 // Every create, edit, resolve/reopen and delete is appended to a permanent
 // change log (who, when, page, before -> after). Uploaded images are never
 // deleted, so every image the log refers to stays viewable.
@@ -30,6 +38,8 @@ const LOG_MAX = 5000;
 const MAX_FIELD = 5000;
 const MAX_IMAGE_BYTES = 3.2 * 1024 * 1024;
 const IMAGE_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+const FILE_TYPES = IMAGE_TYPES.concat(['application/pdf']);
+const MAX_CHUNKS = 64; // 64 x 512KB of base64, about 24MB of file
 const ID_RE = /^[a-z0-9]{6,32}$/;
 
 async function redis(cmd) {
@@ -46,7 +56,7 @@ function clean(body) {
   const str = (v) => String(v == null ? '' : v).slice(0, MAX_FIELD);
   const num = (v) => (Number.isFinite(Number(v)) ? Number(v) : Date.now());
   if (!body || typeof body.id !== 'string' || !ID_RE.test(body.id)) return null;
-  const kind = ['image', 'background'].includes(body.kind) ? body.kind : 'text';
+  const kind = ['image', 'background', 'brochure'].includes(body.kind) ? body.kind : 'text';
   const imageId = typeof body.imageId === 'string' && ID_RE.test(body.imageId) ? body.imageId : '';
   return {
     id: body.id,
@@ -76,13 +86,73 @@ async function serveImage(id, res) {
   const meta = JSON.parse(raw);
   const parts = [];
   for (let i = 0; i < meta.chunks; i++) parts.push(await redis(['GET', `${IMG_KEY}${id}:${i}`]) || '');
-  const type = IMAGE_TYPES.includes(meta.type) ? meta.type : 'application/octet-stream';
+  const type = FILE_TYPES.includes(meta.type) ? meta.type : 'application/octet-stream';
   const name = String(meta.name || 'image').replace(/[^\w.\- ]/g, '_');
   res.setHeader('Content-Type', type);
   res.setHeader('Content-Disposition', `inline; filename="${name}"`);
   res.setHeader('X-Content-Type-Options', 'nosniff');
   res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
   res.status(200).end(Buffer.from(parts.join(''), 'base64'));
+}
+
+async function fileInfo(id, res) {
+  if (!ID_RE.test(id)) { res.status(400).json({ error: 'Invalid file' }); return; }
+  const raw = await redis(['GET', IMG_KEY + id]);
+  if (!raw) { res.status(404).json({ error: 'File not found' }); return; }
+  const meta = JSON.parse(raw);
+  res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+  res.status(200).json({ type: meta.type, name: meta.name, chunks: meta.chunks, bytes: meta.bytes });
+}
+
+async function fileChunk(id, n, res) {
+  if (!ID_RE.test(id) || !/^\d{1,3}$/.test(n)) { res.status(400).json({ error: 'Invalid file' }); return; }
+  const data = await redis(['GET', `${IMG_KEY}${id}:${n}`]);
+  if (data == null) { res.status(404).json({ error: 'Not found' }); return; }
+  res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+  res.status(200).json({ data });
+}
+
+async function uploadPiece(step, body, res) {
+  body = body || {};
+  if (step === 'begin') {
+    if (!FILE_TYPES.includes(body.type)) { res.status(400).json({ error: 'Please upload a PDF or an image' }); return; }
+    const id = crypto.randomBytes(12).toString('hex').slice(0, 20);
+    const name = String(body.name || 'file').slice(0, 200);
+    await redis(['SET', `${IMG_KEY}${id}:pending`, JSON.stringify({ type: body.type, name }), 'EX', 86400]);
+    res.status(200).json({ id });
+    return;
+  }
+  const id = typeof body.id === 'string' && ID_RE.test(body.id) ? body.id : '';
+  const pendingRaw = id ? await redis(['GET', `${IMG_KEY}${id}:pending`]) : null;
+  if (!pendingRaw) { res.status(400).json({ error: 'Upload not found, please try again' }); return; }
+  if (step === 'part') {
+    const index = Number(body.index);
+    const data = typeof body.data === 'string' ? body.data : '';
+    if (!Number.isInteger(index) || index < 0 || index >= MAX_CHUNKS || !data || data.length > CHUNK || !/^[A-Za-z0-9+/]+=*$/.test(data)) {
+      res.status(400).json({ error: 'Invalid upload piece' });
+      return;
+    }
+    await redis(['SET', `${IMG_KEY}${id}:${index}`, data]);
+    res.status(200).json({ ok: true });
+    return;
+  }
+  if (step === 'end') {
+    const chunks = Number(body.chunks);
+    if (!Number.isInteger(chunks) || chunks < 1 || chunks > MAX_CHUNKS) { res.status(400).json({ error: 'Invalid upload' }); return; }
+    let chars = 0;
+    for (let i = 0; i < chunks; i++) {
+      const len = await redis(['STRLEN', `${IMG_KEY}${id}:${i}`]);
+      if (!len) { res.status(400).json({ error: 'Part of the file is missing, please try again' }); return; }
+      chars += len;
+    }
+    const pending = JSON.parse(pendingRaw);
+    // Written last, so a half-finished upload is never served.
+    await redis(['SET', IMG_KEY + id, JSON.stringify({ type: pending.type, name: pending.name, chunks, bytes: Math.round(chars * 0.75) })]);
+    await redis(['DEL', `${IMG_KEY}${id}:pending`]);
+    res.status(200).json({ id });
+    return;
+  }
+  res.status(400).json({ error: 'Unknown upload step' });
 }
 
 async function uploadImage(body, res) {
@@ -152,7 +222,10 @@ module.exports = async (req, res) => {
     const query = req.query || {};
     const body = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : req.body;
 
+    if (req.method === 'GET' && query.image && query.info) { await fileInfo(String(query.image), res); return; }
+    if (req.method === 'GET' && query.image && query.chunk != null) { await fileChunk(String(query.image), String(query.chunk), res); return; }
     if (req.method === 'GET' && query.image) { await serveImage(String(query.image), res); return; }
+    if (req.method === 'POST' && ['begin', 'part', 'end'].includes(query.upload)) { await uploadPiece(query.upload, body, res); return; }
     if (req.method === 'POST' && query.upload) { await uploadImage(body, res); return; }
 
     if (req.method === 'GET' && query.log) {
