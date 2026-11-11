@@ -326,8 +326,22 @@
 
   var resolved = new Map();
   var misses = new Map();
+  // The heading on screen, e.g. the product whose detail view is open. Product
+  // pages reuse the same layout, so identical text (an FAQ answer such as
+  // "220-240V 50Hz.") can appear on several products; a suggestion only
+  // matches on the product it was made on.
+  function viewContext() {
+    var hs = document.querySelectorAll('h1');
+    for (var i = 0; i < hs.length; i++) {
+      var r = hs[i].getBoundingClientRect();
+      if (!isOurs(hs[i]) && r.width > 0 && r.height > 0 && getComputedStyle(hs[i]).visibility !== 'hidden') return textOf(hs[i]).slice(0, 200);
+    }
+    return '';
+  }
+
   function locate(item) {
     var kind = kindOf(item);
+    if (item.context && item.context !== viewContext()) return null;
     var el = resolved.get(item.id);
     if (el && el.isConnected && sigOf(el, kind) === item.original) return el;
     if (misses.get(item.id) === domVersion) return null;
@@ -672,7 +686,7 @@
       return i.page === pageKey() && kindOf(i) === kind && i.original === original && locate(i) === el;
     })[0];
     openPop(existing || {
-      id: uid(), page: pageKey(), kind: kind, selector: cssPath(el), original: original,
+      id: uid(), page: pageKey(), kind: kind, selector: cssPath(el), original: original, context: viewContext(),
       suggested: kind === 'text' ? original : kind === 'brochure' ? brochureFor(el) : '', note: '', status: 'open',
     }, el, !existing, point);
   }
@@ -1399,7 +1413,7 @@
       return;
     }
     var el = locate(item);
-    if (!el) { toast('That item is not on the page right now'); return; }
+    if (!el) { toast(item.context && item.context !== viewContext() ? 'Open "' + item.context + '" to see this one' : 'That item is not on the page right now'); return; }
     if (window.innerWidth <= 640) togglePanel(false);
     el.scrollIntoView({ behavior: 'smooth', block: 'center' });
     setTimeout(function () { openPop(item, el, false); }, 450);
@@ -1445,19 +1459,19 @@
 
   function csvText(withFiles) {
     var cell = function (v) { return '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"'; };
-    var head = ['Page', 'Page file', '#', 'Type', 'Current copy / image / brochure', 'Suggested copy / product', 'Replacement image / brochure', 'Note', 'Suggested by', 'Status', 'Updated', 'ID'];
-    if (withFiles) head.splice(7, 0, 'File in ZIP');
+    var head = ['Page', 'Page file', '#', 'Type', 'Product / section', 'Current copy / image / brochure', 'Suggested copy / product', 'Replacement image / brochure', 'Note', 'Suggested by', 'Status', 'Updated', 'ID'];
+    if (withFiles) head.splice(8, 0, 'File in ZIP');
     var lines = [head.map(cell).join(',')];
     rows().forEach(function (r) {
       var i = r.item, kind = kindOf(i);
       var row = [
-        r.page, i.page, r.n, KIND_LABEL[kind],
+        r.page, i.page, r.n, KIND_LABEL[kind], i.context || '',
         kind === 'text' ? i.original : absUrl(i.original),
         kind === 'text' || kind === 'brochure' ? i.suggested : '',
         i.imageId ? absUrl(imageUrl(i.imageId)) : '',
         i.note, i.author, i.status, new Date(i.updatedAt || 0).toISOString(), i.id,
       ];
-      if (withFiles) row.splice(7, 0, i.imageId ? zipImageName(r) : '');
+      if (withFiles) row.splice(8, 0, i.imageId ? zipImageName(r) : '');
       lines.push(row.map(cell).join(','));
     });
     return '﻿' + lines.join('\r\n');

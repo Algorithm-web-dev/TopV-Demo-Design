@@ -171,7 +171,7 @@
         </div>
         <div style="display:flex;flex-direction:column;padding:18px 20px 18px;flex:1;border-top:1px solid #EEF0F2;">
          <div style="font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;color:#8A8984;margin-bottom:6px;">{{ p.category }}</div>
-         <div data-pc-name="1" style="font-size:17px;font-weight:700;letter-spacing:-0.01em;line-height:1.3;color:#1C1C1A;margin-bottom:6px;">{{ p.name }}</div>
+         <div data-pc-name="1" style="font-size:17px;font-weight:700;letter-spacing:-0.01em;line-height:1.3;color:#1C1C1A;margin-bottom:6px;white-space:pre-line;">{{ p.title }}</div>
          <div style="font-size:14px;line-height:1.5;color:#5C5B56;margin-bottom:16px;text-wrap:pretty;">{{ p.tagline }}</div>
          <div data-pc-link="1" style="margin-top:auto;display:flex;align-items:center;justify-content:space-between;font-size:13.5px;font-weight:600;color:#1C1C1A;"><span>View details</span><span data-pc-arrow="1" style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;border:1px solid #D3D7DD;box-sizing:border-box;line-height:0;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:block;"><line x1="2.5" y1="7" x2="11.5" y2="7"></line><polyline points="7.5,3 11.5,7 7.5,11"></polyline></svg></span></div>
         </div>
@@ -200,7 +200,7 @@
     </div>
     <div>
      <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:16px;">{{ selectedProduct.category }}</div>
-     <h1 style="font-family:'Inter',sans-serif;font-weight:700;font-size:52px;line-height:1.05;letter-spacing:-0.032em;margin:0 0 14px;">{{ selectedProduct.name }}</h1>
+     <h1 style="font-family:'Inter',sans-serif;font-weight:700;font-size:52px;line-height:1.05;letter-spacing:-0.032em;margin:0 0 14px;white-space:pre-line;">{{ selectedProduct.title }}</h1>
      <p style="font-family:'Inter',sans-serif;font-size:19px;color:#6B6B68;margin:0 0 28px;">{{ selectedProduct.tagline }}</p>
      <p style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:#45443F;margin:0 0 34px;max-width:520px;">{{ selectedProduct.description }}</p>
      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:44px;">
@@ -261,7 +261,7 @@
         <span style="font-family:'Inter',sans-serif;{{ f.iconStyle }}">+</span>
        </button>
        <div style="{{ f.answerStyle }}">
-        <p style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:#45443F;margin:0 26px 24px;">{{ f.a }}</p>
+        <p style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:#45443F;margin:0 26px 24px;white-space:pre-line;">{{ f.a }}</p>
        </div>
       </div>
      </sc-for>
@@ -453,9 +453,7 @@ const PRODUCTS_WATER = [
   brochure: 'kastella-bar-classe.pdf',
   specs: [{ label: 'Model', value: 'Bar Classe' }, { label: 'Water Options', value: 'Sparkling, cold and ambient' }, { label: 'Dispensing', value: '160L/hr' }, { label: 'Filtration', value: 'Carbon filter and UVC' }, { label: 'Purification', value: 'Firewall' }, { label: 'Dimensions (WxDxH)', value: '401 x 607 x 590mm' }, { label: 'Dispense Area Height', value: '220 to 314mm' }, { label: 'Power Supply', value: '230V 50Hz' }],
   details: [
-   'The Purezza Bar Classe delivers sparkling, cold and ambient water at the press of a button, built in high quality stainless steel for front of house and staff areas where the unit is on view.',
-   'Output is 160L/hr, the highest in the range, so it holds up at peak times without the water warming. Filtration is carbon filter with UVC, and Firewall purification protects the supply.',
-   'The dispense area height is adjustable between 220mm and 314mm for different bottle and glass sizes, on a 230V 50Hz supply.',
+   'A premium, high-performance countertop water dispenser designed for busy hospitality environments. The P2 Firewall Bar Classe delivers chilled, purified still and sparkling water, using ice-bath cooling technology to maintain consistently cold temperatures. It also features integrated Firewall UVC purification, providing an additional layer of water hygiene right up to the point of dispense.',
   ] },
  { name: 'P1 Bar Series E', image: 'assets/purezza/p1-bar-e.png', category: 'Water Solutions', variant: 'accent',
   tagline: 'Stylish, Efficient & High Flow solution',
@@ -467,14 +465,14 @@ const PRODUCTS_WATER = [
   description: 'Offers 2 water options, cold and sparkling, with portion control, a back-lit front panel with premium aesthetics, and eco-sustainable R290 refrigeration. Plumbed in solution.',
   tags: ['Cold & Sparkling', 'Back-Lit Front Panel', 'R290 Eco Refrigeration'],
   specs: [{ label: 'Water Options', value: 'Cold & Sparkling' }, { label: 'Refrigeration', value: 'R290 Natural Gas' }, { label: 'Installation', value: 'Plumbed In' }] },
- { name: 'Campione Tower - 2 or 3 Way Tap', image: 'assets/campione-tower-box.png', category: 'Water Solutions', variant: 'accent',
+ { name: 'Campione Tower - 2 or 3 Way Tap', title: 'Campione Tower -\n2 or 3 Way Tap', image: 'assets/campione-tower-box.png', category: 'Water Solutions', variant: 'accent',
   tagline: 'Where space is limited',
-  description: 'Offers 3 water options: cold, ambient and sparkling, with ice cold water produced using Ice Bath cooling technology and high performance filtration. Plumbed in with the Frizzante 60 under-counter solution. Supplied with the Frizzante 80 Box under-counter unit.',
+  description: 'Offers 3 water options: cold, ambient and sparkling, with ice cold water produced using Ice Bath cooling technology and high performance filtration. Supplied with the Frizzante 80 Box under-counter unit.',
   tags: ['Cold, Ambient & Sparkling', 'Ice Bath Cooling', 'Includes Frizzante 80 Box'],
   brochure: 'kastella-tap.pdf',
   specs: [{ label: 'Included', value: 'Frizzante 80 Box under-counter unit' }, { label: 'Model', value: 'Campione' }, { label: 'Water Options', value: 'Cold, sparkling and ambient' }, { label: 'Dispensing', value: '60L/hr' }, { label: 'Cooling', value: 'Ice bank technology' }, { label: 'Filtration', value: 'Carbon filter and UVC' }, { label: 'Dimensions (WxDxH)', value: '144 x 85 x 475mm' }, { label: 'Dispense Area Height', value: '313mm' }, { label: 'Power Supply', value: '220-240V 50Hz' }],
   details: [
-   'The Purezza Campione Tap is a stylish, efficient dispenser for venues where space is limited, measuring just 144mm wide and 85mm deep at the counter.',
+   'A premium, countertop dispensing tower designed for restaurants, bars and hospitality venues where space is limited. The Campione Tower connects to an under-counter Frizzante 80 box to dispense freshly filtered still and sparkling water. Available in two- and three-tap configurations, it combines a stylish presentation with practical, high-volume dispensing.',
    'The Ice Bath water cooling system delivers high volumes of ice cold water, at 60L/hr, for environments where that matters. An integrated in-line UV LED system provides UV protection for the water supply.',
    'High performance filtration is certified to stringent standards by IAPMO R&T and carries the Water Quality Platinum Seal. Dispense area height is 313mm, on a 220V to 240V 50Hz supply.',
    'Supplied with the Frizzante 80 Box, an under-counter unit that chills and carbonates the water using Ice Bath cooling and high performance filtration. The tower sits on the counter as the dispensing point, while the box is installed out of sight below it.',
@@ -525,15 +523,15 @@ const PRODUCTS_WATER = [
    'An ice bank with compact Blupura direct chill technology delivers 20L/hr at 5°C to 12°C, and the thermostat is adjustable to suit the site.',
    'Filtration is by carbon filter. It runs on a 220V to 240V 50Hz supply, using R290 refrigerant.',
   ] },
- { name: 'Legend Classic', image: 'assets/legend-classic-v3.png', category: 'Water Solutions', variant: 'accent',
+ { name: 'Legend Classic', image: 'assets/legend-classic-v4.png', category: 'Water Solutions', variant: 'accent',
   tagline: 'Cold, ambient and hot water on tap',
-  description: 'A compressor driven, manually refilled dispenser serving cold, ambient and hot water, with a carbon filter, an 18L filtering bottle and a removable silver drip tray.',
+  description: 'A compressor driven, manually refilled dispenser serving cold, ambient and hot water, with a carbon filter, a 19L filtering bottle and a removable silver drip tray.',
   tags: ['Manual Water Refill', 'Cold, Ambient & Hot', 'Includes Filter Bottle'],
   brochure: 'classic-legend.pdf',
-  specs: [{ label: 'Model', value: 'LEGEND CLASSIC' }, { label: 'Water Options', value: 'Cold, ambient and hot' }, { label: 'Cold Tank', value: '4L' }, { label: 'Hot Tank', value: '1.2L' }, { label: 'Filtering Bottle', value: '18L' }, { label: 'Refill', value: 'Manual' }, { label: 'Filtration', value: 'Carbon filter' }, { label: 'Dimensions (WxDxH)', value: '325 x 305 x 1040mm' }, { label: 'Power Supply', value: '220-240V 50Hz' }, { label: 'Refrigerant', value: 'R134A' }],
+  specs: [{ label: 'Model', value: 'LEGEND CLASSIC' }, { label: 'Water Options', value: 'Cold, ambient and hot' }, { label: 'Cold Tank', value: '4L' }, { label: 'Hot Tank', value: '1.2L' }, { label: 'Filtering Bottle', value: '19L' }, { label: 'Refill', value: 'Manual' }, { label: 'Filtration', value: 'Carbon filter' }, { label: 'Dimensions (WxDxH)', value: '325 x 305 x 1040mm' }, { label: 'Power Supply', value: '220-240V 50Hz' }, { label: 'Refrigerant', value: 'R134A' }],
   details: [
    'The Legend Classic Black is a manually refilled dispenser, so it needs no plumbing and can be placed anywhere there is a power point. It serves cold, ambient and hot water on tap.',
-   'The unit is compressor driven with a 4L cold water tank and a 1.2L hot tank, and includes an 18L filtering bottle with a carbon filter. The silver drip tray is removable for cleaning.',
+   'The unit is compressor driven with a 4L cold water tank and a 1.2L hot tank, and includes a 19L filtering bottle with a carbon filter. The silver drip tray is removable for cleaning.',
    'It runs on a 220V to 240V 50Hz supply, using R134A refrigerant.',
   ] },
  { name: 'Murano Tower', image: 'assets/murano-tower-box.png', category: 'Water Solutions', variant: 'accent',
@@ -542,8 +540,7 @@ const PRODUCTS_WATER = [
   tags: ['Small Footprint', 'Touch Dispensing', 'Includes Frizzante 80 Box'],
   specs: [{ label: 'Included', value: 'Frizzante 80 Box under-counter unit' }, { label: 'Placement', value: 'Counter tower' }],
   details: [
-   'The Murano Tower is a slim counter tower with touch dispensing and a stainless steel drip tray, made for front of house where the unit is on view and space is tight.',
-   'Supplied with the Frizzante 80 Box, an under-counter unit that chills and carbonates the water using Ice Bath cooling and high performance filtration. The tower sits on the counter as the dispensing point, while the box is installed out of sight below it.',
+   'A high-volume elegant dispensing tower designed for hospitality venues where counter space and presentation matter. The Murano Tower connects to the Purezza Frizzante 80 Box under-counter system, providing convenient access to freshly filtered chilled, ambient and sparkling water without requiring a traditional countertop dispenser.',
   ] },
  { name: 'Frizzante 80 Manual', image: 'assets/frizzante-80-manual.png', category: 'Water Solutions', variant: 'default',
   tagline: 'The intuitive hospitality solution with mechanical tap dispensing',
@@ -554,7 +551,12 @@ const PRODUCTS_WATER = [
   tagline: 'The compact solution for modern hospitality environments',
   description: 'A compact counter-top unit with a four-button touch panel and a removable drip tray.',
   tags: ['Compact', 'Touch Panel', 'Counter-Top'],
-  specs: [{ label: 'Controls', value: 'Four-button touch panel' }, { label: 'Placement', value: 'Counter-top' }] },
+  specs: [{ label: 'Controls', value: 'Four-button touch panel' }, { label: 'Placement', value: 'Counter-top' }],
+  details: [
+   'A compact, professional countertop water dispenser designed for venues where space is limited. The Frizzante Mini offers chilled, ambient and sparkling water, with configurations also available for hot water dispensing. Its compact design makes it suitable for cafés, bars and smaller hospitality environments.',
+   'Installation, servicing and repairs are carried out by our own teams, not subcontractors, from hubs in Johannesburg, Cape Town and Durban. Routine maintenance visits are scheduled and breakdown calls are logged through our support line.',
+   'Available to buy or rent. Rental agreements include maintenance and aftersales support, and consumables supply can be added so the machine is stocked without a separate order each month.',
+  ] },
  { name: 'Purezza T-Bar Tower', image: 'assets/purezza-t-bar-box.png', category: 'Water Solutions', variant: 'default',
   tagline: 'Contemporary design with the flexibility to fit any setting',
   description: 'A counter tower with up to three dispensing points and intuitive medallion taps. Combined with the Frizzante Box it serves chilled, ambient and sparkling water. Supplied with the Frizzante 80 Box under-counter unit.',
@@ -562,7 +564,7 @@ const PRODUCTS_WATER = [
   brochure: 'purezza-t-bar.pdf',
   specs: [{ label: 'Included', value: 'Frizzante 80 Box under-counter unit' }, { label: 'Model', value: 'T-Bar Tower' }, { label: 'Water Options', value: 'Up to 3: chilled, ambient and sparkling' }, { label: 'Colours', value: 'Black, white, bronze and steel' }, { label: 'Dispense Area Height', value: '300mm, bottles up to 300mm' }, { label: 'Dimensions (3 ways)', value: '311 x 207 x 511mm (WxDxH)' }, { label: 'Dimensions (2 ways)', value: '201 x 201 x 511mm (WxDxH)' }, { label: 'Dimensions (1 way)', value: '88.9 x 209 x 511mm (WxDxH)' }, { label: 'Weight', value: '5kg (1 and 2 ways), 6kg (3 ways)' }, { label: 'Inlet Pipe Connection', value: '3, 4 or 5 x 8mm (1, 2 or 3 ways)' }, { label: 'Purification', value: 'Inline UVC, optional' }, { label: 'Refrigerant', value: 'R290 (with Frizzante Box)' }, { label: 'Suggested Installation', value: 'With Frizzante Box' }],
   details: [
-   'The Purezza T-Bar Tower is a contemporary counter tower available in black, white, bronze and steel, with up to three dispensing points to suit the setting. It comes standard with medallion taps that identify the type of water being dispensed.',
+   'A stylish, space-saving dispensing tower designed for seamless integration into hospitality counters. Connected to an under-counter Frizzante system, the T-Bar provides chilled, ambient and sparkling water through mechanical taps. Available in black in three-tap configurations.',
    'When combined with the Frizzante Box it serves chilled, ambient and sparkling water through mechanical taps. Ice Bath cooling delivers high volumes of ice-cold water, and the optional inline UVC purification system eliminates up to 99.9999% of waterborne bacteria and viruses.',
    'Professional grade filters address colour, taste and odour. The tower is stainless steel for hygiene and easy cleaning, with a 300mm dispense area for bottles. The 3 way model weighs 6kg.',
    'Supplied with the Frizzante 80 Box, an under-counter unit that chills and carbonates the water using Ice Bath cooling and high performance filtration. The tower sits on the counter as the dispensing point, while the box is installed out of sight below it.',
@@ -773,6 +775,7 @@ class Component extends DCLogic {
 
   const withImage = (p) => ({
    ...p,
+   title: p.title || p.name,
    imgRef: (el) => { if (el && p.image) el.src = p.image; },
    imgStyle: p.image ? 'width:100%;height:100%;object-fit:contain;display:block;' : 'display:none;',
    placeholderStyle: p.image ? 'display:none;' : 'font-size:12px;letter-spacing:2px;text-indent:2px;white-space:nowrap;text-transform:uppercase;color:#6B6B68;font-weight:600;',
@@ -841,7 +844,7 @@ class Component extends DCLogic {
     { q: 'Do you supply the coffee?', a: 'Yes. Instant, filter and whole bean, plus tea, hot chocolate, milk and sundries, on a standing order or on demand.' },
    ],
    'Water Solutions': [
-    { q: 'Plumbed-in or bottled?', a: 'Both. The Top Coolers Waterlogic range and the Purezza units plumb into the mains and filter on site. The Legend Classic is manually refilled with an 18L filtering bottle and needs no plumbing.' },
+    { q: 'Plumbed-in or bottled?', a: 'Both. The Top Coolers Waterlogic range and the Purezza units plumb into the mains and filter on site. The Legend Classic is manually refilled with a 19L filtering bottle and needs no plumbing.' },
     { q: 'What water options are there?', a: 'It depends on the model. The Waterlogic 7 serves five types: ice-cold, ambient, sparkling, hot and extra-hot. The FW Bar Classe, P1 Bar Series E and the Purezza towers serve cold, ambient and sparkling, the Waterlogic 2 and 100 serve cold and ambient, and The River is cold only.' },
     { q: 'Which towers come with the Frizzante 80 Box?', a: 'The Campione Tower - 2 or 3 Way Tap, Murano Tower and Purezza T-Bar Tower are all supplied with the Frizzante 80 Box. The box sits under the counter and chills and carbonates the water, while the tower on the counter does the dispensing.' },
     { q: 'How many people can one unit serve?', a: 'The Waterlogic 100 is rated for up to 20 users and the Waterlogic 2 for up to 30. For larger sites and hospitality, the Purezza units are sized on throughput: the FW Bar Classe dispenses 160L/hr and the Campione Tower 60L/hr.' },
@@ -880,7 +883,229 @@ class Component extends DCLogic {
    const rest = (p.specs || []).filter(s => ![cap, dr, sn, sw, pay, dim, cool, pow, tel].includes(s) && !/^model$/i.test(s.label));
    return out.slice(0, 5);
   };
-  const ownFaqs = buildFaqs(sp);
+  // Product FAQs written by the client. They replace the FAQs generated
+  // from the specs for these products.
+  const PRODUCT_FAQS = {
+   "Waterlogic 7": [
+    {
+     "q": "What water options does the WL7 offer?",
+     "a": "The WL7 offers up to five water options: cold, sparkling, ambient, hot and extra-hot water depending on the configuration selected."
+    },
+    {
+     "q": "Does the WL7 have built-in water filtration?",
+     "a": "Yes. The WL7 includes a high-performance carbon block filtration system, which helps reduce impurities and improve water taste and odour."
+    },
+    {
+     "q": "What is Firewall Technology?",
+     "a": "Firewall is Waterlogic's patented UVC purification technology, which purifies water at the point of dispense, helping eliminate up to 99.9999% of bacteria and viruses. It also has BioCote antimicrobial protection around the dispensing area which kills 80% of bacteria in 15 minutes."
+    },
+    {
+     "q": "What temperature is the water kept at?",
+     "a": "Cold: Between 8-12°C\nHot: Adjustable between 75-90°C\nExtra Hot: Adjustable between 80-93°C"
+    }
+   ],
+   "Waterlogic 2": [
+    {
+     "q": "What water options does the WL2 offer?",
+     "a": "The WL2 offers cold and ambient water on tap."
+    },
+    {
+     "q": "Does the WL2 have built-in water filtration?",
+     "a": "Yes. The WL2 features a carbon block filtration system to help reduce impurities and improve water taste and quality."
+    },
+    {
+     "q": "What is Firewall Technology?",
+     "a": "Firewall is Waterlogic's patented UVC purification technology, which purifies water at the point of dispense, helping eliminate up to 99.9999% of bacteria and viruses. It also has BioCote antimicrobial protection around the dispensing area which kills 80% of bacteria in 15 minutes."
+    }
+   ],
+   "Waterlogic 100": [
+    {
+     "q": "What water options does the WL100 offer?",
+     "a": "The WL100 provides cold and ambient water."
+    },
+    {
+     "q": "Does the WL100 have built-in water filtration?",
+     "a": "Yes. The WL100 features high-performance carbon filtration to help reduce common water contaminants, chlorine and unwanted tastes and odours."
+    },
+    {
+     "q": "What temperature is the water kept at?",
+     "a": "Cold: Approximately 8-12°C\nAmbient: Supplied at the incoming water temperature"
+    }
+   ],
+   "Legend Classic": [
+    {
+     "q": "What water options does the Legend Classic offer?",
+     "a": "The Legend Classic provides chilled, ambient and hot water, offering convenient hydration throughout the workplace."
+    },
+    {
+     "q": "Does the Legend Classic have built-in water filtration?",
+     "a": "Yes. The Legend Classic includes a manual re-fillable 19L bottle with a filtration system to help improve water quality and taste."
+    },
+    {
+     "q": "Plumbed-in or bottled?",
+     "a": "Bottled. The Legend Classic is a manual refillable bottled water cooler."
+    },
+    {
+     "q": "What temperature is the water kept at?",
+     "a": "The Legend Classic uses a compressor-driven cooling system for chilled water and a heating system for hot water."
+    }
+   ],
+   "The River": [
+    {
+     "q": "What water options does this cooler offer?",
+     "a": "The River has cold water only."
+    },
+    {
+     "q": "Does the cooler have built-in filtration?",
+     "a": "Yes. The River has carbon filtration."
+    },
+    {
+     "q": "What temperature is the water kept at?",
+     "a": "It dispenses up to 20L/hr of water at 5-12°C."
+    }
+   ],
+   "FW Bar Classe": [
+    {
+     "q": "What type of water does the Classe dispense?",
+     "a": "The Classe dispenses unlimited purified cold and sparkling water."
+    },
+    {
+     "q": "How much water does the Classe dispense per hour?",
+     "a": "Up to 160L/hr."
+    },
+    {
+     "q": "Does the Classe have built-in water purification technology?",
+     "a": "Yes. Its high-flow Firewall® UVC purification purifies the water right up to the point of dispense and is guaranteed to remove up to 99.9999% of bacteria, 99.99% of viruses and 99.9% of cysts. The bottle holders and floater mechanism are also protected by BioCote® antimicrobial technology."
+    },
+    {
+     "q": "Does the Classe require under-counter installation?",
+     "a": "No, it is a countertop unit."
+    }
+   ],
+   "P1 Bar Series E": [
+    {
+     "q": "What type of water does the P1 Bar E Series dispense?",
+     "a": "The P1 Bar E Series dispenses cold, ambient and sparkling water with 1 portion control."
+    },
+    {
+     "q": "How much water does the E Series dispense per hour?",
+     "a": "The mechanical tap model has a dispensing capacity of up to 80L/hr."
+    },
+    {
+     "q": "Does the E Series have built-in water purification technology?",
+     "a": "Yes. The system uses performance water filtration to reduce impurities, improve taste and reduce unwanted odours."
+    },
+    {
+     "q": "Does the E Series require under-counter installation?",
+     "a": "No, it is a countertop unit."
+    }
+   ],
+   "P1 Bar Series B": [
+    {
+     "q": "What type of water does the P1 Bar B Series dispense?",
+     "a": "The P1 Bar B Series dispenses cold and sparkling water, with 2 portion control."
+    },
+    {
+     "q": "How much water does the B Series dispense per hour?",
+     "a": "The electronic button model has a dispensing capacity of up to 80L/hr."
+    },
+    {
+     "q": "Does the B Series have built-in water purification technology?",
+     "a": "Yes. The system uses performance water filtration to improve water taste and reduce unwanted odours."
+    },
+    {
+     "q": "Does the B Series require under-counter installation?",
+     "a": "No, it is a countertop unit."
+    }
+   ],
+   "Frizzante Mini": [
+    {
+     "q": "What type of water does the Frizzante Mini dispense?",
+     "a": "The Frizzante Mini offers chilled, ambient and sparkling water."
+    },
+    {
+     "q": "How much water does the Frizzante Mini dispense per hour?",
+     "a": "The Frizzante Mini dispenses up to 30L/hr."
+    },
+    {
+     "q": "Does the Frizzante Mini have built-in water purification technology?",
+     "a": "Yes. The Frizzante Mini uses performance water filtration to help reduce impurities and improve water taste and quality."
+    },
+    {
+     "q": "Does the Frizzante Mini require under-counter installation?",
+     "a": "No, it is a countertop unit."
+    }
+   ],
+   "Frizzante 80 Manual": [
+    {
+     "q": "What type of water does the Frizzante 80 Manual dispense?",
+     "a": "The Frizzante 80 Manual dispenses cold, ambient and sparkling water."
+    },
+    {
+     "q": "How much water does the Frizzante 80 Manual dispense per hour?",
+     "a": "The Frizzante 80 Manual dispenses up to 80L/hr."
+    },
+    {
+     "q": "Does the Frizzante 80 Manual have built-in water purification technology?",
+     "a": "Yes, the Frizzante 80 Manual features high-performance water filtration to help reduce impurities and improve water taste and quality."
+    },
+    {
+     "q": "Does the Frizzante 80 Manual require under-counter installation?",
+     "a": "No, it is a countertop unit."
+    }
+   ],
+   "Purezza T-Bar Tower": [
+    {
+     "q": "What type of water does the T-Bar dispense?",
+     "a": "The T-Bar provides cold, ambient and sparkling water."
+    },
+    {
+     "q": "How much water does the T-Bar dispense per hour?",
+     "a": "The T-Bar pairs with the Frizzante 80 Box system, which dispenses 80L/hr."
+    },
+    {
+     "q": "Does the T-Bar have built-in water purification technology?",
+     "a": "The T-Bar works with an under-counter Frizzante 80 Box, which has performance filtration and ice-bath technology."
+    },
+    {
+     "q": "Does the T-Bar require under-counter installation?",
+     "a": "Yes. It connects to the Frizzante 80 Box installed underneath the counter."
+    }
+   ],
+   "Murano Tower": [
+    {
+     "q": "What type of water does the Murano dispense?",
+     "a": "The Murano dispenses cold and sparkling water."
+    },
+    {
+     "q": "How much water does the Murano dispense per hour?",
+     "a": "The Murano pairs with the Frizzante 80 Box system, which dispenses up to 80L/hr."
+    },
+    {
+     "q": "Does the Murano have built-in water purification technology?",
+     "a": "Yes, the Frizzante Box has performance filtration and ice-bath cooling technology."
+    },
+    {
+     "q": "Does the Murano require under-counter installation?",
+     "a": "Yes, it connects to the Frizzante 80 Box installed underneath the counter."
+    }
+   ],
+   "Campione Tower - 2 or 3 Way Tap": [
+    {
+     "q": "What type of water does the Campione dispense?",
+     "a": "2 way tap: Cold and sparkling water\n3 way tap: Cold, sparkling and ambient"
+    },
+    {
+     "q": "How much water does the Campione dispense per hour?",
+     "a": "The Campione pairs with the Frizzante 80 Box system, which dispenses up to 80L/hr."
+    },
+    {
+     "q": "Does the Campione have built-in water purification technology?",
+     "a": "The Frizzante Box has performance filtration and ice-bath cooling technology."
+    }
+   ]
+  };
+  const ownFaqs = (sp && PRODUCT_FAQS[sp.name]) || buildFaqs(sp);
   const productFaqs = ((faqCat === 'Recycling') ? FAQ_BY_CATEGORY['Recycling'] : ownFaqs.length >= 3 ? ownFaqs : ownFaqs.concat(FAQ_BY_CATEGORY[faqCat] || [])).slice(0, 5).map((q, i) => ({
    ...q,
    onToggle: () => this.setState({ openFaq: faqOpen === i ? -1 : i }),
