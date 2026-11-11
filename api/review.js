@@ -67,6 +67,7 @@ function clean(body) {
     suggested: str(body.suggested),
     note: str(body.note),
     author: str(body.author).slice(0, 120),
+    context: str(body.context).slice(0, 200),
     imageId,
     imageName: imageId ? str(body.imageName).slice(0, 200) : '',
     status: body.status === 'resolved' ? 'resolved' : 'open',

@@ -261,7 +261,7 @@
         <span style="font-family:'Inter',sans-serif;{{ f.iconStyle }}">+</span>
        </button>
        <div style="{{ f.answerStyle }}">
-        <p style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:#45443F;margin:0 26px 24px;">{{ f.a }}</p>
+        <p style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:#45443F;margin:0 26px 24px;white-space:pre-line;">{{ f.a }}</p>
        </div>
       </div>
      </sc-for>
@@ -734,7 +734,7 @@ class Component extends DCLogic {
     { q: 'Do you supply the coffee?', a: 'Yes. Instant, filter and whole bean, plus tea, hot chocolate, milk and sundries, on a standing order or on demand.' },
    ],
    'Water Solutions': [
-    { q: 'Plumbed-in or bottled?', a: 'Both. The Top Coolers Waterlogic range and the Purezza units plumb into the mains and filter on site. The Legend Classic is manually refilled with an 18L filtering bottle and needs no plumbing.' },
+    { q: 'Plumbed-in or bottled?', a: 'Both. The Top Coolers Waterlogic range and the Purezza units plumb into the mains and filter on site. The Legend Classic is manually refilled with a 19L filtering bottle and needs no plumbing.' },
     { q: 'What water options are there?', a: 'It depends on the model. The Waterlogic 7 serves five types: ice-cold, ambient, sparkling, hot and extra-hot. The FW Bar Classe, P1 Bar Series E and the Purezza towers serve cold, ambient and sparkling, the Waterlogic 2 and 100 serve cold and ambient, and The River is cold only.' },
     { q: 'Which towers come with the Frizzante 80 Box?', a: 'The Campione Tower - 2 or 3 Way Tap, Murano Tower and Purezza T-Bar Tower are all supplied with the Frizzante 80 Box. The box sits under the counter and chills and carbonates the water, while the tower on the counter does the dispensing.' },
     { q: 'How many people can one unit serve?', a: 'The Waterlogic 100 is rated for up to 20 users and the Waterlogic 2 for up to 30. For larger sites and hospitality, the Purezza units are sized on throughput: the FW Bar Classe dispenses 160L/hr and the Campione Tower 60L/hr.' },
@@ -773,7 +773,229 @@ class Component extends DCLogic {
    const rest = (p.specs || []).filter(s => ![cap, dr, sn, sw, pay, dim, cool, pow, tel].includes(s) && !/^model$/i.test(s.label));
    return out.slice(0, 5);
   };
-  const ownFaqs = buildFaqs(sp);
+  // Product FAQs written by the client. They replace the FAQs generated
+  // from the specs for these products.
+  const PRODUCT_FAQS = {
+   "Waterlogic 7": [
+    {
+     "q": "What water options does the WL7 offer?",
+     "a": "The WL7 offers up to five water options: cold, sparkling, ambient, hot and extra-hot water depending on the configuration selected."
+    },
+    {
+     "q": "Does the WL7 have built-in water filtration?",
+     "a": "Yes. The WL7 includes a high-performance carbon block filtration system, which helps reduce impurities and improve water taste and odour."
+    },
+    {
+     "q": "What is Firewall Technology?",
+     "a": "Firewall is Waterlogic's patented UVC purification technology, which purifies water at the point of dispense, helping eliminate up to 99.9999% of bacteria and viruses. It also has BioCote antimicrobial protection around the dispensing area which kills 80% of bacteria in 15 minutes."
+    },
+    {
+     "q": "What temperature is the water kept at?",
+     "a": "Cold: Between 8-12°C\nHot: Adjustable between 75-90°C\nExtra Hot: Adjustable between 80-93°C"
+    }
+   ],
+   "Waterlogic 2": [
+    {
+     "q": "What water options does the WL2 offer?",
+     "a": "The WL2 offers cold and ambient water on tap."
+    },
+    {
+     "q": "Does the WL2 have built-in water filtration?",
+     "a": "Yes. The WL2 features a carbon block filtration system to help reduce impurities and improve water taste and quality."
+    },
+    {
+     "q": "What is Firewall Technology?",
+     "a": "Firewall is Waterlogic's patented UVC purification technology, which purifies water at the point of dispense, helping eliminate up to 99.9999% of bacteria and viruses. It also has BioCote antimicrobial protection around the dispensing area which kills 80% of bacteria in 15 minutes."
+    }
+   ],
+   "Waterlogic 100": [
+    {
+     "q": "What water options does the WL100 offer?",
+     "a": "The WL100 provides cold and ambient water."
+    },
+    {
+     "q": "Does the WL100 have built-in water filtration?",
+     "a": "Yes. The WL100 features high-performance carbon filtration to help reduce common water contaminants, chlorine and unwanted tastes and odours."
+    },
+    {
+     "q": "What temperature is the water kept at?",
+     "a": "Cold: Approximately 8-12°C\nAmbient: Supplied at the incoming water temperature"
+    }
+   ],
+   "Legend Classic": [
+    {
+     "q": "What water options does the Legend Classic offer?",
+     "a": "The Legend Classic provides chilled, ambient and hot water, offering convenient hydration throughout the workplace."
+    },
+    {
+     "q": "Does the Legend Classic have built-in water filtration?",
+     "a": "Yes. The Legend Classic includes a manual re-fillable 19L bottle with a filtration system to help improve water quality and taste."
+    },
+    {
+     "q": "Plumbed-in or bottled?",
+     "a": "Bottled. The Legend Classic is a manual refillable bottled water cooler."
+    },
+    {
+     "q": "What temperature is the water kept at?",
+     "a": "The Legend Classic uses a compressor-driven cooling system for chilled water and a heating system for hot water."
+    }
+   ],
+   "The River": [
+    {
+     "q": "What water options does this cooler offer?",
+     "a": "The River has cold water only."
+    },
+    {
+     "q": "Does the cooler have built-in filtration?",
+     "a": "Yes. The River has carbon filtration."
+    },
+    {
+     "q": "What temperature is the water kept at?",
+     "a": "It dispenses up to 20L/hr of water at 5-12°C."
+    }
+   ],
+   "FW Bar Classe": [
+    {
+     "q": "What type of water does the Classe dispense?",
+     "a": "The Classe dispenses unlimited purified cold and sparkling water."
+    },
+    {
+     "q": "How much water does the Classe dispense per hour?",
+     "a": "Up to 160L/hr."
+    },
+    {
+     "q": "Does the Classe have built-in water purification technology?",
+     "a": "Yes. Its high-flow Firewall® UVC purification purifies the water right up to the point of dispense and is guaranteed to remove up to 99.9999% of bacteria, 99.99% of viruses and 99.9% of cysts. The bottle holders and floater mechanism are also protected by BioCote® antimicrobial technology."
+    },
+    {
+     "q": "Does the Classe require under-counter installation?",
+     "a": "No, it is a countertop unit."
+    }
+   ],
+   "P1 Bar Series E": [
+    {
+     "q": "What type of water does the P1 Bar E Series dispense?",
+     "a": "The P1 Bar E Series dispenses cold, ambient and sparkling water with 1 portion control."
+    },
+    {
+     "q": "How much water does the E Series dispense per hour?",
+     "a": "The mechanical tap model has a dispensing capacity of up to 80L/hr."
+    },
+    {
+     "q": "Does the E Series have built-in water purification technology?",
+     "a": "Yes. The system uses performance water filtration to reduce impurities, improve taste and reduce unwanted odours."
+    },
+    {
+     "q": "Does the E Series require under-counter installation?",
+     "a": "No, it is a countertop unit."
+    }
+   ],
+   "P1 Bar Series B": [
+    {
+     "q": "What type of water does the P1 Bar B Series dispense?",
+     "a": "The P1 Bar B Series dispenses cold and sparkling water, with 2 portion control."
+    },
+    {
+     "q": "How much water does the B Series dispense per hour?",
+     "a": "The electronic button model has a dispensing capacity of up to 80L/hr."
+    },
+    {
+     "q": "Does the B Series have built-in water purification technology?",
+     "a": "Yes. The system uses performance water filtration to improve water taste and reduce unwanted odours."
+    },
+    {
+     "q": "Does the B Series require under-counter installation?",
+     "a": "No, it is a countertop unit."
+    }
+   ],
+   "Frizzante Mini": [
+    {
+     "q": "What type of water does the Frizzante Mini dispense?",
+     "a": "The Frizzante Mini offers chilled, ambient and sparkling water."
+    },
+    {
+     "q": "How much water does the Frizzante Mini dispense per hour?",
+     "a": "The Frizzante Mini dispenses up to 30L/hr."
+    },
+    {
+     "q": "Does the Frizzante Mini have built-in water purification technology?",
+     "a": "Yes. The Frizzante Mini uses performance water filtration to help reduce impurities and improve water taste and quality."
+    },
+    {
+     "q": "Does the Frizzante Mini require under-counter installation?",
+     "a": "No, it is a countertop unit."
+    }
+   ],
+   "Frizzante 80 Manual": [
+    {
+     "q": "What type of water does the Frizzante 80 Manual dispense?",
+     "a": "The Frizzante 80 Manual dispenses cold, ambient and sparkling water."
+    },
+    {
+     "q": "How much water does the Frizzante 80 Manual dispense per hour?",
+     "a": "The Frizzante 80 Manual dispenses up to 80L/hr."
+    },
+    {
+     "q": "Does the Frizzante 80 Manual have built-in water purification technology?",
+     "a": "Yes, the Frizzante 80 Manual features high-performance water filtration to help reduce impurities and improve water taste and quality."
+    },
+    {
+     "q": "Does the Frizzante 80 Manual require under-counter installation?",
+     "a": "No, it is a countertop unit."
+    }
+   ],
+   "Purezza T-Bar Tower": [
+    {
+     "q": "What type of water does the T-Bar dispense?",
+     "a": "The T-Bar provides cold, ambient and sparkling water."
+    },
+    {
+     "q": "How much water does the T-Bar dispense per hour?",
+     "a": "The T-Bar pairs with the Frizzante 80 Box system, which dispenses 80L/hr."
+    },
+    {
+     "q": "Does the T-Bar have built-in water purification technology?",
+     "a": "The T-Bar works with an under-counter Frizzante 80 Box, which has performance filtration and ice-bath technology."
+    },
+    {
+     "q": "Does the T-Bar require under-counter installation?",
+     "a": "Yes. It connects to the Frizzante 80 Box installed underneath the counter."
+    }
+   ],
+   "Murano Tower": [
+    {
+     "q": "What type of water does the Murano dispense?",
+     "a": "The Murano dispenses cold and sparkling water."
+    },
+    {
+     "q": "How much water does the Murano dispense per hour?",
+     "a": "The Murano pairs with the Frizzante 80 Box system, which dispenses up to 80L/hr."
+    },
+    {
+     "q": "Does the Murano have built-in water purification technology?",
+     "a": "Yes, the Frizzante Box has performance filtration and ice-bath cooling technology."
+    },
+    {
+     "q": "Does the Murano require under-counter installation?",
+     "a": "Yes, it connects to the Frizzante 80 Box installed underneath the counter."
+    }
+   ],
+   "Campione Tower - 2 or 3 Way Tap": [
+    {
+     "q": "What type of water does the Campione dispense?",
+     "a": "2 way tap: Cold and sparkling water\n3 way tap: Cold, sparkling and ambient"
+    },
+    {
+     "q": "How much water does the Campione dispense per hour?",
+     "a": "The Campione pairs with the Frizzante 80 Box system, which dispenses up to 80L/hr."
+    },
+    {
+     "q": "Does the Campione have built-in water purification technology?",
+     "a": "The Frizzante Box has performance filtration and ice-bath cooling technology."
+    }
+   ]
+  };
+  const ownFaqs = (sp && PRODUCT_FAQS[sp.name]) || buildFaqs(sp);
   const productFaqs = ((faqCat === 'Recycling') ? FAQ_BY_CATEGORY['Recycling'] : ownFaqs.length >= 3 ? ownFaqs : ownFaqs.concat(FAQ_BY_CATEGORY[faqCat] || [])).slice(0, 5).map((q, i) => ({
    ...q,
    onToggle: () => this.setState({ openFaq: faqOpen === i ? -1 : i }),
