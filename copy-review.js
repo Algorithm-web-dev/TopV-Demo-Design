@@ -683,7 +683,12 @@
     hideChip();
     var original = sigOf(el, kind);
     var existing = items.filter(function (i) {
-      return i.page === pageKey() && kindOf(i) === kind && i.original === original && locate(i) === el;
+      // Only reopen a suggestion made on this same product or section. Older
+      // suggestions saved before products were recorded have no context and
+      // would otherwise be reopened (and overwritten) on every product that
+      // shares the same text, so a click there starts a new suggestion.
+      return i.page === pageKey() && kindOf(i) === kind && i.original === original &&
+        !!i.context && i.context === viewContext() && locate(i) === el;
     })[0];
     openPop(existing || {
       id: uid(), page: pageKey(), kind: kind, selector: cssPath(el), original: original, context: viewContext(),
@@ -746,7 +751,7 @@
       toast('Saving…');
       upsert(Object.assign({}, item, {
         suggested: s, note: n, author: author,
-        createdAt: item.createdAt || now, updatedAt: now,
+        status: 'open', createdAt: item.createdAt || now, updatedAt: now,
       })).then(function (ok) {
         if (ok) toast(isNew ? 'Suggestion saved ✓' : 'Suggestion updated ✓');
         else if (mode === 'local') toast('Saved on this device only, the shared list is not connected');
@@ -1019,7 +1024,7 @@
         closePop();
         toast('Saving…');
         return upsert(Object.assign({}, item, file, {
-          note: n, author: author, createdAt: item.createdAt || now, updatedAt: now,
+          note: n, author: author, status: 'open', createdAt: item.createdAt || now, updatedAt: now,
         })).then(function (ok) {
           if (ok) toast(isNew ? 'Brochure saved ✓' : 'Brochure updated ✓');
           else toast('Not sent yet, it is kept here and will retry automatically');
@@ -1144,7 +1149,7 @@
         toast('Saving…');
         return upsert(Object.assign({}, item, img, {
           suggested: '', note: n, author: author,
-          createdAt: item.createdAt || now, updatedAt: now,
+          status: 'open', createdAt: item.createdAt || now, updatedAt: now,
         })).then(function (ok) {
           if (ok) toast(isNew ? 'Comment saved ✓' : 'Comment updated ✓');
           else if (mode === 'local') toast('Saved on this device only, the shared list is not connected');
