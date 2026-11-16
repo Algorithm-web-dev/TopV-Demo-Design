@@ -202,7 +202,7 @@
      <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:16px;">{{ selectedProduct.category }}</div>
      <h1 style="font-family:'Inter',sans-serif;font-weight:700;font-size:52px;line-height:1.05;letter-spacing:-0.032em;margin:0 0 14px;white-space:pre-line;">{{ selectedProduct.title }}</h1>
      <p style="font-family:'Inter',sans-serif;font-size:19px;color:#6B6B68;margin:0 0 28px;">{{ selectedProduct.tagline }}</p>
-     <p style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:#45443F;margin:0 0 34px;max-width:520px;">{{ selectedProduct.description }}</p>
+     <p style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:#45443F;margin:0 0 34px;max-width:520px;white-space:pre-line;">{{ selectedProduct.description }}</p>
      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:44px;">
       <a href="Contact.dc.html#quote" data-quote-add="1" data-quote-name="{{ selectedProduct.name }}" data-quote-cat="{{ selectedProduct.category }}" style="background:#C8102E;color:#FAFBFC;padding:15px 26px;border-radius:999px;font-size:14.5px;font-weight:600;white-space:nowrap;" style-hover="background:#8f0c20;">Add to Quote</a>
       <a href="{{ selectedProduct.brochureHref }}" download style="{{ selectedProduct.brochureStyle }}" style-hover="background:#1C1C1A;color:#FAFBFC;">Download Brochure
@@ -226,9 +226,9 @@
      </div>
     </div>
    </div>
-   <div style="margin-top:80px;padding-top:50px;border-top:1px solid #E1E4E8;">
+   <div style="margin-top:80px;padding-top:50px;border-top:1px solid #E1E4E8;{{ overviewSectionStyle }}">
     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Product detail</div>
-    <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:32px;line-height:1.15;letter-spacing:-0.03em;margin:0 0 26px;">More about this machine.</h2>
+    <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:32px;line-height:1.15;letter-spacing:-0.03em;margin:0 0 26px;">{{ moreHeading }}</h2>
     <div style="{{ overviewClampStyle }}">
      <sc-for list="{{ selectedProduct.overview }}" as="para" hint-placeholder-count="3">
       <p style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.8;color:#45443F;margin:0 0 18px;">{{ para }}</p>
@@ -249,7 +249,7 @@
   </div>
  </section>
 
- <section data-pt="80" data-pb="32" style="background:#EFF1F3;padding:80px 48px 32px;box-sizing:border-box;{{ detailStyle }}">
+ <section data-pt="80" data-pb="32" style="background:#EFF1F3;padding:80px 48px 32px;box-sizing:border-box;{{ detailStyle }}{{ productFaqsStyle }}">
   <div style="max-width:1200px;margin:0 auto;">
     <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">FAQs</div>
     <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:32px;line-height:1.15;letter-spacing:-0.03em;margin:0 0 34px;">About this machine.</h2>
@@ -401,17 +401,17 @@ const PRODUCTS_COFFEE = [
   tagline: 'Brilliance in every cup',
   description: 'Bean-to-cup plus 2 instants with a wide range of customisable drinks, fresh milk, a 7-inch touchscreen and Prime Milk automatic froth.',
   tags: ['Bean-to-Cup + 2 Instants', '7" Touchscreen', 'Automatic Milk Froth'],
-  specs: [{ label: 'Grinder', value: 'One Grinder, One Per Hopper' }, { label: 'Milk', value: 'Prime Milk – Automatic Froth' }, { label: 'Dimensions (WxDxH)', value: '308 x 570 x 629mm' }] },
- { name: 'Azkoyen Vitro X1', image: 'assets/coffee/vitro-x1-v2.png', category: 'Hot Beverage Solutions', variant: 'accent',
+  specs: [{ label: 'Grinder', value: 'One Grinder, One Per Hopper' }, { label: 'Milk', value: 'Prime Milk – Automatic Froth' }, { label: 'Dimensions (WxDxH)', value: '308 x 570 x 629mm' }, { label: 'Fridge Dimensions (WxDxH)', value: '220 x 470 x 375mm' }] },
+ { name: 'Azkoyen Vitro X1 MIA', image: 'assets/coffee/vitro-x1-v2.png', category: 'Hot Beverage Solutions', variant: 'accent',
   tagline: 'Innovative design for quality coffee',
   description: 'A fresh bean brewer with a fresh milk fridge, high capacity boilers, 12 selection touch panel, variable brewing unit and an illuminated dispensing area.',
   tags: ['Fresh Bean Brewer', '12 Selection Touch Panel', 'High Capacity Boilers'],
-  specs: [{ label: 'Milk', value: 'Fresh Milk Fridge' }, { label: 'Access', value: 'Easy-Access Hoppers' }, { label: 'Dimensions (WxDxH)', value: '567 x 505 x 672mm (includes fridge)' }] },
- { name: 'Saeco Magic', image: 'assets/coffee/saeco-magic-v2.jpg', category: 'Hot Beverage Solutions', variant: 'default',
+  specs: [{ label: 'Milk', value: 'Fresh Milk Fridge' }, { label: 'Access', value: 'Easy-Access Hoppers' }, { label: 'Dimensions (WxDxH)', value: '337 x 505 x 672mm' }, { label: 'Fridge Dimensions (WxDxH)', value: '220 x 470 x 375mm' }] },
+ { name: 'Saeco Magic', image: 'assets/coffee/saeco-magic-v3.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Revolutionary coffee machine',
-  description: 'A fresh bean brewer with a touchscreen display, fresh milk, one-touch high-speed milk, high capacity and a double boiler, double pump system.',
+  description: 'A fresh bean brewer with a touchscreen display, fresh milk, one-touch high-speed milk and high capacity.',
   tags: ['Double Boiler, Double Pump', 'Touchscreen Display', 'High Capacity'],
-  specs: [{ label: 'Milk', value: 'One-Touch High-Speed Milk' }, { label: 'Lighting', value: 'LED Lighting' }, { label: 'Dimensions (WxDxH)', value: '280 x 481 x 470mm' }] },
+  specs: [{ label: 'Milk', value: 'One-Touch High-Speed Milk' }, { label: 'Lighting', value: 'LED Lighting' }, { label: 'Dimensions (WxDxH)', value: '280 x 481 x 470mm' }, { label: 'Fridge Dimensions (WxDxH)', value: '220 x 470 x 375mm' }] },
  { name: 'NEOQs', image: 'assets/coffee/neoqs.png', category: 'Hot Beverage Solutions', variant: 'accent',
   tagline: 'Your all-in-one premium espresso and fresh leaf tea solution',
   description: 'Cup recognition technology with energy-saving ECO mode, a 21.5" Full HD touchscreen, 7 hoppers (1 tea, 1 bean, 5 instant) and fully customisable beverages and volumes.',
@@ -423,8 +423,8 @@ const PRODUCTS_COFFEE = [
   tags: ['Double Fresh Brew', 'Fully Customisable Drinks', 'Auto Cup Dispenser'],
   specs: [{ label: 'Detection', value: 'Cup Detector' }, { label: 'Finish', value: 'Stainless Steel, Glass Front' }, { label: 'Dimensions (WxDxH)', value: '600 x 650 x 1830mm' }] },
  { name: 'ZEN Fresh Bean', category: 'Hot Beverage Solutions', image: 'assets/coffee/zen-fresh-bean.png', variant: 'accent',
-  tagline: 'Fully automatic fresh bean machine',
-  description: 'Fully automatic Zen DFB TableTop machine. Beans, fresh leaf tea, instant coffee, vending sugar, milk powder and hot chocolate.',
+  tagline: 'Fully automatic fresh bean and tea leaf machine',
+  description: 'Fully automatic Zen DFB TableTop machine. Beans, fresh leaf tea, instant coffee, vending sugar, powdered milk and hot chocolate.',
   tags: ['Fresh Bean', 'Fully Automatic', 'Auto Cup Dispenser'],
   specs: [{ label: 'Milk', value: 'Powder Milk' }, { label: 'Stand', value: 'Optional Stand' }, { label: 'Dimensions (WxDxH)', value: 'Machine: 480 x 590 x 842mm · Stand: 480 x 590 x 842mm' }] },
  { name: 'ZEN DFB', category: 'Hot Beverage Solutions', image: 'assets/coffee/zen-dfb.png', variant: 'default',
@@ -436,7 +436,7 @@ const PRODUCTS_COFFEE = [
   tagline: 'Where coffee craft meets efficiency & sustainability',
   description: 'A multi-group barista machine for commercial spaces, in stainless steel with thermoblocks, PID control, extraction plus digital control and a rotary pump.',
   tags: ['Multi-Group Function', 'PID Control', 'Rotary Pump'],
-  specs: [{ label: 'Build', value: 'Stainless Steel' }, { label: 'Control', value: 'Extraction + Digital Control' }, { label: 'Dimensions (WxDxH)', value: '700 x 535 x 475mm' }] },
+  specs: [{ label: 'Build', value: 'Stainless Steel' }, { label: 'Control', value: 'Extraction + Digital Control' }, { label: 'Dimensions of Ascaso (WxDxH)', value: '700 x 535 x 475mm' }, { label: 'Dimensions of Grinder (WxDxH)', value: '230 x 270 x 670mm' }] },
  { name: 'Ascaso I-Bar F83E', category: 'Hot Beverage Solutions', variant: 'accent',
   tagline: 'Built for durability, reliability and consistent performance',
   description: 'A high-volume grinder with quiet operation, micrometric grinding adjustment for burrs that always work flat, and an aluminium body with a removable stainless steel drip tray.',
@@ -446,7 +446,7 @@ const PRODUCTS_COFFEE = [
 PRODUCTS.push(...PRODUCTS_COFFEE);
 
 const PRODUCTS_WATER = [
- { name: 'FW Bar Classe', image: 'assets/purezza/bar-classe.png', category: 'Water Solutions', variant: 'default',
+ { name: 'Bar Classe Firewall', image: 'assets/purezza/bar-classe.png', category: 'Water Solutions', variant: 'default',
   tagline: 'Premium solution',
   description: 'Offers 2 water options, cold and sparkling, with portion control and Firewall UVC Purification, removing up to 99.999% of bacteria, viruses and cysts. Ice cold water via Ice Bath cooling, high performance filtration and BioCote protection. Plumbed in solution.',
   tags: ['Cold & Sparkling', 'Firewall UVC Purification', 'Portion Control'],
@@ -477,7 +477,7 @@ const PRODUCTS_WATER = [
    'High performance filtration is certified to stringent standards by IAPMO R&T and carries the Water Quality Platinum Seal. Dispense area height is 313mm, on a 220V to 240V 50Hz supply.',
    'Supplied with the Frizzante 80 Box, an under-counter unit that chills and carbonates the water using Ice Bath cooling and high performance filtration. The tower sits on the counter as the dispensing point, while the box is installed out of sight below it.',
   ] },
- { name: 'Waterlogic 7', category: 'Water Solutions', variant: 'accent', image: 'assets/waterlogic-7-v3.png',
+ { name: 'Waterlogic 7 Firewall', category: 'Water Solutions', variant: 'accent', image: 'assets/waterlogic-7-v3.png',
   tagline: 'Up to 4 or 5 types of water from one unit',
   description: 'Dispenses ice-cold, ambient, sparkling, hot and extra-hot water, with Firewall UVC purification, high performance filtration and a 5 inch LED full colour display.',
   tags: ['Up to 4 or 5 Water Options', 'Firewall UVC Purification', 'Up to 50 users'],
@@ -488,7 +488,7 @@ const PRODUCTS_WATER = [
    'Patented Firewall UV technology purifies the water up to 99.9999%, 100% of the time, reducing the risk of bacteria, viruses and cysts. High performance filtration is certified by IAPMO R&T and carries the Water Quality Platinum Seal, and a silver ion additive reduces odours and the potential for cross contamination.',
    'Cooling capacity is up to 17L/hr with 1.5L of hot water storage. It also has a bottle saver counter.',
   ] },
- { name: 'Waterlogic 2', category: 'Water Solutions', variant: 'default', image: 'assets/waterlogic-2-v3.png',
+ { name: 'Waterlogic 2 Firewall', category: 'Water Solutions', variant: 'default', image: 'assets/waterlogic-2-v3.png',
   tagline: 'Cold and ambient water on tap',
   description: 'Firewall UVC purification with high performance filtration and BioCote antimicrobial protection, serving up to 30 users from a free standing or table top cabinet. Available as a free standing unit or a countertop version.',
   tags: ['Firewall UVC Purification', 'BioCote Protection', 'Up to 30 Users'],
@@ -569,17 +569,17 @@ const PRODUCTS_WATER = [
    'Professional grade filters address colour, taste and odour. The tower is stainless steel for hygiene and easy cleaning, with a 300mm dispense area for bottles. The 3 way model weighs 6kg.',
    'Supplied with the Frizzante 80 Box, an under-counter unit that chills and carbonates the water using Ice Bath cooling and high performance filtration. The tower sits on the counter as the dispensing point, while the box is installed out of sight below it.',
   ] },
- { name: 'Purezza Glass Bottles', image: 'assets/purezza/bottles.png', category: 'Water Solutions', variant: 'default',
+ { name: 'Petalosa Bottles', hideFaqs: true, hideOverview: true, image: 'assets/purezza/petalosa-bottles.png', category: 'Water Solutions', variant: 'default',
+  tagline: 'Eco-friendly glass bottle range for hospitality',
+  description: 'Reusable Purezza glass serving bottles designed for busy hospitality venues. The wider mouth, neck and shoulder shape and glass weight are tailored for water flow, cleanability, speed of refill and ergonomics, and the bottles and caps replace pre-packaged bottled water.',
+  tags: ['750ml', 'Still & Sparkling', 'Reusable'],
+  brochure: 'petalosa-bottles.pdf',
+  specs: [{ label: 'Sizes', value: '750ml' }, { label: 'Variants', value: 'Still and sparkling' }, { label: 'Height', value: 'Under 28cm, fits standard 30cm glass washers' }, { label: 'Construction', value: 'Thick glass with weighted base' }, { label: 'Reusable', value: 'Bottles and caps' }, { label: 'Standard', value: 'TEC 7 compliant for carbonated beverage bottles' }] },
+ { name: 'Purezza Glass Bottles', hideFaqs: true, hideOverview: true, image: 'assets/purezza/bottles.png', category: 'Water Solutions', variant: 'default',
   tagline: 'Branded glass bottles for serving Purezza water',
   description: 'Purezza Premium Water glass bottles with stainless steel caps, in 750ml and 360ml sizes, for filling at a Purezza unit and serving at the table.',
   tags: ['750ml & 360ml', 'Glass', 'Stainless Steel Cap'],
   specs: [{ label: 'Sizes', value: '750ml and 360ml' }, { label: 'Material', value: 'Glass with stainless steel cap' }, { label: 'Branding', value: 'Purezza Premium Water' }] },
- { name: 'Petalosa Bottles', image: 'assets/purezza/petalosa-bottles.png', category: 'Water Solutions', variant: 'default',
-  tagline: 'Eco-friendly glass bottle range for hospitality',
-  description: 'Reusable Purezza glass serving bottles designed for busy hospitality venues. The wider mouth, neck and shoulder shape and glass weight are tailored for water flow, cleanability, speed of refill and ergonomics, and the bottles and caps replace pre-packaged bottled water.',
-  tags: ['750ml & 350ml', 'Still & Sparkling', 'Reusable'],
-  brochure: 'petalosa-bottles.pdf',
-  specs: [{ label: 'Sizes', value: '750ml and 350ml' }, { label: 'Variants', value: 'Still and sparkling' }, { label: 'Height', value: 'Under 28cm, fits standard 30cm glass washers' }, { label: 'Construction', value: 'Thick glass with weighted base' }, { label: 'Reusable', value: 'Bottles and caps' }, { label: 'Standard', value: 'TEC 7 compliant for carbonated beverage bottles' }] },
 ];
 PRODUCTS.push(...PRODUCTS_WATER);
 
@@ -589,9 +589,10 @@ const PRODUCTS_PAYMENT = [
   description: 'An all-in-one cashless payment card reader for unattended automatic machines, taking contactless tap-and-go bank payments alongside mag strip and chip.',
   tags: ['Contactless Tap-and-Go', 'Real-Time Transactions', 'Vandal Resistant'],
   brochure: 'vpos-touch.pdf',
-  specs: [{ label: 'Type', value: 'Bank card device' }, { label: 'Group', value: 'Cashless systems' }, { label: 'Payment', value: 'Contactless, mag strip and chip' }, { label: 'Certification', value: 'EMV level 1 + level 2 certified' }, { label: 'Contactless', value: 'Visa PayWave MSD + qVSDC, Mastercard and Visa' }, { label: 'Other Cards', value: 'NFC, MIFARE, ISO 14443 Type A,B, ISO 15693' }, { label: 'Magnetic Stripe', value: 'ISO7811 and JIS I Tracks 1,2,3 JIS I' }, { label: 'Management', value: 'Complete management suite' }, { label: 'Support', value: 'Local software support' }],
+  specs: [{ label: 'Type', value: 'Bank card reader' }, { label: 'Group', value: 'Cashless systems' }, { label: 'Payment', value: 'Contactless, mobile, mag strip and chip' }, { label: 'Certification', value: 'EMV level 1 + level 2 certified' }, { label: 'Contactless', value: 'Visa PayWave MSD + qVSDC, Mastercard and Visa' }, { label: 'Other Cards', value: 'NFC, MIFARE, ISO 14443 Type A,B, ISO 15693' }, { label: 'Magnetic Stripe', value: 'ISO7811 and JIS I Tracks 1,2,3 JIS I' }, { label: 'Management', value: 'Complete management suite' }, { label: 'Support', value: 'Local software support' }],
   details: [
-   'This all-in-one solution was designed for cashless bank payments. This cashless payment card reader is suitable for multiple applications and markets. All sorts of businesses with unattended automatic machines can benefit from installing a VPos Touch.',
+   'This all-in-one solution is suitable for cashless bank payments. The system is suitable for multiple applications and markets including unattended automatic vending machines.',
+   'The benefits of going cashless: Removes risky cash handling while increasing sales. No moving parts (coin/note jams).',
    'General features include a complete management suite, contactless tap-and-go bank payments covering mag strip and chip, a durable and highly secured build to prevent vandalism, audio consumer interaction, local software support and real-time transactions.',
    'Nayax Vend adds machine and transaction monitoring in real-time, customised alerts by email or SMS, personalised reports, a unique BI system and cash accountability, which is machine dependent.',
   ] },
@@ -606,16 +607,16 @@ const PRODUCTS_PAYMENT = [
    'The Onyx is more than a card reader: it is a device packed with powerful capabilities including contactless, NFC, marketing tools and remote machine management. General features include a complete management suite, a durable and highly secured build to prevent vandalism, audio consumer interaction, local software support and real-time data transactions.',
    'Nayax Vend adds machine and transaction monitoring in real-time, customised alerts by email or SMS, personalised reports, a unique BI system and cash accountability.',
   ] },
- { name: 'Engine Electronic Cashless System', image: 'assets/payment/coges-engine-v2.png', category: 'Payment Solutions', variant: 'accent',
-  tagline: 'The most complete electronic vending system',
-  description: 'A multi-standard cashless payment system integrating cash management and telemetry into one flexible system, supporting Executive, MDB, BDV and RS232.',
-  tags: ['Multi-Standard System', 'MiFARE & FOBS Compatible', 'Full Data Audit'],
+ { name: 'Electronic Cashless Control System', image: 'assets/payment/coges-engine-v2.png', category: 'Payment Solutions', variant: 'accent',
+  tagline: 'Complete cashless payment or control system',
+  description: 'Adds telemetry to your existing equipment which facilitates remote monitoring of stock, sales and failures or events in real-time.\n\nControls/limits product consumption.\n(3 coffees per day per person)',
+  tags: ['Supports vending protocols', 'MiFARE & FOBS Compatible', 'Full Data Audit'],
   brochure: 'coges-engine.pdf',
-  specs: [{ label: 'Type', value: 'Electronic cashless system' }, { label: 'Group', value: 'Cashless systems' }, { label: 'Protocols', value: 'Executive, MDB, BDV, RS232' }, { label: 'Compatibility', value: 'MiFARE, FOBS and similar' }, { label: 'Sales Control', value: 'Scheduled free or discounted sales' }, { label: 'Consumption', value: 'Monthly consumption control' }, { label: 'Categories', value: 'Bonus categories' }, { label: 'Audit', value: 'Complete data audit from the vending machine' }, { label: 'Telemetry', value: 'Optional extra' }, { label: 'Other', value: 'Calories control' }],
+  specs: [{ label: 'Type', value: 'Electronic control and telemetry system' }, { label: 'Group', value: 'Cashless systems' }, { label: 'Protocols', value: 'Executive, MDB, BDV, RS232' }, { label: 'Compatibility', value: 'MiFARE, FOBS and similar' }, { label: 'Consumption', value: 'Period based consumption control' }, { label: 'Categories', value: 'Control categories' }, { label: 'Audit', value: 'Complete data audit from the vending machine' }, { label: 'Other', value: 'Calories control' }],
   details: [
-   'The Engine Electronic Cashless System is the most complete and innovative electronic vending system. This provides the most advanced functions of the cashless payment system and integrates it with cash management and telemetry into one powerful, complete, and flexible system to adapt to any need.',
-   'This is a multi-standard system that can support Executive, MDB, BDV and RS232. Telemetry programming is an optional extra on this unit.',
-   'General features include scheduled free or discounted sales, monthly consumption control, bonus categories, a complete data audit from the vending machine, compatibility with MiFARE and FOBS, and calories control.',
+   'The base system provides consumption control for your machine.',
+   'The base system can be configured to provide telemetry only from your existing equipment.',
+   'Both telemetry and control can work in tandem.',
   ] },
 ];
 PRODUCTS.push(...PRODUCTS_PAYMENT);
@@ -833,12 +834,12 @@ class Component extends DCLogic {
     { q: 'How energy efficient are the machines?', a: 'Cabinets are fully foam insulated with double glazed viewing windows and LED internal lighting, and all four machines use R-134a refrigerant.' },
    ],
    'Hot Beverage Solutions': [
-    { q: 'Which hot beverage machines do you offer?', a: 'There are eight machines in the range. The Azkoyen Novara DFB is a free standing double fresh brew machine for coffee and tea. The Azkoyen Zen DFB is a compact, fully automatic fresh bean machine. The Azkoyen Vitro X1 is a fresh bean brewer with a fresh milk fridge. The Saeco Magic is the most compact fresh bean machine at 280mm wide. The Gaggia Milano La Brillante is bean to cup with two instant hoppers. The Jetinno JL33 has dual grinders and over 15 beverages. The Jofemar Orion G23 is a fresh bean brewer with an aluminium boiler. The Ascaso + Grinder is a multi-group barista machine for a trained operator.' },
-    { q: 'Instant, fresh bean or barista?', a: 'All three. The Azkoyen Zen DFB, Azkoyen Vitro X1, Saeco Magic and Jofemar Orion G23 grind fresh beans per cup. The Gaggia Milano La Brillante combines bean to cup with two instant hoppers, and the Azkoyen Novara DFB brews fresh coffee and tea. The Ascaso + Grinder is a barista set for a trained operator.' },
+    { q: 'Which hot beverage machines do you offer?', a: 'There are eight machines in the range. The Azkoyen Novara DFB is a free standing double fresh brew machine for coffee and tea. The Azkoyen Zen DFB is a compact, fully automatic fresh bean machine. The Azkoyen Vitro X1 MIA is a fresh bean brewer with a fresh milk fridge. The Saeco Magic is the most compact fresh bean machine at 280mm wide. The Gaggia Milano La Brillante is bean to cup with two instant hoppers. The Jetinno JL33 has dual grinders and over 15 beverages. The Jofemar Orion G23 is a fresh bean brewer with an aluminium boiler. The Ascaso + Grinder is a multi-group barista machine for a trained operator.' },
+    { q: 'Instant, fresh bean or barista?', a: 'All three. The Azkoyen Zen DFB, Azkoyen Vitro X1 MIA, Saeco Magic and Jofemar Orion G23 grind fresh beans per cup. The Gaggia Milano La Brillante combines bean to cup with two instant hoppers, and the Azkoyen Novara DFB brews fresh coffee and tea. The Ascaso + Grinder is a barista set for a trained operator.' },
     { q: 'Which machine suits a busy site?', a: 'The free standing Azkoyen Novara DFB is built for continuous use, with an auto cup dispenser. The Jetinno JL33 serves over 15 beverages from dual grinders. For small offices, the Saeco Magic at 280mm wide and the Gaggia Milano La Brillante at 308mm wide fit on a counter top.' },
-    { q: 'Fresh milk or powder?', a: 'The Azkoyen Vitro X1 has a fresh milk fridge, the Jetinno JL33 froths fresh milk with dual boilers and pumps, the Gaggia Milano La Brillante uses Prime Milk automatic froth, and the Saeco Magic offers one touch high speed milk. The Azkoyen Zen DFB uses powder milk.' },
+    { q: 'Fresh milk or powder?', a: 'The Azkoyen Vitro X1 MIA has a fresh milk fridge, the Jetinno JL33 froths fresh milk with dual boilers and pumps, the Gaggia Milano La Brillante uses Prime Milk automatic froth, and the Saeco Magic offers one touch high speed milk. The Azkoyen Zen DFB uses powder milk.' },
     { q: 'Can we serve freshly brewed tea?', a: 'Yes. The Azkoyen Novara DFB offers double fresh brew for coffee and tea. Every machine can also serve hot water for tea bags, and we supply tea and hot chocolate.' },
-    { q: 'How many drinks can staff choose from?', a: 'It depends on the model: over 15 beverages on the Jetinno JL33, a 12 selection touch panel on the Azkoyen Vitro X1, and a 7 inch touchscreen menu on the Gaggia Milano La Brillante. Drink menus, strengths and volumes are configured at installation.' },
+    { q: 'How many drinks can staff choose from?', a: 'It depends on the model: over 15 beverages on the Jetinno JL33, a 12 selection touch panel on the Azkoyen Vitro X1 MIA, and a 7 inch touchscreen menu on the Gaggia Milano La Brillante. Drink menus, strengths and volumes are configured at installation.' },
     { q: 'Which payment methods are supported?', a: 'Cashless payment through Nayax across the range, with telemetry supported so usage and faults can be monitored remotely.' },
     { q: 'Do the machines waste disposable cups?', a: 'The Azkoyen Novara DFB has a cup detector, so it will not dispense a cup when the user brings their own. The Azkoyen Novara DFB and Azkoyen Zen DFB both include an auto cup dispenser.' },
     { q: 'Do you supply the coffee?', a: 'Yes. Instant, filter and whole bean, plus tea, hot chocolate, milk and sundries, on a standing order or on demand.' },
@@ -854,10 +855,10 @@ class Component extends DCLogic {
     { q: 'Do these replace our machines?', a: 'No. The card readers and cashless system retrofit to machines already on site. We handle the fitment, the merchant setup and the reporting login.' },
     { q: 'What is the difference between the VPos Touch and the Onyx?', a: 'Both are Nayax bank card devices. The VPos Touch is an all-in-one reader taking contactless, mag strip and chip, certified to EMV level 1 and level 2. The Onyx is a sleek tap-and-go contactless reader that fits on any vending machine, adding NFC, marketing tools and remote machine management.' },
     { q: 'Which cards are supported?', a: 'Mastercard and Visa, with Visa PayWave MSD and qVSDC contactless. Other supported cards include NFC, MIFARE and ISO 14443 Type A,B, plus ISO 15693 on the VPos Touch, and magnetic stripe to ISO7811 and JIS I Tracks 1,2,3.' },
-    { q: 'Can we still take cash?', a: 'Yes. The Engine Electronic Cashless System integrates cash management with cashless payments and telemetry in one system.' },
-    { q: 'What reporting do we get?', a: 'Nayax Vend gives machine and transaction monitoring in real-time, customised alerts by email or SMS, personalised reports, a BI system and cash accountability. The Engine Electronic Cashless System adds a complete data audit from the vending machine, with telemetry as an optional extra.' },
-    { q: 'Will it work with our existing machines?', a: 'The Engine Electronic Cashless System is multi-standard, supporting Executive, MDB, BDV and RS232. Most machines in our range are MDB compatible.' },
-    { q: 'Can we run staff accounts or subsidised vending?', a: 'Yes. The Engine Electronic Cashless System supports scheduled free or discounted sales, monthly consumption control, bonus categories and calories control, and is compatible with MiFARE cards and FOBS.' },
+    { q: 'Can we still take cash?', a: 'Yes. The Electronic Cashless Control System integrates cash management with cashless payments and telemetry in one system.' },
+    { q: 'What reporting do we get?', a: 'Nayax Vend gives machine and transaction monitoring in real-time, customised alerts by email or SMS, personalised reports, a BI system and cash accountability. The Electronic Cashless Control System adds a complete data audit from the vending machine, with telemetry as an optional extra.' },
+    { q: 'Will it work with our existing machines?', a: 'The Electronic Cashless Control System is multi-standard, supporting Executive, MDB, BDV and RS232. Most machines in our range are MDB compatible.' },
+    { q: 'Can we run staff accounts or subsidised vending?', a: 'Yes. The Electronic Cashless Control System supports scheduled free or discounted sales, monthly consumption control, bonus categories and calories control, and is compatible with MiFARE cards and FOBS.' },
    ],
   };
   const faqCat = this.state.selectedProduct ? this.state.selectedProduct.category : '';
@@ -886,38 +887,6 @@ class Component extends DCLogic {
   // Product FAQs written by the client. They replace the FAQs generated
   // from the specs for these products.
   const PRODUCT_FAQS = {
-   "Waterlogic 7": [
-    {
-     "q": "What water options does the WL7 offer?",
-     "a": "The WL7 offers up to five water options: cold, sparkling, ambient, hot and extra-hot water depending on the configuration selected."
-    },
-    {
-     "q": "Does the WL7 have built-in water filtration?",
-     "a": "Yes. The WL7 includes a high-performance carbon block filtration system, which helps reduce impurities and improve water taste and odour."
-    },
-    {
-     "q": "What is Firewall Technology?",
-     "a": "Firewall is Waterlogic's patented UVC purification technology, which purifies water at the point of dispense, helping eliminate up to 99.9999% of bacteria and viruses. It also has BioCote antimicrobial protection around the dispensing area which kills 80% of bacteria in 15 minutes."
-    },
-    {
-     "q": "What temperature is the water kept at?",
-     "a": "Cold: Between 8-12°C\nHot: Adjustable between 75-90°C\nExtra Hot: Adjustable between 80-93°C"
-    }
-   ],
-   "Waterlogic 2": [
-    {
-     "q": "What water options does the WL2 offer?",
-     "a": "The WL2 offers cold and ambient water on tap."
-    },
-    {
-     "q": "Does the WL2 have built-in water filtration?",
-     "a": "Yes. The WL2 features a carbon block filtration system to help reduce impurities and improve water taste and quality."
-    },
-    {
-     "q": "What is Firewall Technology?",
-     "a": "Firewall is Waterlogic's patented UVC purification technology, which purifies water at the point of dispense, helping eliminate up to 99.9999% of bacteria and viruses. It also has BioCote antimicrobial protection around the dispensing area which kills 80% of bacteria in 15 minutes."
-    }
-   ],
    "Waterlogic 100": [
     {
      "q": "What water options does the WL100 offer?",
@@ -962,24 +931,6 @@ class Component extends DCLogic {
     {
      "q": "What temperature is the water kept at?",
      "a": "It dispenses up to 20L/hr of water at 5-12°C."
-    }
-   ],
-   "FW Bar Classe": [
-    {
-     "q": "What type of water does the Classe dispense?",
-     "a": "The Classe dispenses unlimited purified cold and sparkling water."
-    },
-    {
-     "q": "How much water does the Classe dispense per hour?",
-     "a": "Up to 160L/hr."
-    },
-    {
-     "q": "Does the Classe have built-in water purification technology?",
-     "a": "Yes. Its high-flow Firewall® UVC purification purifies the water right up to the point of dispense and is guaranteed to remove up to 99.9999% of bacteria, 99.99% of viruses and 99.9% of cysts. The bottle holders and floater mechanism are also protected by BioCote® antimicrobial technology."
-    },
-    {
-     "q": "Does the Classe require under-counter installation?",
-     "a": "No, it is a countertop unit."
     }
    ],
    "P1 Bar Series E": [
@@ -1103,6 +1054,254 @@ class Component extends DCLogic {
      "q": "Does the Campione have built-in water purification technology?",
      "a": "The Frizzante Box has performance filtration and ice-bath cooling technology."
     }
+   ],
+   "Waterlogic 7 Firewall": [
+    {
+     "q": "What water options does the WL7 offer?",
+     "a": "The WL7 offers up to five water options: cold, sparkling, ambient, hot and extra-hot water depending on the configuration selected."
+    },
+    {
+     "q": "Does the WL7 have built-in water filtration?",
+     "a": "Yes. The WL7 includes a high-performance carbon block filtration system, which helps reduce impurities and improve water taste and odour."
+    },
+    {
+     "q": "What is Firewall Technology?",
+     "a": "Firewall is Waterlogic's patented UVC purification technology, which purifies water at the point of dispense, helping eliminate up to 99.9999% of bacteria and viruses. It also has BioCote antimicrobial protection around the dispensing area which kills 80% of bacteria in 15 minutes."
+    },
+    {
+     "q": "What temperature is the water kept at?",
+     "a": "Cold: Between 8-12°C\nHot: Adjustable between 75-90°C\nExtra Hot: Adjustable between 80-93°C"
+    }
+   ],
+   "Waterlogic 2 Firewall": [
+    {
+     "q": "What water options does the WL2 offer?",
+     "a": "The WL2 offers cold and ambient water on tap."
+    },
+    {
+     "q": "Does the WL2 have built-in water filtration?",
+     "a": "Yes. The WL2 features a carbon block filtration system to help reduce impurities and improve water taste and quality."
+    },
+    {
+     "q": "What is Firewall Technology?",
+     "a": "Firewall is Waterlogic's patented UVC purification technology, which purifies water at the point of dispense, helping eliminate up to 99.9999% of bacteria and viruses. It also has BioCote antimicrobial protection around the dispensing area which kills 80% of bacteria in 15 minutes."
+    }
+   ],
+   "Bar Classe Firewall": [
+    {
+     "q": "What type of water does the Classe dispense?",
+     "a": "The Classe dispenses unlimited purified cold and sparkling water."
+    },
+    {
+     "q": "How much water does the Classe dispense per hour?",
+     "a": "Up to 160L/hr."
+    },
+    {
+     "q": "Does the Classe have built-in water purification technology?",
+     "a": "Yes. Its high-flow Firewall® UVC purification purifies the water right up to the point of dispense and is guaranteed to remove up to 99.9999% of bacteria, 99.99% of viruses and 99.9% of cysts. The bottle holders and floater mechanism are also protected by BioCote® antimicrobial technology."
+    },
+    {
+     "q": "Does the Classe require under-counter installation?",
+     "a": "No, it is a countertop unit."
+    }
+   ],
+   "Azkoyen Novara DFB": [
+    {
+     "q": "Is the Novara plumbed-in or tanked?",
+     "a": "It is plumbed-in."
+    },
+    {
+     "q": "What are the dimensions of the Azkoyen Novara DFB?",
+     "a": "600 x 650 x 1830mm (width x depth x height)."
+    },
+    {
+     "q": "What power supply does the Azkoyen Novara DFB need?",
+     "a": "220-240V 50Hz."
+    },
+    {
+     "q": "Can the Azkoyen Novara DFB be monitored remotely?",
+     "a": "Yes. Telemetry is supported, so stock levels and vends can be monitored remotely."
+    }
+   ],
+   "Azkoyen Zen DFB": [
+    {
+     "q": "Is the Azkoyen Zen DFB plumbed-in or tanked?",
+     "a": "It is plumbed-in."
+    },
+    {
+     "q": "What are the dimensions of the Azkoyen Zen DFB?",
+     "a": "480 x 590 x 842mm."
+    },
+    {
+     "q": "What power supply does the Azkoyen Zen DFB need?",
+     "a": "220-240V 50Hz."
+    },
+    {
+     "q": "Can the Azkoyen Zen DFB be monitored remotely?",
+     "a": "Yes. Telemetry is supported, so stock levels and vends can be monitored remotely."
+    }
+   ],
+   "Azkoyen Vitro X1 MIA": [
+    {
+     "q": "Is the Azkoyen Vitro X1 MIA plumbed-in or tanked?",
+     "a": "It is plumbed-in with a drain."
+    },
+    {
+     "q": "What are the dimensions of the Azkoyen Vitro X1 MIA?",
+     "a": "Machine: 337 x 505 x 672mm\nFridge: 220 x 470 x 375mm"
+    },
+    {
+     "q": "What power supply does the Azkoyen Vitro X1 MIA need?",
+     "a": "220-240V 50Hz."
+    },
+    {
+     "q": "Can the Azkoyen Vitro X1 MIA be monitored remotely?",
+     "a": "Yes. Telemetry is supported, so stock levels and vends can be monitored remotely."
+    }
+   ],
+   "Saeco Magic": [
+    {
+     "q": "Is the Saeco Magic plumbed-in or tanked?",
+     "a": "Tanked 4L."
+    },
+    {
+     "q": "What are the dimensions of the Saeco Magic?",
+     "a": "Machine (WxDxH): 280 x 481 x 470mm\nFridge (WxDxH): 220 x 470 x 375mm"
+    },
+    {
+     "q": "What power supply does the Saeco Magic need?",
+     "a": "230V 50Hz."
+    },
+    {
+     "q": "Can the Saeco Magic be monitored remotely?",
+     "a": "Yes. Telemetry is supported, so stock levels and vends can be monitored remotely."
+    }
+   ],
+   "Gaggia Milano La Brillante": [
+    {
+     "q": "Is the Gaggia Milano La Brillante plumbed-in or tanked?",
+     "a": "It is plumbed-in."
+    },
+    {
+     "q": "What are the dimensions of the Gaggia Milano La Brillante?",
+     "a": "Machine (WxDxH): 308 x 570 x 629mm\nFridge (WxDxH): 220 x 470 x 375mm"
+    },
+    {
+     "q": "What power supply does the Gaggia Milano La Brillante need?",
+     "a": "230V 50Hz."
+    },
+    {
+     "q": "Can the Gaggia Milano La Brillante be monitored remotely?",
+     "a": "Yes. Telemetry is supported, so stock levels and vends can be monitored remotely."
+    }
+   ],
+   "Jetinno JL33": [
+    {
+     "q": "Is the JL33 plumbed-in or tanked?",
+     "a": "It can be either plumbed or 4L tanked."
+    },
+    {
+     "q": "What are the dimensions of the Jetinno JL33?",
+     "a": "Machine: 350 x 560 x 628mm\nFridge: 220 x 450 x 480mm"
+    },
+    {
+     "q": "What power supply does the Jetinno JL33 need?",
+     "a": "220-240V 50/60Hz."
+    },
+    {
+     "q": "Can the Jetinno JL33 be monitored remotely?",
+     "a": "No."
+    }
+   ],
+   "Jofemar Orion G23": [
+    {
+     "q": "Is the Orion G23 plumbed or tanked?",
+     "a": "It is plumbed."
+    },
+    {
+     "q": "What are the dimensions of the Jofemar Orion G23?",
+     "a": "417 x 463 x 767mm (width x depth x height)."
+    },
+    {
+     "q": "What power supply does the Jofemar Orion G23 need?",
+     "a": "230V 50Hz."
+    },
+    {
+     "q": "Can the Jofemar Orion G23 be monitored remotely?",
+     "a": "Yes. Telemetry is supported, so stock levels and vends can be monitored remotely."
+    }
+   ],
+   "Ascaso + Grinder": [
+    {
+     "q": "Is the Ascaso + Grinder plumbed-in or tanked?",
+     "a": "It is plumbed-in."
+    },
+    {
+     "q": "What are the dimensions of the Ascaso + Grinder?",
+     "a": "The Ascaso (WxDxH): 700 x 535 x 475mm\nThe Grinder (WxDxH): 230 x 270 x 670mm"
+    },
+    {
+     "q": "Can the Ascaso + Grinder be monitored remotely?",
+     "a": "No."
+    },
+    {
+     "q": "What power supply does the Ascaso + Grinder need?",
+     "a": "350W."
+    }
+   ],
+   "Vision Esplus Bluetec": [
+    {
+     "q": "What payment methods does the Vision Esplus Bluetec accept?",
+     "a": "Cashless/Nayax."
+    },
+    {
+     "q": "What are the dimensions of the Vision Esplus Bluetec?",
+     "a": "1120 x 820 x 1870mm (width x depth x height)."
+    },
+    {
+     "q": "What temperature does the Vision Esplus Bluetec keep products at?",
+     "a": "Adjustable between 4°C and 25°C."
+    },
+    {
+     "q": "What power supply does the Vision Esplus Bluetec need?",
+     "a": "220V-240V 50Hz."
+    }
+   ],
+   "VPos Touch Bank Card Device": [
+    {
+     "q": "What payment methods does the VPos Touch Bank Card Device accept?",
+     "a": "Contactless, mobile, mag strip and chip."
+    },
+    {
+     "q": "Do these replace our cash payment systems?",
+     "a": "No. The card readers and cashless system retrofit to machines already on site. We handle the fitment, the merchant setup and the reporting login."
+    },
+    {
+     "q": "What is the difference between the VPos Touch and the Onyx?",
+     "a": "The VPos Touch accepts chip, NFC and mag strip payments. The Onyx accepts NFC payments only."
+    },
+    {
+     "q": "Which cards are supported?",
+     "a": "Mastercard, Visa, American Express* and Diners*."
+    }
+   ],
+   "Electronic Cashless Control System": [
+    {
+     "q": "Can I use my existing card or tag?",
+     "a": "Yes, provided it is a Mifare technology."
+    },
+    {
+     "q": "Why would I use this system?",
+     "a": "To monitor and control the consumption of staff refreshments.\nKeep monthly staff refreshments costs fixed."
+    },
+    {
+     "q": "Which cards are supported?",
+     "a": "Mastercard and Visa, with Visa PayWave MSD and qVSDC contactless. Other supported cards include NFC, MIFARE and ISO 14443 Type A,B, plus ISO 15693 on the VPos Touch, and magnetic stripe to ISO7811 and JIS I Tracks 1,2,3."
+    },
+    {
+     "q": "Can we still take cash?",
+     "a": "Yes. The Electronic Cashless Control System integrates cash management with cashless payments and telemetry in one system."
+    }
    ]
   };
   const ownFaqs = (sp && PRODUCT_FAQS[sp.name]) || buildFaqs(sp);
@@ -1173,6 +1372,9 @@ class Component extends DCLogic {
    closeDetail: (e) => { if (e) e.preventDefault(); this.setState({ selectedProduct: null }); },
    filters,
    productFaqs,
+   productFaqsStyle: (sp && sp.hideFaqs) ? 'display:none;' : '',
+   overviewSectionStyle: (sp && sp.hideOverview) ? 'display:none;' : '',
+   moreHeading: (sp && sp.category === 'Payment Solutions') ? 'More about this system.' : 'More about this machine.',
    categoryFaqs: (FAQ_BY_CATEGORY[this.state.activeFilter] || []).slice(0, 5).map((q, i) => ({
     ...q,
     onToggle: () => this.setState({ openFaq: faqOpen === i ? -1 : i }),
@@ -1183,10 +1385,10 @@ class Component extends DCLogic {
    rangeGroups: [
     { eyebrow: 'Featured range', title: 'Top Coolers range', highlight: true, href: 'https://topcoolers.co.za/', linkLabel: 'View Top Coolers website',
       blurb: 'Free standing and tabletop dispensers for offices, factories, educational spaces, warehouses and hospitals installed and technically supported by our in house teams.',
-      names: ['Waterlogic 7', 'Waterlogic 2', 'Waterlogic 100', 'Legend Classic', 'The River'] },
+      names: ['Waterlogic 7 Firewall', 'Waterlogic 2 Firewall', 'Waterlogic 100', 'Legend Classic', 'The River'] },
     { eyebrow: 'Also available', title: 'Purezza range', highlight: false, href: 'https://www.purezzawater.com/', linkLabel: 'View Purezza website',
       blurb: 'Premium plumbed-in taps and counter units serving cold, ambient and sparkling water, with carbon filtration and UVC purification built in. Built in stainless steel and tempered glass for front of house and staff areas where the unit is on view.',
-      names: ['FW Bar Classe', 'P1 Bar Series E', 'P1 Bar Series B', 'Campione Tower - 2 or 3 Way Tap', 'Murano Tower', 'Purezza T-Bar Tower', 'Frizzante 80 Manual', 'Frizzante Mini', 'Purezza Glass Bottles', 'Petalosa Bottles'] },
+      names: ['Bar Classe Firewall', 'P1 Bar Series E', 'P1 Bar Series B', 'Campione Tower - 2 or 3 Way Tap', 'Murano Tower', 'Purezza T-Bar Tower', 'Petalosa Bottles', 'Purezza Glass Bottles', 'Frizzante 80 Manual', 'Frizzante Mini'] },
    ].map(g => ({
     eyebrow: g.eyebrow,
     title: g.title,
