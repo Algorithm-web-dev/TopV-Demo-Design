@@ -176,7 +176,7 @@
     <div>
      <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">Who we are</div>
      <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:40px;line-height:1.1;letter-spacing:-0.03em;margin:0 0 20px;">Supplying South African workplaces since 1991.</h2>
-     <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#45443F;margin:0 0 20px;">Top Vending supplies, installs and services vending machines, hot beverage equipment, water coolers and recycling stations for offices, factories, mines and campuses across the country.</p>
+     <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#45443F;margin:0 0 20px;">Top Vending supplies, installs and services vending machines, hot beverage equipment, water coolers and recycling stations for offices, factories, educational spaces, warehouses and hospitals across the country.</p>
      <p style="font-family:'Inter',sans-serif;font-size:17px;line-height:1.7;color:#45443F;margin:0 0 32px;">We partner with leading international manufacturers and back every machine with our own installation, service and consumables teams, working out of three national hubs.</p>
      <a href="About.dc.html" style="display:inline-block;border:1.5px solid #1C1C1A;color:#1C1C1A;padding:15px 32px;border-radius:999px;font-size:15px;font-weight:600;" style-hover="background:#1C1C1A;color:#FAFBFC;">More About Us</a>
     </div>
@@ -378,17 +378,17 @@ const PRODUCTS_COFFEE = [
   tagline: 'Brilliance in every cup',
   description: 'Bean-to-cup plus 2 instants with a wide range of customisable drinks, fresh milk, a 7-inch touchscreen and Prime Milk automatic froth.',
   tags: ['Bean-to-Cup + 2 Instants', '7" Touchscreen', 'Automatic Milk Froth'],
-  specs: [{ label: 'Grinder', value: 'One Grinder, One Per Hopper' }, { label: 'Milk', value: 'Prime Milk – Automatic Froth' }, { label: 'Dimensions (WxDxH)', value: '308 x 570 x 629mm' }] },
- { name: 'Azkoyen Vitro X1', category: 'Hot Beverage Solutions', variant: 'accent',
+  specs: [{ label: 'Grinder', value: 'One Grinder, One Per Hopper' }, { label: 'Milk', value: 'Prime Milk – Automatic Froth' }, { label: 'Dimensions (WxDxH)', value: '308 x 570 x 629mm' }, { label: 'Fridge Dimensions (WxDxH)', value: '220 x 470 x 375mm' }] },
+ { name: 'Azkoyen Vitro X1 MIA', category: 'Hot Beverage Solutions', variant: 'accent',
   tagline: 'Innovative design for quality coffee',
   description: 'A fresh bean brewer with a fresh milk fridge, high capacity boilers, 12 selection touch panel, variable brewing unit and an illuminated dispensing area.',
   tags: ['Fresh Bean Brewer', '12 Selection Touch Panel', 'High Capacity Boilers'],
-  specs: [{ label: 'Milk', value: 'Fresh Milk Fridge' }, { label: 'Access', value: 'Easy-Access Hoppers' }, { label: 'Dimensions (WxDxH)', value: '567 x 505 x 672mm (includes fridge)' }] },
+  specs: [{ label: 'Milk', value: 'Fresh Milk Fridge' }, { label: 'Access', value: 'Easy-Access Hoppers' }, { label: 'Dimensions (WxDxH)', value: '337 x 505 x 672mm' }, { label: 'Fridge Dimensions (WxDxH)', value: '220 x 470 x 375mm' }] },
  { name: 'Saeco Magic', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Revolutionary coffee machine',
-  description: 'A fresh bean brewer with a touchscreen display, fresh milk, one-touch high-speed milk, high capacity and a double boiler, double pump system.',
+  description: 'A fresh bean brewer with a touchscreen display, fresh milk, one-touch high-speed milk and high capacity.',
   tags: ['Double Boiler, Double Pump', 'Touchscreen Display', 'High Capacity'],
-  specs: [{ label: 'Milk', value: 'One-Touch High-Speed Milk' }, { label: 'Lighting', value: 'LED Lighting' }, { label: 'Dimensions (WxDxH)', value: '280 x 481 x 470mm' }] },
+  specs: [{ label: 'Milk', value: 'One-Touch High-Speed Milk' }, { label: 'Lighting', value: 'LED Lighting' }, { label: 'Dimensions (WxDxH)', value: '280 x 481 x 470mm' }, { label: 'Fridge Dimensions (WxDxH)', value: '220 x 470 x 375mm' }] },
  { name: 'NEOQs', category: 'Hot Beverage Solutions', variant: 'accent',
   tagline: 'Your all-in-one premium espresso and fresh leaf tea solution',
   description: 'Cup recognition technology with energy-saving ECO mode, a 21.5" Full HD touchscreen, 7 hoppers (1 tea, 1 bean, 5 instant) and fully customisable beverages and volumes.',
@@ -401,7 +401,7 @@ const PRODUCTS_COFFEE = [
   specs: [{ label: 'Detection', value: 'Cup Detector' }, { label: 'Finish', value: 'Stainless Steel, Glass Front' }, { label: 'Dimensions (WxDxH)', value: '600 x 650 x 1830mm' }] },
  { name: 'ZEN Fresh Bean', category: 'Hot Beverage Solutions', variant: 'accent',
   tagline: 'Fully automatic fresh bean machine',
-  description: 'Fully automatic Zen DFB TableTop machine. Beans, fresh leaf tea, instant coffee, vending sugar, milk powder and hot chocolate.',
+  description: 'Fully automatic Zen DFB TableTop machine. Beans, fresh leaf tea, instant coffee, vending sugar, powdered milk and hot chocolate.',
   tags: ['Fresh Bean', 'Fully Automatic', 'Auto Cup Dispenser'],
   specs: [{ label: 'Milk', value: 'Powder Milk' }, { label: 'Stand', value: 'Optional Stand' }, { label: 'Dimensions (WxDxH)', value: 'Machine: 480 x 590 x 842mm · Stand: 480 x 590 x 842mm' }] },
  { name: 'ZEN DFB', category: 'Hot Beverage Solutions', variant: 'default',
@@ -413,7 +413,7 @@ const PRODUCTS_COFFEE = [
   tagline: 'Where coffee craft meets efficiency & sustainability',
   description: 'A multi-group barista machine for commercial spaces, in stainless steel with thermoblocks, PID control, extraction plus digital control and a rotary pump.',
   tags: ['Multi-Group Function', 'PID Control', 'Rotary Pump'],
-  specs: [{ label: 'Build', value: 'Stainless Steel' }, { label: 'Control', value: 'Extraction + Digital Control' }, { label: 'Dimensions (WxDxH)', value: '700 x 535 x 475mm' }] },
+  specs: [{ label: 'Build', value: 'Stainless Steel' }, { label: 'Control', value: 'Extraction + Digital Control' }, { label: 'Dimensions of Ascaso (WxDxH)', value: '700 x 535 x 475mm' }, { label: 'Dimensions of Grinder (WxDxH)', value: '230 x 270 x 670mm' }] },
  { name: 'Ascaso I-Bar F83E', category: 'Hot Beverage Solutions', variant: 'accent',
   tagline: 'Built for durability, reliability and consistent performance',
   description: 'A high-volume grinder with quiet operation, micrometric grinding adjustment for burrs that always work flat, and an aluminium body with a removable stainless steel drip tray.',
@@ -423,7 +423,7 @@ const PRODUCTS_COFFEE = [
 PRODUCTS.push(...PRODUCTS_COFFEE);
 
 const PRODUCTS_WATER = [
- { name: 'FW Bar Classe', category: 'Water Solutions', variant: 'default',
+ { name: 'Bar Classe Firewall', category: 'Water Solutions', variant: 'default',
   tagline: 'Premium solution',
   description: 'Offers 2 water options, cold and sparkling, with portion control and Firewall UVC Purification, removing up to 99.999% of bacteria, viruses and cysts. Ice cold water via Ice Bath cooling, high performance filtration and BioCote protection. Plumbed in solution.',
   tags: ['Cold & Sparkling', 'Firewall UVC Purification', 'Portion Control'],
@@ -617,7 +617,7 @@ class Component extends DCLogic {
    };
   });
   const TESTIMONIALS = [
-   { quote: 'We are proud to partner with Top Vending. Their exceptional service has consistently exceeded our expectations, making them an integral part of our operations. Our relationship with Top Vending is more than just a client-supplier arrangement; it\u2019s a true partnership built on trust, mutual respect, and a shared vision for the future of Coffee Vending and service excellence. Their ability to seamlessly mobilize a large national contract went above and beyond our expectations, showcasing their professionalism and unmatched expertise. Top Vending\u2019s commitment to innovation, and customer-centric solutions sets them apart, and their alignment with our goals ensures we remain ahead of industry trends, delivering value to our customers every step of the way. We highly recommend Top Vending to anyone looking for a partner who truly understands their business needs and delivers with excellence.', name: 'Tsebo Beverage', role: 'MD' },
+   { quote: 'We are proud to partner with Top Vending. Their exceptional service has consistently exceeded our expectations, making them an integral part of our operations. Our relationship with Top Vending is more than just a client-supplier arrangement; it\u2019s a true partnership built on trust, mutual respect, and a shared vision for the future of Coffee Vending and service excellence. Their ability to seamlessly mobilize a large national contract went above and beyond our expectations, showcasing their professionalism and unmatched expertise. Top Vending\u2019s commitment to innovation, and customer-centric solutions sets them apart, and their alignment with our goals ensures we remain ahead of industry trends, delivering value to our customers every step of the way. We highly recommend Top Vending to anyone looking for a partner who truly understands their business needs and delivers with excellence.', name: 'Melissa Taylor', role: 'MD - Tsebo Beverages' },
    { quote: 'I have dealt with Shane and his Team from Top Vending for many years and can honestly say that their products and customer service is always outstanding and has never diminished over the many years that we have dealt with them. I have always felt that we as a company are important to them by the way that they look after us. Nothing is too much trouble when we request their help and they are professional at every level from the first enquiry through to the delivery of our machines to their after sales service.', name: 'Trish Steenfeldt-Kristensen', role: 'rewardsco' },
    { quote: 'Top Coolers has been responsible for supplying and maintaining water coolers across our campus. We have found their service to be professional, reliable and consistently of a high standard. Their team has demonstrated excellent communication, responsiveness and a commitment to meeting agreed timelines and expectations. Some of the key strengths we have observed include; professional and courteous service, High-quality service delivery and maintenance, Reliability and responsiveness, Efficient turnaround times and support. Based on our experience, we would confidently recommend Top Coolers to any organisation seeking a dependable water cooler supplier and service provider.', name: 'Karabo Tlokotsi', role: 'Redhill School' },
   ];
@@ -644,7 +644,7 @@ class Component extends DCLogic {
    heroResume: () => { this.__heroPaused = false; },
    heroSegs: [0, 1, 2].map(k => ({ label: 'Go to slide ' + (k + 1), barRef: this.__heroBars[k], onClick: () => this.heroGo(k) })),
    serviceCards: svcCards([
-    { num: '01', title: 'Vending Machines', body: 'Snack & can vending machines', lines: ['Snack & can vending machines'], image: 'assets/vending-service.png', href: 'Vending Machines.dc.html', cta: 'Explore Vending' },
+    { num: '01', title: 'Vending Machines', body: 'Snack & can vending machines', lines: ['Snack & can vending machines', 'Bespoke Dispensing'], image: 'assets/vending-service.png', href: 'Vending Machines.dc.html', cta: 'Explore Vending' },
     { num: '02', title: 'Hot Beverage Solutions', body: 'Bean-to-cup with fresh milk', lines: ['Bean-to-cup with fresh milk', 'Coffee and tea vending machines'], image: 'assets/hot-bev-service-v2.png', href: 'Hot Beverage Solutions.dc.html', cta: 'Explore Coffee' },
     { num: '03', title: 'Water Solutions', body: 'Plumbed-in water coolers', lines: ['Plumbed-in water coolers', 'Manually filled bottle water coolers', 'Bottle filling solutions'], image: 'assets/waterlogic-7-v3.png', href: 'Water Solutions.dc.html', cta: 'Explore Water' },
     { num: '04', title: 'Payment Solutions', body: 'Cashless & Telemetry', lines: ['Cashless & Telemetry'], image: 'assets/payment-service.png', href: 'Payment Solutions.dc.html', cta: 'Explore Payments' },
@@ -713,7 +713,7 @@ class Component extends DCLogic {
    whatWeDo: [
     { number: '01', title: 'Supply', body: '', bullets: ['Snack & Can Vending', 'Hot Beverage Solutions', 'Water Solutions', 'Recycling Solutions', 'Payment Solutions'], href: 'Products.dc.html' },
     { number: '02', title: 'Rental Or Purchase', body: 'Fully maintained rental agreements with consumables supply available on request.', bullets: [], href: 'Rentals.dc.html' },
-    { number: '03', title: 'Service - No Third Parties Involved', body: '', bullets: ['Installation', 'Offer In-House Training', 'In-house technical support'], href: 'Contact.dc.html#type=service' },
+    { number: '03', title: 'Service - No Third Parties Involved', body: '', bullets: ['Installation', 'In-House Training', 'In-house technical support'], href: 'Contact.dc.html#type=service' },
     { number: '04', title: 'Ingredients & Consumables', body: 'Coffee, tea, sugar, cups and cleaning consumables delivered to site.', bullets: [], href: 'Consumables.dc.html' },
    ].map(w => ({ ...w, hasBody: !!w.body })),
    marqueeCustomers: (() => {
