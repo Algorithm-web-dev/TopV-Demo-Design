@@ -126,7 +126,7 @@
    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
     <sc-for list="{{ aboutStats }}" as="stat" hint-placeholder-count="4">
      <div style="background:#FFFFFF;border-radius:20px;padding:34px;box-sizing:border-box;">
-      <div style="font-size:44px;font-weight:700;letter-spacing:-0.03em;color:#C8102E;margin-bottom:10px;font-variant-numeric:tabular-nums;"><span ref="{{ stat.ref }}"></span></div>
+      <div style="font-size:44px;font-weight:700;letter-spacing:-0.03em;color:#C8102E;margin-bottom:10px;font-variant-numeric:tabular-nums;white-space:nowrap;"><span ref="{{ stat.ref }}"></span><span style="font-size:0.74em;letter-spacing:-0.025em;margin-left:0.18em;">{{ stat.unit }}</span></div>
       <div style="font-size:15px;line-height:1.6;color:#1C1C1A;font-weight:600;">{{ stat.label }}</div>
       <div style="font-size:14px;line-height:1.6;color:#45443F;margin-top:6px;text-wrap:pretty;">{{ stat.note }}</div>
      </div>
@@ -384,11 +384,11 @@ class Component extends DCLogic {
   if (this.__stats) return this.__stats;
   const DATA = [
    { target: 750, from: 0, suffix: '+', label: 'Products sold this year', note: 'Machines and devices supplied to workplaces nationwide.' },
-   { target: 1.2, from: 0, decimals: 1, suffix: ' Million+', label: 'Chips, chocolates, coldrinks vended this year', note: '' },
+   { target: 1.2, from: 0, decimals: 1, suffix: '', unit: 'Million+', label: 'Chips, chocolates, coldrinks vended this year', note: '' },
    { target: 1991, from: 1960, suffix: '', label: 'Trading since', note: 'The year Top Vending was established.' },
    { target: 35, from: 0, suffix: '+', label: 'Years in business', note: 'Supplying and servicing South African workplaces.' },
   ];
-  this.__stats = DATA.map(d => ({ ...d, ref: (el) => {
+  this.__stats = DATA.map(d => ({ ...d, unit: d.unit || '', ref: (el) => {
    if (!el || el.__tv) return; el.__tv = true;
    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
    if (reduced || !('IntersectionObserver' in window)) { el.textContent = d.target.toFixed(d.decimals || 0) + d.suffix; return; }
