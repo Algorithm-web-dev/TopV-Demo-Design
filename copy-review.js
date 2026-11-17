@@ -21,6 +21,13 @@
 (function () {
   if (window.CopyReview) return;
 
+  // Switch for the whole review editor. Set to false to hide it from
+  // everyone (e.g. while the site is presented), even with ?review=1 or a
+  // remembered review session. Suggestions and history stay saved, and
+  // setting it back to true brings everything back as it was.
+  var REVIEW_ENABLED = false;
+  if (!REVIEW_ENABLED) { window.CopyReview = { active: false, disabled: true }; return; }
+
   var FLAG = 'tv_review_mode';
   var STORE = 'tv_copy_review_v2';
   var NAME = 'tv_review_name';
