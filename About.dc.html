@@ -383,21 +383,21 @@ class Component extends DCLogic {
  __statRefs() {
   if (this.__stats) return this.__stats;
   const DATA = [
-   { target: 10, from: 0, suffix: 'k', label: 'Products sold this year', note: 'Machines and devices supplied to workplaces nationwide.' },
-   { target: 750, from: 0, suffix: '+', label: 'Chips, chocolates, coldrinks vended this year', note: '' },
+   { target: 750, from: 0, suffix: '+', label: 'Products sold this year', note: 'Machines and devices supplied to workplaces nationwide.' },
+   { target: 1.2, from: 0, decimals: 1, suffix: ' Million+', label: 'Chips, chocolates, coldrinks vended this year', note: '' },
    { target: 1991, from: 1960, suffix: '', label: 'Trading since', note: 'The year Top Vending was established.' },
    { target: 35, from: 0, suffix: '+', label: 'Years in business', note: 'Supplying and servicing South African workplaces.' },
   ];
   this.__stats = DATA.map(d => ({ ...d, ref: (el) => {
    if (!el || el.__tv) return; el.__tv = true;
    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-   if (reduced || !('IntersectionObserver' in window)) { el.textContent = d.target + d.suffix; return; }
-   el.textContent = d.from + d.suffix;
+   if (reduced || !('IntersectionObserver' in window)) { el.textContent = d.target.toFixed(d.decimals || 0) + d.suffix; return; }
+   el.textContent = d.from.toFixed(d.decimals || 0) + d.suffix;
    const io = new IntersectionObserver((es) => {
     if (!es.some(e => e.isIntersecting)) return; io.disconnect();
     const t0 = performance.now(), dur = 1800;
     const step = (now) => { const p = Math.min((now - t0) / dur, 1), e = 1 - Math.pow(1 - p, 3);
-     el.textContent = Math.round(d.from + (d.target - d.from) * e) + d.suffix; if (p < 1) requestAnimationFrame(step); };
+     el.textContent = (d.from + (d.target - d.from) * e).toFixed(d.decimals || 0) + d.suffix; if (p < 1) requestAnimationFrame(step); };
     requestAnimationFrame(step);
    }, { threshold: 0.4 });
    io.observe(el);
