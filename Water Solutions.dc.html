@@ -180,25 +180,6 @@
        </sc-for>
       </div>
      </div>
-     <sc-if value="{{ g.faqAfter }}" hint-placeholder-val="{{ false }}">
-     <div style="background:#EFF1F3;border-radius:24px;padding:40px 32px;box-sizing:border-box;">
-   <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">FAQs</div>
-   <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.12;letter-spacing:-0.03em;margin:0 0 40px;">Questions about this range.</h2>
-   <div style="display:flex;flex-direction:column;gap:12px;">
-    <sc-for list="{{ categoryFaqs }}" as="f" hint-placeholder-count="4">
-     <div style="background:#FFFFFF;border-radius:16px;overflow:hidden;">
-      <button onClick="{{ f.onToggle }}" style="width:100%;background:transparent;border:none;text-align:left;padding:24px 28px;font-family:'Inter',sans-serif;font-size:17px;font-weight:700;color:#1C1C1A;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;box-sizing:border-box;">
-       <span>{{ f.q }}</span>
-       <span style="font-family:'Inter',sans-serif;{{ f.iconStyle }}">+</span>
-      </button>
-      <div style="{{ f.answerStyle }}">
-       <p style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:#45443F;margin:0 28px 26px;">{{ f.a }}</p>
-      </div>
-     </div>
-    </sc-for>
-   </div>
-     </div>
-     </sc-if>
     </sc-for>
    </div>
    </div>
@@ -288,6 +269,26 @@
   </div>
  </section>
 
+
+ <section data-pt="32" data-pb="80" style="background:#EFF1F3;padding:32px 48px 80px;box-sizing:border-box;{{ catalogueStyle }}">
+  <div style="max-width:1200px;margin:0 auto;">
+   <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">FAQs</div>
+   <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.12;letter-spacing:-0.03em;margin:0 0 40px;">Questions about this range.</h2>
+   <div style="display:flex;flex-direction:column;gap:12px;">
+    <sc-for list="{{ categoryFaqs }}" as="f" hint-placeholder-count="4">
+     <div style="background:#FFFFFF;border-radius:16px;overflow:hidden;">
+      <button onClick="{{ f.onToggle }}" style="width:100%;background:transparent;border:none;text-align:left;padding:24px 28px;font-family:'Inter',sans-serif;font-size:17px;font-weight:700;color:#1C1C1A;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;box-sizing:border-box;">
+       <span>{{ f.q }}</span>
+       <span style="font-family:'Inter',sans-serif;{{ f.iconStyle }}">+</span>
+      </button>
+      <div style="{{ f.answerStyle }}">
+       <p style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:#45443F;margin:0 28px 26px;">{{ f.a }}</p>
+      </div>
+     </div>
+    </sc-for>
+   </div>
+  </div>
+ </section>
 
  <section data-pt="80" data-pb="80" style="background:#FAFBFC;padding:80px 48px 80px;box-sizing:border-box;">
   <div style="max-width:1200px;margin:0 auto;">
@@ -846,11 +847,10 @@ class Component extends DCLogic {
     { q: 'Do you supply the coffee?', a: 'Yes. Instant, filter and whole bean, plus tea, hot chocolate, milk and sundries, on a standing order or on demand.' },
    ],
    'Water Solutions': [
-    { q: 'Plumbed-in or bottled?', a: 'Both. The Top Coolers Waterlogic range and the Purezza units plumb into the mains and filter on site. The Legend Classic is manually refilled with a 19L filtering bottle and needs no plumbing.' },
-    { q: 'What water options are there?', a: 'It depends on the model. The Waterlogic 7 serves five types: ice-cold, ambient, sparkling, hot and extra-hot. The FW Bar Classe, P1 Bar Series E and the Purezza towers serve cold, ambient and sparkling, the Waterlogic 2 and 100 serve cold and ambient, and The River is cold only.' },
-    { q: 'Which towers come with the Frizzante 80 Box?', a: 'The Campione Tower - 2 or 3 Way Tap, Murano Tower and Purezza T-Bar Tower are all supplied with the Frizzante 80 Box. The box sits under the counter and chills and carbonates the water, while the tower on the counter does the dispensing.' },
-    { q: 'How many people can one unit serve?', a: 'The Waterlogic 100 is rated for up to 20 users and the Waterlogic 2 for up to 30. For larger sites and hospitality, the Purezza units are sized on throughput: the FW Bar Classe dispenses 160L/hr and the Campione Tower 60L/hr.' },
-    { q: 'How is the water purified?', a: 'Firewall UVC purification on the Waterlogic and FW Bar Classe purifies water up to 99.9999%, reducing bacteria, viruses and cysts. The Purezza towers offer optional inline UVC, and filtration across the range is carbon based to address taste, colour and odour.' },
+    { q: 'What are plumbed-in water solutions and how do they work?', a: 'Plumbed-in water solutions connect directly to your existing mains water supply, using advanced filtration technology to provide freshly filtered drinking water on demand. Depending on the model, additional purification and carbonation technologies are available to deliver different water options.' },
+    { q: 'What types of water can your water solutions dispense?', a: 'Our water solutions offer a variety of drinking water options, including cold, ambient, sparkling, hot and extra-hot water, depending on the range and model selected. This allows you to choose a solution suited to your environment and requirements.' },
+    { q: 'Where can your water solutions be installed?', a: 'Our water solutions cater to a wide range of environments. Top Coolers is suited to offices, factories, schools, hospitals and other workplaces, while Purezza is specifically designed for hospitality environments such as restaurants, hotels, cafés and bars. Countertop, freestanding and under-counter options are available, depending on the range.' },
+    { q: 'Does Top Vending provide installation and ongoing maintenance?', a: 'Yes. Top Vending provides a complete water solution, including an initial site assessment, professional installation, servicing, maintenance and ongoing technical support. Our team manages the process from selecting the right equipment to keeping it operating efficiently.' },
    ],
    'Payment Solutions': [
     { q: 'Do these replace our machines?', a: 'No. The card readers and cashless system retrofit to machines already on site. We handle the fitment, the merchant setup and the reporting login.' },
@@ -1392,8 +1392,7 @@ class Component extends DCLogic {
     { eyebrow: 'Also available', title: 'Purezza range', highlight: false, href: 'https://www.purezzawater.com/', linkLabel: 'View Purezza website',
       blurb: 'Premium plumbed-in taps and counter units serving cold, ambient and sparkling water, with carbon filtration and UVC purification built in. Built in stainless steel and tempered glass for front and back of house areas.',
       names: ['P2 Firewall Bar Classe', 'P1 Bar Series E', 'P1 Bar Series B', 'Campione Tower - 2 or 3 Way Tap', 'Murano Tower', 'Purezza T-Bar Tower', 'Frizzante 80 Manual', 'Frizzante Mini', 'Petalosa Bottles', 'Purezza Glass Bottles'] },
-   ].map((g, gi) => ({
-    faqAfter: gi === 0,
+   ].map(g => ({
     eyebrow: g.eyebrow,
     title: g.title,
     href: g.href || '',
