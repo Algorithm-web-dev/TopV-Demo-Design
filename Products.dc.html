@@ -371,7 +371,7 @@ const PRODUCTS_COFFEE = [
   description: 'Dual grinders plus 2 instants, a 10.1" touchscreen and up to 15 beverages, with a fresh milk fridge and premium brewing system.',
   tags: ['Dual Grinders', '10.1" Touchscreen', 'Up to 15 Beverages'],
   brochure: 'jettino-jl33.pdf',
-  specs: [{ label: 'Model', value: 'Jetinno JL33' }, { label: 'Grinding', value: 'Dual PGH64 grinders' }, { label: 'Milk', value: 'Powdered Milk' }, { label: 'Dimensions (WxDxH)', value: '350 x 560 x 628mm' }, { label: 'Fridge Dimensions (WxDxH)', value: '220 x 450 x 480mm' }, { label: 'Payment', value: 'Cashless/Nayax' }, { label: 'Telemetry', value: 'No' }, { label: 'Power Supply', value: '220-240V 50/60Hz' }, { label: 'Brewing', value: 'Pre-infusion and anti-gravity extraction' }, { label: 'Milk', value: 'Dual boilers and dual pumps, fresh milk foam' }, { label: 'Screen', value: '10.1" touchscreen' }],
+  specs: [{ label: 'Model', value: 'Jetinno JL33' }, { label: 'Grinding', value: 'Dual PGH64 grinders' }, { label: 'Milk', value: 'Fresh Milk' }, { label: 'Dimensions (WxDxH)', value: '350 x 560 x 628mm' }, { label: 'Fridge Dimensions (WxDxH)', value: '220 x 450 x 480mm' }, { label: 'Payment', value: 'Cashless/Nayax' }, { label: 'Telemetry', value: 'No' }, { label: 'Power Supply', value: '220-240V 50/60Hz' }, { label: 'Brewing', value: 'Pre-infusion and anti-gravity extraction' }, { label: 'Milk', value: 'Dual boilers and dual pumps, fresh milk foam' }, { label: 'Screen', value: '10.1" touchscreen' }],
   details: [
    'The Jettino JL33 runs a dual grinding system with two grinders plus two instant hoppers, so it can hold two different beans at once and serve two cups from one click. Over 15 beverages are available from the 10.1 inch touchscreen.',
    'The premium brewing system uses pre-infusion and anti-gravity extraction, and the fresh milk foam system runs dual boilers and dual pumps for fast milk based coffee. A fresh milk fridge is part of the unit.',
@@ -485,45 +485,48 @@ const PRODUCTS_COFFEE = [
 PRODUCTS.push(...PRODUCTS_COFFEE);
 
 const PRODUCTS_WATER = [
- { name: 'Bar Classe Firewall', image: 'assets/purezza/bar-classe.png', category: 'Water Solutions', variant: 'default',
+ { name: 'P2 Firewall Bar Classe', image: 'assets/purezza/bar-classe.png', category: 'Water Solutions', variant: 'default',
   tagline: 'Premium solution',
   description: 'Offers 2 water options, cold and sparkling, with portion control and Firewall UVC Purification, removing up to 99.999% of bacteria, viruses and cysts. Ice cold water via Ice Bath cooling, high performance filtration and BioCote protection. Plumbed in solution.',
   tags: ['Cold & Sparkling', 'Firewall UVC Purification', 'Portion Control'],
   brochure: 'kastella-bar-classe.pdf',
   specs: [{ label: 'Model', value: 'Bar Classe' }, { label: 'Water Options', value: 'Sparkling, cold and ambient' }, { label: 'Dispensing', value: '160L/hr' }, { label: 'Filtration', value: 'Carbon filter and UVC' }, { label: 'Purification', value: 'Firewall' }, { label: 'Dimensions (WxDxH)', value: '401 x 607 x 590mm' }, { label: 'Dispense Area Height', value: '220 to 314mm' }, { label: 'Power Supply', value: '230V 50Hz' }],
   details: [
-   'A premium, high-performance countertop water dispenser designed for busy hospitality environments. The P2 Firewall Bar Classe delivers chilled, purified still and sparkling water, using ice-bath cooling technology to maintain consistently cold temperatures. It also features integrated Firewall UVC purification, providing an additional layer of water hygiene right up to the point of dispense.',
+   'A premium, high-performance countertop water dispenser designed for busy hospitality environments. The P2 Firewall Bar Classe delivers chilled, purified still and sparkling water, using ice-bath cooling technology to maintain consistently cold temperatures. It also features integrated Firewall UVC purification, providing an additional layer of water hygiene right up to the point of dispense. The Classe is HACCP certified.',
   ] },
  { name: 'P1 Bar Series E', image: 'assets/purezza/p1-bar-e.png', category: 'Water Solutions', variant: 'accent',
   tagline: 'Stylish, Efficient & High Flow solution',
   description: 'Offers 3 water options: cold, ambient and sparkling, with portion control, an adjustable drip tray height for different bottle sizes, and eco-sustainable R290 refrigeration. Plumbed in solution.',
   tags: ['Cold, Ambient & Sparkling', 'Adjustable Drip Tray', 'R290 Eco Refrigeration'],
-  specs: [{ label: 'Water Options', value: 'Cold, Ambient & Sparkling' }, { label: 'Refrigeration', value: 'R290 Natural Gas' }, { label: 'Installation', value: 'Plumbed In' }] },
+  specs: [{ label: 'Model', value: 'P1 Bar Series E' }, { label: 'Dimensions (WxDxH)', value: '345 x 555 x 592mm' }, { label: 'Water Options', value: 'Cold, Ambient, Sparkling' }, { label: 'Dispensing', value: '80L/hr' }],
+  details: [
+   'A high-performance countertop water dispenser designed for busy hospitality environments. The E Series provides three water options: chilled, ambient and sparkling. Featuring a stainless-steel exterior, adjustable drip tray and three mechanical taps, it allows multiple bottles to be filled simultaneously.',
+  ] },
  { name: 'P1 Bar Series B', image: 'assets/purezza/p1-bar-b.png', category: 'Water Solutions', variant: 'default',
   tagline: 'Stylish, Efficient & High Flow solution',
   description: 'Offers 2 water options, cold and sparkling, with portion control, a back-lit front panel with premium aesthetics, and eco-sustainable R290 refrigeration. Plumbed in solution.',
   tags: ['Cold & Sparkling', 'Back-Lit Front Panel', 'R290 Eco Refrigeration'],
-  specs: [{ label: 'Water Options', value: 'Cold & Sparkling' }, { label: 'Refrigeration', value: 'R290 Natural Gas' }, { label: 'Installation', value: 'Plumbed In' }] },
+  specs: [{ label: 'Model', value: 'P1 Bar Series B' }, { label: 'Dimensions (WxDxH)', value: '360 x 502 x 565mm' }, { label: 'Water Options', value: 'Cold and Sparkling' }, { label: 'Dispensing', value: '80L/hr' }],
+  details: [
+   'A high-flow countertop water dispenser designed for restaurants, cafés and hospitality venues. The B Series delivers chilled and sparkling water, with a stainless-steel exterior and backlit front panel.',
+  ] },
  { name: 'Campione Tower - 2 or 3 Way Tap', title: 'Campione Tower -\n2 or 3 Way Tap', image: 'assets/campione-tower-box.png', category: 'Water Solutions', variant: 'accent',
   tagline: 'Where space is limited',
-  description: 'Offers 3 water options: cold, ambient and sparkling, with ice cold water produced using Ice Bath cooling technology and high performance filtration. Supplied with the Frizzante 80 Box under-counter unit.',
+  description: 'Offers 2 or 3 water options: cold, ambient and sparkling, with ice cold water produced using Ice Bath cooling technology and high performance filtration. Supplied with the Frizzante 80 Box under-counter unit where ventilation is essential.',
   tags: ['Cold, Ambient & Sparkling', 'Ice Bath Cooling', 'Includes Frizzante 80 Box'],
   brochure: 'kastella-tap.pdf',
-  specs: [{ label: 'Included', value: 'Frizzante 80 Box under-counter unit' }, { label: 'Model', value: 'Campione' }, { label: 'Water Options', value: 'Cold, sparkling and ambient' }, { label: 'Dispensing', value: '60L/hr' }, { label: 'Cooling', value: 'Ice bank technology' }, { label: 'Filtration', value: 'Carbon filter and UVC' }, { label: 'Dimensions (WxDxH)', value: '144 x 85 x 475mm' }, { label: 'Dispense Area Height', value: '313mm' }, { label: 'Power Supply', value: '220-240V 50Hz' }],
+  specs: [{ label: 'Model', value: 'Campione' }, { label: 'Water Options', value: 'Cold, sparkling' }, { label: 'Dispensing', value: '80L/hr' }, { label: 'Cooling', value: 'Ice bank technology' }, { label: 'Filtration', value: 'Carbon filter and UVC' }, { label: 'Dimensions (WxDxH)', value: '144 x 85 x 475mm' }, { label: 'Dispense Area Height', value: '313mm' }, { label: 'Power Supply', value: '220-240V 50Hz' }],
   details: [
    'A premium, countertop dispensing tower designed for restaurants, bars and hospitality venues where space is limited. The Campione Tower connects to an under-counter Frizzante 80 box to dispense freshly filtered still and sparkling water. Available in two- and three-tap configurations, it combines a stylish presentation with practical, high-volume dispensing.',
-   'The Ice Bath water cooling system delivers high volumes of ice cold water, at 60L/hr, for environments where that matters. An integrated in-line UV LED system provides UV protection for the water supply.',
-   'High performance filtration is certified to stringent standards by IAPMO R&T and carries the Water Quality Platinum Seal. Dispense area height is 313mm, on a 220V to 240V 50Hz supply.',
-   'Supplied with the Frizzante 80 Box, an under-counter unit that chills and carbonates the water using Ice Bath cooling and high performance filtration. The tower sits on the counter as the dispensing point, while the box is installed out of sight below it.',
   ] },
  { name: 'Waterlogic 7 Firewall', category: 'Water Solutions', variant: 'accent', image: 'assets/waterlogic-7-v3.png',
   tagline: 'Up to 4 or 5 types of water from one unit',
   description: 'Dispenses ice-cold, ambient, sparkling, hot and extra-hot water, with Firewall UVC purification, high performance filtration and a 5 inch LED full colour display.',
   tags: ['Up to 4 or 5 Water Options', 'Firewall UVC Purification', 'Up to 50 users'],
   brochure: 'wl7.pdf',
-  specs: [{ label: 'Model', value: 'WL7 Firewall' }, { label: 'Water Options', value: 'Ice-cold, ambient, sparkling, hot, extra-hot' }, { label: 'Cooling Capacity', value: 'Up to 17L/hr' }, { label: 'Ice Bath Capacity', value: 'Cold only 4.5L, cold and sparkling 3.8L' }, { label: 'Hot Water Storage', value: '1.5L' }, { label: 'Filtration', value: 'Carbon filter and UVC' }, { label: 'Dimensions (free standing)', value: '400 x 520 x 1270mm' }, { label: 'Dimensions (table top)', value: '381 x 520 x 432mm' }, { label: 'Dispense Area Height', value: '265mm' }, { label: 'Power Supply', value: '220-240V 50Hz' }, { label: 'Refrigerant', value: 'R600A' }, { label: 'Features', value: 'Sleep mode, leak prevention, bottle saver counter' }],
+  specs: [{ label: 'Model', value: 'WL7 Firewall' }, { label: 'Water Options', value: 'Cold, ambient, sparkling, hot, extra-hot' }, { label: 'Cooling Capacity', value: 'Up to 17L/hr' }, { label: 'Hot Water Storage', value: '1.5L' }, { label: 'Filtration', value: 'Carbon filter and UVC' }, { label: 'Dimensions (free standing)', value: '400 x 520 x 1270mm' }, { label: 'Dimensions (table top)', value: '400 x 520 x 427mm' }, { label: 'Dispense Area Height', value: '265mm' }, { label: 'Power Supply', value: '220-240V 50Hz' }, { label: 'Refrigerant', value: 'R600A' }, { label: 'Features', value: 'Sleep mode, leak prevention, bottle saver counter' }],
   details: [
-   'The Waterlogic 7 is the most complete unit in the range, dispensing up to five types of water from one tap: ice-cold, ambient, sparkling, hot and extra-hot. Selections are made on a 5 inch LED full colour display.',
+   'The Waterlogic 7 is the most complete unit in the range, dispensing up to five types of water from one tap: cold, ambient, sparkling, hot and extra-hot. Selections are made on a 5 inch LED full colour display.',
    'Patented Firewall UV technology purifies the water up to 99.9999%, 100% of the time, reducing the risk of bacteria, viruses and cysts. High performance filtration is certified by IAPMO R&T and carries the Water Quality Platinum Seal, and a silver ion additive reduces odours and the potential for cross contamination.',
    'Cooling capacity is up to 17L/hr with 1.5L of hot water storage. It also has a bottle saver counter.',
   ] },
@@ -532,37 +535,37 @@ const PRODUCTS_WATER = [
   description: 'Firewall UVC purification with high performance filtration and BioCote antimicrobial protection, serving up to 30 users from a free standing or table top cabinet. Available as a free standing unit or a countertop version.',
   tags: ['Firewall UVC Purification', 'BioCote Protection', 'Up to 30 Users'],
   brochure: 'wl2.pdf',
-  specs: [{ label: 'Versions', value: 'Free standing and countertop' }, { label: 'Model', value: 'WL2 Firewall' }, { label: 'Water Options', value: 'Cold and ambient' }, { label: 'Cold Tank', value: '4L free standing, 2L table top' }, { label: 'Hot Tank', value: '1.5L' }, { label: 'Cold Temperature', value: '3°C' }, { label: 'Number of Users', value: 'Up to 30' }, { label: 'Filtration', value: 'Dependent on SKU' }, { label: 'Dimensions (free standing)', value: '349 x 363 x 1024mm' }, { label: 'Dimensions (table top)', value: '349 x 363 x 453mm' }, { label: 'Dispense Area Height', value: '230mm' }, { label: 'Power Supply', value: '220-240V 50Hz' }, { label: 'Refrigerant', value: 'R600A' }],
+  specs: [{ label: 'Model', value: 'WL2 Firewall' }, { label: 'Water Options', value: 'Cold and ambient' }, { label: 'Cold Tank', value: '4L free standing, 2L table top' }, { label: 'Cold Temperature', value: '8-12°C' }, { label: 'Number of Users', value: 'Up to 30' }, { label: 'Filtration', value: 'Dependent on SKU' }, { label: 'Dimensions (free standing)', value: '349 x 363 x 1024mm' }, { label: 'Dimensions (table top)', value: '349 x 363 x 453mm' }, { label: 'Dispense Area Height', value: '230mm' }, { label: 'Power Supply', value: '220-240V 50Hz' }, { label: 'Refrigerant', value: 'R600A' }],
   details: [
    'Shown with its countertop version: the same water options and purification in a compact unit that sits on a counter or worktop, for kitchens and break areas where floor space is limited.',
    'The Waterlogic 2 serves cold and ambient water on tap for up to 30 users, available as a free standing or table top unit depending on the space.',
    'Patented Firewall UV technology purifies the water up to 99.9999%, 100% of the time, reducing the risk of bacteria, viruses and cysts. High performance filtration is certified to stringent standards by IAPMO R&T and carries the Water Quality Platinum Seal.',
-   'BioCote antimicrobial protection adds a silver ion additive that reduces unpleasant odours, surface degradation and the potential for cross contamination. The cold tank holds 4L free standing or 2L table top, with a 1.5L hot tank, at 3°C cold, on a 220V to 240V 50Hz supply.',
+   'BioCote antimicrobial protection adds a silver ion additive that reduces unpleasant odours, surface degradation and the potential for cross contamination.',
   ] },
  { name: 'Waterlogic 100', image: 'assets/waterlogic-100-v3.png', category: 'Water Solutions', variant: 'accent',
   tagline: 'Economical cold and ambient solution',
   description: 'An economical cold and ambient dispenser with high performance carbon block filtration and BioCote antimicrobial protection, serving up to 20 users. Available as a free standing unit or a countertop version.',
   tags: ['Economical Solution', 'BioCote Protection', 'Up to 20 Users'],
   brochure: 'wl100.pdf',
-  specs: [{ label: 'Versions', value: 'Free standing and countertop' }, { label: 'Model', value: 'WL100' }, { label: 'Water Options', value: 'Cold and ambient' }, { label: 'Cold Tank', value: '2 litres' }, { label: 'Cold Temperature', value: '3°C to 12°C' }, { label: 'Number of Users', value: 'Up to 20' }, { label: 'Filtration', value: 'Carbon block' }, { label: 'Dimensions (free standing)', value: '345 x 367 x 1030mm' }, { label: 'Dimensions (table top)', value: '345 x 367 x 457mm' }, { label: 'Dispense Area Height', value: '215mm' }, { label: 'Power Supply', value: '220-240V 50Hz' }, { label: 'Refrigerant', value: 'R600A' }],
+  specs: [{ label: 'Model', value: 'WL100' }, { label: 'Water Options', value: 'Cold and ambient' }, { label: 'Cold Tank', value: '2 litres' }, { label: 'Cold Temperature', value: '8°C to 12°C' }, { label: 'Number of Users', value: 'Up to 20' }, { label: 'Filtration', value: 'Carbon block' }, { label: 'Dimensions (free standing)', value: '345 x 367 x 1030mm' }, { label: 'Dimensions (table top)', value: '345 x 367 x 457mm' }, { label: 'Dispense Area Height', value: '215mm' }, { label: 'Power Supply', value: '220-240V 50Hz' }, { label: 'Refrigerant', value: 'R600A' }],
   details: [
    'Shown with its countertop version: the same water options and purification in a compact unit that sits on a counter or worktop, for kitchens and break areas where floor space is limited.',
-   'The Waterlogic 100 is the economical option in the range, serving cold and ambient water on tap for up to 20 users, suited to smaller offices and satellite sites.',
+   'The Waterlogic 100 is the economical option in the range, serving cold and ambient water on tap for up to 20 users, suited to smaller offices.',
    'High performance carbon block filtration handles the water treatment, and BioCote antimicrobial protection is built into the cabinet surfaces.',
-   'The 2 litre cold tank runs between 3°C and 12°C. Available free standing or table top, with a 215mm dispensing area, on a 220V to 240V 50Hz supply.',
+   'The 2 litre cold tank runs between 8°C and 12°C. Available free standing or table top, with a 215mm dispensing area, on a 220V to 240V 50Hz supply.',
   ] },
  { name: 'The River', image: 'assets/the-river-v3.png', category: 'Water Solutions', variant: 'default',
   tagline: 'Cold water on tap in stainless steel',
   description: 'A stainless steel cold water dispenser with heavy duty faucets, carbon filtration, an ice bank and compact Blupura direct chill technology, dispensing 20L/hr.',
   tags: ['Stainless Steel', 'Heavy Duty Faucets', 'Direct Chill Technology'],
   brochure: 'river.pdf',
-  specs: [{ label: 'Model', value: 'RIVER' }, { label: 'Water Options', value: 'Cold' }, { label: 'Dispensing Capacity', value: '20L/hr at 5 to 12°C' }, { label: 'Cooling', value: 'Ice bank, compact Blupura direct chill' }, { label: 'Thermostat', value: 'Adjustable' }, { label: 'Filtration', value: 'Carbon filter' }, { label: 'Dimensions (WxDxH)', value: '310 x 310 x 1270mm' }, { label: 'Power Supply', value: '220-240V 50Hz' }, { label: 'Refrigerant', value: 'R290' }],
+  specs: [{ label: 'Model', value: 'RIVER' }, { label: 'Water Options', value: 'Cold' }, { label: 'Dispensing Capacity', value: '20L/hr at 5 to 12°C' }, { label: 'Cooling', value: 'Ice bank, compact Blupura direct chill' }, { label: 'Filtration', value: 'Carbon filter' }, { label: 'Dimensions (WxDxH)', value: '310 x 310 x 1270mm' }, { label: 'Power Supply', value: '220-240V 50Hz' }, { label: 'Refrigerant', value: 'R290' }],
   details: [
    'The River is a free standing stainless steel cold water dispenser with heavy duty stainless steel faucets, built for high traffic areas where a plastic cabinet would not last.',
    'An ice bank with compact Blupura direct chill technology delivers 20L/hr at 5°C to 12°C, and the thermostat is adjustable to suit the site.',
    'Filtration is by carbon filter. It runs on a 220V to 240V 50Hz supply, using R290 refrigerant.',
   ] },
- { name: 'Legend Classic', image: 'assets/legend-classic-v4.png', category: 'Water Solutions', variant: 'accent',
+ { name: 'Legend Classic Black', image: 'assets/legend-classic-v4.png', category: 'Water Solutions', variant: 'accent',
   tagline: 'Cold, ambient and hot water on tap',
   description: 'A compressor driven, manually refilled dispenser serving cold, ambient and hot water, with a carbon filter, a 19L filtering bottle and a removable silver drip tray.',
   tags: ['Manual Water Refill', 'Cold, Ambient & Hot', 'Includes Filter Bottle'],
@@ -575,38 +578,39 @@ const PRODUCTS_WATER = [
   ] },
  { name: 'Murano Tower', image: 'assets/murano-tower-box.png', category: 'Water Solutions', variant: 'accent',
   tagline: 'A statement of style with a small footprint',
-  description: 'A slim counter tower with touch dispensing and a stainless steel drip tray. Supplied with the Frizzante 80 Box under-counter unit.',
+  description: 'A slim counter tower with touch dispensing and a stainless steel drip tray. Supplied with the Frizzante 80 Box under-counter unit where ventilation is essential.',
   tags: ['Small Footprint', 'Touch Dispensing', 'Includes Frizzante 80 Box'],
-  specs: [{ label: 'Included', value: 'Frizzante 80 Box under-counter unit' }, { label: 'Placement', value: 'Counter tower' }],
+  specs: [{ label: 'Model', value: 'Murano Tower' }, { label: 'Dimensions (WxDxH)', value: '227 x 209 x 513mm' }, { label: 'Water Options', value: 'Cold, Ambient, Sparkling' }, { label: 'Dispensing', value: '80L/hr' }],
   details: [
-   'A high-volume elegant dispensing tower designed for hospitality venues where counter space and presentation matter. The Murano Tower connects to the Purezza Frizzante 80 Box under-counter system, providing convenient access to freshly filtered chilled, ambient and sparkling water without requiring a traditional countertop dispenser.',
+   'A high-volume elegant dispensing tower designed for hospitality venues where counter space and presentation matter. The Murano Tower connects to the Purezza Frizzante 80 Box under-counter system, providing convenient access to freshly filtered cold, ambient and sparkling water without requiring a traditional countertop dispenser.',
+   'Optional inline UVC purification system eliminates up to 99.9999% of waterborne bacteria and viruses.',
   ] },
  { name: 'Frizzante 80 Manual', image: 'assets/frizzante-80-manual.png', category: 'Water Solutions', variant: 'default',
   tagline: 'The intuitive hospitality solution with mechanical tap dispensing',
   description: 'A counter-top unit with three mechanical taps and a removable drip tray, built for busy hospitality service.',
   tags: ['Mechanical Taps', 'Hospitality', 'Counter-Top'],
-  specs: [{ label: 'Dispensing', value: 'Mechanical taps' }, { label: 'Placement', value: 'Counter-top' }] },
+  specs: [{ label: 'Model', value: 'Frizzante 80 Manual' }, { label: 'Dimensions (WxDxH)', value: '345 x 618 x 579mm' }, { label: 'Water Options', value: 'Cold, Ambient, Sparkling' }, { label: 'Dispensing', value: '80L/hr' }],
+  details: [
+   'A high-performance countertop water dispenser designed for busy hospitality environments requiring reliable, high-volume dispensing. The Frizzante 80 Manual provides chilled, ambient and sparkling water through mechanical taps. It features high-performance filtration and integrated UV LED protection for added water hygiene.',
+  ] },
  { name: 'Frizzante Mini', image: 'assets/frizzante-mini.png', category: 'Water Solutions', variant: 'accent',
   tagline: 'The compact solution for modern hospitality environments',
   description: 'A compact counter-top unit with a four-button touch panel and a removable drip tray.',
   tags: ['Compact', 'Touch Panel', 'Counter-Top'],
-  specs: [{ label: 'Controls', value: 'Four-button touch panel' }, { label: 'Placement', value: 'Counter-top' }],
+  specs: [{ label: 'Model', value: 'Frizzante Mini' }, { label: 'Dimensions (WxDxH)', value: '264 x 576 x 431mm' }, { label: 'Water Options', value: 'Cold, ambient, sparkling' }, { label: 'Dispensing', value: 'Up to 30L/hr' }],
   details: [
    'A compact, professional countertop water dispenser designed for venues where space is limited. The Frizzante Mini offers chilled, ambient and sparkling water, with configurations also available for hot water dispensing. Its compact design makes it suitable for cafés, bars and smaller hospitality environments.',
-   'Installation, servicing and repairs are carried out by our own teams, not subcontractors, from hubs in Johannesburg, Cape Town and Durban. Routine maintenance visits are scheduled and breakdown calls are logged through our support line.',
-   'Available to buy or rent. Rental agreements include maintenance and aftersales support, and consumables supply can be added so the machine is stocked without a separate order each month.',
   ] },
  { name: 'Purezza T-Bar Tower', image: 'assets/purezza-t-bar-box.png', category: 'Water Solutions', variant: 'default',
   tagline: 'Contemporary design with the flexibility to fit any setting',
-  description: 'A counter tower with up to three dispensing points and intuitive medallion taps. Combined with the Frizzante Box it serves chilled, ambient and sparkling water. Supplied with the Frizzante 80 Box under-counter unit.',
+  description: 'A counter tower with up to three dispensing points and intuitive medallion taps. It serves cold, ambient and sparkling water. Supplied with the Frizzante 80 Box under-counter unit where ventilation is essential.',
   tags: ['Up to 3 Dispensing Points', 'Four Colour Options', 'Includes Frizzante 80 Box'],
   brochure: 'purezza-t-bar.pdf',
-  specs: [{ label: 'Included', value: 'Frizzante 80 Box under-counter unit' }, { label: 'Model', value: 'T-Bar Tower' }, { label: 'Water Options', value: 'Up to 3: chilled, ambient and sparkling' }, { label: 'Colours', value: 'Black, white, bronze and steel' }, { label: 'Dispense Area Height', value: '300mm, bottles up to 300mm' }, { label: 'Dimensions (3 ways)', value: '311 x 207 x 511mm (WxDxH)' }, { label: 'Dimensions (2 ways)', value: '201 x 201 x 511mm (WxDxH)' }, { label: 'Dimensions (1 way)', value: '88.9 x 209 x 511mm (WxDxH)' }, { label: 'Weight', value: '5kg (1 and 2 ways), 6kg (3 ways)' }, { label: 'Inlet Pipe Connection', value: '3, 4 or 5 x 8mm (1, 2 or 3 ways)' }, { label: 'Purification', value: 'Inline UVC, optional' }, { label: 'Refrigerant', value: 'R290 (with Frizzante Box)' }, { label: 'Suggested Installation', value: 'With Frizzante Box' }],
+  specs: [{ label: 'Model', value: 'T-Bar Tower' }, { label: 'Water Options', value: 'Up to 3: chilled, ambient and sparkling' }, { label: 'Dispensing', value: '80L/hr' }, { label: 'Dispense Area Height', value: '300mm, bottles up to 300mm' }, { label: 'Dimensions (3 ways)', value: '311 x 207 x 511mm (WxDxH)' }, { label: 'Dimensions (1 way)', value: '88.9 x 209 x 511mm (WxDxH)' }, { label: 'Weight', value: '6kg (3 ways)' }, { label: 'Inlet Pipe Connection', value: '3, 4 or 5 x 8mm (1, 2 or 3 ways)' }, { label: 'Purification', value: 'Inline UVC, optional' }, { label: 'Refrigerant', value: 'R290 (with Frizzante Box)' }],
   details: [
-   'A stylish, space-saving dispensing tower designed for seamless integration into hospitality counters. Connected to an under-counter Frizzante system, the T-Bar provides chilled, ambient and sparkling water through mechanical taps. Available in black in three-tap configurations.',
-   'When combined with the Frizzante Box it serves chilled, ambient and sparkling water through mechanical taps. Ice Bath cooling delivers high volumes of ice-cold water, and the optional inline UVC purification system eliminates up to 99.9999% of waterborne bacteria and viruses.',
-   'Professional grade filters address colour, taste and odour. The tower is stainless steel for hygiene and easy cleaning, with a 300mm dispense area for bottles. The 3 way model weighs 6kg.',
-   'Supplied with the Frizzante 80 Box, an under-counter unit that chills and carbonates the water using Ice Bath cooling and high performance filtration. The tower sits on the counter as the dispensing point, while the box is installed out of sight below it.',
+   'A stylish, space-saving dispensing tower designed for seamless integration into hospitality counters. Connected to an under-counter Frizzante system, the T-Bar provides cold, ambient and sparkling water through mechanical taps. Available in black in three-tap configurations.',
+   'When combined with the Frizzante Box it serves chilled, ambient and sparkling water through mechanical taps. Ice Bath cooling delivers high volumes of ice-cold water.',
+   'Optional inline UVC purification system eliminates up to 99.9999% of waterborne bacteria and viruses.',
   ] },
  { name: 'Petalosa Bottles', hideFaqs: true, hideOverview: true, image: 'assets/purezza/petalosa-bottles.png', category: 'Water Solutions', variant: 'default',
   tagline: 'Eco-friendly glass bottle range for hospitality',
@@ -632,19 +636,16 @@ const PRODUCTS_PAYMENT = [
   details: [
    'This all-in-one solution is suitable for cashless bank payments. The system is suitable for multiple applications and markets including unattended automatic vending machines.',
    'The benefits of going cashless: Removes risky cash handling while increasing sales. No moving parts (coin/note jams).',
-   'General features include a complete management suite, contactless tap-and-go bank payments covering mag strip and chip, a durable and highly secured build to prevent vandalism, audio consumer interaction, local software support and real-time transactions.',
-   'Nayax Vend adds machine and transaction monitoring in real-time, customised alerts by email or SMS, personalised reports, a unique BI system and cash accountability, which is machine dependent.',
   ] },
  { name: 'Onyx Contactless Bank Card Device', image: 'assets/payment/onyx-v2.png', category: 'Payment Solutions', variant: 'default',
   tagline: 'Sleek tap-and-go contactless reader',
   description: 'A sleek contactless card reader that fits on any vending machine, packed with contactless, NFC, marketing tools and remote machine management.',
   tags: ['Contactless Tap-and-Go', 'NFC & Marketing Tools', 'Remote Management'],
   brochure: 'onyx.pdf',
-  specs: [{ label: 'Type', value: 'Contactless bank card device' }, { label: 'Group', value: 'Cashless systems' }, { label: 'Payment', value: 'Contactless tap-and-go' }, { label: 'Certification', value: 'EMV level 1 certified' }, { label: 'Contactless', value: 'EMV level 2: Visa PayWave MSD + qVSDC, Mastercard and Visa' }, { label: 'Other Cards', value: 'NFC, MIFARE, ISO 14443 Type A,B' }, { label: 'Management', value: 'Complete management suite' }, { label: 'Support', value: 'Local software support' }],
+  specs: [{ label: 'Type', value: 'Bank card device' }, { label: 'Group', value: 'Cashless systems' }, { label: 'Payment', value: 'Contactless tap-and-go' }, { label: 'Certification', value: 'EMV level 1 certified' }, { label: 'Contactless', value: 'EMV level 2: Visa PayWave MSD + qVSDC, Mastercard and Visa' }, { label: 'Other Cards', value: 'NFC, MIFARE, ISO 14443 Type A,B' }, { label: 'Management', value: 'Complete management suite' }, { label: 'Support', value: 'Local software support' }],
   details: [
-   'Onyx, the sleek, tap-and-go contactless card reader can fit on any vending machine and gives your consumer a convenient cashless payment experience. While consumers complete transactions quickly, operators access a world of operational benefits and insights.',
-   'The Onyx is more than a card reader: it is a device packed with powerful capabilities including contactless, NFC, marketing tools and remote machine management. General features include a complete management suite, a durable and highly secured build to prevent vandalism, audio consumer interaction, local software support and real-time data transactions.',
-   'Nayax Vend adds machine and transaction monitoring in real-time, customised alerts by email or SMS, personalised reports, a unique BI system and cash accountability.',
+   'This all-in-one solution is suitable for cashless bank payments. The system is suitable for multiple applications and markets including unattended automatic vending machines.',
+   'The benefits of going cashless: Removes risky cash handling while increasing sales. No moving parts (coin/note jams).',
   ] },
  { name: 'Electronic Cashless Control System', image: 'assets/payment/coges-engine-v2.png', category: 'Payment Solutions', variant: 'accent',
   tagline: 'Complete cashless payment or control system',
@@ -661,15 +662,15 @@ const PRODUCTS_PAYMENT = [
 PRODUCTS.push(...PRODUCTS_PAYMENT);
 
 const PRODUCTS_RECYCLING = [
- { name: 'Tritech Shredder', category: 'Recycling', variant: 'default', image: 'assets/tritech-compactor.png',
+ { name: 'Tritech Shredder', category: 'Recycling', variant: 'default', image: 'assets/tritech-shredder-v3.jpg',
   tagline: 'Automatic shredding machine for disposable plastic and paper cups',
-  description: 'Shreds disposable plastic and paper cups automatically on deposit, reducing waste volume by up to 7x. Waste is collected in the container below, with an integrated sanitising system, an incentive reward system and a tablet touchscreen.',
+  description: 'Shreds disposable paper cups automatically on deposit, reducing waste volume by up to 7x. Waste is collected in the container below, with an integrated sanitising system, an incentive reward system and a tablet touchscreen.',
   tags: ['Up to 7x Volume Reduction', 'Automated Operation', 'Incentive Reward System'],
   brochure: 'recycling-options.pdf',
   specs: [{ label: 'Waste Type', value: 'Disposable Plastic & Paper Cups' }, { label: 'Telemetry', value: 'Included' }, { label: 'Interface', value: 'Tablet Touchscreen' }] },
- { name: 'Tritech Compactor', category: 'Recycling', variant: 'accent', image: 'assets/tritech-compactor-v2.png',
+ { name: 'Tritech Compactor', category: 'Recycling', variant: 'accent', image: 'assets/tritech-compactor-v3.jpg',
   tagline: 'Automatic compacting machine for plastic bottles and cans',
-  description: 'Compacts PET plastic bottles of different sizes and beverage cans automatically on deposit. Waste is collected in the container below, with telemetry included, an incentive reward system for staff and a tablet touchscreen.',
+  description: 'Compacts PET plastic bottles of different sizes or beverage cans automatically on deposit. Waste is collected in the container below, with telemetry included, an incentive reward system for staff and a tablet touchscreen.',
   tags: ['Capacity: 350 Bottles/Cans', 'Automated Operation', 'Incentive Reward System'],
   brochure: 'recycling-options.pdf',
   specs: [{ label: 'Waste Type', value: 'PET Plastic Bottles & Beverage Cans' }, { label: 'Capacity', value: '350 PET bottles/cans' }, { label: 'Telemetry', value: 'Included' }, { label: 'Interface', value: 'Tablet Touchscreen' }] },
@@ -868,7 +869,7 @@ componentDidMount() {
 
   const FAQ_BY_CATEGORY = {
    'Recycling': [
-    { q: 'How much smaller are cans and cups after being processed by the TriTech Shredder?', a: 'Depending on the material, items can be reduced to between 4 and 10 times their original size, significantly decreasing waste volume.' },
+    { q: 'How much smaller are cans and cups after being processed by the TriTech Shredder?', a: 'Depending on the material, items can be reduced up to 7x their original size, significantly decreasing waste volume.' },
     { q: 'How much material can the TriTech Shredder hold?', a: 'The collection bin can hold up to 1,700 shredded paper cups or approximately 350 shredded PET bottles, reducing the frequency of emptying.' },
     { q: 'What happens if someone places their hand inside the shredder opening?', a: "Safety is built into the design. The shredding process will not start while the safety flap is open. In addition, the shredding blades are positioned beyond the reach of an operator's arm, providing an added layer of protection." },
    ],
@@ -903,7 +904,7 @@ componentDidMount() {
    'Payment Solutions': [
     { q: 'Do these replace our machines?', a: 'No. The card readers and cashless system retrofit to machines already on site. We handle the fitment, the merchant setup and the reporting login.' },
     { q: 'What is the difference between the VPos Touch and the Onyx?', a: 'Both are Nayax bank card devices. The VPos Touch is an all-in-one reader taking contactless, mag strip and chip, certified to EMV level 1 and level 2. The Onyx is a sleek tap-and-go contactless reader that fits on any vending machine, adding NFC, marketing tools and remote machine management.' },
-    { q: 'Which cards are supported?', a: 'Mastercard and Visa, with Visa PayWave MSD and qVSDC contactless. Other supported cards include NFC, MIFARE and ISO 14443 Type A,B, plus ISO 15693 on the VPos Touch, and magnetic stripe to ISO7811 and JIS I Tracks 1,2,3.' },
+    { q: 'Which cards are supported?', a: 'Mastercard, Visa, Diners* and American Express*.' },
     { q: 'Can we still take cash?', a: 'Yes. The Electronic Cashless Control System integrates cash management with cashless payments and telemetry in one system.' },
     { q: 'What reporting do we get?', a: 'Nayax Vend gives machine and transaction monitoring in real-time, customised alerts by email or SMS, personalised reports, a BI system and cash accountability. The Electronic Cashless Control System adds a complete data audit from the vending machine, with telemetry as an optional extra.' },
     { q: 'Will it work with our existing machines?', a: 'The Electronic Cashless Control System is multi-standard, supporting Executive, MDB, BDV and RS232. Most machines in our range are MDB compatible.' },
@@ -923,7 +924,7 @@ componentDidMount() {
    const pay = S(/payment/i);
    if (pay) out.push({ q: 'What payment methods does the ' + p.name + ' accept?', a: end(pay.value) });
    const dim = S(/dimension|size/i);
-   if (dim) out.push({ q: 'What are the dimensions of the ' + p.name + '?', a: end(dim.value + (/wxdxh/i.test(dim.label) ? ' (width x depth x height)' : '')) });
+   if (dim) out.push({ q: 'What are the dimensions of the ' + p.name + '?', a: end(dim.value + (/wxdxh/i.test(dim.label) ? ' (WxDxH)' : '')) });
    const cool = S(/cool|temperature/i);
    if (cool) out.push({ q: 'What temperature does the ' + p.name + ' keep products at?', a: end(cool.value) });
    const pow = S(/power|voltage/i);
@@ -947,30 +948,12 @@ componentDidMount() {
     },
     {
      "q": "What temperature is the water kept at?",
-     "a": "Cold: Approximately 8-12°C\nAmbient: Supplied at the incoming water temperature"
-    }
-   ],
-   "Legend Classic": [
-    {
-     "q": "What water options does the Legend Classic offer?",
-     "a": "The Legend Classic provides chilled, ambient and hot water, offering convenient hydration throughout the workplace."
-    },
-    {
-     "q": "Does the Legend Classic have built-in water filtration?",
-     "a": "Yes. The Legend Classic includes a manual re-fillable 19L bottle with a filtration system to help improve water quality and taste."
-    },
-    {
-     "q": "Plumbed-in or bottled?",
-     "a": "Bottled. The Legend Classic is a manual refillable bottled water cooler."
-    },
-    {
-     "q": "What temperature is the water kept at?",
-     "a": "The Legend Classic uses a compressor-driven cooling system for chilled water and a heating system for hot water."
+     "a": "Cold: Approximately 8-12°C"
     }
    ],
    "The River": [
     {
-     "q": "What water options does this cooler offer?",
+     "q": "What water options does this river cooler offer?",
      "a": "The River has cold water only."
     },
     {
@@ -1021,7 +1004,7 @@ componentDidMount() {
    "Frizzante Mini": [
     {
      "q": "What type of water does the Frizzante Mini dispense?",
-     "a": "The Frizzante Mini offers chilled, ambient and sparkling water."
+     "a": "The Frizzante Mini offers cold, ambient and sparkling water."
     },
     {
      "q": "How much water does the Frizzante Mini dispense per hour?",
@@ -1075,7 +1058,7 @@ componentDidMount() {
    "Murano Tower": [
     {
      "q": "What type of water does the Murano dispense?",
-     "a": "The Murano dispenses cold and sparkling water."
+     "a": "The Murano dispenses cold, ambient and sparkling water."
     },
     {
      "q": "How much water does the Murano dispense per hour?",
@@ -1136,24 +1119,6 @@ componentDidMount() {
      "a": "Firewall is Waterlogic's patented UVC purification technology, which purifies water at the point of dispense, helping eliminate up to 99.9999% of bacteria and viruses. It also has BioCote antimicrobial protection around the dispensing area which kills 80% of bacteria in 15 minutes."
     }
    ],
-   "Bar Classe Firewall": [
-    {
-     "q": "What type of water does the Classe dispense?",
-     "a": "The Classe dispenses unlimited purified cold and sparkling water."
-    },
-    {
-     "q": "How much water does the Classe dispense per hour?",
-     "a": "Up to 160L/hr."
-    },
-    {
-     "q": "Does the Classe have built-in water purification technology?",
-     "a": "Yes. Its high-flow Firewall® UVC purification purifies the water right up to the point of dispense and is guaranteed to remove up to 99.9999% of bacteria, 99.99% of viruses and 99.9% of cysts. The bottle holders and floater mechanism are also protected by BioCote® antimicrobial technology."
-    },
-    {
-     "q": "Does the Classe require under-counter installation?",
-     "a": "No, it is a countertop unit."
-    }
-   ],
    "Azkoyen Novara DFB": [
     {
      "q": "Is the Novara plumbed-in or tanked?",
@@ -1161,7 +1126,7 @@ componentDidMount() {
     },
     {
      "q": "What are the dimensions of the Azkoyen Novara DFB?",
-     "a": "600 x 650 x 1830mm (width x depth x height)."
+     "a": "600 x 650 x 1830mm (WxDxH)."
     },
     {
      "q": "What power supply does the Azkoyen Novara DFB need?",
@@ -1269,7 +1234,7 @@ componentDidMount() {
     },
     {
      "q": "What are the dimensions of the Jofemar Orion G23?",
-     "a": "417 x 463 x 767mm (width x depth x height)."
+     "a": "417 x 463 x 767mm (WxDxH)."
     },
     {
      "q": "What power supply does the Jofemar Orion G23 need?",
@@ -1305,7 +1270,7 @@ componentDidMount() {
     },
     {
      "q": "What are the dimensions of the Vision Esplus Bluetec?",
-     "a": "1120 x 820 x 1870mm (width x depth x height)."
+     "a": "1120 x 820 x 1870mm (WxDxH)."
     },
     {
      "q": "What temperature does the Vision Esplus Bluetec keep products at?",
@@ -1345,11 +1310,65 @@ componentDidMount() {
     },
     {
      "q": "Which cards are supported?",
-     "a": "Mastercard and Visa, with Visa PayWave MSD and qVSDC contactless. Other supported cards include NFC, MIFARE and ISO 14443 Type A,B, plus ISO 15693 on the VPos Touch, and magnetic stripe to ISO7811 and JIS I Tracks 1,2,3."
+     "a": "Mastercard, Visa, Diners* and American Express*."
     },
     {
      "q": "Can we still take cash?",
      "a": "Yes. The Electronic Cashless Control System integrates cash management with cashless payments and telemetry in one system."
+    }
+   ],
+   "P2 Firewall Bar Classe": [
+    {
+     "q": "What type of water does the Classe dispense?",
+     "a": "The Classe dispenses purified cold and sparkling water."
+    },
+    {
+     "q": "How much water does the Classe dispense per hour?",
+     "a": "Up to 160L/hr."
+    },
+    {
+     "q": "Does the Classe have built-in water purification technology?",
+     "a": "Yes. Its high-flow Firewall® UVC purification purifies the water right up to the point of dispense and is guaranteed to remove up to 99.9999% of bacteria, 99.99% of viruses and 99.9% of cysts. The bottle holders and floater mechanism are also protected by BioCote® antimicrobial technology."
+    },
+    {
+     "q": "Does the Classe require under-counter installation?",
+     "a": "No, it is a countertop unit."
+    }
+   ],
+   "Legend Classic Black": [
+    {
+     "q": "What water options does the Legend Classic offer?",
+     "a": "The Legend Classic provides cold, ambient and hot water, offering convenient hydration throughout the workplace."
+    },
+    {
+     "q": "Does the Legend Classic have built-in water filtration?",
+     "a": "Yes. The Legend Classic includes a manual re-fillable 19L bottle with a filtration system to help improve water quality and taste."
+    },
+    {
+     "q": "Plumbed-in or bottled?",
+     "a": "Bottled. The Legend Classic is a manual refillable bottled water cooler."
+    },
+    {
+     "q": "What temperature is the water kept at?",
+     "a": "The Legend Classic uses a compressor-driven cooling system for chilled water and a heating system for hot water."
+    }
+   ],
+   "Onyx Contactless Bank Card Device": [
+    {
+     "q": "What payment methods does the Onyx Contactless Bank Card Device accept?",
+     "a": "Contactless tap-and-go."
+    },
+    {
+     "q": "Do these replace our machines?",
+     "a": "No. The card readers and cashless system retrofit to machines already on site. We handle the fitment, the merchant setup and the reporting login."
+    },
+    {
+     "q": "What is the difference between the VPos Touch and the Onyx?",
+     "a": "Both are Nayax bank card devices. The VPos Touch is an all-in-one reader taking contactless, mag strip and chip, certified to EMV level 1 and level 2. The Onyx is a sleek tap-and-go contactless reader that fits on any vending machine, adding NFC, marketing tools and remote machine management."
+    },
+    {
+     "q": "Which cards are supported?",
+     "a": "Mastercard, Visa, American Express* and Diners*."
     }
    ]
   };
