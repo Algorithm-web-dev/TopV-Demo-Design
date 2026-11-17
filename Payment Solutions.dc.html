@@ -220,7 +220,7 @@
       <sc-for list="{{ selectedProduct.specsKey }}" as="spec" hint-placeholder-count="3">
        <div style="display:flex;justify-content:space-between;gap:24px;border-top:1px solid #E1E4E8;padding:18px 0;font-size:15px;">
         <span style="font-family:'Inter',sans-serif;color:#6B6B68;">{{ spec.label }}</span>
-        <span style="font-family:'Inter',sans-serif;font-weight:600;text-align:right;">{{ spec.value }}</span>
+        <span style="font-family:'Inter',sans-serif;font-weight:600;text-align:right;white-space:pre-line;">{{ spec.value }}</span>
        </div>
       </sc-for>
      </div>
@@ -239,7 +239,7 @@
      <sc-for list="{{ selectedProduct.specsRest }}" as="spec" hint-placeholder-count="4">
       <div style="display:flex;justify-content:space-between;gap:24px;border-top:1px solid #E1E4E8;padding:16px 0;font-size:15px;">
        <span style="font-family:'Inter',sans-serif;color:#6B6B68;">{{ spec.label }}</span>
-       <span style="font-family:'Inter',sans-serif;font-weight:600;text-align:right;">{{ spec.value }}</span>
+       <span style="font-family:'Inter',sans-serif;font-weight:600;text-align:right;white-space:pre-line;">{{ spec.value }}</span>
       </div>
      </sc-for>
     </div>
@@ -401,17 +401,17 @@ const PRODUCTS_COFFEE = [
   tagline: 'Brilliance in every cup',
   description: 'Bean-to-cup plus 2 instants with a wide range of customisable drinks, fresh milk, a 7-inch touchscreen and Prime Milk automatic froth.',
   tags: ['Bean-to-Cup + 2 Instants', '7" Touchscreen', 'Automatic Milk Froth'],
-  specs: [{ label: 'Grinder', value: 'One Grinder, One Per Hopper' }, { label: 'Milk', value: 'Prime Milk – Automatic Froth' }, { label: 'Dimensions (WxDxH)', value: '308 x 570 x 629mm' }, { label: 'Fridge Dimensions (WxDxH)', value: '220 x 470 x 375mm' }] },
+  specs: [{ label: 'Grinder', value: 'One Grinder, One Per Hopper' }, { label: 'Milk', value: 'Prime Milk – Automatic Froth' }, { label: 'Dimensions (WxDxH)', value: 'Machine: 308 x 570 x 629mm\nFridge: 220 x 470 x 375mm' }] },
  { name: 'Azkoyen Vitro X1 MIA', image: 'assets/coffee/vitro-x1-v2.png', category: 'Hot Beverage Solutions', variant: 'accent',
   tagline: 'Innovative design for quality coffee',
   description: 'A fresh bean brewer with a fresh milk fridge, high capacity boilers, 12 selection touch panel, variable brewing unit and an illuminated dispensing area.',
   tags: ['Fresh Bean Brewer', '12 Selection Touch Panel', 'High Capacity Boilers'],
-  specs: [{ label: 'Milk', value: 'Fresh Milk Fridge' }, { label: 'Access', value: 'Easy-Access Hoppers' }, { label: 'Dimensions (WxDxH)', value: '337 x 505 x 672mm' }, { label: 'Fridge Dimensions (WxDxH)', value: '220 x 470 x 375mm' }] },
+  specs: [{ label: 'Milk', value: 'Fresh Milk Fridge' }, { label: 'Access', value: 'Easy-Access Hoppers' }, { label: 'Dimensions (WxDxH)', value: 'Machine: 337 x 505 x 672mm\nFridge: 220 x 470 x 375mm' }] },
  { name: 'Saeco Magic', image: 'assets/coffee/saeco-magic-v3.png', category: 'Hot Beverage Solutions', variant: 'default',
   tagline: 'Revolutionary coffee machine',
   description: 'A fresh bean brewer with a touchscreen display, fresh milk, one-touch high-speed milk and high capacity.',
   tags: ['Double Boiler, Double Pump', 'Touchscreen Display', 'High Capacity'],
-  specs: [{ label: 'Milk', value: 'One-Touch High-Speed Milk' }, { label: 'Lighting', value: 'LED Lighting' }, { label: 'Dimensions (WxDxH)', value: '280 x 481 x 470mm' }, { label: 'Fridge Dimensions (WxDxH)', value: '220 x 470 x 375mm' }] },
+  specs: [{ label: 'Milk', value: 'One-Touch High-Speed Milk' }, { label: 'Lighting', value: 'LED Lighting' }, { label: 'Dimensions (WxDxH)', value: 'Machine: 280 x 481 x 470mm\nFridge: 220 x 470 x 375mm' }] },
  { name: 'NEOQs', image: 'assets/coffee/neoqs.png', category: 'Hot Beverage Solutions', variant: 'accent',
   tagline: 'Your all-in-one premium espresso and fresh leaf tea solution',
   description: 'Cup recognition technology with energy-saving ECO mode, a 21.5" Full HD touchscreen, 7 hoppers (1 tea, 1 bean, 5 instant) and fully customisable beverages and volumes.',
@@ -1005,10 +1005,6 @@ class Component extends DCLogic {
      "a": "It is plumbed-in with a drain."
     },
     {
-     "q": "What are the dimensions of the Azkoyen Vitro X1 MIA?",
-     "a": "Machine: 337 x 505 x 672mm\nFridge: 220 x 470 x 375mm"
-    },
-    {
      "q": "What power supply does the Azkoyen Vitro X1 MIA need?",
      "a": "220-240V 50Hz."
     },
@@ -1021,10 +1017,6 @@ class Component extends DCLogic {
     {
      "q": "Is the Saeco Magic plumbed-in or tanked?",
      "a": "Tanked 4L."
-    },
-    {
-     "q": "What are the dimensions of the Saeco Magic?",
-     "a": "Machine (WxDxH): 280 x 481 x 470mm\nFridge (WxDxH): 220 x 470 x 375mm"
     },
     {
      "q": "What power supply does the Saeco Magic need?",
@@ -1041,10 +1033,6 @@ class Component extends DCLogic {
      "a": "It is plumbed-in."
     },
     {
-     "q": "What are the dimensions of the Gaggia Milano La Brillante?",
-     "a": "Machine (WxDxH): 308 x 570 x 629mm\nFridge (WxDxH): 220 x 470 x 375mm"
-    },
-    {
      "q": "What power supply does the Gaggia Milano La Brillante need?",
      "a": "230V 50Hz."
     },
@@ -1057,10 +1045,6 @@ class Component extends DCLogic {
     {
      "q": "Is the JL33 plumbed-in or tanked?",
      "a": "It can be either plumbed or 4L tanked."
-    },
-    {
-     "q": "What are the dimensions of the Jetinno JL33?",
-     "a": "Machine: 350 x 560 x 628mm\nFridge: 220 x 450 x 480mm"
     },
     {
      "q": "What power supply does the Jetinno JL33 need?",
