@@ -446,7 +446,7 @@ const PRODUCTS_COFFEE = [
 PRODUCTS.push(...PRODUCTS_COFFEE);
 
 const PRODUCTS_WATER = [
- { name: 'Bar Classe Firewall', image: 'assets/bar-classe.png', category: 'Water Solutions', variant: 'default',
+ { name: 'P2 Firewall Bar Classe', image: 'assets/bar-classe.png', category: 'Water Solutions', variant: 'default',
   tagline: 'Premium solution',
   description: 'Offers 2 water options, cold and sparkling, with portion control and Firewall UVC Purification, removing up to 99.999% of bacteria, viruses and cysts. Ice cold water via Ice Bath cooling, high performance filtration and BioCote protection. Plumbed in solution.',
   tags: ['Cold & Sparkling', 'Firewall UVC Purification', 'Portion Control'],
@@ -455,12 +455,18 @@ const PRODUCTS_WATER = [
   tagline: 'Stylish, Efficient & High Flow solution',
   description: 'Offers 3 water options: cold, ambient and sparkling, with portion control, an adjustable drip tray height for different bottle sizes, and eco-sustainable R290 refrigeration. Plumbed in solution.',
   tags: ['Cold, Ambient & Sparkling', 'Adjustable Drip Tray', 'R290 Eco Refrigeration'],
-  specs: [{ label: 'Water Options', value: 'Cold, Ambient & Sparkling' }, { label: 'Refrigeration', value: 'R290 Natural Gas' }, { label: 'Installation', value: 'Plumbed In' }] },
+  specs: [{ label: 'Model', value: 'P1 Bar Series E' }, { label: 'Dimensions (WxDxH)', value: '345 x 555 x 592mm' }, { label: 'Water Options', value: 'Cold, Ambient, Sparkling' }, { label: 'Dispensing', value: '80L/hr' }],
+  details: [
+   'A high-performance countertop water dispenser designed for busy hospitality environments. The E Series provides three water options: chilled, ambient and sparkling. Featuring a stainless-steel exterior, adjustable drip tray and three mechanical taps, it allows multiple bottles to be filled simultaneously.',
+  ] },
  { name: 'P1 Bar Series B', image: 'assets/p1-bar-b.png', category: 'Water Solutions', variant: 'default',
   tagline: 'Stylish, Efficient & High Flow solution',
   description: 'Offers 2 water options, cold and sparkling, with portion control, a back-lit front panel with premium aesthetics, and eco-sustainable R290 refrigeration. Plumbed in solution.',
   tags: ['Cold & Sparkling', 'Back-Lit Front Panel', 'R290 Eco Refrigeration'],
-  specs: [{ label: 'Water Options', value: 'Cold & Sparkling' }, { label: 'Refrigeration', value: 'R290 Natural Gas' }, { label: 'Installation', value: 'Plumbed In' }] },
+  specs: [{ label: 'Model', value: 'P1 Bar Series B' }, { label: 'Dimensions (WxDxH)', value: '360 x 502 x 565mm' }, { label: 'Water Options', value: 'Cold and Sparkling' }, { label: 'Dispensing', value: '80L/hr' }],
+  details: [
+   'A high-flow countertop water dispenser designed for restaurants, cafés and hospitality venues. The B Series delivers chilled and sparkling water, with a stainless-steel exterior and backlit front panel.',
+  ] },
  { name: 'Campione Tower', image: 'assets/campione-tower.png', category: 'Water Solutions', variant: 'accent',
   tagline: 'Where space is limited',
   description: 'Offers 3 water options: cold, ambient and sparkling, with ice cold water produced using Ice Bath cooling technology and high performance filtration. Plumbed in with the Frizzante 60 under-counter solution.',
@@ -484,19 +490,16 @@ const PRODUCTS_PAYMENT = [
   details: [
    'This all-in-one solution is suitable for cashless bank payments. The system is suitable for multiple applications and markets including unattended automatic vending machines.',
    'The benefits of going cashless: Removes risky cash handling while increasing sales. No moving parts (coin/note jams).',
-   'General features include a complete management suite, contactless tap-and-go bank payments covering mag strip and chip, a durable and highly secured build to prevent vandalism, audio consumer interaction, local software support and real-time transactions.',
-   'Nayax Vend adds machine and transaction monitoring in real-time, customised alerts by email or SMS, personalised reports, a unique BI system and cash accountability, which is machine dependent.',
   ] },
  { name: 'Onyx Contactless Bank Card Device', image: 'assets/payment/onyx-v2.png', category: 'Payment Solutions', variant: 'default',
   tagline: 'Sleek tap-and-go contactless reader',
   description: 'A sleek contactless card reader that fits on any vending machine, packed with contactless, NFC, marketing tools and remote machine management.',
   tags: ['Contactless Tap-and-Go', 'NFC & Marketing Tools', 'Remote Management'],
   brochure: 'onyx.pdf',
-  specs: [{ label: 'Type', value: 'Contactless bank card device' }, { label: 'Group', value: 'Cashless systems' }, { label: 'Payment', value: 'Contactless tap-and-go' }, { label: 'Certification', value: 'EMV level 1 certified' }, { label: 'Contactless', value: 'EMV level 2: Visa PayWave MSD + qVSDC, Mastercard and Visa' }, { label: 'Other Cards', value: 'NFC, MIFARE, ISO 14443 Type A,B' }, { label: 'Management', value: 'Complete management suite' }, { label: 'Support', value: 'Local software support' }],
+  specs: [{ label: 'Type', value: 'Bank card device' }, { label: 'Group', value: 'Cashless systems' }, { label: 'Payment', value: 'Contactless tap-and-go' }, { label: 'Certification', value: 'EMV level 1 certified' }, { label: 'Contactless', value: 'EMV level 2: Visa PayWave MSD + qVSDC, Mastercard and Visa' }, { label: 'Other Cards', value: 'NFC, MIFARE, ISO 14443 Type A,B' }, { label: 'Management', value: 'Complete management suite' }, { label: 'Support', value: 'Local software support' }],
   details: [
-   'Onyx, the sleek, tap-and-go contactless card reader can fit on any vending machine and gives your consumer a convenient cashless payment experience. While consumers complete transactions quickly, operators access a world of operational benefits and insights.',
-   'The Onyx is more than a card reader: it is a device packed with powerful capabilities including contactless, NFC, marketing tools and remote machine management. General features include a complete management suite, a durable and highly secured build to prevent vandalism, audio consumer interaction, local software support and real-time data transactions.',
-   'Nayax Vend adds machine and transaction monitoring in real-time, customised alerts by email or SMS, personalised reports, a unique BI system and cash accountability.',
+   'This all-in-one solution is suitable for cashless bank payments. The system is suitable for multiple applications and markets including unattended automatic vending machines.',
+   'The benefits of going cashless: Removes risky cash handling while increasing sales. No moving parts (coin/note jams).',
   ] },
  { name: 'Electronic Cashless Control System', image: 'assets/payment/coges-engine-v2.png', category: 'Payment Solutions', variant: 'accent',
   tagline: 'Complete cashless payment or control system',
@@ -515,13 +518,13 @@ PRODUCTS.push(...PRODUCTS_PAYMENT);
 const PRODUCTS_RECYCLING = [
  { name: 'Tritech Shredder', category: 'Recycling', variant: 'default',
   tagline: 'Automatic shredding machine for disposable plastic and paper cups',
-  description: 'Shreds disposable plastic and paper cups automatically on deposit, reducing waste volume by up to 7x. Waste is collected in the container below, with an integrated sanitising system, an incentive reward system and a tablet touchscreen.',
+  description: 'Shreds disposable paper cups automatically on deposit, reducing waste volume by up to 7x. Waste is collected in the container below, with an integrated sanitising system, an incentive reward system and a tablet touchscreen.',
   tags: ['Up to 7x Volume Reduction', 'Automated Operation', 'Incentive Reward System'],
   brochure: 'recycling-options.pdf',
   specs: [{ label: 'Waste Type', value: 'Disposable Plastic & Paper Cups' }, { label: 'Telemetry', value: 'Included' }, { label: 'Interface', value: 'Tablet Touchscreen' }] },
- { name: 'Tritech Compactor', category: 'Recycling', variant: 'accent', image: 'assets/tritech-compactor-v2.png',
+ { name: 'Tritech Compactor', category: 'Recycling', variant: 'accent', image: 'assets/tritech-compactor-v3.jpg',
   tagline: 'Automatic compacting machine for plastic bottles and cans',
-  description: 'Compacts PET plastic bottles of different sizes and beverage cans automatically on deposit. Waste is collected in the container below, with telemetry included, an incentive reward system for staff and a tablet touchscreen.',
+  description: 'Compacts PET plastic bottles of different sizes or beverage cans automatically on deposit. Waste is collected in the container below, with telemetry included, an incentive reward system for staff and a tablet touchscreen.',
   tags: ['Capacity: 350 Bottles/Cans', 'Automated Operation', 'Incentive Reward System'],
   brochure: 'recycling-options.pdf',
   specs: [{ label: 'Waste Type', value: 'PET Plastic Bottles & Beverage Cans' }, { label: 'Capacity', value: '350 PET bottles/cans' }, { label: 'Telemetry', value: 'Included' }, { label: 'Interface', value: 'Tablet Touchscreen' }] },
@@ -710,7 +713,7 @@ class Component extends DCLogic {
 
   const FAQ_BY_CATEGORY = {
    'Recycling': [
-    { q: 'How much smaller are cans and cups after being processed by the TriTech Shredder?', a: 'Depending on the material, items can be reduced to between 4 and 10 times their original size, significantly decreasing waste volume.' },
+    { q: 'How much smaller are cans and cups after being processed by the TriTech Shredder?', a: 'Depending on the material, items can be reduced up to 7x their original size, significantly decreasing waste volume.' },
     { q: 'How much material can the TriTech Shredder hold?', a: 'The collection bin can hold up to 1,700 shredded paper cups or approximately 350 shredded PET bottles, reducing the frequency of emptying.' },
     { q: 'What happens if someone places their hand inside the shredder opening?', a: "Safety is built into the design. The shredding process will not start while the safety flap is open. In addition, the shredding blades are positioned beyond the reach of an operator's arm, providing an added layer of protection." },
    ],
@@ -745,7 +748,7 @@ class Component extends DCLogic {
    'Payment Solutions': [
     { q: 'Do these replace our machines?', a: 'No. The card readers and cashless system retrofit to machines already on site. We handle the fitment, the merchant setup and the reporting login.' },
     { q: 'What is the difference between the VPos Touch and the Onyx?', a: 'Both are Nayax bank card devices. The VPos Touch is an all-in-one reader taking contactless, mag strip and chip, certified to EMV level 1 and level 2. The Onyx is a sleek tap-and-go contactless reader that fits on any vending machine, adding NFC, marketing tools and remote machine management.' },
-    { q: 'Which cards are supported?', a: 'Mastercard and Visa, with Visa PayWave MSD and qVSDC contactless. Other supported cards include NFC, MIFARE and ISO 14443 Type A,B, plus ISO 15693 on the VPos Touch, and magnetic stripe to ISO7811 and JIS I Tracks 1,2,3.' },
+    { q: 'Which cards are supported?', a: 'Mastercard, Visa, Diners* and American Express*.' },
     { q: 'Can we still take cash?', a: 'Yes. The Electronic Cashless Control System integrates cash management with cashless payments and telemetry in one system.' },
     { q: 'What reporting do we get?', a: 'Nayax Vend gives machine and transaction monitoring in real-time, customised alerts by email or SMS, personalised reports, a BI system and cash accountability. The Electronic Cashless Control System adds a complete data audit from the vending machine, with telemetry as an optional extra.' },
     { q: 'Will it work with our existing machines?', a: 'The Electronic Cashless Control System is multi-standard, supporting Executive, MDB, BDV and RS232. Most machines in our range are MDB compatible.' },
@@ -765,7 +768,7 @@ class Component extends DCLogic {
    const pay = S(/payment/i);
    if (pay) out.push({ q: 'What payment methods does the ' + p.name + ' accept?', a: end(pay.value) });
    const dim = S(/dimension|size/i);
-   if (dim) out.push({ q: 'What are the dimensions of the ' + p.name + '?', a: end(dim.value + (/wxdxh/i.test(dim.label) ? ' (width x depth x height)' : '')) });
+   if (dim) out.push({ q: 'What are the dimensions of the ' + p.name + '?', a: end(dim.value + (/wxdxh/i.test(dim.label) ? ' (WxDxH)' : '')) });
    const cool = S(/cool|temperature/i);
    if (cool) out.push({ q: 'What temperature does the ' + p.name + ' keep products at?', a: end(cool.value) });
    const pow = S(/power|voltage/i);
@@ -789,30 +792,12 @@ class Component extends DCLogic {
     },
     {
      "q": "What temperature is the water kept at?",
-     "a": "Cold: Approximately 8-12°C\nAmbient: Supplied at the incoming water temperature"
-    }
-   ],
-   "Legend Classic": [
-    {
-     "q": "What water options does the Legend Classic offer?",
-     "a": "The Legend Classic provides chilled, ambient and hot water, offering convenient hydration throughout the workplace."
-    },
-    {
-     "q": "Does the Legend Classic have built-in water filtration?",
-     "a": "Yes. The Legend Classic includes a manual re-fillable 19L bottle with a filtration system to help improve water quality and taste."
-    },
-    {
-     "q": "Plumbed-in or bottled?",
-     "a": "Bottled. The Legend Classic is a manual refillable bottled water cooler."
-    },
-    {
-     "q": "What temperature is the water kept at?",
-     "a": "The Legend Classic uses a compressor-driven cooling system for chilled water and a heating system for hot water."
+     "a": "Cold: Approximately 8-12°C"
     }
    ],
    "The River": [
     {
-     "q": "What water options does this cooler offer?",
+     "q": "What water options does this river cooler offer?",
      "a": "The River has cold water only."
     },
     {
@@ -863,11 +848,11 @@ class Component extends DCLogic {
    "Frizzante Mini": [
     {
      "q": "What type of water does the Frizzante Mini dispense?",
-     "a": "The Frizzante Mini offers chilled, ambient and sparkling water."
+     "a": "The Frizzante Mini offers cold, ambient and sparkling water."
     },
     {
      "q": "How much water does the Frizzante Mini dispense per hour?",
-     "a": "The Frizzante Mini dispenses up to 30L/hr."
+     "a": "The Frizzante Mini dispenses up to 80L/hr."
     },
     {
      "q": "Does the Frizzante Mini have built-in water purification technology?",
@@ -917,7 +902,7 @@ class Component extends DCLogic {
    "Murano Tower": [
     {
      "q": "What type of water does the Murano dispense?",
-     "a": "The Murano dispenses cold and sparkling water."
+     "a": "The Murano dispenses cold, ambient and sparkling water."
     },
     {
      "q": "How much water does the Murano dispense per hour?",
@@ -978,24 +963,6 @@ class Component extends DCLogic {
      "a": "Firewall is Waterlogic's patented UVC purification technology, which purifies water at the point of dispense, helping eliminate up to 99.9999% of bacteria and viruses. It also has BioCote antimicrobial protection around the dispensing area which kills 80% of bacteria in 15 minutes."
     }
    ],
-   "Bar Classe Firewall": [
-    {
-     "q": "What type of water does the Classe dispense?",
-     "a": "The Classe dispenses unlimited purified cold and sparkling water."
-    },
-    {
-     "q": "How much water does the Classe dispense per hour?",
-     "a": "Up to 160L/hr."
-    },
-    {
-     "q": "Does the Classe have built-in water purification technology?",
-     "a": "Yes. Its high-flow Firewall® UVC purification purifies the water right up to the point of dispense and is guaranteed to remove up to 99.9999% of bacteria, 99.99% of viruses and 99.9% of cysts. The bottle holders and floater mechanism are also protected by BioCote® antimicrobial technology."
-    },
-    {
-     "q": "Does the Classe require under-counter installation?",
-     "a": "No, it is a countertop unit."
-    }
-   ],
    "Azkoyen Novara DFB": [
     {
      "q": "Is the Novara plumbed-in or tanked?",
@@ -1003,7 +970,7 @@ class Component extends DCLogic {
     },
     {
      "q": "What are the dimensions of the Azkoyen Novara DFB?",
-     "a": "600 x 650 x 1830mm (width x depth x height)."
+     "a": "600 x 650 x 1830mm (WxDxH)."
     },
     {
      "q": "What power supply does the Azkoyen Novara DFB need?",
@@ -1111,7 +1078,7 @@ class Component extends DCLogic {
     },
     {
      "q": "What are the dimensions of the Jofemar Orion G23?",
-     "a": "417 x 463 x 767mm (width x depth x height)."
+     "a": "417 x 463 x 767mm (WxDxH)."
     },
     {
      "q": "What power supply does the Jofemar Orion G23 need?",
@@ -1147,7 +1114,7 @@ class Component extends DCLogic {
     },
     {
      "q": "What are the dimensions of the Vision Esplus Bluetec?",
-     "a": "1120 x 820 x 1870mm (width x depth x height)."
+     "a": "1120 x 820 x 1870mm (WxDxH)."
     },
     {
      "q": "What temperature does the Vision Esplus Bluetec keep products at?",
@@ -1187,11 +1154,65 @@ class Component extends DCLogic {
     },
     {
      "q": "Which cards are supported?",
-     "a": "Mastercard and Visa, with Visa PayWave MSD and qVSDC contactless. Other supported cards include NFC, MIFARE and ISO 14443 Type A,B, plus ISO 15693 on the VPos Touch, and magnetic stripe to ISO7811 and JIS I Tracks 1,2,3."
+     "a": "Mastercard, Visa, Diners* and American Express*."
     },
     {
      "q": "Can we still take cash?",
      "a": "Yes. The Electronic Cashless Control System integrates cash management with cashless payments and telemetry in one system."
+    }
+   ],
+   "P2 Firewall Bar Classe": [
+    {
+     "q": "What type of water does the Classe dispense?",
+     "a": "The Classe dispenses purified cold and sparkling water."
+    },
+    {
+     "q": "How much water does the Classe dispense per hour?",
+     "a": "Up to 160L/hr."
+    },
+    {
+     "q": "Does the Classe have built-in water purification technology?",
+     "a": "Yes. Its high-flow Firewall® UVC purification purifies the water right up to the point of dispense and is guaranteed to remove up to 99.9999% of bacteria, 99.99% of viruses and 99.9% of cysts. The bottle holders and floater mechanism are also protected by BioCote® antimicrobial technology."
+    },
+    {
+     "q": "Does the Classe require under-counter installation?",
+     "a": "No, it is a countertop unit."
+    }
+   ],
+   "Legend Classic Black": [
+    {
+     "q": "What water options does the Legend Classic offer?",
+     "a": "The Legend Classic provides cold, ambient and hot water, offering convenient hydration throughout the workplace."
+    },
+    {
+     "q": "Does the Legend Classic have built-in water filtration?",
+     "a": "Yes. The Legend Classic includes a manual re-fillable 19L bottle with a filtration system to help improve water quality and taste."
+    },
+    {
+     "q": "Plumbed-in or bottled?",
+     "a": "Bottled. The Legend Classic is a manual refillable bottled water cooler."
+    },
+    {
+     "q": "What temperature is the water kept at?",
+     "a": "The Legend Classic uses a compressor-driven cooling system for chilled water and a heating system for hot water."
+    }
+   ],
+   "Onyx Contactless Bank Card Device": [
+    {
+     "q": "What payment methods does the Onyx Contactless Bank Card Device accept?",
+     "a": "Contactless tap-and-go."
+    },
+    {
+     "q": "Do these replace our machines?",
+     "a": "No. The card readers and cashless system retrofit to machines already on site. We handle the fitment, the merchant setup and the reporting login."
+    },
+    {
+     "q": "What is the difference between the VPos Touch and the Onyx?",
+     "a": "Both are Nayax bank card devices. The VPos Touch is an all-in-one reader taking contactless, mag strip and chip, certified to EMV level 1 and level 2. The Onyx is a sleek tap-and-go contactless reader that fits on any vending machine, adding NFC, marketing tools and remote machine management."
+    },
+    {
+     "q": "Which cards are supported?",
+     "a": "Mastercard, Visa, American Express* and Diners*."
     }
    ]
   };
@@ -1206,7 +1227,7 @@ class Component extends DCLogic {
   const FAQ_BY_SYSTEM = {
    'Cashless systems': [
     { q: 'What is the difference between the VPos Touch and the Onyx?', a: 'Both are Nayax bank card devices. The VPos Touch is an all-in-one reader taking contactless, mag strip and chip, certified to EMV level 1 and level 2. The Onyx is a sleek tap-and-go contactless reader that fits on any vending machine, adding NFC, marketing tools and remote machine management.' },
-    { q: 'Which cards are supported?', a: 'Mastercard and Visa, with Visa PayWave MSD and qVSDC contactless. Other supported cards include NFC, MIFARE and ISO 14443 Type A,B, plus ISO 15693 on the VPos Touch, and magnetic stripe to ISO7811 and JIS I Tracks 1,2,3.' },
+    { q: 'Which cards are supported?', a: 'Mastercard, Visa, Diners* and American Express*.' },
     { q: 'Can we run staff accounts or subsidised vending?', a: 'Yes. The Electronic Cashless Control System supports scheduled free or discounted sales, monthly consumption control, bonus categories and calories control, and is compatible with MiFARE cards and FOBS.' },
     { q: 'What reporting do we get?', a: 'Nayax Vend gives machine and transaction monitoring in real-time, customised alerts by email or SMS, personalised reports, a BI system and cash accountability.' },
     { q: 'Do these replace our machines?', a: 'No. The readers retrofit to machines already on site. We handle the fitment, the merchant setup and the reporting login.' },
