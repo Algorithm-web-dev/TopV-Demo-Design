@@ -180,25 +180,6 @@
        </sc-for>
       </div>
      </div>
-     <sc-if value="{{ g.faqAfter }}" hint-placeholder-val="{{ false }}">
-     <div style="background:#EFF1F3;border-radius:24px;padding:40px 32px;box-sizing:border-box;">
-   <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">FAQs</div>
-   <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.12;letter-spacing:-0.03em;margin:0 0 40px;">Questions about this range.</h2>
-   <div style="display:flex;flex-direction:column;gap:12px;">
-    <sc-for list="{{ categoryFaqs }}" as="f" hint-placeholder-count="4">
-     <div style="background:#FFFFFF;border-radius:16px;overflow:hidden;">
-      <button onClick="{{ f.onToggle }}" style="width:100%;background:transparent;border:none;text-align:left;padding:24px 28px;font-family:'Inter',sans-serif;font-size:17px;font-weight:700;color:#1C1C1A;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;box-sizing:border-box;">
-       <span>{{ f.q }}</span>
-       <span style="font-family:'Inter',sans-serif;{{ f.iconStyle }}">+</span>
-      </button>
-      <div style="{{ f.answerStyle }}">
-       <p style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:#45443F;margin:0 28px 26px;">{{ f.a }}</p>
-      </div>
-     </div>
-    </sc-for>
-   </div>
-     </div>
-     </sc-if>
     </sc-for>
    </div>
    </div>
@@ -288,6 +269,26 @@
   </div>
  </section>
 
+
+ <section data-pt="32" data-pb="80" style="background:#EFF1F3;padding:32px 48px 80px;box-sizing:border-box;{{ catalogueStyle }}">
+  <div style="max-width:1200px;margin:0 auto;">
+   <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C8102E;font-weight:600;margin-bottom:18px;">FAQs</div>
+   <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:38px;line-height:1.12;letter-spacing:-0.03em;margin:0 0 40px;">Questions about this range.</h2>
+   <div style="display:flex;flex-direction:column;gap:12px;">
+    <sc-for list="{{ categoryFaqs }}" as="f" hint-placeholder-count="4">
+     <div style="background:#FFFFFF;border-radius:16px;overflow:hidden;">
+      <button onClick="{{ f.onToggle }}" style="width:100%;background:transparent;border:none;text-align:left;padding:24px 28px;font-family:'Inter',sans-serif;font-size:17px;font-weight:700;color:#1C1C1A;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;box-sizing:border-box;">
+       <span>{{ f.q }}</span>
+       <span style="font-family:'Inter',sans-serif;{{ f.iconStyle }}">+</span>
+      </button>
+      <div style="{{ f.answerStyle }}">
+       <p style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:#45443F;margin:0 28px 26px;">{{ f.a }}</p>
+      </div>
+     </div>
+    </sc-for>
+   </div>
+  </div>
+ </section>
 
  <section data-pt="80" data-pb="80" style="background:#FAFBFC;padding:80px 48px 80px;box-sizing:border-box;">
   <div style="max-width:1200px;margin:0 auto;">
@@ -1392,8 +1393,7 @@ class Component extends DCLogic {
     { eyebrow: 'Also available', title: 'Purezza range', highlight: false, href: 'https://www.purezzawater.com/', linkLabel: 'View Purezza website',
       blurb: 'Premium plumbed-in taps and counter units serving cold, ambient and sparkling water, with carbon filtration and UVC purification built in. Built in stainless steel and tempered glass for front and back of house areas.',
       names: ['P2 Firewall Bar Classe', 'P1 Bar Series E', 'P1 Bar Series B', 'Campione Tower - 2 or 3 Way Tap', 'Murano Tower', 'Purezza T-Bar Tower', 'Frizzante 80 Manual', 'Frizzante Mini', 'Petalosa Bottles', 'Purezza Glass Bottles'] },
-   ].map((g, gi) => ({
-    faqAfter: gi === 0,
+   ].map(g => ({
     eyebrow: g.eyebrow,
     title: g.title,
     href: g.href || '',
