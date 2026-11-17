@@ -613,6 +613,8 @@ class Component extends DCLogic {
      "Plastic Teaspoons": "plastic-teaspoons-v2.png",
      "Dishwasher (Green)": "dishwash-gel-v2.png",
      "Bleach": "bleach-v2.png",
+     // Two products are called Bleach; the 750ml one has its own photo.
+     "C058": "bleach-v3.png",
      "Microfibre Cloth": "microfibre-cloth.jpg",
      "Dish Cloth": "dish-cloth-v2.png",
      "Sponge Scourer (Yellow)": "sponge-scourer-v2.png",
@@ -692,7 +694,7 @@ class Component extends DCLogic {
   ];
 
   const ALL_ITEMS = PRICE_GROUPS.flatMap((g, gi) => g.items.map((it, ii) => ({ ...it, cat: g.title, order: gi * 100 + ii })));
-  const decorate = (it) => { const src = CONSUMABLE_IMAGES[it.name]; return { ...it, img: src ? 'assets/consumables/thumbs/' + src : '', hasImg: !!src, noImg: !src }; };
+  const decorate = (it) => { const src = CONSUMABLE_IMAGES[it.code] || CONSUMABLE_IMAGES[it.name]; return { ...it, img: src ? 'assets/consumables/thumbs/' + src : '', hasImg: !!src, noImg: !src }; };
   const view = this.state.consView || 'All';
   const goTo = (v) => { this.setState({ consView: v, consQuery: '' }); const el = this.__consEl; if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 110, behavior: 'smooth' }); };
   const q = (this.state.consQuery || '').trim().toLowerCase();
