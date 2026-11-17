@@ -782,10 +782,13 @@ componentDidMount() {
    .map(p => (p.category === 'Hot Beverage Solutions' && COFFEE_RENAME[p.name]) ? { ...p, name: COFFEE_RENAME[p.name] } : p);
   const COFFEE_ORDER = ['Azkoyen Novara DFB', 'Azkoyen Zen DFB', 'Azkoyen Vitro X1 MIA', 'Saeco Magic', 'Gaggia Milano La Brillante', 'Jetinno JL33', 'Jofemar Orion G23', 'Ascaso + Grinder'];
   const coffeeRank = (p) => { const i = COFFEE_ORDER.indexOf(p.name); return i === -1 ? 999 : i; };
+  // Water products follow the Water Solutions page: Top Coolers range first, then Purezza.
+  const WATER_ORDER = ['Waterlogic 7 Firewall', 'Waterlogic 2 Firewall', 'Waterlogic 100', 'Legend Classic Black', 'The River', 'P2 Firewall Bar Classe', 'P1 Bar Series E', 'P1 Bar Series B', 'Campione Tower - 2 or 3 Way Tap', 'Murano Tower', 'Purezza T-Bar Tower', 'Frizzante 80 Manual', 'Frizzante Mini', 'Petalosa Bottles', 'Purezza Glass Bottles'];
+  const waterRank = (p) => { const i = WATER_ORDER.indexOf(p.name); return i === -1 ? 999 : i; };
   const base = this.state.activeFilter === 'All Products'
    ? PRODUCTS_VIEW
    : PRODUCTS_VIEW.filter(p => p.category === this.state.activeFilter)
-   .slice().sort((a, b) => (a.category === 'Hot Beverage Solutions' && b.category === 'Hot Beverage Solutions') ? coffeeRank(a) - coffeeRank(b) : 0);
+   .slice().sort((a, b) => (a.category === 'Hot Beverage Solutions' && b.category === 'Hot Beverage Solutions') ? coffeeRank(a) - coffeeRank(b) : (a.category === 'Water Solutions' && b.category === 'Water Solutions') ? waterRank(a) - waterRank(b) : 0);
   const hasMore = base.length > this.state.visibleCount;
   const visible = base.slice(0, this.state.visibleCount);
   const OVERVIEW_COPY = {
