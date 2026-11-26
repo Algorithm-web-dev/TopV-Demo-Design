@@ -25,7 +25,7 @@
   // everyone (e.g. while the site is presented), even with ?review=1 or a
   // remembered review session. Suggestions and history stay saved, and
   // setting it back to true brings everything back as it was.
-  var REVIEW_ENABLED = false;
+  var REVIEW_ENABLED = true;
   if (!REVIEW_ENABLED) { window.CopyReview = { active: false, disabled: true }; return; }
 
   var FLAG = 'tv_review_mode';
